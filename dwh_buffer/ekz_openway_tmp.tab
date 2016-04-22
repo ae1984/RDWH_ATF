@@ -1,0 +1,103 @@
+create table DWH_BUFFER.EKZ_OPENWAY_TMP
+(
+  process_guid       NVARCHAR2(250) not null,
+  process_code       NVARCHAR2(150),
+  process_version    NUMBER(9,2),
+  start_date         DATE,
+  finish_date        DATE,
+  process_status     NVARCHAR2(150),
+  subdivision        NVARCHAR2(150),
+  step_counter       NUMBER(10),
+  isrunning          NUMBER(3),
+  initiator_code     NVARCHAR2(150),
+  process_num        NUMBER(10),
+  amount             FLOAT(53),
+  currency           NVARCHAR2(150),
+  client_name        NVARCHAR2(150),
+  regnumber          NVARCHAR2(150),
+  branchname         NVARCHAR2(150),
+  depname            NVARCHAR2(150),
+  pr_status          NVARCHAR2(250),
+  operationname      NVARCHAR2(250),
+  title              NVARCHAR2(150),
+  full_name          NVARCHAR2(200),
+  branch_id          NVARCHAR2(150),
+  dep_id             NVARCHAR2(150),
+  operation_id       NVARCHAR2(150),
+  cardproduct_id     NVARCHAR2(150),
+  cardproduct_name   NVARCHAR2(200),
+  appl_status        NVARCHAR2(150),
+  appl_date          DATE,
+  fldel              NUMBER(1),
+  pin2_status        NVARCHAR2(150),
+  is_owner           NVARCHAR2(150),
+  way4clientid       NVARCHAR2(150),
+  sub_type           NVARCHAR2(150),
+  delivery_branch    NVARCHAR2(150),
+  delivery_dep       NVARCHAR2(150),
+  subtype            NVARCHAR2(350),
+  nsubtype           NVARCHAR2(350),
+  cur                NVARCHAR2(150),
+  limit              NUMBER(19,4),
+  iin                NVARCHAR2(150),
+  revtype            NVARCHAR2(200),
+  cardnumber         NVARCHAR2(150),
+  contractnumber     NVARCHAR2(150),
+  institution        NVARCHAR2(150),
+  parentregnumber    NVARCHAR2(150),
+  clientnumber       NVARCHAR2(150),
+  shortname          NVARCHAR2(150),
+  rnn                NVARCHAR2(150),
+  way4_error         NVARCHAR2(1000),
+  file_status        NVARCHAR2(150),
+  ispakageaddcard    NVARCHAR2(100),
+  iban               NVARCHAR2(150),
+  addcardcount       NVARCHAR2(10),
+  verifier_code      NVARCHAR2(100),
+  verifier_name      NCHAR(250),
+  verifier_result    NVARCHAR2(250),
+  verifier_date      DATE,
+  is_rev_card        NUMBER(1),
+  initiator_position NVARCHAR2(350),
+  appfilename        NVARCHAR2(350),
+  persent            FLOAT(53),
+  source             NVARCHAR2(50),
+  sdt                DATE
+)
+tablespace DWH_BUFFER
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 128K
+    next 128K
+    minextents 1
+    maxextents unlimited
+  )
+nologging;
+create index DWH_BUFFER.EKZ_OPENWAY_TMP_GUID on DWH_BUFFER.EKZ_OPENWAY_TMP (PROCESS_GUID)
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  )
+  nologging;
+grant select on DWH_BUFFER.EKZ_OPENWAY_TMP to AIBEK_BE;
+grant select, insert, update, delete on DWH_BUFFER.EKZ_OPENWAY_TMP to DWH_BUFFER_FULL_ROLE;
+grant select on DWH_BUFFER.EKZ_OPENWAY_TMP to DWH_BUFFER_READ_ROLE;
+grant select on DWH_BUFFER.EKZ_OPENWAY_TMP to DWH_PRIM;
+grant select on DWH_BUFFER.EKZ_OPENWAY_TMP to DWH_RISK;
+grant select on DWH_BUFFER.EKZ_OPENWAY_TMP to DWH_SALES;
+grant select on DWH_BUFFER.EKZ_OPENWAY_TMP to HEAD_DENIS_PL;
+grant select on DWH_BUFFER.EKZ_OPENWAY_TMP to HEAD_EVGENIY_PI;
+grant select on DWH_BUFFER.EKZ_OPENWAY_TMP to KRISTINA_KO;
+grant select on DWH_BUFFER.EKZ_OPENWAY_TMP to PROCESS_RISK;
+grant select on DWH_BUFFER.EKZ_OPENWAY_TMP to PROCESS_SALES;
+

@@ -1,0 +1,87 @@
+create table DWH_BUFFER.CASHANDGOFORRB_TMP
+(
+  process_guid          VARCHAR2(100) not null,
+  process_code          NVARCHAR2(30) not null,
+  start_date            DATE,
+  finish_date           DATE,
+  process_status        NVARCHAR2(20) not null,
+  process_num           NUMBER(10) not null,
+  initiator_code        NVARCHAR2(50) not null,
+  "app_producttype"     VARCHAR2(100),
+  "app_reqsum"          VARCHAR2(100),
+  "app_cur"             VARCHAR2(100),
+  "app_purpose"         VARCHAR2(500),
+  "app_sheduleid"       VARCHAR2(100),
+  "app_shedulen"        VARCHAR2(100),
+  "app_percent"         VARCHAR2(100),
+  "app_standartpercent" VARCHAR2(100),
+  "app_isgenrepsch"     VARCHAR2(100),
+  "app_sum1"            VARCHAR2(100),
+  "app_cur1"            VARCHAR2(100),
+  "app_period1"         VARCHAR2(100),
+  "app_curleqsum"       VARCHAR2(100),
+  "app_reqmonthpaydate" VARCHAR2(100),
+  "app_loanpurpose"     VARCHAR2(500),
+  "app_addfield1"       VARCHAR2(100),
+  "app_addfield2"       VARCHAR2(100),
+  "decis_sum"           VARCHAR2(100),
+  "decis_cur"           VARCHAR2(100),
+  "decis_period"        VARCHAR2(100),
+  "decis_percent"       VARCHAR2(100),
+  "decis_effect"        VARCHAR2(100),
+  "decis_score"         VARCHAR2(100),
+  "decis_monthpay"      VARCHAR2(100),
+  "decis_maxsum"        VARCHAR2(100),
+  "decis_maxsumcur"     VARCHAR2(100),
+  sdt                   DATE
+)
+tablespace DWH_BUFFER
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 128K
+    next 128K
+    minextents 1
+    maxextents unlimited
+  )
+nologging;
+create index DWH_BUFFER.C_TMP_PROCESS_GUID on DWH_BUFFER.CASHANDGOFORRB_TMP (PROCESS_GUID)
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  )
+  nologging;
+create index DWH_BUFFER.C_TMP_SDT on DWH_BUFFER.CASHANDGOFORRB_TMP (SDT)
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  )
+  nologging;
+grant select on DWH_BUFFER.CASHANDGOFORRB_TMP to AIBEK_BE;
+grant select, insert, update, delete on DWH_BUFFER.CASHANDGOFORRB_TMP to DWH_BUFFER_FULL_ROLE;
+grant select on DWH_BUFFER.CASHANDGOFORRB_TMP to DWH_BUFFER_READ_ROLE;
+grant select on DWH_BUFFER.CASHANDGOFORRB_TMP to DWH_PRIM;
+grant select on DWH_BUFFER.CASHANDGOFORRB_TMP to DWH_RISK;
+grant select on DWH_BUFFER.CASHANDGOFORRB_TMP to DWH_SALES;
+grant select on DWH_BUFFER.CASHANDGOFORRB_TMP to HEAD_DENIS_PL;
+grant select on DWH_BUFFER.CASHANDGOFORRB_TMP to HEAD_EVGENIY_PI;
+grant select on DWH_BUFFER.CASHANDGOFORRB_TMP to KRISTINA_KO;
+grant select on DWH_BUFFER.CASHANDGOFORRB_TMP to PROCESS_RISK;
+grant select on DWH_BUFFER.CASHANDGOFORRB_TMP to PROCESS_SALES;
+

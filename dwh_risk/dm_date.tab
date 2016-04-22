@@ -1,0 +1,35 @@
+create table DWH_RISK.DM_DATE
+(
+  dt DATE
+)
+tablespace DWH_RISK
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  )
+nologging;
+create index DWH_RISK.IX_DM_DATE_1 on DWH_RISK.DM_DATE (DT)
+  tablespace DWH_RISK
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+grant select on DWH_RISK.DM_DATE to AIBEK_BE;
+grant select, insert, update, delete on DWH_RISK.DM_DATE to DWH_RISK_FULL_ROLE;
+grant select on DWH_RISK.DM_DATE to DWH_RISK_READ_ROLE;
+grant select on DWH_RISK.DM_DATE to HEAD_DENIS_PL;
+grant select on DWH_RISK.DM_DATE to KRISTINA_KO;
+grant select on DWH_RISK.DM_DATE to PROCESS_RISK;
+

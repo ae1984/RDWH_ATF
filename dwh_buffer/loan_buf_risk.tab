@@ -1,0 +1,29 @@
+create table DWH_BUFFER.LOAN_BUF_RISK
+(
+  contract_id NUMBER(10) not null,
+  segm        VARCHAR2(40)
+)
+tablespace DWH_BUFFER
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 128K
+    next 128K
+    minextents 1
+    maxextents unlimited
+  )
+nologging;
+grant select on DWH_BUFFER.LOAN_BUF_RISK to AIBEK_BE;
+grant select, insert, update, delete on DWH_BUFFER.LOAN_BUF_RISK to DWH_BUFFER_FULL_ROLE;
+grant select on DWH_BUFFER.LOAN_BUF_RISK to DWH_BUFFER_READ_ROLE;
+grant select on DWH_BUFFER.LOAN_BUF_RISK to DWH_PRIM;
+grant select on DWH_BUFFER.LOAN_BUF_RISK to DWH_RISK;
+grant select on DWH_BUFFER.LOAN_BUF_RISK to DWH_SALES;
+grant select on DWH_BUFFER.LOAN_BUF_RISK to HEAD_DENIS_PL;
+grant select on DWH_BUFFER.LOAN_BUF_RISK to HEAD_EVGENIY_PI;
+grant select on DWH_BUFFER.LOAN_BUF_RISK to KRISTINA_KO;
+grant select on DWH_BUFFER.LOAN_BUF_RISK to PROCESS_RISK;
+grant select on DWH_BUFFER.LOAN_BUF_RISK to PROCESS_SALES;
+

@@ -1,0 +1,36 @@
+create table DWH_RISK.H_TMP_20150910_RES
+(
+  sdt                 DATE,
+  is_zp_proj          NUMBER,
+  is_zp_proj_3m       NUMBER,
+  is_zp_card          NUMBER,
+  is_staff            NUMBER,
+  is_deposit          NUMBER,
+  registration_number VARCHAR2(50),
+  start_date          DATE,
+  finish_date         DATE,
+  iin                 VARCHAR2(4000),
+  rnn                 VARCHAR2(4000 CHAR),
+  cli_code            VARCHAR2(30),
+  ows_client_id       NUMBER,
+  cli_id              NUMBER,
+  company_name        VARCHAR2(255 CHAR)
+)
+tablespace DWH_RISK
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+grant select on DWH_RISK.H_TMP_20150910_RES to AIBEK_BE;
+grant select, insert, update, delete on DWH_RISK.H_TMP_20150910_RES to DWH_RISK_FULL_ROLE;
+grant select on DWH_RISK.H_TMP_20150910_RES to DWH_RISK_READ_ROLE;
+grant select on DWH_RISK.H_TMP_20150910_RES to HEAD_DENIS_PL;
+grant select on DWH_RISK.H_TMP_20150910_RES to KRISTINA_KO;
+grant select on DWH_RISK.H_TMP_20150910_RES to PROCESS_RISK;
+

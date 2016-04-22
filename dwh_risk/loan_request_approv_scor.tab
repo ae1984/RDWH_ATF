@@ -1,0 +1,65 @@
+create table DWH_RISK.LOAN_REQUEST_APPROV_SCOR
+(
+  process_guid        VARCHAR2(250),
+  registration_number VARCHAR2(50),
+  iin                 VARCHAR2(24),
+  start_date          DATE,
+  finish_date         DATE,
+  pr_status           VARCHAR2(200 CHAR),
+  reject_reason       VARCHAR2(4000)
+)
+tablespace DWH_RISK
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  )
+nologging;
+create index DWH_RISK.IX_LOAN_REQUEST_APPROV_SCOR1 on DWH_RISK.LOAN_REQUEST_APPROV_SCOR (IIN, START_DATE)
+  tablespace DWH_RISK
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+create index DWH_RISK.IX_LOAN_REQUEST_APPROV_SCOR2 on DWH_RISK.LOAN_REQUEST_APPROV_SCOR (REGISTRATION_NUMBER)
+  tablespace DWH_RISK
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+create index DWH_RISK.IX_LOAN_REQUEST_APPROV_SCOR3 on DWH_RISK.LOAN_REQUEST_APPROV_SCOR (PROCESS_GUID)
+  tablespace DWH_RISK
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+grant select on DWH_RISK.LOAN_REQUEST_APPROV_SCOR to AIBEK_BE;
+grant select, insert, update, delete on DWH_RISK.LOAN_REQUEST_APPROV_SCOR to DWH_RISK_FULL_ROLE;
+grant select on DWH_RISK.LOAN_REQUEST_APPROV_SCOR to DWH_RISK_READ_ROLE;
+grant select on DWH_RISK.LOAN_REQUEST_APPROV_SCOR to HEAD_DENIS_PL;
+grant select on DWH_RISK.LOAN_REQUEST_APPROV_SCOR to KRISTINA_KO;
+grant select on DWH_RISK.LOAN_REQUEST_APPROV_SCOR to PROCESS_RISK;
+

@@ -1,0 +1,142 @@
+create table DWH_BUFFER.CLIENT
+(
+  agr_id         NUMBER,
+  cli_id         NUMBER,
+  dep_id         NUMBER,
+  cli_code       VARCHAR2(30),
+  date_open      DATE,
+  date_update_c  DATE,
+  ows_client_id  NUMBER,
+  date_update_w  DATE,
+  company_name   VARCHAR2(255 CHAR),
+  resident       VARCHAR2(40),
+  birth_date     DATE,
+  death_date     DATE,
+  sex            CHAR(1),
+  iin            VARCHAR2(4000),
+  rnn            VARCHAR2(4000 CHAR),
+  is_empl        VARCHAR2(4),
+  is_affil       VARCHAR2(4),
+  is_vip         VARCHAR2(4),
+  is_ul          CHAR(1),
+  is_ip          CHAR(1),
+  short_name     VARCHAR2(4000 CHAR),
+  full_name      VARCHAR2(4000 CHAR),
+  eng_name       VARCHAR2(4000),
+  tr_last_name   VARCHAR2(4000 CHAR),
+  tr_first_name  VARCHAR2(4000 CHAR),
+  first_name     VARCHAR2(4000),
+  middle_name    VARCHAR2(4000),
+  last_name      VARCHAR2(4000),
+  doc_type       NUMBER,
+  doc_series     VARCHAR2(15 CHAR),
+  doc_number     VARCHAR2(30 CHAR),
+  doc_giveby     VARCHAR2(250 CHAR),
+  doc_givedate   DATE,
+  doc_finishdate DATE,
+  is_arrested    NUMBER,
+  okpo           VARCHAR2(30),
+  country_reg    VARCHAR2(30),
+  cli_state      NUMBER,
+  vcc            VARCHAR2(10 CHAR)
+)
+tablespace DWH_BUFFER
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 128K
+    next 128K
+    minextents 1
+    maxextents unlimited
+  )
+nologging;
+create unique index DWH_BUFFER.IX_CLIENT_AGR_ID on DWH_BUFFER.CLIENT (AGR_ID)
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 10M
+    next 20M
+    minextents 1
+    maxextents unlimited
+  );
+create index DWH_BUFFER.IX_CLIENT_CLI_CODE on DWH_BUFFER.CLIENT (CLI_CODE)
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  )
+  nologging;
+create unique index DWH_BUFFER.IX_CLIENT_CLI_ID on DWH_BUFFER.CLIENT (CLI_ID, DEP_ID)
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 10M
+    next 20M
+    minextents 1
+    maxextents unlimited
+  );
+create index DWH_BUFFER.IX_CLIENT_IIN on DWH_BUFFER.CLIENT (IIN)
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 167
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  )
+  nologging;
+create index DWH_BUFFER.IX_CLIENT_OWS_CLIENT_ID on DWH_BUFFER.CLIENT (OWS_CLIENT_ID)
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  )
+  nologging;
+create index DWH_BUFFER.IX_CLIENT_RNN on DWH_BUFFER.CLIENT (RNN)
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 167
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  )
+  nologging;
+grant select on DWH_BUFFER.CLIENT to AIBEK_BE;
+grant select, insert, update, delete on DWH_BUFFER.CLIENT to DWH_BUFFER_FULL_ROLE;
+grant select on DWH_BUFFER.CLIENT to DWH_BUFFER_READ_ROLE;
+grant select on DWH_BUFFER.CLIENT to DWH_PRIM;
+grant select on DWH_BUFFER.CLIENT to DWH_RISK;
+grant select on DWH_BUFFER.CLIENT to DWH_SALES;
+grant select on DWH_BUFFER.CLIENT to HEAD_DENIS_PL;
+grant select on DWH_BUFFER.CLIENT to HEAD_EVGENIY_PI;
+grant select on DWH_BUFFER.CLIENT to KRISTINA_KO;
+grant select on DWH_BUFFER.CLIENT to PROCESS_RISK;
+grant select on DWH_BUFFER.CLIENT to PROCESS_SALES;
+

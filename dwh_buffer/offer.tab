@@ -1,0 +1,84 @@
+create table DWH_BUFFER.OFFER
+(
+  offer_id                 NUMBER not null,
+  agr_id                   NUMBER,
+  cli_id                   NUMBER,
+  dep_id                   NUMBER,
+  cli_code                 VARCHAR2(30),
+  campaign_code            VARCHAR2(20 CHAR),
+  offer_type               VARCHAR2(20 CHAR),
+  offer_creation_dttm      DATE,
+  offer_open_dttm          DATE,
+  offer_close_dttm         DATE,
+  offer_status_code        VARCHAR2(3 CHAR),
+  offer_product_id         NUMBER,
+  offer_product_src        CHAR(1),
+  comment_ext              VARCHAR2(200 CHAR),
+  offer_status_change_dttm DATE,
+  is_active                NUMBER
+)
+tablespace DWH_BUFFER
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 128K
+    next 128K
+    minextents 1
+    maxextents unlimited
+  )
+nologging;
+create index DWH_BUFFER.IX_OFFER_AGR_ID on DWH_BUFFER.OFFER (AGR_ID)
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  )
+  nologging;
+create index DWH_BUFFER.IX_O_ST_CAMP on DWH_BUFFER.OFFER (OFFER_STATUS_CODE, UPPER(CAMPAIGN_CODE))
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  )
+  nologging;
+alter table DWH_BUFFER.OFFER
+  add constraint PK_OFFER primary key (OFFER_ID)
+  using index 
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+alter index DWH_BUFFER.PK_OFFER nologging;
+grant select on DWH_BUFFER.OFFER to AIBEK_BE;
+grant select, insert, update, delete on DWH_BUFFER.OFFER to DWH_BUFFER_FULL_ROLE;
+grant select on DWH_BUFFER.OFFER to DWH_BUFFER_READ_ROLE;
+grant select on DWH_BUFFER.OFFER to DWH_PRIM;
+grant select on DWH_BUFFER.OFFER to DWH_RISK;
+grant select on DWH_BUFFER.OFFER to DWH_SALES;
+grant select on DWH_BUFFER.OFFER to HEAD_DENIS_PL;
+grant select, insert, update, delete on DWH_BUFFER.OFFER to HEAD_EVGENIY_PI;
+grant select on DWH_BUFFER.OFFER to KRISTINA_KO;
+grant select on DWH_BUFFER.OFFER to PROCESS_RISK;
+grant select, insert, update, delete on DWH_BUFFER.OFFER to PROCESS_SALES;
+

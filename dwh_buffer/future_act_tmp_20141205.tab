@@ -1,0 +1,46 @@
+create table DWH_BUFFER.FUTURE_ACT_TMP_20141205
+(
+  is_act NUMBER,
+  agr_id NUMBER not null
+)
+tablespace DWH_BUFFER
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  )
+nologging;
+comment on table DWH_BUFFER.FUTURE_ACT_TMP_20141205
+  is 'плановые коммуникации';
+alter table DWH_BUFFER.FUTURE_ACT_TMP_20141205
+  add constraint FUTURE_ACT_TMP_20141205_AGR_ID primary key (AGR_ID)
+  using index 
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+alter index DWH_BUFFER.FUTURE_ACT_TMP_20141205_AGR_ID nologging;
+grant select on DWH_BUFFER.FUTURE_ACT_TMP_20141205 to AIBEK_BE;
+grant select, insert, update, delete on DWH_BUFFER.FUTURE_ACT_TMP_20141205 to DWH_BUFFER_FULL_ROLE;
+grant select on DWH_BUFFER.FUTURE_ACT_TMP_20141205 to DWH_BUFFER_READ_ROLE;
+grant select on DWH_BUFFER.FUTURE_ACT_TMP_20141205 to DWH_PRIM;
+grant select on DWH_BUFFER.FUTURE_ACT_TMP_20141205 to DWH_RISK;
+grant select on DWH_BUFFER.FUTURE_ACT_TMP_20141205 to DWH_SALES;
+grant select on DWH_BUFFER.FUTURE_ACT_TMP_20141205 to HEAD_DENIS_PL;
+grant select on DWH_BUFFER.FUTURE_ACT_TMP_20141205 to HEAD_EVGENIY_PI;
+grant select on DWH_BUFFER.FUTURE_ACT_TMP_20141205 to KRISTINA_KO;
+grant select on DWH_BUFFER.FUTURE_ACT_TMP_20141205 to PROCESS_RISK;
+grant select on DWH_BUFFER.FUTURE_ACT_TMP_20141205 to PROCESS_SALES;
+

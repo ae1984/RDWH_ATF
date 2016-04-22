@@ -1,0 +1,41 @@
+create table DWH_RISK.DP_COVD
+(
+  obj_id  NUMBER(10) not null,
+  horizon NUMBER,
+  covd    NUMBER
+)
+tablespace DWH_RISK
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+comment on column DWH_RISK.DP_COVD.horizon
+  is 'MOB, мес€ц жизни кредита, от даты выди';
+comment on column DWH_RISK.DP_COVD.covd
+  is 'макс. кол-во дней непрерывной просрочки на мес€ц жизни(HORIZON)';
+create index DWH_RISK.DP_COVD_IDX_OBJ_HRZ on DWH_RISK.DP_COVD (OBJ_ID, HORIZON)
+  tablespace DWH_RISK
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+grant select on DWH_RISK.DP_COVD to AIBEK_BE;
+grant select, insert, update, delete on DWH_RISK.DP_COVD to DWH_RISK_FULL_ROLE;
+grant select on DWH_RISK.DP_COVD to DWH_RISK_READ_ROLE;
+grant select on DWH_RISK.DP_COVD to HEAD_DENIS_PL;
+grant select on DWH_RISK.DP_COVD to KRISTINA_KO;
+grant select on DWH_RISK.DP_COVD to PROCESS_RISK;
+grant select on DWH_RISK.DP_COVD to PUBLIC;
+

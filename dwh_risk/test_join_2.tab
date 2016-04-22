@@ -1,0 +1,36 @@
+create table DWH_RISK.TEST_JOIN_2
+(
+  rpt_date     DATE,
+  code         VARCHAR2(30),
+  name         VARCHAR2(500),
+  pd           NUMBER(38,12),
+  f5           VARCHAR2(500),
+  report_dt_m1 DATE,
+  dpd_m1       NUMBER,
+  od_m1        NUMBER,
+  ovrd_od_m1   NUMBER,
+  od_ovrdod_m1 NUMBER,
+  report_dt_m2 DATE,
+  dpd_m2       NUMBER,
+  od_m2        NUMBER,
+  ovrd_od_m2   NUMBER,
+  od_ovrdod_m2 NUMBER
+)
+tablespace DWH_RISK
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+grant select on DWH_RISK.TEST_JOIN_2 to AIBEK_BE;
+grant select, insert, update, delete on DWH_RISK.TEST_JOIN_2 to DWH_RISK_FULL_ROLE;
+grant select on DWH_RISK.TEST_JOIN_2 to DWH_RISK_READ_ROLE;
+grant select on DWH_RISK.TEST_JOIN_2 to HEAD_DENIS_PL;
+grant select on DWH_RISK.TEST_JOIN_2 to KRISTINA_KO;
+grant select on DWH_RISK.TEST_JOIN_2 to PROCESS_RISK;
+

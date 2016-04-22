@@ -1,0 +1,40 @@
+create table DWH_RISK.XLS_H_DCA
+(
+  sdt          DATE default sysdate,
+  dt           DATE,
+  fil_code     VARCHAR2(500),
+  code         VARCHAR2(500),
+  name         VARCHAR2(500),
+  pd           VARCHAR2(500),
+  client_class VARCHAR2(500)
+)
+tablespace DWH_RISK
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+create index DWH_RISK.IDX_XLS_H_DCA1 on DWH_RISK.XLS_H_DCA (CODE)
+  tablespace DWH_RISK
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+grant select on DWH_RISK.XLS_H_DCA to AIBEK_BE;
+grant select, insert, update, delete on DWH_RISK.XLS_H_DCA to DWH_RISK_FULL_ROLE;
+grant select on DWH_RISK.XLS_H_DCA to DWH_RISK_READ_ROLE;
+grant select on DWH_RISK.XLS_H_DCA to HEAD_DENIS_PL;
+grant select on DWH_RISK.XLS_H_DCA to KRISTINA_KO;
+grant select on DWH_RISK.XLS_H_DCA to PROCESS_RISK;
+

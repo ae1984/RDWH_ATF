@@ -1,0 +1,103 @@
+create table DWH_BUFFER.COL_T_BAL
+(
+  val_id     NUMBER(10) not null,
+  dep_id     NUMBER(10) not null,
+  id         NUMBER(10) not null,
+  flzo       NUMBER(1) default 0 not null,
+  planfl     NUMBER(1) default 0 not null,
+  fromdate   DATE not null,
+  bal_in     NUMBER(18,2) not null,
+  bal_out    NUMBER(18,2) not null,
+  specfl     NUMBER(1) default 0 not null,
+  natval_in  NUMBER(18,2),
+  natval_out NUMBER(18,2)
+)
+tablespace DWH_BUFFER
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 14M
+    next 1000M
+    minextents 1
+    maxextents unlimited
+  )
+nologging;
+comment on table DWH_BUFFER.COL_T_BAL
+  is 'Остатки по первичным объектам учета (счетам)';
+comment on column DWH_BUFFER.COL_T_BAL.val_id
+  is 'Идентификатор валюты';
+comment on column DWH_BUFFER.COL_T_BAL.dep_id
+  is 'Идентификатор подразделения счета';
+comment on column DWH_BUFFER.COL_T_BAL.id
+  is 'Идентификатор счета';
+comment on column DWH_BUFFER.COL_T_BAL.flzo
+  is 'Флаг ЗО';
+comment on column DWH_BUFFER.COL_T_BAL.planfl
+  is 'Флаг планируемого или прогнозного остатка';
+comment on column DWH_BUFFER.COL_T_BAL.fromdate
+  is 'Дата изменения остатка';
+comment on column DWH_BUFFER.COL_T_BAL.bal_in
+  is 'Остаток входящий';
+comment on column DWH_BUFFER.COL_T_BAL.bal_out
+  is 'Остаток исходящий';
+comment on column DWH_BUFFER.COL_T_BAL.specfl
+  is 'Признак специальной записи';
+comment on column DWH_BUFFER.COL_T_BAL.natval_in
+  is 'Отражающий входящий остаток';
+comment on column DWH_BUFFER.COL_T_BAL.natval_out
+  is 'Отражающий исходящий остаток';
+create index DWH_BUFFER.IE_COL_T_BAL_DATE on DWH_BUFFER.COL_T_BAL (FROMDATE, DEP_ID)
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 4M
+    next 4M
+    minextents 1
+    maxextents unlimited
+  )
+  nologging;
+create index DWH_BUFFER.IE_COL_T_BAL_ID on DWH_BUFFER.COL_T_BAL (ID)
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  )
+  nologging;
+alter table DWH_BUFFER.COL_T_BAL
+  add constraint PK_COL_T_BAL primary key (DEP_ID, ID, VAL_ID, FLZO, PLANFL, FROMDATE)
+  using index 
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 4M
+    next 4M
+    minextents 1
+    maxextents unlimited
+  );
+alter index DWH_BUFFER.PK_COL_T_BAL nologging;
+grant select on DWH_BUFFER.COL_T_BAL to AIBEK_BE;
+grant select, insert, update, delete on DWH_BUFFER.COL_T_BAL to DWH_BUFFER_FULL_ROLE;
+grant select on DWH_BUFFER.COL_T_BAL to DWH_BUFFER_READ_ROLE;
+grant select on DWH_BUFFER.COL_T_BAL to DWH_PRIM;
+grant select on DWH_BUFFER.COL_T_BAL to DWH_RISK;
+grant select on DWH_BUFFER.COL_T_BAL to DWH_SALES;
+grant select on DWH_BUFFER.COL_T_BAL to HEAD_DENIS_PL;
+grant select on DWH_BUFFER.COL_T_BAL to HEAD_EVGENIY_PI;
+grant select on DWH_BUFFER.COL_T_BAL to KRISTINA_KO;
+grant select on DWH_BUFFER.COL_T_BAL to PROCESS_RISK;
+grant select on DWH_BUFFER.COL_T_BAL to PROCESS_SALES;
+

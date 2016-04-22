@@ -1,0 +1,76 @@
+create table DWH_BUFFER.DASH_BOARD_TMP_20151231
+(
+  dt                      DATE,
+  week_begin              DATE,
+  month_begin             DATE,
+  branch_id               CHAR(3),
+  branch_name             VARCHAR2(100 CHAR),
+  title                   VARCHAR2(250),
+  segm                    VARCHAR2(25),
+  product_group           VARCHAR2(250),
+  cli_type                VARCHAR2(7),
+  calls_count             NUMBER,
+  called_clients          NUMBER,
+  rpc_clients             NUMBER,
+  letters_count           NUMBER,
+  posted_clients          NUMBER,
+  letters_delivered       NUMBER,
+  sms_count               NUMBER,
+  sms_clients             NUMBER,
+  sms_delivered           NUMBER,
+  cnt_app                 NUMBER,
+  cnt_app_approved        NUMBER,
+  cnt_app_reject_scoring  NUMBER,
+  cnt_app_reject          NUMBER,
+  cnt_app_reject_verifier NUMBER,
+  cnt_app_cancel          NUMBER,
+  cnt_app_cancel_cl       NUMBER,
+  cnt_app_expert          NUMBER,
+  cnt_app_verifier        NUMBER,
+  cnt_app_deal_prepare    NUMBER,
+  cnt_app_else            NUMBER,
+  cnt_deal                NUMBER,
+  cnt_deal_0              NUMBER,
+  cnt_deal_1              NUMBER,
+  cnt_deal_2              NUMBER,
+  cnt_deal_3              NUMBER,
+  cnt_deal_4              NUMBER,
+  cnt_deal_5              NUMBER,
+  cnt_deal_6              NUMBER,
+  cnt_deal_7_14           NUMBER,
+  cnt_deal_14_21          NUMBER,
+  cnt_deal_21_99          NUMBER,
+  sum_deal                NUMBER,
+  sum_deal_0              NUMBER,
+  sum_deal_1              NUMBER,
+  sum_deal_2              NUMBER,
+  sum_deal_3              NUMBER,
+  sum_deal_4              NUMBER,
+  sum_deal_5              NUMBER,
+  sum_deal_6              NUMBER,
+  sum_deal_7_14           NUMBER,
+  sum_deal_14_21          NUMBER,
+  sum_deal_21_99          NUMBER,
+  cnt_deal_cascade        NUMBER,
+  wt_effective_rate       NUMBER,
+  effective_rate          NUMBER,
+  dep_id                  VARCHAR2(8 CHAR),
+  dep_name                VARCHAR2(200 CHAR),
+  cnt_cl_app              NUMBER
+)
+tablespace DWH_BUFFER
+  pctfree 10
+  initrans 1
+  maxtrans 255;
+grant select on DWH_BUFFER.DASH_BOARD_TMP_20151231 to AIBEK_BE;
+grant select, insert, update, delete on DWH_BUFFER.DASH_BOARD_TMP_20151231 to DWH_BUFFER_FULL_ROLE;
+grant select on DWH_BUFFER.DASH_BOARD_TMP_20151231 to DWH_BUFFER_READ_ROLE;
+grant select on DWH_BUFFER.DASH_BOARD_TMP_20151231 to DWH_PRIM;
+grant select on DWH_BUFFER.DASH_BOARD_TMP_20151231 to DWH_RISK;
+grant select on DWH_BUFFER.DASH_BOARD_TMP_20151231 to DWH_SALES;
+grant select on DWH_BUFFER.DASH_BOARD_TMP_20151231 to HEAD_DENIS_PL;
+grant select on DWH_BUFFER.DASH_BOARD_TMP_20151231 to HEAD_EVGENIY_PI;
+grant select on DWH_BUFFER.DASH_BOARD_TMP_20151231 to KRISTINA_KO;
+grant select on DWH_BUFFER.DASH_BOARD_TMP_20151231 to PROCESS_RISK;
+grant select on DWH_BUFFER.DASH_BOARD_TMP_20151231 to PROCESS_SALES;
+

@@ -1,0 +1,31 @@
+create table DWH_BUFFER.DICT_DEP_EKZ
+(
+  branch_id   VARCHAR2(3),
+  branch_name VARCHAR2(100),
+  dep_id      VARCHAR2(8),
+  dep_name    VARCHAR2(200)
+)
+tablespace DWH_BUFFER
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 128K
+    next 128K
+    minextents 1
+    maxextents unlimited
+  )
+nologging;
+grant select on DWH_BUFFER.DICT_DEP_EKZ to AIBEK_BE;
+grant select, insert, update, delete on DWH_BUFFER.DICT_DEP_EKZ to DWH_BUFFER_FULL_ROLE;
+grant select on DWH_BUFFER.DICT_DEP_EKZ to DWH_BUFFER_READ_ROLE;
+grant select on DWH_BUFFER.DICT_DEP_EKZ to DWH_PRIM;
+grant select on DWH_BUFFER.DICT_DEP_EKZ to DWH_RISK;
+grant select on DWH_BUFFER.DICT_DEP_EKZ to DWH_SALES;
+grant select on DWH_BUFFER.DICT_DEP_EKZ to HEAD_DENIS_PL;
+grant select on DWH_BUFFER.DICT_DEP_EKZ to HEAD_EVGENIY_PI;
+grant select on DWH_BUFFER.DICT_DEP_EKZ to KRISTINA_KO;
+grant select on DWH_BUFFER.DICT_DEP_EKZ to PROCESS_RISK;
+grant select on DWH_BUFFER.DICT_DEP_EKZ to PROCESS_SALES;
+

@@ -1,0 +1,35 @@
+create table DWH_BUFFER.EKZ_MSGHISTORYRISK
+(
+  process_guid    CHAR(36) not null,
+  process_code    NVARCHAR2(30) not null,
+  message_comment NVARCHAR2(500),
+  message_date    DATE not null,
+  executor_code   NVARCHAR2(50) not null,
+  reply_date      DATE not null,
+  user_name       NVARCHAR2(250),
+  comment_text    NVARCHAR2(1000),
+  "WorkTime"      NUMBER(10)
+)
+tablespace DWH_BUFFER
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+grant select on DWH_BUFFER.EKZ_MSGHISTORYRISK to AIBEK_BE;
+grant select, insert, update, delete on DWH_BUFFER.EKZ_MSGHISTORYRISK to DWH_BUFFER_FULL_ROLE;
+grant select on DWH_BUFFER.EKZ_MSGHISTORYRISK to DWH_BUFFER_READ_ROLE;
+grant select on DWH_BUFFER.EKZ_MSGHISTORYRISK to DWH_PRIM;
+grant select on DWH_BUFFER.EKZ_MSGHISTORYRISK to DWH_RISK;
+grant select on DWH_BUFFER.EKZ_MSGHISTORYRISK to DWH_SALES;
+grant select on DWH_BUFFER.EKZ_MSGHISTORYRISK to HEAD_DENIS_PL;
+grant select on DWH_BUFFER.EKZ_MSGHISTORYRISK to HEAD_EVGENIY_PI;
+grant select on DWH_BUFFER.EKZ_MSGHISTORYRISK to KRISTINA_KO;
+grant select on DWH_BUFFER.EKZ_MSGHISTORYRISK to PROCESS_RISK;
+grant select on DWH_BUFFER.EKZ_MSGHISTORYRISK to PROCESS_SALES;
+

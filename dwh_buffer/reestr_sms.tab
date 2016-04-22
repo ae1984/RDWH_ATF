@@ -1,0 +1,47 @@
+create table DWH_BUFFER.REESTR_SMS
+(
+  offer_id      NUMBER,
+  contact_id    NUMBER,
+  campaign_code VARCHAR2(20 CHAR),
+  comment_ext   VARCHAR2(500 CHAR),
+  upload_dttm   DATE,
+  contact       VARCHAR2(12 CHAR),
+  text          VARCHAR2(2000 CHAR)
+)
+tablespace DWH_BUFFER
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 128K
+    next 128K
+    minextents 1
+    maxextents unlimited
+  )
+nologging;
+create index DWH_BUFFER.IX_REESTR_SMS_IND on DWH_BUFFER.REESTR_SMS (CONTACT_ID, OFFER_ID)
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  )
+  nologging;
+grant select on DWH_BUFFER.REESTR_SMS to AIBEK_BE;
+grant select, insert, update, delete on DWH_BUFFER.REESTR_SMS to DWH_BUFFER_FULL_ROLE;
+grant select on DWH_BUFFER.REESTR_SMS to DWH_BUFFER_READ_ROLE;
+grant select on DWH_BUFFER.REESTR_SMS to DWH_PRIM;
+grant select on DWH_BUFFER.REESTR_SMS to DWH_RISK;
+grant select on DWH_BUFFER.REESTR_SMS to DWH_SALES;
+grant select on DWH_BUFFER.REESTR_SMS to HEAD_DENIS_PL;
+grant select, insert, update, delete on DWH_BUFFER.REESTR_SMS to HEAD_EVGENIY_PI;
+grant select on DWH_BUFFER.REESTR_SMS to KRISTINA_KO;
+grant select on DWH_BUFFER.REESTR_SMS to PROCESS_RISK;
+grant select on DWH_BUFFER.REESTR_SMS to PROCESS_SALES;
+

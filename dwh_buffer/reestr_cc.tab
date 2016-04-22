@@ -1,0 +1,45 @@
+create table DWH_BUFFER.REESTR_CC
+(
+  offer_id           NUMBER,
+  contact_id         NUMBER,
+  upload_dttm        DATE,
+  campaign_code      VARCHAR2(20 CHAR),
+  comment_ext        VARCHAR2(500 CHAR),
+  channel            VARCHAR2(20 CHAR),
+  full_name          VARCHAR2(500 CHAR),
+  filial_name        VARCHAR2(200 CHAR),
+  contact            VARCHAR2(12 CHAR),
+  iin                VARCHAR2(12 CHAR),
+  cli_code           VARCHAR2(30 CHAR),
+  segm               VARCHAR2(50 CHAR),
+  offer_product_name VARCHAR2(200 CHAR),
+  offer_term         NUMBER,
+  offer_int_rate     NUMBER,
+  offer_comm_rate    NUMBER,
+  offer_limit        NUMBER,
+  offer_close_dttm   DATE
+)
+tablespace DWH_BUFFER
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 128K
+    next 128K
+    minextents 1
+    maxextents unlimited
+  )
+nologging;
+grant select on DWH_BUFFER.REESTR_CC to AIBEK_BE;
+grant select, insert, update, delete on DWH_BUFFER.REESTR_CC to DWH_BUFFER_FULL_ROLE;
+grant select on DWH_BUFFER.REESTR_CC to DWH_BUFFER_READ_ROLE;
+grant select on DWH_BUFFER.REESTR_CC to DWH_PRIM;
+grant select on DWH_BUFFER.REESTR_CC to DWH_RISK;
+grant select on DWH_BUFFER.REESTR_CC to DWH_SALES;
+grant select on DWH_BUFFER.REESTR_CC to HEAD_DENIS_PL;
+grant select on DWH_BUFFER.REESTR_CC to HEAD_EVGENIY_PI;
+grant select on DWH_BUFFER.REESTR_CC to KRISTINA_KO;
+grant select on DWH_BUFFER.REESTR_CC to PROCESS_RISK;
+grant select on DWH_BUFFER.REESTR_CC to PROCESS_SALES;
+

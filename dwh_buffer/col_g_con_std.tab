@@ -1,0 +1,56 @@
+create table DWH_BUFFER.COL_G_CON_STD
+(
+  id        NUMBER(10) not null,
+  id_hi     NUMBER(10),
+  code      VARCHAR2(30 CHAR) not null,
+  groupfl   NUMBER(1) not null,
+  nlevel    NUMBER(5) not null,
+  arcfl     NUMBER(1) not null,
+  arestfl   NUMBER(1) not null,
+  activfl   NUMBER(1) not null,
+  id_us     NUMBER(5),
+  correctdt DATE,
+  longname  VARCHAR2(250 CHAR) not null,
+  prim      VARCHAR2(250 CHAR),
+  multifl   NUMBER(1) not null,
+  act_knd   NUMBER(5),
+  per_id    NUMBER(10),
+  nround    NUMBER(1),
+  varround  NUMBER(5),
+  formula   VARCHAR2(2000 CHAR),
+  autofl    NUMBER(1) not null,
+  norder    NUMBER(5),
+  fullfl    NUMBER(1) not null,
+  sendfl    CHAR(1),
+  genstatus CHAR(1),
+  rnd_proc  VARCHAR2(250),
+  chi_id    NUMBER(10),
+  act_dtl   CHAR(1),
+  fixdt     DATE,
+  anlround  NUMBER(1),
+  ielevel   CHAR(1)
+)
+tablespace DWH_BUFFER
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  )
+nologging;
+grant select on DWH_BUFFER.COL_G_CON_STD to AIBEK_BE;
+grant select, insert, update, delete on DWH_BUFFER.COL_G_CON_STD to DWH_BUFFER_FULL_ROLE;
+grant select on DWH_BUFFER.COL_G_CON_STD to DWH_BUFFER_READ_ROLE;
+grant select on DWH_BUFFER.COL_G_CON_STD to DWH_PRIM;
+grant select on DWH_BUFFER.COL_G_CON_STD to DWH_RISK;
+grant select on DWH_BUFFER.COL_G_CON_STD to DWH_SALES;
+grant select on DWH_BUFFER.COL_G_CON_STD to HEAD_DENIS_PL;
+grant select on DWH_BUFFER.COL_G_CON_STD to HEAD_EVGENIY_PI;
+grant select on DWH_BUFFER.COL_G_CON_STD to KRISTINA_KO;
+grant select on DWH_BUFFER.COL_G_CON_STD to PROCESS_RISK;
+grant select on DWH_BUFFER.COL_G_CON_STD to PROCESS_SALES;
+

@@ -1,0 +1,90 @@
+create table DWH_RISK.V_UO_H
+(
+  report_dt DATE,
+  f1        VARCHAR2(500),
+  f2        VARCHAR2(500),
+  f3        VARCHAR2(500),
+  f4        VARCHAR2(500),
+  f5        VARCHAR2(500),
+  f6        VARCHAR2(500),
+  f7        VARCHAR2(500),
+  f8        VARCHAR2(500),
+  f9        DATE,
+  f10       DATE,
+  f11       VARCHAR2(500),
+  f12       NUMBER,
+  f13       NUMBER,
+  f14       VARCHAR2(500),
+  f15       VARCHAR2(500),
+  f16       VARCHAR2(500),
+  f17       VARCHAR2(500),
+  f18       VARCHAR2(500),
+  f19       VARCHAR2(500),
+  f20       VARCHAR2(500),
+  f21       VARCHAR2(500)
+)
+tablespace DWH_RISK
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  )
+nologging;
+comment on table DWH_RISK.V_UO_H
+  is 'данные по условным обязательствам за (дату)';
+comment on column DWH_RISK.V_UO_H.report_dt
+  is 'Отчетная дата';
+comment on column DWH_RISK.V_UO_H.f1
+  is 'МФО';
+comment on column DWH_RISK.V_UO_H.f2
+  is 'Наименование  заемщика';
+comment on column DWH_RISK.V_UO_H.f3
+  is 'ИИН';
+comment on column DWH_RISK.V_UO_H.f4
+  is 'Код клиента';
+comment on column DWH_RISK.V_UO_H.f5
+  is 'Код VCC';
+comment on column DWH_RISK.V_UO_H.f6
+  is 'Номер внебалансового счета';
+comment on column DWH_RISK.V_UO_H.f7
+  is 'Номер кредитной линии';
+comment on column DWH_RISK.V_UO_H.f8
+  is 'Номер договора';
+comment on column DWH_RISK.V_UO_H.f9
+  is 'Дата выдачи';
+comment on column DWH_RISK.V_UO_H.f10
+  is 'Дата погашения';
+comment on column DWH_RISK.V_UO_H.f11
+  is 'Валюта выдачи';
+comment on column DWH_RISK.V_UO_H.f12
+  is 'Остаток на отчетную дату в тенге';
+comment on column DWH_RISK.V_UO_H.f13
+  is 'Сумма провизии согласно национальным стандартам';
+comment on column DWH_RISK.V_UO_H.f14
+  is 'Отрасль';
+comment on column DWH_RISK.V_UO_H.f15
+  is 'Объект кредитования';
+comment on column DWH_RISK.V_UO_H.f16
+  is 'Утвержденный рейтинг';
+comment on column DWH_RISK.V_UO_H.f17
+  is 'PSC';
+comment on column DWH_RISK.V_UO_H.f18
+  is 'Признак подразделения';
+comment on column DWH_RISK.V_UO_H.f19
+  is 'Вид договора';
+comment on column DWH_RISK.V_UO_H.f20
+  is 'VCC name';
+comment on column DWH_RISK.V_UO_H.f21
+  is 'LLP';
+grant select on DWH_RISK.V_UO_H to AIBEK_BE;
+grant select, insert, update, delete on DWH_RISK.V_UO_H to DWH_RISK_FULL_ROLE;
+grant select on DWH_RISK.V_UO_H to DWH_RISK_READ_ROLE;
+grant select on DWH_RISK.V_UO_H to HEAD_DENIS_PL;
+grant select on DWH_RISK.V_UO_H to KRISTINA_KO;
+grant select on DWH_RISK.V_UO_H to PROCESS_RISK;
+

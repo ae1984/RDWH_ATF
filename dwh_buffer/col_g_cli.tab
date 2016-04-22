@@ -1,0 +1,121 @@
+create table DWH_BUFFER.COL_G_CLI
+(
+  dep_id      NUMBER(10) not null,
+  id          NUMBER(10) not null,
+  code        VARCHAR2(30) not null,
+  altercode   VARCHAR2(30),
+  dreg        DATE not null,
+  rolemask    CHAR(50),
+  clidep_type CHAR(1),
+  depcrd_id   NUMBER(10),
+  jurfl       CHAR(1) not null,
+  pboyulfl    CHAR(1) not null,
+  secret      CHAR(1),
+  ord_id      NUMBER(10)
+)
+tablespace DWH_BUFFER
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  )
+nologging;
+comment on table DWH_BUFFER.COL_G_CLI
+  is 'Учетная запись клиента (субъекта)';
+comment on column DWH_BUFFER.COL_G_CLI.dep_id
+  is 'Идентификатор отдела';
+comment on column DWH_BUFFER.COL_G_CLI.id
+  is 'Идентификатор';
+comment on column DWH_BUFFER.COL_G_CLI.code
+  is 'Код записи';
+comment on column DWH_BUFFER.COL_G_CLI.altercode
+  is 'Альтернативный код';
+comment on column DWH_BUFFER.COL_G_CLI.dreg
+  is 'Дата регистрации';
+comment on column DWH_BUFFER.COL_G_CLI.rolemask
+  is 'В каких ролях выступает';
+comment on column DWH_BUFFER.COL_G_CLI.clidep_type
+  is 'Способ выбора обслуживающих подразделений';
+comment on column DWH_BUFFER.COL_G_CLI.depcrd_id
+  is 'Ссылка на подразделение, для которого открыта карточка';
+comment on column DWH_BUFFER.COL_G_CLI.jurfl
+  is 'Признак юридического лица';
+comment on column DWH_BUFFER.COL_G_CLI.pboyulfl
+  is 'Признак ПБОЮЛ';
+comment on column DWH_BUFFER.COL_G_CLI.secret
+  is 'Уровень доступа к информации';
+comment on column DWH_BUFFER.COL_G_CLI.ord_id
+  is 'Ссылка на T_ORD';
+create index DWH_BUFFER.FK_COL_G_CLI_C_DEP2 on DWH_BUFFER.COL_G_CLI (DEPCRD_ID)
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 4M
+    next 4M
+    minextents 1
+    maxextents unlimited
+  )
+  nologging;
+create index DWH_BUFFER.FK_COL_G_CLI_ORD on DWH_BUFFER.COL_G_CLI (DEP_ID, ORD_ID)
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 4M
+    next 4M
+    minextents 1
+    maxextents unlimited
+  )
+  compress 1  nologging;
+alter table DWH_BUFFER.COL_G_CLI
+  add constraint PK_COL_G_CLI primary key (DEP_ID, ID)
+  using index 
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 4M
+    next 4M
+    minextents 1
+    maxextents unlimited
+  );
+alter index DWH_BUFFER.PK_COL_G_CLI nologging;
+alter table DWH_BUFFER.COL_G_CLI
+  add constraint AK_COL_G_CLI_CODE unique (CODE)
+  using index 
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 4M
+    next 4M
+    minextents 1
+    maxextents unlimited
+  );
+alter index DWH_BUFFER.AK_COL_G_CLI_CODE nologging;
+grant select on DWH_BUFFER.COL_G_CLI to AIBEK_BE;
+grant select, insert, update, delete on DWH_BUFFER.COL_G_CLI to DWH_BUFFER_FULL_ROLE;
+grant select on DWH_BUFFER.COL_G_CLI to DWH_BUFFER_READ_ROLE;
+grant select on DWH_BUFFER.COL_G_CLI to DWH_PRIM;
+grant select on DWH_BUFFER.COL_G_CLI to DWH_RISK;
+grant select on DWH_BUFFER.COL_G_CLI to DWH_SALES;
+grant select on DWH_BUFFER.COL_G_CLI to HEAD_DENIS_PL;
+grant select on DWH_BUFFER.COL_G_CLI to HEAD_EVGENIY_PI;
+grant select on DWH_BUFFER.COL_G_CLI to KRISTINA_KO;
+grant select on DWH_BUFFER.COL_G_CLI to PROCESS_RISK;
+grant select on DWH_BUFFER.COL_G_CLI to PROCESS_SALES;
+

@@ -1,0 +1,31 @@
+create table DWH_RISK.GSVP_PARS
+(
+  id           NUMBER not null,
+  birthdate    VARCHAR2(100),
+  iin          VARCHAR2(100),
+  fathername   VARCHAR2(100),
+  name         VARCHAR2(100),
+  surname      VARCHAR2(100),
+  dt           VARCHAR2(100),
+  company_name VARCHAR2(1000),
+  bin          VARCHAR2(100),
+  amount       VARCHAR2(100)
+)
+tablespace DWH_RISK
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+grant select on DWH_RISK.GSVP_PARS to AIBEK_BE;
+grant select, insert, update, delete on DWH_RISK.GSVP_PARS to DWH_RISK_FULL_ROLE;
+grant select on DWH_RISK.GSVP_PARS to DWH_RISK_READ_ROLE;
+grant select on DWH_RISK.GSVP_PARS to HEAD_DENIS_PL;
+grant select on DWH_RISK.GSVP_PARS to KRISTINA_KO;
+grant select on DWH_RISK.GSVP_PARS to PROCESS_RISK;
+

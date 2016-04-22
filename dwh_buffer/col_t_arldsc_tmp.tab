@@ -1,0 +1,54 @@
+create table DWH_BUFFER.COL_T_ARLDSC_TMP
+(
+  id           NUMBER(10) not null,
+  longname     VARCHAR2(250 CHAR),
+  sbj_id       NUMBER(10) not null,
+  basetype     VARCHAR2(10) not null,
+  dtlbop_id    NUMBER(10) not null,
+  correctdt    DATE,
+  id_us        NUMBER(5),
+  prim         VARCHAR2(250 CHAR),
+  code         VARCHAR2(30) not null,
+  incomfl      CHAR(1) not null,
+  anchartfl    CHAR(1) not null,
+  anlcha_id    NUMBER(10),
+  cha_id       NUMBER(10),
+  deashdfl     CHAR(1) not null,
+  loopfl       CHAR(1) not null,
+  npp          NUMBER(5) not null,
+  nopartfl     CHAR(1) not null,
+  nopayfl      CHAR(1) not null,
+  priority     NUMBER(5),
+  nonegfl      CHAR(1) not null,
+  arestfl      CHAR(1) not null,
+  val_id       NUMBER(10),
+  wroff_id     NUMBER(10),
+  bnkatrusg    VARCHAR2(30),
+  alias        VARCHAR2(30),
+  name_rpt     VARCHAR2(250 CHAR),
+  priority2    NUMBER(5),
+  addfl        CHAR(1) not null,
+  immediatefl  CHAR(1),
+  updshdfl     CHAR(1),
+  prepay       CHAR(1),
+  clcfl        CHAR(1 CHAR),
+  pay_priority NUMBER(5),
+  alias_add    VARCHAR2(30)
+)
+tablespace DWH_BUFFER
+  pctfree 10
+  initrans 1
+  maxtrans 255
+nologging;
+grant select on DWH_BUFFER.COL_T_ARLDSC_TMP to AIBEK_BE;
+grant select, insert, update, delete on DWH_BUFFER.COL_T_ARLDSC_TMP to DWH_BUFFER_FULL_ROLE;
+grant select on DWH_BUFFER.COL_T_ARLDSC_TMP to DWH_BUFFER_READ_ROLE;
+grant select on DWH_BUFFER.COL_T_ARLDSC_TMP to DWH_PRIM;
+grant select on DWH_BUFFER.COL_T_ARLDSC_TMP to DWH_RISK;
+grant select on DWH_BUFFER.COL_T_ARLDSC_TMP to DWH_SALES;
+grant select on DWH_BUFFER.COL_T_ARLDSC_TMP to HEAD_DENIS_PL;
+grant select on DWH_BUFFER.COL_T_ARLDSC_TMP to HEAD_EVGENIY_PI;
+grant select on DWH_BUFFER.COL_T_ARLDSC_TMP to KRISTINA_KO;
+grant select on DWH_BUFFER.COL_T_ARLDSC_TMP to PROCESS_RISK;
+grant select on DWH_BUFFER.COL_T_ARLDSC_TMP to PROCESS_SALES;
+

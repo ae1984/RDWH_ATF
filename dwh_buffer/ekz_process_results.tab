@@ -1,0 +1,75 @@
+create table DWH_BUFFER.EKZ_PROCESS_RESULTS
+(
+  process_guid    RAW(16) not null,
+  process_code    VARCHAR2(30) not null,
+  process_version NUMBER(30,2) not null,
+  process_xml     SYS.XMLTYPE,
+  start_date      DATE,
+  finish_date     DATE,
+  process_status  VARCHAR2(20) not null,
+  parent_guid     RAW(16),
+  sdt             DATE
+)
+tablespace DWH_BUFFER
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 128K
+    next 128K
+    minextents 1
+    maxextents unlimited
+  )
+nologging;
+create index DWH_BUFFER.PROCESS_RESULTS_FINISH_DATE on DWH_BUFFER.EKZ_PROCESS_RESULTS (FINISH_DATE)
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  )
+  nologging;
+create index DWH_BUFFER.PROCESS_RESULTS_PROCESS_GUID on DWH_BUFFER.EKZ_PROCESS_RESULTS (PROCESS_GUID)
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  )
+  nologging;
+create index DWH_BUFFER.PROCESS_RESULTS_SDT on DWH_BUFFER.EKZ_PROCESS_RESULTS (SDT)
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  )
+  nologging;
+grant select on DWH_BUFFER.EKZ_PROCESS_RESULTS to AIBEK_BE;
+grant select, insert, update, delete on DWH_BUFFER.EKZ_PROCESS_RESULTS to DWH_BUFFER_FULL_ROLE;
+grant select on DWH_BUFFER.EKZ_PROCESS_RESULTS to DWH_BUFFER_READ_ROLE;
+grant select on DWH_BUFFER.EKZ_PROCESS_RESULTS to DWH_PRIM;
+grant select on DWH_BUFFER.EKZ_PROCESS_RESULTS to DWH_RISK;
+grant select on DWH_BUFFER.EKZ_PROCESS_RESULTS to DWH_SALES;
+grant select on DWH_BUFFER.EKZ_PROCESS_RESULTS to HEAD_DENIS_PL;
+grant select on DWH_BUFFER.EKZ_PROCESS_RESULTS to HEAD_EVGENIY_PI;
+grant select on DWH_BUFFER.EKZ_PROCESS_RESULTS to KRISTINA_KO;
+grant select on DWH_BUFFER.EKZ_PROCESS_RESULTS to PROCESS_RISK;
+grant select on DWH_BUFFER.EKZ_PROCESS_RESULTS to PROCESS_SALES;
+

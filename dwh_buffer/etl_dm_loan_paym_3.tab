@@ -1,0 +1,36 @@
+create table DWH_BUFFER.ETL_DM_LOAN_PAYM_3
+(
+  contract_id  NUMBER(10) not null,
+  id           NUMBER(10) not null,
+  longname     VARCHAR2(250 CHAR),
+  doper        DATE not null,
+  amount_val   NUMBER(18,2),
+  prc          NUMBER(5),
+  dclcfrom     DATE,
+  dclcto       DATE,
+  csr_code     VARCHAR2(30),
+  waitdate     DATE,
+  paysdok      NUMBER(18,2),
+  sdok         NUMBER(18,2),
+  dclose       DATE,
+  paysdokn     NUMBER(18,2),
+  sdokn        NUMBER(18,2),
+  fix_pay_nord NUMBER(10)
+)
+tablespace DWH_BUFFER
+  pctfree 10
+  initrans 1
+  maxtrans 255
+nologging;
+grant select on DWH_BUFFER.ETL_DM_LOAN_PAYM_3 to AIBEK_BE;
+grant select, insert, update, delete on DWH_BUFFER.ETL_DM_LOAN_PAYM_3 to DWH_BUFFER_FULL_ROLE;
+grant select on DWH_BUFFER.ETL_DM_LOAN_PAYM_3 to DWH_BUFFER_READ_ROLE;
+grant select on DWH_BUFFER.ETL_DM_LOAN_PAYM_3 to DWH_PRIM;
+grant select on DWH_BUFFER.ETL_DM_LOAN_PAYM_3 to DWH_RISK;
+grant select on DWH_BUFFER.ETL_DM_LOAN_PAYM_3 to DWH_SALES;
+grant select on DWH_BUFFER.ETL_DM_LOAN_PAYM_3 to HEAD_DENIS_PL;
+grant select on DWH_BUFFER.ETL_DM_LOAN_PAYM_3 to HEAD_EVGENIY_PI;
+grant select on DWH_BUFFER.ETL_DM_LOAN_PAYM_3 to KRISTINA_KO;
+grant select on DWH_BUFFER.ETL_DM_LOAN_PAYM_3 to PROCESS_RISK;
+grant select on DWH_BUFFER.ETL_DM_LOAN_PAYM_3 to PROCESS_SALES;
+

@@ -1,0 +1,135 @@
+create table DWH_BUFFER.OWS_CLIENT_BUF
+(
+  ows_client_id NUMBER(18) not null,
+  amnd_date     DATE,
+  cli_code      VARCHAR2(32 CHAR),
+  rnn           VARCHAR2(255 CHAR),
+  iin           VARCHAR2(500),
+  last_name     VARCHAR2(255 CHAR),
+  first_name    VARCHAR2(255 CHAR),
+  middle_name   VARCHAR2(255 CHAR),
+  birth_date    DATE,
+  f_i           NUMBER(18),
+  filial_name   VARCHAR2(255 CHAR),
+  company_name  VARCHAR2(255 CHAR),
+  address       VARCHAR2(255 CHAR),
+  phone         VARCHAR2(32 CHAR),
+  phone_h       VARCHAR2(32 CHAR),
+  phone_m       VARCHAR2(32 CHAR),
+  sms_phone     VARCHAR2(32 CHAR),
+  e_mail        VARCHAR2(255 CHAR),
+  tr_last_name  VARCHAR2(32 CHAR),
+  tr_first_name VARCHAR2(32 CHAR)
+)
+tablespace DWH_BUFFER
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 128K
+    next 128K
+    minextents 1
+    maxextents unlimited
+  )
+nologging;
+comment on table DWH_BUFFER.OWS_CLIENT_BUF
+  is 'Список клиентов Way4';
+comment on column DWH_BUFFER.OWS_CLIENT_BUF.ows_client_id
+  is 'ID клиента в Way4';
+comment on column DWH_BUFFER.OWS_CLIENT_BUF.cli_code
+  is 'Код клиента Колвир';
+comment on column DWH_BUFFER.OWS_CLIENT_BUF.rnn
+  is 'РНН';
+comment on column DWH_BUFFER.OWS_CLIENT_BUF.iin
+  is 'ИИН';
+comment on column DWH_BUFFER.OWS_CLIENT_BUF.last_name
+  is 'Фамилия';
+comment on column DWH_BUFFER.OWS_CLIENT_BUF.first_name
+  is 'Имя';
+comment on column DWH_BUFFER.OWS_CLIENT_BUF.middle_name
+  is 'Отчество';
+comment on column DWH_BUFFER.OWS_CLIENT_BUF.birth_date
+  is 'Дата рождения';
+comment on column DWH_BUFFER.OWS_CLIENT_BUF.filial_name
+  is 'Филиал';
+comment on column DWH_BUFFER.OWS_CLIENT_BUF.address
+  is 'Адрес';
+comment on column DWH_BUFFER.OWS_CLIENT_BUF.phone
+  is 'Основной телефон';
+comment on column DWH_BUFFER.OWS_CLIENT_BUF.phone_h
+  is 'Домашний телефон';
+comment on column DWH_BUFFER.OWS_CLIENT_BUF.phone_m
+  is 'Мобильный телефон';
+comment on column DWH_BUFFER.OWS_CLIENT_BUF.sms_phone
+  is 'Телефон SMS оповещения';
+comment on column DWH_BUFFER.OWS_CLIENT_BUF.e_mail
+  is 'E-mail';
+comment on column DWH_BUFFER.OWS_CLIENT_BUF.tr_last_name
+  is 'Фамилия латиницей';
+comment on column DWH_BUFFER.OWS_CLIENT_BUF.tr_first_name
+  is 'Имя латиницей';
+create index DWH_BUFFER.OWS_CLIENT_BUF_CLIID on DWH_BUFFER.OWS_CLIENT_BUF (OWS_CLIENT_ID)
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  )
+  nologging;
+create index DWH_BUFFER.OWS_CLIENT_BUF_COMPANY on DWH_BUFFER.OWS_CLIENT_BUF (COMPANY_NAME)
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  )
+  nologging;
+create index DWH_BUFFER.OWS_CLIENT_BUF_IIN on DWH_BUFFER.OWS_CLIENT_BUF (IIN)
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  )
+  nologging;
+create index DWH_BUFFER.OWS_CLIENT_BUF_RNN on DWH_BUFFER.OWS_CLIENT_BUF (RNN)
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  )
+  nologging;
+grant select on DWH_BUFFER.OWS_CLIENT_BUF to AIBEK_BE;
+grant select, insert, update, delete on DWH_BUFFER.OWS_CLIENT_BUF to DWH_BUFFER_FULL_ROLE;
+grant select on DWH_BUFFER.OWS_CLIENT_BUF to DWH_BUFFER_READ_ROLE;
+grant select on DWH_BUFFER.OWS_CLIENT_BUF to DWH_PRIM;
+grant select on DWH_BUFFER.OWS_CLIENT_BUF to DWH_RISK;
+grant select on DWH_BUFFER.OWS_CLIENT_BUF to DWH_SALES;
+grant select on DWH_BUFFER.OWS_CLIENT_BUF to HEAD_DENIS_PL;
+grant select on DWH_BUFFER.OWS_CLIENT_BUF to HEAD_EVGENIY_PI;
+grant select on DWH_BUFFER.OWS_CLIENT_BUF to KRISTINA_KO;
+grant select on DWH_BUFFER.OWS_CLIENT_BUF to PROCESS_RISK;
+grant select on DWH_BUFFER.OWS_CLIENT_BUF to PROCESS_SALES;
+

@@ -1,0 +1,38 @@
+create table DWH_RISK.CP_RESTR_20160202
+(
+  f6  VARCHAR2(500),
+  f34 DATE,
+  f35 VARCHAR2(500)
+)
+tablespace DWH_RISK
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  )
+nologging;
+create index DWH_RISK.IX_CP_RESTR_20160202_1 on DWH_RISK.CP_RESTR_20160202 (F6, F34)
+  tablespace DWH_RISK
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  )
+  nologging;
+grant select on DWH_RISK.CP_RESTR_20160202 to AIBEK_BE;
+grant select, insert, update, delete on DWH_RISK.CP_RESTR_20160202 to DWH_RISK_FULL_ROLE;
+grant select on DWH_RISK.CP_RESTR_20160202 to DWH_RISK_READ_ROLE;
+grant select on DWH_RISK.CP_RESTR_20160202 to HEAD_DENIS_PL;
+grant select on DWH_RISK.CP_RESTR_20160202 to KRISTINA_KO;
+grant select on DWH_RISK.CP_RESTR_20160202 to PROCESS_RISK;
+

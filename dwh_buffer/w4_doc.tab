@@ -1,0 +1,149 @@
+create table DWH_BUFFER.W4_DOC
+(
+  acq_ref_number     VARCHAR2(32 CHAR),
+  action             VARCHAR2(1 CHAR),
+  amnd_date          DATE,
+  amnd_officer       NUMBER(18),
+  amnd_state         VARCHAR2(1 CHAR),
+  auth_code          VARCHAR2(32 CHAR),
+  card_expire        VARCHAR2(4 CHAR),
+  card_seqv_number   VARCHAR2(32 CHAR),
+  fx_settl_date      DATE,
+  is_authorization   VARCHAR2(1 CHAR),
+  iss_ref_number     VARCHAR2(32 CHAR),
+  merchant_id        VARCHAR2(32 CHAR),
+  message_category   VARCHAR2(1 CHAR),
+  number_of_sub_s    NUMBER(9) not null,
+  nw_ref_date        DATE,
+  doc__orig__id      NUMBER(18),
+  outward_status     VARCHAR2(1 CHAR),
+  posting_date       DATE,
+  posting_status     VARCHAR2(1 CHAR),
+  doc__prev__id      NUMBER(18),
+  amnd_prev          NUMBER(18),
+  ps_ref_number      VARCHAR2(32 CHAR),
+  reason_code        VARCHAR2(4 CHAR),
+  reason_details     VARCHAR2(255 CHAR),
+  rec_member_id      VARCHAR2(32 CHAR),
+  recons_amount      NUMBER(28,10) not null,
+  recons_curr        VARCHAR2(3 CHAR),
+  id                 NUMBER(18) not null,
+  request_category   VARCHAR2(1 CHAR),
+  requirement        VARCHAR2(4 CHAR),
+  ret_ref_number     VARCHAR2(12 CHAR),
+  return_code        NUMBER(9) not null,
+  sec_trans_cond_att NUMBER(18),
+  sec_trans_date     DATE,
+  sending_bin        VARCHAR2(32 CHAR),
+  send_member_id     VARCHAR2(32 CHAR),
+  service_class      VARCHAR2(1 CHAR),
+  settl_amount       NUMBER(28,10) not null,
+  settl_curr         VARCHAR2(3 CHAR),
+  sic_code           VARCHAR2(4 CHAR),
+  source_acc_type    VARCHAR2(32 CHAR),
+  s_cat              VARCHAR2(1 CHAR),
+  source_channel     VARCHAR2(1 CHAR),
+  source_code        VARCHAR2(32 CHAR),
+  source_contract    NUMBER(18),
+  source_fee_amount  NUMBER(28,10) not null,
+  source_fee_code    VARCHAR2(32 CHAR),
+  source_fee_curr    VARCHAR2(3 CHAR),
+  source_member_id   VARCHAR2(32 CHAR),
+  source_number      VARCHAR2(64 CHAR),
+  source_reg_num     VARCHAR2(32 CHAR),
+  source_spc         VARCHAR2(32 CHAR),
+  doc__summ__id      NUMBER(18),
+  target_acc_type    VARCHAR2(32 CHAR),
+  target_bin_id      NUMBER(18),
+  t_cat              VARCHAR2(1 CHAR),
+  target_channel     VARCHAR2(1 CHAR),
+  target_code        VARCHAR2(32 CHAR),
+  target_contract    NUMBER(18),
+  target_fee_amount  NUMBER(28,10) not null,
+  target_fee_code    VARCHAR2(32 CHAR),
+  target_fee_curr    VARCHAR2(3 CHAR),
+  target_member_id   VARCHAR2(32 CHAR),
+  target_number      VARCHAR2(64 CHAR),
+  target_spc         VARCHAR2(32 CHAR),
+  trans_amount       NUMBER(28,10) not null,
+  trans_city         VARCHAR2(32 CHAR),
+  trans_cond_attr    NUMBER(18),
+  trans_condition    VARCHAR2(32 CHAR),
+  trans_country      VARCHAR2(3 CHAR),
+  trans_curr         VARCHAR2(3 CHAR),
+  trans_date         DATE,
+  trans_details      VARCHAR2(255 CHAR),
+  trans_state        VARCHAR2(32 CHAR),
+  partition_key      VARCHAR2(32 CHAR),
+  trans_type         NUMBER(18),
+  synch_tag          VARCHAR2(1 CHAR),
+  source_idt_scheme  VARCHAR2(32 CHAR),
+  source_service     NUMBER(18),
+  target_idt_scheme  VARCHAR2(32 CHAR),
+  target_service     NUMBER(18),
+  bin_record         NUMBER(18),
+  number_in_chain    NUMBER(9),
+  add_info           VARCHAR2(3900 CHAR)
+)
+tablespace DWH_BUFFER
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+create index DWH_BUFFER.IX_W4_DOC_1 on DWH_BUFFER.W4_DOC (TARGET_CONTRACT, AMND_DATE)
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  )
+  nologging;
+create index DWH_BUFFER.IX_W4_DOC_2 on DWH_BUFFER.W4_DOC (SOURCE_CONTRACT, AMND_DATE)
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  )
+  nologging;
+create index DWH_BUFFER.IX_W4_DOC_3 on DWH_BUFFER.W4_DOC (ID)
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  )
+  nologging;
+grant select on DWH_BUFFER.W4_DOC to AIBEK_BE;
+grant select, insert, update, delete on DWH_BUFFER.W4_DOC to DWH_BUFFER_FULL_ROLE;
+grant select on DWH_BUFFER.W4_DOC to DWH_BUFFER_READ_ROLE;
+grant select on DWH_BUFFER.W4_DOC to DWH_PRIM;
+grant select on DWH_BUFFER.W4_DOC to DWH_RISK;
+grant select on DWH_BUFFER.W4_DOC to DWH_SALES;
+grant select on DWH_BUFFER.W4_DOC to HEAD_DENIS_PL;
+grant select on DWH_BUFFER.W4_DOC to HEAD_EVGENIY_PI;
+grant select on DWH_BUFFER.W4_DOC to KRISTINA_KO;
+grant select on DWH_BUFFER.W4_DOC to PROCESS_RISK;
+grant select on DWH_BUFFER.W4_DOC to PROCESS_SALES;
+

@@ -1,0 +1,202 @@
+create table DWH_BUFFER.COL_ATF_IFRS_L_DEA_ARC
+(
+  dep_id           NUMBER(10),
+  dea_id           NUMBER(10),
+  dcl_id           NUMBER(10),
+  cli_dep_id       NUMBER(10),
+  cli_id           NUMBER(10),
+  val_id           NUMBER(10),
+  max_delay        NUMBER,
+  max_delay_date   DATE,
+  exp              NUMBER(18,2),
+  llp_for_isl_prov NUMBER(18,2),
+  pd               NUMBER,
+  lgd_t_eop        NUMBER,
+  llp              NUMBER,
+  llp2             NUMBER,
+  nord             INTEGER,
+  stat             VARCHAR2(250 CHAR),
+  err              VARCHAR2(250 CHAR),
+  exp_nat          NUMBER(18,2),
+  restruk          VARCHAR2(250 CHAR),
+  restruk_date     DATE,
+  obj_id           NUMBER(10),
+  doper            DATE,
+  l_dep_id         NUMBER(10),
+  l_dea_id         NUMBER(10),
+  code             VARCHAR2(30 CHAR),
+  code_cli         VARCHAR2(30 CHAR),
+  fromdate         DATE,
+  todate           DATE,
+  aprvalue         VARCHAR2(250 CHAR),
+  cr_inter         NUMBER,
+  csln_type        VARCHAR2(30 CHAR),
+  industries       VARCHAR2(30 CHAR),
+  restruk_tab      CHAR(1 CHAR),
+  delay_tab        CHAR(1 CHAR),
+  restruk_code     VARCHAR2(250 CHAR),
+  lgd_unsec        NUMBER,
+  llp_bal          NUMBER,
+  refer            VARCHAR2(250 CHAR),
+  od_sum           NUMBER(18,2),
+  prc_sum          NUMBER(18,2),
+  od_sum_nat       NUMBER(18,2),
+  prc_sum_nat      NUMBER(18,2),
+  typ              VARCHAR2(250 CHAR),
+  llp_for_isl      NUMBER,
+  isl              CHAR(1 CHAR)
+)
+tablespace DWH_BUFFER
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+comment on table DWH_BUFFER.COL_ATF_IFRS_L_DEA_ARC
+  is 'COL_ATF_IFRS_L_DEA_ARC';
+comment on column DWH_BUFFER.COL_ATF_IFRS_L_DEA_ARC.dep_id
+  is 'Идн-ик подразделения договора';
+comment on column DWH_BUFFER.COL_ATF_IFRS_L_DEA_ARC.dea_id
+  is 'Идн-ик договора';
+comment on column DWH_BUFFER.COL_ATF_IFRS_L_DEA_ARC.dcl_id
+  is 'Идн-ик продукта';
+comment on column DWH_BUFFER.COL_ATF_IFRS_L_DEA_ARC.cli_dep_id
+  is 'Идн-ик подразделения клиента';
+comment on column DWH_BUFFER.COL_ATF_IFRS_L_DEA_ARC.cli_id
+  is 'Идн-ик клиента';
+comment on column DWH_BUFFER.COL_ATF_IFRS_L_DEA_ARC.val_id
+  is 'Валюта договора';
+comment on column DWH_BUFFER.COL_ATF_IFRS_L_DEA_ARC.max_delay
+  is 'Максимальная просрочка по клиенту';
+comment on column DWH_BUFFER.COL_ATF_IFRS_L_DEA_ARC.max_delay_date
+  is 'Дата максимальной просрочки по клиенту';
+comment on column DWH_BUFFER.COL_ATF_IFRS_L_DEA_ARC.exp
+  is 'Задолженность по договору';
+comment on column DWH_BUFFER.COL_ATF_IFRS_L_DEA_ARC.llp_for_isl_prov
+  is 'EXP prov по договору умноженное на LLP% for ISL prov';
+comment on column DWH_BUFFER.COL_ATF_IFRS_L_DEA_ARC.pd
+  is 'Probability of default (Вероятность дефолта)';
+comment on column DWH_BUFFER.COL_ATF_IFRS_L_DEA_ARC.lgd_t_eop
+  is 'коэффициент потерь при дефолте рассчитывается на транш';
+comment on column DWH_BUFFER.COL_ATF_IFRS_L_DEA_ARC.llp
+  is '=EXP*PD*LGD_T_EOP*LDP';
+comment on column DWH_BUFFER.COL_ATF_IFRS_L_DEA_ARC.llp2
+  is 'LLP2';
+comment on column DWH_BUFFER.COL_ATF_IFRS_L_DEA_ARC.nord
+  is 'Порция';
+comment on column DWH_BUFFER.COL_ATF_IFRS_L_DEA_ARC.stat
+  is 'Состояние';
+comment on column DWH_BUFFER.COL_ATF_IFRS_L_DEA_ARC.err
+  is 'Ошибка';
+comment on column DWH_BUFFER.COL_ATF_IFRS_L_DEA_ARC.exp_nat
+  is 'Задолженность по договору в национальной валюте';
+comment on column DWH_BUFFER.COL_ATF_IFRS_L_DEA_ARC.restruk
+  is 'Реструктуриация (аналитика)';
+comment on column DWH_BUFFER.COL_ATF_IFRS_L_DEA_ARC.restruk_date
+  is 'Дата реструктуризации';
+comment on column DWH_BUFFER.COL_ATF_IFRS_L_DEA_ARC.obj_id
+  is 'Ид-ни в ХД';
+comment on column DWH_BUFFER.COL_ATF_IFRS_L_DEA_ARC.doper
+  is 'Дата расчета';
+comment on column DWH_BUFFER.COL_ATF_IFRS_L_DEA_ARC.l_dep_id
+  is 'Идн-ик подразделения родителя договора (кредитная линия)';
+comment on column DWH_BUFFER.COL_ATF_IFRS_L_DEA_ARC.l_dea_id
+  is 'Идн-ик родителя договора (кредитная линия)';
+comment on column DWH_BUFFER.COL_ATF_IFRS_L_DEA_ARC.code
+  is 'Код договора';
+comment on column DWH_BUFFER.COL_ATF_IFRS_L_DEA_ARC.code_cli
+  is 'Код клиента';
+comment on column DWH_BUFFER.COL_ATF_IFRS_L_DEA_ARC.fromdate
+  is 'Дата начала';
+comment on column DWH_BUFFER.COL_ATF_IFRS_L_DEA_ARC.todate
+  is 'Дата заверщения';
+comment on column DWH_BUFFER.COL_ATF_IFRS_L_DEA_ARC.aprvalue
+  is 'Значение эффективной ставки';
+comment on column DWH_BUFFER.COL_ATF_IFRS_L_DEA_ARC.cr_inter
+  is 'Значение ставки вознагрождения';
+comment on column DWH_BUFFER.COL_ATF_IFRS_L_DEA_ARC.csln_type
+  is 'Значение из аналитики CSLN_TYPE';
+comment on column DWH_BUFFER.COL_ATF_IFRS_L_DEA_ARC.industries
+  is 'Индустрия займа';
+comment on column DWH_BUFFER.COL_ATF_IFRS_L_DEA_ARC.restruk_tab
+  is 'Признак реструктуризации';
+comment on column DWH_BUFFER.COL_ATF_IFRS_L_DEA_ARC.delay_tab
+  is 'Количество дней просрчоки';
+comment on column DWH_BUFFER.COL_ATF_IFRS_L_DEA_ARC.restruk_code
+  is 'Реструктуриация (аналитика) код';
+comment on column DWH_BUFFER.COL_ATF_IFRS_L_DEA_ARC.lgd_unsec
+  is 'ручное значение LGD';
+comment on column DWH_BUFFER.COL_ATF_IFRS_L_DEA_ARC.llp_bal
+  is 'Сумма к резирвированию по IFRS для баланса';
+comment on column DWH_BUFFER.COL_ATF_IFRS_L_DEA_ARC.refer
+  is 'Референс';
+comment on column DWH_BUFFER.COL_ATF_IFRS_L_DEA_ARC.od_sum
+  is 'Сумма по ОД';
+comment on column DWH_BUFFER.COL_ATF_IFRS_L_DEA_ARC.prc_sum
+  is 'Сумма по %';
+comment on column DWH_BUFFER.COL_ATF_IFRS_L_DEA_ARC.od_sum_nat
+  is 'OD_SUM_NAT';
+comment on column DWH_BUFFER.COL_ATF_IFRS_L_DEA_ARC.prc_sum_nat
+  is 'PRC_SUM_NAT';
+comment on column DWH_BUFFER.COL_ATF_IFRS_L_DEA_ARC.typ
+  is 'Тип сделки';
+comment on column DWH_BUFFER.COL_ATF_IFRS_L_DEA_ARC.llp_for_isl
+  is 'llp% for isl';
+comment on column DWH_BUFFER.COL_ATF_IFRS_L_DEA_ARC.isl
+  is 'isl';
+create index DWH_BUFFER.COL_ATF_IFRS_L_DEA_ARC_CLI on DWH_BUFFER.COL_ATF_IFRS_L_DEA_ARC (CLI_DEP_ID, CLI_ID)
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 4M
+    next 4M
+    minextents 1
+    maxextents unlimited
+  )
+  nologging;
+create index DWH_BUFFER.COL_ATF_IFRS_L_DEA_ARC_DOPER on DWH_BUFFER.COL_ATF_IFRS_L_DEA_ARC (DOPER)
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 4M
+    next 4M
+    minextents 1
+    maxextents unlimited
+  )
+  nologging;
+create index DWH_BUFFER.COL_ATF_IFRS_L_DEA_ARC_ID on DWH_BUFFER.COL_ATF_IFRS_L_DEA_ARC (DEP_ID, DEA_ID)
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 4M
+    next 4M
+    minextents 1
+    maxextents unlimited
+  )
+  nologging;
+grant select on DWH_BUFFER.COL_ATF_IFRS_L_DEA_ARC to AIBEK_BE;
+grant select, insert, update, delete on DWH_BUFFER.COL_ATF_IFRS_L_DEA_ARC to DWH_BUFFER_FULL_ROLE;
+grant select on DWH_BUFFER.COL_ATF_IFRS_L_DEA_ARC to DWH_BUFFER_READ_ROLE;
+grant select on DWH_BUFFER.COL_ATF_IFRS_L_DEA_ARC to DWH_PRIM;
+grant select on DWH_BUFFER.COL_ATF_IFRS_L_DEA_ARC to DWH_RISK;
+grant select on DWH_BUFFER.COL_ATF_IFRS_L_DEA_ARC to DWH_SALES;
+grant select on DWH_BUFFER.COL_ATF_IFRS_L_DEA_ARC to HEAD_DENIS_PL;
+grant select on DWH_BUFFER.COL_ATF_IFRS_L_DEA_ARC to HEAD_EVGENIY_PI;
+grant select on DWH_BUFFER.COL_ATF_IFRS_L_DEA_ARC to KRISTINA_KO;
+grant select on DWH_BUFFER.COL_ATF_IFRS_L_DEA_ARC to PROCESS_RISK;
+grant select on DWH_BUFFER.COL_ATF_IFRS_L_DEA_ARC to PROCESS_SALES;
+

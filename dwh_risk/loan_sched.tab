@@ -1,0 +1,52 @@
+create table DWH_RISK.LOAN_SCHED
+(
+  contract_id  NUMBER(10) not null,
+  id           NUMBER(10) not null,
+  longname     VARCHAR2(250 CHAR),
+  doper        DATE not null,
+  amount_val   NUMBER(18,2),
+  prc          NUMBER(5),
+  dclcfrom     DATE,
+  dclcto       DATE,
+  csr_code     VARCHAR2(30),
+  waitdate     DATE,
+  paysdok      NUMBER(18,2),
+  sdok         NUMBER(18,2),
+  dclose       DATE,
+  paysdokn     NUMBER(18,2),
+  sdokn        NUMBER(18,2),
+  fix_pay_nord NUMBER(10),
+  stat         VARCHAR2(250 CHAR),
+  upd_dt1      DATE
+)
+tablespace DWH_RISK
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+create index DWH_RISK.LOAN_SCHED_ID on DWH_RISK.LOAN_SCHED (CONTRACT_ID, ID)
+  tablespace DWH_RISK
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+grant select on DWH_RISK.LOAN_SCHED to AIBEK_BE;
+grant select, insert, update, delete on DWH_RISK.LOAN_SCHED to DWH_RISK_FULL_ROLE;
+grant select on DWH_RISK.LOAN_SCHED to DWH_RISK_READ_ROLE;
+grant select on DWH_RISK.LOAN_SCHED to HEAD_DENIS_PL;
+grant select on DWH_RISK.LOAN_SCHED to KRISTINA_KO;
+grant select on DWH_RISK.LOAN_SCHED to PROCESS_RISK;
+grant select on DWH_RISK.LOAN_SCHED to RISK_REPORTER_ROLE;
+

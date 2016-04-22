@@ -1,0 +1,129 @@
+create table DWH_BUFFER.COL_C_DOMAIN_STD
+(
+  code      VARCHAR2(30) not null,
+  dat       CHAR(1) not null,
+  p_code    VARCHAR2(30),
+  dlen      NUMBER,
+  dprec     NUMBER,
+  predeffl  CHAR(1),
+  defvalue  VARCHAR2(250 CHAR),
+  editmask  VARCHAR2(250),
+  clientfl  CHAR(1) not null,
+  validcl   VARCHAR2(30),
+  ref_id    NUMBER(10),
+  delphityp CHAR(1),
+  reffield  VARCHAR2(30),
+  refform   VARCHAR2(30),
+  refsend   VARCHAR2(2000),
+  dchrused  CHAR(1)
+)
+tablespace DWH_BUFFER
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  )
+nologging;
+comment on table DWH_BUFFER.COL_C_DOMAIN_STD
+  is 'Домены данных';
+comment on column DWH_BUFFER.COL_C_DOMAIN_STD.code
+  is 'Код класса';
+comment on column DWH_BUFFER.COL_C_DOMAIN_STD.dat
+  is 'Код типа данных';
+comment on column DWH_BUFFER.COL_C_DOMAIN_STD.p_code
+  is 'Код класса';
+comment on column DWH_BUFFER.COL_C_DOMAIN_STD.dlen
+  is 'Длина';
+comment on column DWH_BUFFER.COL_C_DOMAIN_STD.dprec
+  is 'Точность';
+comment on column DWH_BUFFER.COL_C_DOMAIN_STD.predeffl
+  is 'Флаг принудительности';
+comment on column DWH_BUFFER.COL_C_DOMAIN_STD.defvalue
+  is 'Значение по умолчанию';
+comment on column DWH_BUFFER.COL_C_DOMAIN_STD.editmask
+  is 'Маска редактирования';
+comment on column DWH_BUFFER.COL_C_DOMAIN_STD.clientfl
+  is 'Использовать на клиенте';
+comment on column DWH_BUFFER.COL_C_DOMAIN_STD.validcl
+  is 'Класс валидации';
+comment on column DWH_BUFFER.COL_C_DOMAIN_STD.ref_id
+  is 'Идентификатор';
+comment on column DWH_BUFFER.COL_C_DOMAIN_STD.delphityp
+  is 'Тип для клиентского приложения';
+comment on column DWH_BUFFER.COL_C_DOMAIN_STD.reffield
+  is 'Поле справочника';
+comment on column DWH_BUFFER.COL_C_DOMAIN_STD.refform
+  is 'Форма справочника';
+comment on column DWH_BUFFER.COL_C_DOMAIN_STD.refsend
+  is 'Список передаваемых параметров';
+comment on column DWH_BUFFER.COL_C_DOMAIN_STD.dchrused
+  is 'Размерность длины';
+create index DWH_BUFFER.FK_COL_C_DOMAIN_STD_REF on DWH_BUFFER.COL_C_DOMAIN_STD (REF_ID)
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 128K
+    next 128K
+    minextents 1
+    maxextents unlimited
+  )
+  nologging;
+create index DWH_BUFFER.FK_DOMAINPARENT on DWH_BUFFER.COL_C_DOMAIN_STD (P_CODE)
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 128K
+    next 128K
+    minextents 1
+    maxextents unlimited
+  )
+  nologging;
+create index DWH_BUFFER.FK_DOMAINTYP on DWH_BUFFER.COL_C_DOMAIN_STD (DAT)
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 128K
+    next 128K
+    minextents 1
+    maxextents unlimited
+  )
+  nologging;
+create unique index DWH_BUFFER.PK_C_DOMAIN on DWH_BUFFER.COL_C_DOMAIN_STD (CODE)
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 128K
+    next 128K
+    minextents 1
+    maxextents unlimited
+  )
+  nologging;
+grant select on DWH_BUFFER.COL_C_DOMAIN_STD to AIBEK_BE;
+grant select, insert, update, delete on DWH_BUFFER.COL_C_DOMAIN_STD to DWH_BUFFER_FULL_ROLE;
+grant select on DWH_BUFFER.COL_C_DOMAIN_STD to DWH_BUFFER_READ_ROLE;
+grant select on DWH_BUFFER.COL_C_DOMAIN_STD to DWH_PRIM;
+grant select on DWH_BUFFER.COL_C_DOMAIN_STD to DWH_RISK;
+grant select on DWH_BUFFER.COL_C_DOMAIN_STD to DWH_SALES;
+grant select on DWH_BUFFER.COL_C_DOMAIN_STD to HEAD_DENIS_PL;
+grant select on DWH_BUFFER.COL_C_DOMAIN_STD to HEAD_EVGENIY_PI;
+grant select on DWH_BUFFER.COL_C_DOMAIN_STD to KRISTINA_KO;
+grant select on DWH_BUFFER.COL_C_DOMAIN_STD to PROCESS_RISK;
+grant select on DWH_BUFFER.COL_C_DOMAIN_STD to PROCESS_SALES;
+

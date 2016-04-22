@@ -1,0 +1,152 @@
+create table DWH_BUFFER.COL_L_MRTDEA
+(
+  dea_dep_id NUMBER(10) not null,
+  dea_id     NUMBER(10) not null,
+  mrt_dep_id NUMBER(10) not null,
+  mrt_id     NUMBER(10) not null,
+  cli_dep_id NUMBER(10),
+  cli_id     NUMBER(10),
+  amount     NUMBER(18,2) not null,
+  val_id     NUMBER(10) not null,
+  dea_code   VARCHAR2(30 CHAR),
+  dea_date   DATE,
+  fromdate   DATE,
+  todate     DATE,
+  dea_nn     NUMBER(10),
+  id_us      NUMBER(5),
+  correctdt  DATE,
+  dep_id     NUMBER(10) not null,
+  id         NUMBER(10) not null,
+  loanreqfl  CHAR(1 CHAR) not null
+)
+tablespace DWH_BUFFER
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  )
+nologging;
+comment on table DWH_BUFFER.COL_L_MRTDEA
+  is 'Связь объектов залога с договорами';
+comment on column DWH_BUFFER.COL_L_MRTDEA.dea_dep_id
+  is 'Идентификатор подразделения договора';
+comment on column DWH_BUFFER.COL_L_MRTDEA.dea_id
+  is 'Идентификатор договора';
+comment on column DWH_BUFFER.COL_L_MRTDEA.mrt_dep_id
+  is 'Идентификатор подразделения объекта залога';
+comment on column DWH_BUFFER.COL_L_MRTDEA.mrt_id
+  is 'Идентификатор объекта залога';
+comment on column DWH_BUFFER.COL_L_MRTDEA.cli_dep_id
+  is 'Идентификатор подразделения залогодателя';
+comment on column DWH_BUFFER.COL_L_MRTDEA.cli_id
+  is 'Идентификатор залогодателя';
+comment on column DWH_BUFFER.COL_L_MRTDEA.amount
+  is 'Заложенная стоимость';
+comment on column DWH_BUFFER.COL_L_MRTDEA.val_id
+  is 'Идентификатор валюты';
+comment on column DWH_BUFFER.COL_L_MRTDEA.dea_code
+  is 'Номер договора залога';
+comment on column DWH_BUFFER.COL_L_MRTDEA.dea_date
+  is 'Дата договора залога';
+comment on column DWH_BUFFER.COL_L_MRTDEA.fromdate
+  is 'Дата начала заклада объекта (его доли)';
+comment on column DWH_BUFFER.COL_L_MRTDEA.todate
+  is 'Дата окончания заклада объекта (его доли)';
+comment on column DWH_BUFFER.COL_L_MRTDEA.dea_nn
+  is 'Порядковый номер договора залога';
+comment on column DWH_BUFFER.COL_L_MRTDEA.id_us
+  is 'Исполнитель, корректировавший данные';
+comment on column DWH_BUFFER.COL_L_MRTDEA.correctdt
+  is 'Время записи физическое';
+comment on column DWH_BUFFER.COL_L_MRTDEA.dep_id
+  is 'Идентификатор подразделения';
+comment on column DWH_BUFFER.COL_L_MRTDEA.id
+  is 'Идентификатор договора залога';
+comment on column DWH_BUFFER.COL_L_MRTDEA.loanreqfl
+  is 'Флаг привязки к кредитной заявке';
+create index DWH_BUFFER.FK_COL_L_MRTDEA_G_CLI on DWH_BUFFER.COL_L_MRTDEA (CLI_DEP_ID, CLI_ID)
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 4M
+    next 4M
+    minextents 1
+    maxextents unlimited
+  )
+  nologging;
+create index DWH_BUFFER.FK_COL_L_MRTDEA_L_MORTGAGE on DWH_BUFFER.COL_L_MRTDEA (MRT_DEP_ID, MRT_ID)
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 4M
+    next 4M
+    minextents 1
+    maxextents unlimited
+  )
+  nologging;
+create index DWH_BUFFER.FK_COL_L_MRTDEA_T_DEA on DWH_BUFFER.COL_L_MRTDEA (DEA_DEP_ID, DEA_ID)
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 4M
+    next 4M
+    minextents 1
+    maxextents unlimited
+  )
+  nologging;
+alter table DWH_BUFFER.COL_L_MRTDEA
+  add constraint PK_COL_L_MRTDEA primary key (DEP_ID, ID)
+  using index 
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 4M
+    next 4M
+    minextents 1
+    maxextents unlimited
+  );
+alter index DWH_BUFFER.PK_COL_L_MRTDEA nologging;
+alter table DWH_BUFFER.COL_L_MRTDEA
+  add constraint AK_COL_L_MRTDEA unique (DEA_DEP_ID, DEA_ID, MRT_DEP_ID, MRT_ID, LOANREQFL)
+  using index 
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 4M
+    next 4M
+    minextents 1
+    maxextents unlimited
+  );
+alter index DWH_BUFFER.AK_COL_L_MRTDEA nologging;
+grant select on DWH_BUFFER.COL_L_MRTDEA to AIBEK_BE;
+grant select, insert, update, delete on DWH_BUFFER.COL_L_MRTDEA to DWH_BUFFER_FULL_ROLE;
+grant select on DWH_BUFFER.COL_L_MRTDEA to DWH_BUFFER_READ_ROLE;
+grant select on DWH_BUFFER.COL_L_MRTDEA to DWH_PRIM;
+grant select on DWH_BUFFER.COL_L_MRTDEA to DWH_RISK;
+grant select on DWH_BUFFER.COL_L_MRTDEA to DWH_SALES;
+grant select on DWH_BUFFER.COL_L_MRTDEA to HEAD_DENIS_PL;
+grant select on DWH_BUFFER.COL_L_MRTDEA to HEAD_EVGENIY_PI;
+grant select on DWH_BUFFER.COL_L_MRTDEA to KRISTINA_KO;
+grant select on DWH_BUFFER.COL_L_MRTDEA to PROCESS_RISK;
+grant select on DWH_BUFFER.COL_L_MRTDEA to PROCESS_SALES;
+

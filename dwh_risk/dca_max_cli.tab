@@ -1,0 +1,38 @@
+create table DWH_RISK.DCA_MAX_CLI
+(
+  load_id  NUMBER(10),
+  rpt_date DATE,
+  code     VARCHAR2(30),
+  pd       NUMBER
+)
+tablespace DWH_RISK
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  )
+nologging;
+create index DWH_RISK.IX_DCA_MAX_CLI1 on DWH_RISK.DCA_MAX_CLI (CODE, RPT_DATE)
+  tablespace DWH_RISK
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+grant select on DWH_RISK.DCA_MAX_CLI to AIBEK_BE;
+grant select, insert, update, delete on DWH_RISK.DCA_MAX_CLI to DWH_RISK_FULL_ROLE;
+grant select on DWH_RISK.DCA_MAX_CLI to DWH_RISK_READ_ROLE;
+grant select on DWH_RISK.DCA_MAX_CLI to HEAD_DENIS_PL;
+grant select on DWH_RISK.DCA_MAX_CLI to KRISTINA_KO;
+grant select on DWH_RISK.DCA_MAX_CLI to PROCESS_RISK;
+

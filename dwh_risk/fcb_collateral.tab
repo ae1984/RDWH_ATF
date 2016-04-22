@@ -1,0 +1,31 @@
+create table DWH_RISK.FCB_COLLATERAL
+(
+  id                     VARCHAR2(100),
+  loan_id                VARCHAR2(100),
+  contracttype           VARCHAR2(50),
+  codeofcontract         VARCHAR2(70),
+  agreementnumber        VARCHAR2(50),
+  typeofguarantee        VARCHAR2(50),
+  valueofguarantee       VARCHAR2(50),
+  typeofvalueofguarantee VARCHAR2(50)
+)
+tablespace DWH_RISK
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+comment on table DWH_RISK.FCB_COLLATERAL
+  is 'Обеспечение (залоги) по ПКБ';
+grant select on DWH_RISK.FCB_COLLATERAL to AIBEK_BE;
+grant select, insert, update, delete on DWH_RISK.FCB_COLLATERAL to DWH_RISK_FULL_ROLE;
+grant select on DWH_RISK.FCB_COLLATERAL to DWH_RISK_READ_ROLE;
+grant select on DWH_RISK.FCB_COLLATERAL to HEAD_DENIS_PL;
+grant select on DWH_RISK.FCB_COLLATERAL to KRISTINA_KO;
+grant select on DWH_RISK.FCB_COLLATERAL to PROCESS_RISK;
+

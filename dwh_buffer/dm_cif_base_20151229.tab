@@ -1,0 +1,74 @@
+create table DWH_BUFFER.DM_CIF_BASE_20151229
+(
+  id                 NUMBER(10) not null,
+  dep_id             NUMBER(10) not null,
+  in_source_id       VARCHAR2(81),
+  cli_code           VARCHAR2(30),
+  date_open          DATE,
+  date_update        DATE,
+  resident           VARCHAR2(40),
+  date_birth         DATE,
+  date_death         DATE,
+  sex                CHAR(1),
+  iin                VARCHAR2(30),
+  rnn                VARCHAR2(12 CHAR),
+  is_empl            VARCHAR2(4),
+  is_affil           VARCHAR2(4),
+  is_vip             VARCHAR2(4),
+  filial             VARCHAR2(1031),
+  is_ul              CHAR(1),
+  is_ip              CHAR(1),
+  cli_name           VARCHAR2(30 CHAR),
+  full_name          VARCHAR2(250 CHAR),
+  eng_name           VARCHAR2(250),
+  first_name         VARCHAR2(30),
+  last_name          VARCHAR2(30),
+  parent_name        VARCHAR2(30),
+  fact_addr_den      VARCHAR2(250 CHAR),
+  reg_addr_den       VARCHAR2(250 CHAR),
+  phone_num_den      VARCHAR2(30),
+  email              VARCHAR2(30),
+  phone_num_fax      VARCHAR2(30),
+  doc_name           VARCHAR2(120 CHAR),
+  doc_type           NUMBER(10),
+  doc_series         VARCHAR2(15 CHAR),
+  doc_number         VARCHAR2(30 CHAR),
+  doc_giveby         VARCHAR2(250 CHAR),
+  doc_givedate       DATE,
+  doc_finishdate     DATE,
+  is_arrested        NUMBER(1),
+  sector_id          VARCHAR2(5),
+  justice_reg_organ  VARCHAR2(250 CHAR),
+  justice_reg_number VARCHAR2(30),
+  justice_date_end   DATE,
+  justice_date_reg   DATE,
+  okpo               VARCHAR2(30),
+  country_reg        VARCHAR2(30),
+  cli_state          NUMBER,
+  vcc                VARCHAR2(10 CHAR),
+  id_us              NUMBER(5),
+  tus_id             NUMBER(10)
+)
+tablespace DWH_BUFFER
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+grant select on DWH_BUFFER.DM_CIF_BASE_20151229 to AIBEK_BE;
+grant select, insert, update, delete on DWH_BUFFER.DM_CIF_BASE_20151229 to DWH_BUFFER_FULL_ROLE;
+grant select on DWH_BUFFER.DM_CIF_BASE_20151229 to DWH_BUFFER_READ_ROLE;
+grant select on DWH_BUFFER.DM_CIF_BASE_20151229 to DWH_PRIM;
+grant select on DWH_BUFFER.DM_CIF_BASE_20151229 to DWH_RISK;
+grant select on DWH_BUFFER.DM_CIF_BASE_20151229 to DWH_SALES;
+grant select on DWH_BUFFER.DM_CIF_BASE_20151229 to HEAD_DENIS_PL;
+grant select on DWH_BUFFER.DM_CIF_BASE_20151229 to HEAD_EVGENIY_PI;
+grant select on DWH_BUFFER.DM_CIF_BASE_20151229 to KRISTINA_KO;
+grant select on DWH_BUFFER.DM_CIF_BASE_20151229 to PROCESS_RISK;
+grant select on DWH_BUFFER.DM_CIF_BASE_20151229 to PROCESS_SALES;
+

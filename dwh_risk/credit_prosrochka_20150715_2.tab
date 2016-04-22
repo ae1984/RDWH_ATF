@@ -1,0 +1,49 @@
+create table DWH_RISK.CREDIT_PROSROCHKA_20150715_2
+(
+  refer_wh       VARCHAR2(30),
+  dni_prosrochki NUMBER,
+  dt_vznosa_plan DATE,
+  stat           VARCHAR2(250 CHAR),
+  contract_id    NUMBER(10) not null,
+  cli_code       VARCHAR2(30),
+  state          VARCHAR2(250 CHAR),
+  contract_num   VARCHAR2(30),
+  full_name      VARCHAR2(250 CHAR),
+  val_code       VARCHAR2(30),
+  val_id         NUMBER(10),
+  cl_type        VARCHAR2(12),
+  cl_type2       VARCHAR2(10),
+  vcc            VARCHAR2(10 CHAR),
+  filial         VARCHAR2(1031),
+  period         VARCHAR2(9),
+  od             NUMBER,
+  od_prosroch    NUMBER,
+  od_paid        NUMBER,
+  od_ost         NUMBER,
+  amt_p          NUMBER,
+  paid           NUMBER,
+  amt_plan       NUMBER,
+  amt_prc        NUMBER,
+  amt_od_np      NUMBER,
+  amt_prc_np     NUMBER,
+  upd_dt1        DATE
+)
+tablespace DWH_RISK
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+grant select on DWH_RISK.CREDIT_PROSROCHKA_20150715_2 to AIBEK_BE;
+grant select, insert, update, delete on DWH_RISK.CREDIT_PROSROCHKA_20150715_2 to DWH_RISK_FULL_ROLE;
+grant select on DWH_RISK.CREDIT_PROSROCHKA_20150715_2 to DWH_RISK_READ_ROLE;
+grant select on DWH_RISK.CREDIT_PROSROCHKA_20150715_2 to HEAD_DENIS_PL;
+grant select on DWH_RISK.CREDIT_PROSROCHKA_20150715_2 to KRISTINA_KO;
+grant select on DWH_RISK.CREDIT_PROSROCHKA_20150715_2 to PROCESS_RISK;
+grant select on DWH_RISK.CREDIT_PROSROCHKA_20150715_2 to RISK_REPORTER_ROLE;
+

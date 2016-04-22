@@ -1,0 +1,98 @@
+create table DWH_RISK.AGGREGATE_DATA_BEH_SCORECARD
+(
+  id_colvir            NUMBER,
+  contract_num         VARCHAR2(30),
+  good_bad             NUMBER,
+  salary               NUMBER,
+  cheap_shop           NUMBER,
+  universal_cheap_shop NUMBER,
+  avia                 NUMBER,
+  hotels_airports      NUMBER,
+  tour_agencies        NUMBER,
+  transport            NUMBER,
+  white_technic        NUMBER,
+  computer_soft        NUMBER,
+  send_money           NUMBER,
+  tv                   NUMBER,
+  utilities            NUMBER,
+  wholesale            NUMBER,
+  homeware             NUMBER,
+  constructions        NUMBER,
+  food                 NUMBER,
+  car                  NUMBER,
+  clothes              NUMBER,
+  child_family_clothes NUMBER,
+  sport_clothes        NUMBER,
+  vip_clothes          NUMBER,
+  furniture            NUMBER,
+  music                NUMBER,
+  restaurant           NUMBER,
+  disco                NUMBER,
+  pharmacy             NUMBER,
+  alcohol              NUMBER,
+  second_hand          NUMBER,
+  antiques_jewelry     NUMBER,
+  pawnshop             NUMBER,
+  school_goods         NUMBER,
+  toys                 NUMBER,
+  photo                NUMBER,
+  web_shop             NUMBER,
+  religion             NUMBER,
+  exchange_            NUMBER,
+  insurance            NUMBER,
+  outsource            NUMBER,
+  cinema               NUMBER,
+  theatre              NUMBER,
+  bowling              NUMBER,
+  sport_club           NUMBER,
+  casino               NUMBER,
+  hospital             NUMBER,
+  lawyer               NUMBER,
+  school_college       NUMBER,
+  education            NUMBER,
+  charity              NUMBER,
+  fees                 NUMBER,
+  cash                 NUMBER,
+  outcome              NUMBER,
+  income               NUMBER,
+  morning_outcome      NUMBER,
+  afternoon_outcome    NUMBER,
+  evening_outcome      NUMBER,
+  night_outcome        NUMBER,
+  kassa                NUMBER,
+  cash_in_no_salary    NUMBER,
+  retail               NUMBER,
+  foreign_cur          NUMBER,
+  foreign_cash_out     NUMBER,
+  cash_in_no_salry     NUMBER,
+  distinct_operations  NUMBER,
+  avg_outcome          NUMBER,
+  max_otcome           NUMBER,
+  min_outcome          NUMBER,
+  trans_countries      NUMBER,
+  pin_changes          NUMBER,
+  pin_wrong            NUMBER,
+  balance_checks       NUMBER,
+  mobile_banks         NUMBER,
+  internet_bank        NUMBER,
+  cities               NUMBER,
+  countries            NUMBER
+)
+tablespace DWH_RISK
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+grant select on DWH_RISK.AGGREGATE_DATA_BEH_SCORECARD to AIBEK_BE;
+grant select, insert, update, delete on DWH_RISK.AGGREGATE_DATA_BEH_SCORECARD to DWH_RISK_FULL_ROLE;
+grant select on DWH_RISK.AGGREGATE_DATA_BEH_SCORECARD to DWH_RISK_READ_ROLE;
+grant select on DWH_RISK.AGGREGATE_DATA_BEH_SCORECARD to HEAD_DENIS_PL;
+grant select on DWH_RISK.AGGREGATE_DATA_BEH_SCORECARD to KRISTINA_KO;
+grant select on DWH_RISK.AGGREGATE_DATA_BEH_SCORECARD to PROCESS_RISK;
+

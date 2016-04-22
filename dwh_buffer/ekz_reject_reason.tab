@@ -1,0 +1,44 @@
+create table DWH_BUFFER.EKZ_REJECT_REASON
+(
+  process_guid  CHAR(36) not null,
+  reject_reason VARCHAR2(4000)
+)
+tablespace DWH_BUFFER
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 128K
+    next 128K
+    minextents 1
+    maxextents unlimited
+  )
+nologging;
+alter table DWH_BUFFER.EKZ_REJECT_REASON
+  add primary key (PROCESS_GUID)
+  using index 
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+alter index DWH_BUFFER.SYS_C0059484 nologging;
+grant select on DWH_BUFFER.EKZ_REJECT_REASON to AIBEK_BE;
+grant select, insert, update, delete on DWH_BUFFER.EKZ_REJECT_REASON to DWH_BUFFER_FULL_ROLE;
+grant select on DWH_BUFFER.EKZ_REJECT_REASON to DWH_BUFFER_READ_ROLE;
+grant select on DWH_BUFFER.EKZ_REJECT_REASON to DWH_PRIM;
+grant select on DWH_BUFFER.EKZ_REJECT_REASON to DWH_RISK;
+grant select on DWH_BUFFER.EKZ_REJECT_REASON to DWH_SALES;
+grant select on DWH_BUFFER.EKZ_REJECT_REASON to HEAD_DENIS_PL;
+grant select on DWH_BUFFER.EKZ_REJECT_REASON to HEAD_EVGENIY_PI;
+grant select on DWH_BUFFER.EKZ_REJECT_REASON to KRISTINA_KO;
+grant select on DWH_BUFFER.EKZ_REJECT_REASON to PROCESS_RISK;
+grant select on DWH_BUFFER.EKZ_REJECT_REASON to PROCESS_SALES;
+

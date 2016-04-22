@@ -1,0 +1,63 @@
+create table DWH_RISK.OVERDUE_LOANS_FROM_REPORTER
+(
+  branch_mfo                   VARCHAR2(20),
+  client_name                  VARCHAR2(200),
+  client_code                  VARCHAR2(20),
+  rnn                          VARCHAR2(20),
+  biniin                       VARCHAR2(20),
+  rm_group                     VARCHAR2(20),
+  contract_code                VARCHAR2(20),
+  contract_date                VARCHAR2(20),
+  cuntract_currency            VARCHAR2(20),
+  oputstanding                 VARCHAR2(20),
+  loans_with_overdue_principal VARCHAR2(20),
+  loan_overdue_principal       VARCHAR2(20),
+  overdue_principal_provisions VARCHAR2(20),
+  principal_overdue_first_date VARCHAR2(20),
+  principal_overdue_days       VARCHAR2(20),
+  principal_overdue_range      VARCHAR2(20),
+  loans_with_overdue_interest  VARCHAR2(20),
+  loan_overdue_interest        VARCHAR2(20),
+  overdue_interest_provisions  VARCHAR2(20),
+  interest_overdue_first_date  VARCHAR2(20),
+  interest_overdue_days        VARCHAR2(20),
+  interest_overdue_range       VARCHAR2(20),
+  loan_category                VARCHAR2(200),
+  loan_product_type            VARCHAR2(20),
+  loan_busitess_type           VARCHAR2(20),
+  client_industry              VARCHAR2(20),
+  lending_code                 VARCHAR2(20),
+  portfolio_type               VARCHAR2(20),
+  vcc                          VARCHAR2(20),
+  restructured                 VARCHAR2(20),
+  loan_reference               VARCHAR2(20),
+  leagal_or_individual         VARCHAR2(20),
+  risk_manager                 VARCHAR2(20),
+  loan_manager                 VARCHAR2(20),
+  cp_code                      VARCHAR2(20),
+  profit_taker                 VARCHAR2(20),
+  loan_consultant              VARCHAR2(20),
+  tp_colvir                    VARCHAR2(20),
+  devision                     VARCHAR2(20),
+  address                      VARCHAR2(200),
+  phone_number                 VARCHAR2(20),
+  reg_number                   VARCHAR2(20)
+)
+tablespace DWH_RISK
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+grant select on DWH_RISK.OVERDUE_LOANS_FROM_REPORTER to AIBEK_BE;
+grant select, insert, update, delete on DWH_RISK.OVERDUE_LOANS_FROM_REPORTER to DWH_RISK_FULL_ROLE;
+grant select on DWH_RISK.OVERDUE_LOANS_FROM_REPORTER to DWH_RISK_READ_ROLE;
+grant select on DWH_RISK.OVERDUE_LOANS_FROM_REPORTER to HEAD_DENIS_PL;
+grant select on DWH_RISK.OVERDUE_LOANS_FROM_REPORTER to KRISTINA_KO;
+grant select on DWH_RISK.OVERDUE_LOANS_FROM_REPORTER to PROCESS_RISK;
+

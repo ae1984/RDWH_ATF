@@ -1,0 +1,66 @@
+create table DWH_BUFFER.CLNT_ANALIT_20141205
+(
+  agr_id           NUMBER not null,
+  ows_client_id    NUMBER,
+  segm             VARCHAR2(50),
+  is_staff         VARCHAR2(50),
+  is_loan_active   VARCHAR2(50),
+  is_loan_closed   VARCHAR2(50),
+  is_payroll       VARCHAR2(200),
+  is_cc            VARCHAR2(200),
+  is_dep           VARCHAR2(100),
+  is_phone         VARCHAR2(100),
+  is_address       VARCHAR2(100),
+  is_sms           VARCHAR2(100),
+  is_web_banking   VARCHAR2(100) not null,
+  sex              VARCHAR2(5),
+  age_ind          VARCHAR2(100),
+  age              NUMBER,
+  sal_ekz          VARCHAR2(100),
+  overdue_ind      VARCHAR2(100),
+  region_ind       VARCHAR2(100),
+  dc_plastic_type  VARCHAR2(100),
+  cc_plastic_type  VARCHAR2(100),
+  is_business_card VARCHAR2(100),
+  is_virt_card     VARCHAR2(100),
+  is_vip           VARCHAR2(50)
+)
+tablespace DWH_BUFFER
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  )
+nologging;
+alter table DWH_BUFFER.CLNT_ANALIT_20141205
+  add constraint CLNT_ANALIT_20141205_AGR_ID primary key (AGR_ID)
+  using index 
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+alter index DWH_BUFFER.CLNT_ANALIT_20141205_AGR_ID nologging;
+grant select on DWH_BUFFER.CLNT_ANALIT_20141205 to AIBEK_BE;
+grant select, insert, update, delete on DWH_BUFFER.CLNT_ANALIT_20141205 to DWH_BUFFER_FULL_ROLE;
+grant select on DWH_BUFFER.CLNT_ANALIT_20141205 to DWH_BUFFER_READ_ROLE;
+grant select on DWH_BUFFER.CLNT_ANALIT_20141205 to DWH_PRIM;
+grant select on DWH_BUFFER.CLNT_ANALIT_20141205 to DWH_RISK;
+grant select on DWH_BUFFER.CLNT_ANALIT_20141205 to DWH_SALES;
+grant select on DWH_BUFFER.CLNT_ANALIT_20141205 to HEAD_DENIS_PL;
+grant select on DWH_BUFFER.CLNT_ANALIT_20141205 to HEAD_EVGENIY_PI;
+grant select on DWH_BUFFER.CLNT_ANALIT_20141205 to KRISTINA_KO;
+grant select on DWH_BUFFER.CLNT_ANALIT_20141205 to PROCESS_RISK;
+grant select on DWH_BUFFER.CLNT_ANALIT_20141205 to PROCESS_SALES;
+

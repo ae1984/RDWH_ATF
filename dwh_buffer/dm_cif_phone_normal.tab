@@ -1,0 +1,60 @@
+create table DWH_BUFFER.DM_CIF_PHONE_NORMAL
+(
+  cli_id   NUMBER,
+  dep_id   NUMBER,
+  cli_code VARCHAR2(30),
+  rab      VARCHAR2(4000),
+  dom      VARCHAR2(4000),
+  mob      VARCHAR2(4000)
+)
+tablespace DWH_BUFFER
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 128K
+    next 128K
+    minextents 1
+    maxextents unlimited
+  )
+nologging;
+comment on table DWH_BUFFER.DM_CIF_PHONE_NORMAL
+  is 'Телефоны клиента';
+comment on column DWH_BUFFER.DM_CIF_PHONE_NORMAL.cli_id
+  is 'ID клиента';
+comment on column DWH_BUFFER.DM_CIF_PHONE_NORMAL.dep_id
+  is 'DEP_ID клиента';
+comment on column DWH_BUFFER.DM_CIF_PHONE_NORMAL.cli_code
+  is 'Код клиента';
+comment on column DWH_BUFFER.DM_CIF_PHONE_NORMAL.rab
+  is 'Рабочие телефоны';
+comment on column DWH_BUFFER.DM_CIF_PHONE_NORMAL.dom
+  is 'Домашние телефоны';
+comment on column DWH_BUFFER.DM_CIF_PHONE_NORMAL.mob
+  is 'Мобильные телефоны';
+create unique index DWH_BUFFER.I_PHONE_CLI on DWH_BUFFER.DM_CIF_PHONE_NORMAL (CLI_ID, DEP_ID)
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  )
+  nologging;
+grant select on DWH_BUFFER.DM_CIF_PHONE_NORMAL to AIBEK_BE;
+grant select, insert, update, delete on DWH_BUFFER.DM_CIF_PHONE_NORMAL to DWH_BUFFER_FULL_ROLE;
+grant select on DWH_BUFFER.DM_CIF_PHONE_NORMAL to DWH_BUFFER_READ_ROLE;
+grant select on DWH_BUFFER.DM_CIF_PHONE_NORMAL to DWH_PRIM;
+grant select on DWH_BUFFER.DM_CIF_PHONE_NORMAL to DWH_RISK;
+grant select on DWH_BUFFER.DM_CIF_PHONE_NORMAL to DWH_SALES;
+grant select on DWH_BUFFER.DM_CIF_PHONE_NORMAL to HEAD_DENIS_PL;
+grant select on DWH_BUFFER.DM_CIF_PHONE_NORMAL to HEAD_EVGENIY_PI;
+grant select on DWH_BUFFER.DM_CIF_PHONE_NORMAL to KRISTINA_KO;
+grant select on DWH_BUFFER.DM_CIF_PHONE_NORMAL to PROCESS_RISK;
+grant select on DWH_BUFFER.DM_CIF_PHONE_NORMAL to PROCESS_SALES;
+

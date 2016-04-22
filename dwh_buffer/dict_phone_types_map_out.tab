@@ -1,0 +1,66 @@
+create table DWH_BUFFER.DICT_PHONE_TYPES_MAP_OUT
+(
+  id             NUMBER not null,
+  id_type        NUMBER not null,
+  system_code    VARCHAR2(20) not null,
+  system_type_id VARCHAR2(200) not null
+)
+tablespace DWH_BUFFER
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 128K
+    next 128K
+    minextents 1
+    maxextents unlimited
+  )
+nologging;
+alter table DWH_BUFFER.DICT_PHONE_TYPES_MAP_OUT
+  add primary key (ID)
+  using index 
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+alter index DWH_BUFFER.SYS_C0059478 nologging;
+alter table DWH_BUFFER.DICT_PHONE_TYPES_MAP_OUT
+  add constraint U_PH_TYPE_CONTR unique (ID_TYPE, SYSTEM_CODE, SYSTEM_TYPE_ID)
+  using index 
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+alter index DWH_BUFFER.U_PH_TYPE_CONTR nologging;
+alter table DWH_BUFFER.DICT_PHONE_TYPES_MAP_OUT
+  add constraint FK_PH_TYPE_MAP foreign key (ID_TYPE)
+  references DWH_BUFFER.DICT_PHONE_TYPES (ID) on delete cascade
+  disable
+  novalidate;
+grant select on DWH_BUFFER.DICT_PHONE_TYPES_MAP_OUT to AIBEK_BE;
+grant select, insert, update, delete on DWH_BUFFER.DICT_PHONE_TYPES_MAP_OUT to DWH_BUFFER_FULL_ROLE;
+grant select on DWH_BUFFER.DICT_PHONE_TYPES_MAP_OUT to DWH_BUFFER_READ_ROLE;
+grant select on DWH_BUFFER.DICT_PHONE_TYPES_MAP_OUT to DWH_PRIM;
+grant select on DWH_BUFFER.DICT_PHONE_TYPES_MAP_OUT to DWH_RISK;
+grant select on DWH_BUFFER.DICT_PHONE_TYPES_MAP_OUT to DWH_SALES;
+grant select on DWH_BUFFER.DICT_PHONE_TYPES_MAP_OUT to HEAD_DENIS_PL;
+grant select on DWH_BUFFER.DICT_PHONE_TYPES_MAP_OUT to HEAD_EVGENIY_PI;
+grant select on DWH_BUFFER.DICT_PHONE_TYPES_MAP_OUT to KRISTINA_KO;
+grant select on DWH_BUFFER.DICT_PHONE_TYPES_MAP_OUT to PROCESS_RISK;
+grant select on DWH_BUFFER.DICT_PHONE_TYPES_MAP_OUT to PROCESS_SALES;
+

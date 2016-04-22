@@ -1,0 +1,91 @@
+create table DWH_BUFFER.COL_Q_ACC
+(
+  obj_id    NUMBER(10) not null,
+  entacc_id NUMBER(10) not null,
+  code      VARCHAR2(30) not null,
+  accdep_id NUMBER(10),
+  acc_id    NUMBER(10),
+  fromdate  DATE not null,
+  todate    DATE not null
+)
+tablespace DWH_BUFFER
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  )
+nologging;
+comment on table DWH_BUFFER.COL_Q_ACC
+  is 'Счета ARM';
+comment on column DWH_BUFFER.COL_Q_ACC.obj_id
+  is 'Идентификатор объекта';
+comment on column DWH_BUFFER.COL_Q_ACC.entacc_id
+  is 'Тип счета';
+comment on column DWH_BUFFER.COL_Q_ACC.code
+  is 'Код счета';
+comment on column DWH_BUFFER.COL_Q_ACC.accdep_id
+  is 'Подразделение счета';
+comment on column DWH_BUFFER.COL_Q_ACC.acc_id
+  is 'Идентификатор счета';
+comment on column DWH_BUFFER.COL_Q_ACC.fromdate
+  is 'Дата начала';
+comment on column DWH_BUFFER.COL_Q_ACC.todate
+  is 'Дата окончания';
+create index DWH_BUFFER.IE_COL_Q_ACC_ACC_ID on DWH_BUFFER.COL_Q_ACC (ACCDEP_ID, ACC_ID)
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 4M
+    next 4M
+    minextents 1
+    maxextents unlimited
+  )
+  nologging;
+create index DWH_BUFFER.IE_COL_Q_ACC_CODE on DWH_BUFFER.COL_Q_ACC (CODE, ACCDEP_ID)
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 4M
+    next 4M
+    minextents 1
+    maxextents unlimited
+  )
+  nologging;
+alter table DWH_BUFFER.COL_Q_ACC
+  add constraint PK_COL_Q_ACC primary key (OBJ_ID, ENTACC_ID, FROMDATE)
+  using index 
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 4M
+    next 4M
+    minextents 1
+    maxextents unlimited
+  );
+alter index DWH_BUFFER.PK_COL_Q_ACC nologging;
+grant select on DWH_BUFFER.COL_Q_ACC to AIBEK_BE;
+grant select, insert, update, delete on DWH_BUFFER.COL_Q_ACC to DWH_BUFFER_FULL_ROLE;
+grant select on DWH_BUFFER.COL_Q_ACC to DWH_BUFFER_READ_ROLE;
+grant select on DWH_BUFFER.COL_Q_ACC to DWH_PRIM;
+grant select on DWH_BUFFER.COL_Q_ACC to DWH_RISK;
+grant select on DWH_BUFFER.COL_Q_ACC to DWH_SALES;
+grant select on DWH_BUFFER.COL_Q_ACC to HEAD_DENIS_PL;
+grant select on DWH_BUFFER.COL_Q_ACC to HEAD_EVGENIY_PI;
+grant select on DWH_BUFFER.COL_Q_ACC to KRISTINA_KO;
+grant select on DWH_BUFFER.COL_Q_ACC to PROCESS_RISK;
+grant select on DWH_BUFFER.COL_Q_ACC to PROCESS_SALES;
+

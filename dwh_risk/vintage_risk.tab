@@ -1,0 +1,72 @@
+create table DWH_RISK.VINTAGE_RISK
+(
+  contract_id            NUMBER(10) not null,
+  fromdate               DATE,
+  fromweek               DATE,
+  frommonth              DATE,
+  val_code               VARCHAR2(30),
+  is_kegok               CHAR(17),
+  product_name_atf       VARCHAR2(4000),
+  target_name_atf        VARCHAR2(4000),
+  restruct_name_atf      VARCHAR2(4000),
+  prod_type              VARCHAR2(11),
+  state                  VARCHAR2(250 CHAR),
+  effective_rate         NUMBER,
+  sum_full               NUMBER,
+  wt_effective_rate      NUMBER,
+  filial_name            VARCHAR2(250 CHAR),
+  branch_name            VARCHAR2(250 CHAR),
+  month_year             DATE,
+  mob                    NUMBER,
+  principal_bal          NUMBER,
+  ovd_principal_bal      NUMBER,
+  ow_principal_bal       NUMBER,
+  int_accrual            NUMBER,
+  ovd_int_accural        NUMBER,
+  ow_int                 NUMBER,
+  offsys_int_accural     NUMBER,
+  ovd_offsys_int_accural NUMBER,
+  com_accrual            NUMBER,
+  offsys_com_accural     NUMBER,
+  ovd_com                NUMBER,
+  fine_bal               NUMBER,
+  fine_int               NUMBER,
+  ow_fine_bal            NUMBER,
+  ow_fine_int            NUMBER,
+  sum_bal                NUMBER,
+  sum_ow                 NUMBER,
+  sum_offsys_accural     NUMBER,
+  sum_total              NUMBER,
+  ovd_bucket             VARCHAR2(29),
+  is_kik                 NUMBER,
+  cl_type                VARCHAR2(12),
+  segm                   VARCHAR2(40),
+  salary_flag_ekz        VARCHAR2(1 CHAR),
+  loyal_flag_ekz         NUMBER,
+  com_amort_sum          NUMBER,
+  int_acc_sum            NUMBER,
+  com_acc_sum            NUMBER,
+  fine_acc_sum           NUMBER,
+  com_amort_sum_s        NUMBER,
+  int_acc_sum_s          NUMBER,
+  com_acc_sum_s          NUMBER,
+  fine_acc_sum_s         NUMBER
+)
+tablespace DWH_RISK
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+grant select on DWH_RISK.VINTAGE_RISK to AIBEK_BE;
+grant select, insert, update, delete on DWH_RISK.VINTAGE_RISK to DWH_RISK_FULL_ROLE;
+grant select on DWH_RISK.VINTAGE_RISK to DWH_RISK_READ_ROLE;
+grant select on DWH_RISK.VINTAGE_RISK to HEAD_DENIS_PL;
+grant select on DWH_RISK.VINTAGE_RISK to KRISTINA_KO;
+grant select on DWH_RISK.VINTAGE_RISK to PROCESS_RISK;
+

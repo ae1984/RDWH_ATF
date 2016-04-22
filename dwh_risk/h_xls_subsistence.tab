@@ -1,0 +1,37 @@
+create table DWH_RISK.H_XLS_SUBSISTENCE
+(
+  yyyy              VARCHAR2(100),
+  ekz_branch_name   VARCHAR2(200),
+  ekz_ac_city       VARCHAR2(100),
+  subsistence_level VARCHAR2(100)
+)
+tablespace DWH_RISK
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+create index DWH_RISK.IX_SSL_1 on DWH_RISK.H_XLS_SUBSISTENCE (EKZ_BRANCH_NAME, YYYY)
+  tablespace DWH_RISK
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+grant select on DWH_RISK.H_XLS_SUBSISTENCE to AIBEK_BE;
+grant select, insert, update, delete on DWH_RISK.H_XLS_SUBSISTENCE to DWH_RISK_FULL_ROLE;
+grant select on DWH_RISK.H_XLS_SUBSISTENCE to DWH_RISK_READ_ROLE;
+grant select on DWH_RISK.H_XLS_SUBSISTENCE to HEAD_DENIS_PL;
+grant select on DWH_RISK.H_XLS_SUBSISTENCE to KRISTINA_KO;
+grant select on DWH_RISK.H_XLS_SUBSISTENCE to PROCESS_RISK;
+

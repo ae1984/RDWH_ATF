@@ -1,0 +1,31 @@
+create table DWH_BUFFER.TEST_MONITOR
+(
+  id       NUMBER,
+  name     VARCHAR2(100),
+  startdt  DATE,
+  enddt    DATE,
+  duration NUMBER
+)
+tablespace DWH_BUFFER
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+grant select on DWH_BUFFER.TEST_MONITOR to AIBEK_BE;
+grant select, insert, update, delete on DWH_BUFFER.TEST_MONITOR to DWH_BUFFER_FULL_ROLE;
+grant select on DWH_BUFFER.TEST_MONITOR to DWH_BUFFER_READ_ROLE;
+grant select on DWH_BUFFER.TEST_MONITOR to DWH_PRIM;
+grant select on DWH_BUFFER.TEST_MONITOR to DWH_RISK;
+grant select on DWH_BUFFER.TEST_MONITOR to DWH_SALES;
+grant select on DWH_BUFFER.TEST_MONITOR to HEAD_DENIS_PL;
+grant select on DWH_BUFFER.TEST_MONITOR to HEAD_EVGENIY_PI;
+grant select on DWH_BUFFER.TEST_MONITOR to KRISTINA_KO;
+grant select on DWH_BUFFER.TEST_MONITOR to PROCESS_RISK;
+grant select on DWH_BUFFER.TEST_MONITOR to PROCESS_SALES;
+

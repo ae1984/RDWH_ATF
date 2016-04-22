@@ -1,0 +1,47 @@
+create table DWH_RISK.SALARY_DCA_1
+(
+  mm               DATE,
+  bin              VARCHAR2(4000 CHAR),
+  contract_name    VARCHAR2(255 CHAR),
+  iin_cl           VARCHAR2(4000 CHAR),
+  is_stability_dca NUMBER,
+  is_stability_3   NUMBER,
+  is_amount_lag    NUMBER,
+  is_more_10prc    NUMBER,
+  is_2times        NUMBER,
+  is_delay_zp      NUMBER,
+  is_have_bin      NUMBER,
+  pd               NUMBER,
+  pd_lag           NUMBER
+)
+tablespace DWH_RISK
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+create index DWH_RISK.IX_SALARY_DCA_1_1 on DWH_RISK.SALARY_DCA_1 (IIN_CL, MM)
+  tablespace DWH_RISK
+  pctfree 10
+  initrans 2
+  maxtrans 167
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  )
+  nologging;
+grant select on DWH_RISK.SALARY_DCA_1 to AIBEK_BE;
+grant select, insert, update, delete on DWH_RISK.SALARY_DCA_1 to DWH_RISK_FULL_ROLE;
+grant select on DWH_RISK.SALARY_DCA_1 to DWH_RISK_READ_ROLE;
+grant select on DWH_RISK.SALARY_DCA_1 to HEAD_DENIS_PL;
+grant select on DWH_RISK.SALARY_DCA_1 to KRISTINA_KO;
+grant select on DWH_RISK.SALARY_DCA_1 to PROCESS_RISK;
+

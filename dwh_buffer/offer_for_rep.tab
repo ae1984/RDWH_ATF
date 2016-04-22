@@ -1,0 +1,41 @@
+create table DWH_BUFFER.OFFER_FOR_REP
+(
+  offer_id             NUMBER,
+  agr_id               NUMBER,
+  dep_id               NUMBER,
+  campaign_code        VARCHAR2(20 CHAR),
+  offer_type           VARCHAR2(20 CHAR),
+  comment_ext          VARCHAR2(200 CHAR),
+  region               VARCHAR2(250 CHAR),
+  is_sms_delivered     NUMBER,
+  is_call_got_through  NUMBER,
+  is_call_wrong_number NUMBER,
+  is_call_accept       NUMBER,
+  is_call_accept_maybe NUMBER,
+  offer_open_dttm      DATE,
+  channel_path         VARCHAR2(4000 CHAR)
+)
+tablespace DWH_BUFFER
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 128K
+    next 128K
+    minextents 1
+    maxextents unlimited
+  )
+nologging;
+grant select on DWH_BUFFER.OFFER_FOR_REP to AIBEK_BE;
+grant select, insert, update, delete on DWH_BUFFER.OFFER_FOR_REP to DWH_BUFFER_FULL_ROLE;
+grant select on DWH_BUFFER.OFFER_FOR_REP to DWH_BUFFER_READ_ROLE;
+grant select on DWH_BUFFER.OFFER_FOR_REP to DWH_PRIM;
+grant select on DWH_BUFFER.OFFER_FOR_REP to DWH_RISK;
+grant select on DWH_BUFFER.OFFER_FOR_REP to DWH_SALES;
+grant select on DWH_BUFFER.OFFER_FOR_REP to HEAD_DENIS_PL;
+grant select on DWH_BUFFER.OFFER_FOR_REP to HEAD_EVGENIY_PI;
+grant select on DWH_BUFFER.OFFER_FOR_REP to KRISTINA_KO;
+grant select on DWH_BUFFER.OFFER_FOR_REP to PROCESS_RISK;
+grant select on DWH_BUFFER.OFFER_FOR_REP to PROCESS_SALES;
+

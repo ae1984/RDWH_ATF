@@ -1,0 +1,40 @@
+create table DWH_BUFFER.LOAN_SCHED_1
+(
+  contract_id NUMBER(10) not null,
+  id          NUMBER(10) not null,
+  longname    VARCHAR2(250 CHAR),
+  doper       DATE not null,
+  amount      NUMBER,
+  amt         NUMBER(18,2),
+  prc         NUMBER(5),
+  shdtype     VARCHAR2(30 CHAR),
+  stat        VARCHAR2(250 CHAR),
+  dclcfrom    DATE,
+  dclcto      DATE,
+  calcdate    DATE,
+  upd_dt      DATE
+)
+tablespace DWH_BUFFER
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  )
+nologging;
+grant select on DWH_BUFFER.LOAN_SCHED_1 to AIBEK_BE;
+grant select, insert, update, delete on DWH_BUFFER.LOAN_SCHED_1 to DWH_BUFFER_FULL_ROLE;
+grant select on DWH_BUFFER.LOAN_SCHED_1 to DWH_BUFFER_READ_ROLE;
+grant select on DWH_BUFFER.LOAN_SCHED_1 to DWH_PRIM;
+grant select on DWH_BUFFER.LOAN_SCHED_1 to DWH_RISK;
+grant select on DWH_BUFFER.LOAN_SCHED_1 to DWH_SALES;
+grant select on DWH_BUFFER.LOAN_SCHED_1 to HEAD_DENIS_PL;
+grant select on DWH_BUFFER.LOAN_SCHED_1 to HEAD_EVGENIY_PI;
+grant select on DWH_BUFFER.LOAN_SCHED_1 to KRISTINA_KO;
+grant select on DWH_BUFFER.LOAN_SCHED_1 to PROCESS_RISK;
+grant select on DWH_BUFFER.LOAN_SCHED_1 to PROCESS_SALES;
+

@@ -1,0 +1,26 @@
+create table DWH_RISK.DP_COVD2_V2
+(
+  refer      VARCHAR2(30),
+  ovd_cnter  NUMBER,
+  start_date DATE,
+  end_date   DATE
+)
+tablespace DWH_RISK
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  )
+nologging;
+grant select on DWH_RISK.DP_COVD2_V2 to AIBEK_BE;
+grant select, insert, update, delete on DWH_RISK.DP_COVD2_V2 to DWH_RISK_FULL_ROLE;
+grant select on DWH_RISK.DP_COVD2_V2 to DWH_RISK_READ_ROLE;
+grant select on DWH_RISK.DP_COVD2_V2 to HEAD_DENIS_PL;
+grant select on DWH_RISK.DP_COVD2_V2 to KRISTINA_KO;
+grant select on DWH_RISK.DP_COVD2_V2 to PROCESS_RISK;
+

@@ -1,0 +1,32 @@
+create table DWH_RISK.H_CALC_STEP_5_1
+(
+  client_id           VARCHAR2(500),
+  registration_number VARCHAR2(500),
+  iin                 VARCHAR2(500),
+  rnn                 VARCHAR2(500),
+  cli_code            VARCHAR2(30),
+  ows_client_id       NUMBER,
+  cli_id              NUMBER,
+  amnd_date           DATE,
+  start_date          DATE,
+  chr10               DATE,
+  chr20               NUMBER
+)
+tablespace DWH_RISK
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+grant select on DWH_RISK.H_CALC_STEP_5_1 to AIBEK_BE;
+grant select, insert, update, delete on DWH_RISK.H_CALC_STEP_5_1 to DWH_RISK_FULL_ROLE;
+grant select on DWH_RISK.H_CALC_STEP_5_1 to DWH_RISK_READ_ROLE;
+grant select on DWH_RISK.H_CALC_STEP_5_1 to HEAD_DENIS_PL;
+grant select on DWH_RISK.H_CALC_STEP_5_1 to KRISTINA_KO;
+grant select on DWH_RISK.H_CALC_STEP_5_1 to PROCESS_RISK;
+

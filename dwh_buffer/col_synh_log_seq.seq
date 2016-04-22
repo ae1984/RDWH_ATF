@@ -1,0 +1,7 @@
+create sequence DWH_BUFFER.COL_SYNH_LOG_SEQ
+minvalue 1
+maxvalue 9999999999999999999999999999
+start with 2336
+increment by 1
+nocache;
+

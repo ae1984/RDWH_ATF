@@ -1,0 +1,16 @@
+create table DWH_RISK.TMP_20150709
+(
+  process_guid VARCHAR2(100),
+  rep          LONG
+)
+tablespace DWH_RISK
+  pctfree 10
+  initrans 1
+  maxtrans 255;
+grant select on DWH_RISK.TMP_20150709 to AIBEK_BE;
+grant select, insert, update, delete on DWH_RISK.TMP_20150709 to DWH_RISK_FULL_ROLE;
+grant select on DWH_RISK.TMP_20150709 to DWH_RISK_READ_ROLE;
+grant select on DWH_RISK.TMP_20150709 to HEAD_DENIS_PL;
+grant select on DWH_RISK.TMP_20150709 to KRISTINA_KO;
+grant select on DWH_RISK.TMP_20150709 to PROCESS_RISK;
+

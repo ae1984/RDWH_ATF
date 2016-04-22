@@ -1,0 +1,37 @@
+create table DWH_BUFFER.W4_MESS_CHANNEL
+(
+  amnd_state     VARCHAR2(1 CHAR),
+  amnd_date      DATE,
+  amnd_officer   NUMBER(18),
+  amnd_prev      NUMBER(18),
+  id             NUMBER(18) not null,
+  name           VARCHAR2(255 CHAR),
+  code           VARCHAR2(1 CHAR),
+  contra_channel VARCHAR2(1 CHAR),
+  data_source    VARCHAR2(32 CHAR),
+  is_on_us       VARCHAR2(1 CHAR),
+  settl_date     DATE
+)
+tablespace DWH_BUFFER
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+grant select on DWH_BUFFER.W4_MESS_CHANNEL to AIBEK_BE;
+grant select, insert, update, delete on DWH_BUFFER.W4_MESS_CHANNEL to DWH_BUFFER_FULL_ROLE;
+grant select on DWH_BUFFER.W4_MESS_CHANNEL to DWH_BUFFER_READ_ROLE;
+grant select on DWH_BUFFER.W4_MESS_CHANNEL to DWH_PRIM;
+grant select on DWH_BUFFER.W4_MESS_CHANNEL to DWH_RISK;
+grant select on DWH_BUFFER.W4_MESS_CHANNEL to DWH_SALES;
+grant select on DWH_BUFFER.W4_MESS_CHANNEL to HEAD_DENIS_PL;
+grant select on DWH_BUFFER.W4_MESS_CHANNEL to HEAD_EVGENIY_PI;
+grant select on DWH_BUFFER.W4_MESS_CHANNEL to KRISTINA_KO;
+grant select on DWH_BUFFER.W4_MESS_CHANNEL to PROCESS_RISK;
+grant select on DWH_BUFFER.W4_MESS_CHANNEL to PROCESS_SALES;
+

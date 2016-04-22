@@ -1,0 +1,45 @@
+create table DWH_RISK.FCB_GENERAL_INFORMATION
+(
+  id                           VARCHAR2(100),
+  loan_id                      VARCHAR2(100),
+  datetime                     VARCHAR2(100),
+  version                      VARCHAR2(100),
+  rnn                          VARCHAR2(20),
+  iin                          VARCHAR2(20),
+  numberofexistingcontracts    VARCHAR2(100),
+  numberofcontracts            VARCHAR2(100),
+  totaloutstandingdebt         VARCHAR2(100),
+  totaloutstandingdebt_ex      VARCHAR2(100),
+  totaloutstandingdebtterm     VARCHAR2(100),
+  numberofterminatedcontracts  VARCHAR2(100),
+  numberofcontracts_terminated VARCHAR2(100),
+  dateofissue                  VARCHAR2(100),
+  numberofinquiries            VARCHAR2(100),
+  numberofinquiries1           VARCHAR2(100),
+  q1                           VARCHAR2(100),
+  q2                           VARCHAR2(100),
+  q3                           VARCHAR2(100),
+  q4                           VARCHAR2(100),
+  q1_1                         VARCHAR2(100),
+  q2_1                         VARCHAR2(100),
+  q3_1                         VARCHAR2(100),
+  q4_1                         VARCHAR2(100)
+)
+tablespace DWH_RISK
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+grant select on DWH_RISK.FCB_GENERAL_INFORMATION to AIBEK_BE;
+grant select, insert, update, delete on DWH_RISK.FCB_GENERAL_INFORMATION to DWH_RISK_FULL_ROLE;
+grant select on DWH_RISK.FCB_GENERAL_INFORMATION to DWH_RISK_READ_ROLE;
+grant select on DWH_RISK.FCB_GENERAL_INFORMATION to HEAD_DENIS_PL;
+grant select on DWH_RISK.FCB_GENERAL_INFORMATION to KRISTINA_KO;
+grant select on DWH_RISK.FCB_GENERAL_INFORMATION to PROCESS_RISK;
+

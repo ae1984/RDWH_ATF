@@ -1,0 +1,83 @@
+create table DWH_BUFFER.DM_CIF_ADDR
+(
+  cli_code     VARCHAR2(30),
+  cli_id       NUMBER,
+  dep_id       NUMBER,
+  r_index      VARCHAR2(10 CHAR),
+  r_country    VARCHAR2(250 CHAR),
+  r_side       VARCHAR2(250 CHAR),
+  r_side_t     VARCHAR2(30 CHAR),
+  r_district   VARCHAR2(250 CHAR),
+  r_district_t VARCHAR2(30 CHAR),
+  r_city1      VARCHAR2(250 CHAR),
+  r_city1_t    VARCHAR2(30 CHAR),
+  r_city2      VARCHAR2(250 CHAR),
+  r_city2_t    VARCHAR2(30 CHAR),
+  r_town       VARCHAR2(250 CHAR),
+  r_town_t     VARCHAR2(30 CHAR),
+  r_mdistr     VARCHAR2(250 CHAR),
+  r_mdistr_t   VARCHAR2(30 CHAR),
+  r_street     VARCHAR2(250 CHAR),
+  r_street_t   VARCHAR2(30 CHAR),
+  r_house      VARCHAR2(70),
+  r_house_t    VARCHAR2(30 CHAR),
+  r_apt        VARCHAR2(50 CHAR),
+  r_apt_t      VARCHAR2(30 CHAR),
+  f_index      VARCHAR2(10 CHAR),
+  f_country    VARCHAR2(250 CHAR),
+  f_side       VARCHAR2(250 CHAR),
+  f_side_t     VARCHAR2(30 CHAR),
+  f_district   VARCHAR2(250 CHAR),
+  f_district_t VARCHAR2(30 CHAR),
+  f_city1      VARCHAR2(250 CHAR),
+  f_city1_t    VARCHAR2(30 CHAR),
+  f_city2      VARCHAR2(250 CHAR),
+  f_city2_t    VARCHAR2(30 CHAR),
+  f_town       VARCHAR2(250 CHAR),
+  f_town_t     VARCHAR2(30 CHAR),
+  f_mdistr     VARCHAR2(250 CHAR),
+  f_mdistr_t   VARCHAR2(30 CHAR),
+  f_street     VARCHAR2(250 CHAR),
+  f_street_t   VARCHAR2(30 CHAR),
+  f_house      VARCHAR2(70),
+  f_house_t    VARCHAR2(30 CHAR),
+  f_apt        VARCHAR2(50 CHAR),
+  f_apt_t      VARCHAR2(30 CHAR)
+)
+tablespace DWH_BUFFER
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 128K
+    next 128K
+    minextents 1
+    maxextents unlimited
+  )
+nologging;
+create index DWH_BUFFER.I_ADDR_CLI_ID on DWH_BUFFER.DM_CIF_ADDR (CLI_ID)
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  )
+  nologging;
+grant select on DWH_BUFFER.DM_CIF_ADDR to AIBEK_BE;
+grant select, insert, update, delete on DWH_BUFFER.DM_CIF_ADDR to DWH_BUFFER_FULL_ROLE;
+grant select on DWH_BUFFER.DM_CIF_ADDR to DWH_BUFFER_READ_ROLE;
+grant select on DWH_BUFFER.DM_CIF_ADDR to DWH_PRIM;
+grant select on DWH_BUFFER.DM_CIF_ADDR to DWH_RISK;
+grant select on DWH_BUFFER.DM_CIF_ADDR to DWH_SALES;
+grant select on DWH_BUFFER.DM_CIF_ADDR to HEAD_DENIS_PL;
+grant select on DWH_BUFFER.DM_CIF_ADDR to HEAD_EVGENIY_PI;
+grant select on DWH_BUFFER.DM_CIF_ADDR to KRISTINA_KO;
+grant select on DWH_BUFFER.DM_CIF_ADDR to PROCESS_RISK;
+grant select on DWH_BUFFER.DM_CIF_ADDR to PROCESS_SALES;
+

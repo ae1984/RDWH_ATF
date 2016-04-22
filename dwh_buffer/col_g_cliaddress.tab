@@ -1,0 +1,102 @@
+create table DWH_BUFFER.COL_G_CLIADDRESS
+(
+  dep_id    NUMBER(10) not null,
+  id        NUMBER(10) not null,
+  nord      NUMBER(5) not null,
+  adrtype   VARCHAR2(10) not null,
+  arcfl     CHAR(1),
+  owntyp    VARCHAR2(10),
+  prim      VARCHAR2(250 CHAR),
+  id_us     NUMBER(10),
+  correctdt DATE,
+  adr_id    NUMBER(10) not null
+)
+tablespace DWH_BUFFER
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  )
+nologging;
+comment on table DWH_BUFFER.COL_G_CLIADDRESS
+  is 'Адреса субъекта';
+comment on column DWH_BUFFER.COL_G_CLIADDRESS.dep_id
+  is 'Подразделение субъекта';
+comment on column DWH_BUFFER.COL_G_CLIADDRESS.id
+  is 'Ид субъекта';
+comment on column DWH_BUFFER.COL_G_CLIADDRESS.nord
+  is 'Порядковый номер';
+comment on column DWH_BUFFER.COL_G_CLIADDRESS.adrtype
+  is 'Тип адреса';
+comment on column DWH_BUFFER.COL_G_CLIADDRESS.arcfl
+  is 'Признак архива';
+comment on column DWH_BUFFER.COL_G_CLIADDRESS.owntyp
+  is 'Вид владения';
+comment on column DWH_BUFFER.COL_G_CLIADDRESS.prim
+  is 'Примечание';
+comment on column DWH_BUFFER.COL_G_CLIADDRESS.id_us
+  is 'Пользователь корректировавший данные';
+comment on column DWH_BUFFER.COL_G_CLIADDRESS.correctdt
+  is 'Дата-время коррекции';
+comment on column DWH_BUFFER.COL_G_CLIADDRESS.adr_id
+  is 'Собственно адрес';
+create index DWH_BUFFER.FK_COL_G_CLIADDRESS_G_ADDRESS on DWH_BUFFER.COL_G_CLIADDRESS (ADR_ID)
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 4M
+    next 4M
+    minextents 1
+    maxextents unlimited
+  )
+  nologging;
+alter table DWH_BUFFER.COL_G_CLIADDRESS
+  add constraint PK_COL_G_CLIADDRESS primary key (DEP_ID, ID, NORD)
+  using index 
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 4M
+    next 4M
+    minextents 1
+    maxextents unlimited
+  );
+alter index DWH_BUFFER.PK_COL_G_CLIADDRESS nologging;
+alter table DWH_BUFFER.COL_G_CLIADDRESS
+  add constraint AK_COL_G_CLIADDRESS unique (ADRTYPE, ADR_ID, DEP_ID, ID)
+  using index 
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 4M
+    next 4M
+    minextents 1
+    maxextents unlimited
+  );
+alter index DWH_BUFFER.AK_COL_G_CLIADDRESS nologging;
+grant select on DWH_BUFFER.COL_G_CLIADDRESS to AIBEK_BE;
+grant select, insert, update, delete on DWH_BUFFER.COL_G_CLIADDRESS to DWH_BUFFER_FULL_ROLE;
+grant select on DWH_BUFFER.COL_G_CLIADDRESS to DWH_BUFFER_READ_ROLE;
+grant select on DWH_BUFFER.COL_G_CLIADDRESS to DWH_PRIM;
+grant select on DWH_BUFFER.COL_G_CLIADDRESS to DWH_RISK;
+grant select on DWH_BUFFER.COL_G_CLIADDRESS to DWH_SALES;
+grant select on DWH_BUFFER.COL_G_CLIADDRESS to HEAD_DENIS_PL;
+grant select on DWH_BUFFER.COL_G_CLIADDRESS to HEAD_EVGENIY_PI;
+grant select on DWH_BUFFER.COL_G_CLIADDRESS to KRISTINA_KO;
+grant select on DWH_BUFFER.COL_G_CLIADDRESS to PROCESS_RISK;
+grant select on DWH_BUFFER.COL_G_CLIADDRESS to PROCESS_SALES;
+

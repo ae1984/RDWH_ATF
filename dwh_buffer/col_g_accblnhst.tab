@@ -1,0 +1,181 @@
+create table DWH_BUFFER.COL_G_ACCBLNHST
+(
+  dep_id    NUMBER(10) not null,
+  id        NUMBER(10) not null,
+  fromdate  DATE not null,
+  todate    DATE not null,
+  clidep_id NUMBER(10) not null,
+  cli_id    NUMBER(10) not null,
+  arcfl     NUMBER(1) not null,
+  correctdt DATE,
+  id_us     NUMBER(5),
+  name      VARCHAR2(30 CHAR),
+  longname  VARCHAR2(250 CHAR),
+  nondebfl  NUMBER(1) not null,
+  cha_id    NUMBER(10) not null,
+  aut_id    NUMBER(10) not null,
+  val_id    NUMBER(10),
+  activfl   NUMBER(1) not null,
+  anybalfl  NUMBER(1) not null,
+  valutfl   NUMBER(1) not null,
+  cntrzofl  NUMBER(1) not null,
+  consfl    NUMBER(1) not null,
+  balsavefl CHAR(1),
+  prim      VARCHAR2(250 CHAR),
+  reldep_id NUMBER(10),
+  rel_id    NUMBER(10)
+)
+tablespace DWH_BUFFER
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  )
+nologging;
+comment on table DWH_BUFFER.COL_G_ACCBLNHST
+  is 'История лицевого счета';
+comment on column DWH_BUFFER.COL_G_ACCBLNHST.dep_id
+  is 'Идентификатор отдела';
+comment on column DWH_BUFFER.COL_G_ACCBLNHST.id
+  is 'Идентификатор счета';
+comment on column DWH_BUFFER.COL_G_ACCBLNHST.fromdate
+  is 'Дата начала интервала действия';
+comment on column DWH_BUFFER.COL_G_ACCBLNHST.todate
+  is 'Дата конца интервала действия';
+comment on column DWH_BUFFER.COL_G_ACCBLNHST.clidep_id
+  is 'Идентификатор отдела клиента';
+comment on column DWH_BUFFER.COL_G_ACCBLNHST.cli_id
+  is 'Идентификатор клиента';
+comment on column DWH_BUFFER.COL_G_ACCBLNHST.arcfl
+  is 'Архив';
+comment on column DWH_BUFFER.COL_G_ACCBLNHST.correctdt
+  is 'Время записи физическое';
+comment on column DWH_BUFFER.COL_G_ACCBLNHST.id_us
+  is 'Исполнитель, корректировавший';
+comment on column DWH_BUFFER.COL_G_ACCBLNHST.name
+  is 'Наименование';
+comment on column DWH_BUFFER.COL_G_ACCBLNHST.longname
+  is 'Длинное название';
+comment on column DWH_BUFFER.COL_G_ACCBLNHST.nondebfl
+  is 'Запрет дебетования';
+comment on column DWH_BUFFER.COL_G_ACCBLNHST.cha_id
+  is 'Идентификатор бал/счета';
+comment on column DWH_BUFFER.COL_G_ACCBLNHST.aut_id
+  is 'Идентификатор группы доступа';
+comment on column DWH_BUFFER.COL_G_ACCBLNHST.val_id
+  is 'Идентификатор валюты';
+comment on column DWH_BUFFER.COL_G_ACCBLNHST.activfl
+  is 'Флаг активности/пассивности';
+comment on column DWH_BUFFER.COL_G_ACCBLNHST.anybalfl
+  is 'Флаг бесконтрольного изменения';
+comment on column DWH_BUFFER.COL_G_ACCBLNHST.valutfl
+  is 'Флаг разрешения хранения инвал';
+comment on column DWH_BUFFER.COL_G_ACCBLNHST.cntrzofl
+  is 'Флаг раздвоения остатка в пери';
+comment on column DWH_BUFFER.COL_G_ACCBLNHST.consfl
+  is 'Флаг сборного счета';
+comment on column DWH_BUFFER.COL_G_ACCBLNHST.balsavefl
+  is 'Признак сохранения остатка в архиве';
+comment on column DWH_BUFFER.COL_G_ACCBLNHST.prim
+  is 'Примечание';
+comment on column DWH_BUFFER.COL_G_ACCBLNHST.reldep_id
+  is 'Идентификатор отдела счета соответствия в старшей книге';
+comment on column DWH_BUFFER.COL_G_ACCBLNHST.rel_id
+  is 'Ссылка на счета соответствия в старшей книге';
+create index DWH_BUFFER.FK_COL_G_ACCBLNHST_G_CLI on DWH_BUFFER.COL_G_ACCBLNHST (CLIDEP_ID, CLI_ID)
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 4M
+    next 4M
+    minextents 1
+    maxextents unlimited
+  )
+  compress 1  nologging;
+create index DWH_BUFFER.FK_COL_G_ACCBLNHST_REL on DWH_BUFFER.COL_G_ACCBLNHST (RELDEP_ID, REL_ID)
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 4M
+    next 4M
+    minextents 1
+    maxextents unlimited
+  )
+  nologging;
+create index DWH_BUFFER.FK_COL_G_ACCBLNHST_T_ACCGRP on DWH_BUFFER.COL_G_ACCBLNHST (DEP_ID, AUT_ID)
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 4M
+    next 4M
+    minextents 1
+    maxextents unlimited
+  )
+  compress  nologging;
+create index DWH_BUFFER.FK_COL_G_ACCBLNHST_T_VAL on DWH_BUFFER.COL_G_ACCBLNHST (VAL_ID)
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 4M
+    next 4M
+    minextents 1
+    maxextents unlimited
+  )
+  compress  nologging;
+create index DWH_BUFFER.IE_COL_G_ACCBLNHST_FND on DWH_BUFFER.COL_G_ACCBLNHST (CHA_ID, DEP_ID)
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 4M
+    next 4M
+    minextents 1
+    maxextents unlimited
+  )
+  compress  nologging;
+alter table DWH_BUFFER.COL_G_ACCBLNHST
+  add constraint PK_COL_G_ACCBLNHST primary key (DEP_ID, ID, FROMDATE)
+  using index 
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 4M
+    next 4M
+    minextents 1
+    maxextents unlimited
+  );
+alter index DWH_BUFFER.PK_COL_G_ACCBLNHST nologging;
+grant select on DWH_BUFFER.COL_G_ACCBLNHST to AIBEK_BE;
+grant select, insert, update, delete on DWH_BUFFER.COL_G_ACCBLNHST to DWH_BUFFER_FULL_ROLE;
+grant select on DWH_BUFFER.COL_G_ACCBLNHST to DWH_BUFFER_READ_ROLE;
+grant select on DWH_BUFFER.COL_G_ACCBLNHST to DWH_PRIM;
+grant select on DWH_BUFFER.COL_G_ACCBLNHST to DWH_RISK;
+grant select on DWH_BUFFER.COL_G_ACCBLNHST to DWH_SALES;
+grant select on DWH_BUFFER.COL_G_ACCBLNHST to HEAD_DENIS_PL;
+grant select on DWH_BUFFER.COL_G_ACCBLNHST to HEAD_EVGENIY_PI;
+grant select on DWH_BUFFER.COL_G_ACCBLNHST to KRISTINA_KO;
+grant select on DWH_BUFFER.COL_G_ACCBLNHST to PROCESS_RISK;
+grant select on DWH_BUFFER.COL_G_ACCBLNHST to PROCESS_SALES;
+

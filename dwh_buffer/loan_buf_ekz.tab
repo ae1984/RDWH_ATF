@@ -1,0 +1,41 @@
+create table DWH_BUFFER.LOAN_BUF_EKZ
+(
+  process_guid      VARCHAR2(250),
+  agr_id            NUMBER,
+  start_date        DATE,
+  branch_id         VARCHAR2(3),
+  title             VARCHAR2(250),
+  isloyal           NUMBER,
+  salaryflag        VARCHAR2(1 CHAR),
+  branch_name       VARCHAR2(76),
+  sum_full          NUMBER,
+  fromdate          DATE,
+  contract_id       NUMBER(10) not null,
+  effective_rate    NUMBER,
+  wt_effective_rate NUMBER,
+  dep_id            NUMBER(10) not null
+)
+tablespace DWH_BUFFER
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 128K
+    next 128K
+    minextents 1
+    maxextents unlimited
+  )
+nologging;
+grant select on DWH_BUFFER.LOAN_BUF_EKZ to AIBEK_BE;
+grant select, insert, update, delete on DWH_BUFFER.LOAN_BUF_EKZ to DWH_BUFFER_FULL_ROLE;
+grant select on DWH_BUFFER.LOAN_BUF_EKZ to DWH_BUFFER_READ_ROLE;
+grant select on DWH_BUFFER.LOAN_BUF_EKZ to DWH_PRIM;
+grant select on DWH_BUFFER.LOAN_BUF_EKZ to DWH_RISK;
+grant select on DWH_BUFFER.LOAN_BUF_EKZ to DWH_SALES;
+grant select on DWH_BUFFER.LOAN_BUF_EKZ to HEAD_DENIS_PL;
+grant select on DWH_BUFFER.LOAN_BUF_EKZ to HEAD_EVGENIY_PI;
+grant select on DWH_BUFFER.LOAN_BUF_EKZ to KRISTINA_KO;
+grant select on DWH_BUFFER.LOAN_BUF_EKZ to PROCESS_RISK;
+grant select on DWH_BUFFER.LOAN_BUF_EKZ to PROCESS_SALES;
+

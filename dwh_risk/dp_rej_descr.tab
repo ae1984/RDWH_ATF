@@ -1,0 +1,24 @@
+create table DWH_RISK.DP_REJ_DESCR
+(
+  status      VARCHAR2(500) not null,
+  status_type VARCHAR2(200) not null,
+  group2      VARCHAR2(20)
+)
+tablespace DWH_RISK
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+grant select on DWH_RISK.DP_REJ_DESCR to AIBEK_BE;
+grant select, insert, update, delete on DWH_RISK.DP_REJ_DESCR to DWH_RISK_FULL_ROLE;
+grant select on DWH_RISK.DP_REJ_DESCR to DWH_RISK_READ_ROLE;
+grant select on DWH_RISK.DP_REJ_DESCR to HEAD_DENIS_PL;
+grant select on DWH_RISK.DP_REJ_DESCR to KRISTINA_KO;
+grant select on DWH_RISK.DP_REJ_DESCR to PROCESS_RISK;
+

@@ -1,0 +1,97 @@
+create table DWH_BUFFER.COL_G_TERRDSC
+(
+  id        NUMBER(10) not null,
+  longname  VARCHAR2(150 CHAR) not null,
+  shortname VARCHAR2(30 CHAR) not null,
+  arcfl     CHAR(1),
+  prim      VARCHAR2(250 CHAR),
+  id_us     NUMBER(10),
+  correctdt DATE,
+  code      VARCHAR2(30)
+)
+tablespace DWH_BUFFER
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+comment on table DWH_BUFFER.COL_G_TERRDSC
+  is 'Виды территориального деления';
+comment on column DWH_BUFFER.COL_G_TERRDSC.id
+  is 'Идентификатор типа/вида территории';
+comment on column DWH_BUFFER.COL_G_TERRDSC.longname
+  is 'Наименование типа/вида территории';
+comment on column DWH_BUFFER.COL_G_TERRDSC.shortname
+  is 'Короткое наименование типа/вида';
+comment on column DWH_BUFFER.COL_G_TERRDSC.arcfl
+  is 'Признак архива';
+comment on column DWH_BUFFER.COL_G_TERRDSC.prim
+  is 'Примечание';
+comment on column DWH_BUFFER.COL_G_TERRDSC.id_us
+  is 'Ид пользователя';
+comment on column DWH_BUFFER.COL_G_TERRDSC.correctdt
+  is 'Дата коррекции';
+comment on column DWH_BUFFER.COL_G_TERRDSC.code
+  is 'Код типа/вида территории';
+alter table DWH_BUFFER.COL_G_TERRDSC
+  add constraint PK_COL_G_TERRDSC primary key (ID)
+  using index 
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 128K
+    next 128K
+    minextents 1
+    maxextents unlimited
+  );
+alter index DWH_BUFFER.PK_COL_G_TERRDSC nologging;
+alter table DWH_BUFFER.COL_G_TERRDSC
+  add constraint AK_COL_G_TERRDSC_LNM unique (LONGNAME)
+  using index 
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 128K
+    next 128K
+    minextents 1
+    maxextents unlimited
+  );
+alter index DWH_BUFFER.AK_COL_G_TERRDSC_LNM nologging;
+alter table DWH_BUFFER.COL_G_TERRDSC
+  add constraint AK_COL_G_TERRDSC_SNM unique (SHORTNAME)
+  using index 
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 128K
+    next 128K
+    minextents 1
+    maxextents unlimited
+  );
+alter index DWH_BUFFER.AK_COL_G_TERRDSC_SNM nologging;
+grant select on DWH_BUFFER.COL_G_TERRDSC to AIBEK_BE;
+grant select, insert, update, delete on DWH_BUFFER.COL_G_TERRDSC to DWH_BUFFER_FULL_ROLE;
+grant select on DWH_BUFFER.COL_G_TERRDSC to DWH_BUFFER_READ_ROLE;
+grant select on DWH_BUFFER.COL_G_TERRDSC to DWH_PRIM;
+grant select on DWH_BUFFER.COL_G_TERRDSC to DWH_RISK;
+grant select on DWH_BUFFER.COL_G_TERRDSC to DWH_SALES;
+grant select on DWH_BUFFER.COL_G_TERRDSC to HEAD_DENIS_PL;
+grant select on DWH_BUFFER.COL_G_TERRDSC to HEAD_EVGENIY_PI;
+grant select on DWH_BUFFER.COL_G_TERRDSC to KRISTINA_KO;
+grant select on DWH_BUFFER.COL_G_TERRDSC to PROCESS_RISK;
+grant select on DWH_BUFFER.COL_G_TERRDSC to PROCESS_SALES;
+

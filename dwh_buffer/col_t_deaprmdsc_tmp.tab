@@ -1,0 +1,37 @@
+create table DWH_BUFFER.COL_T_DEAPRMDSC_TMP
+(
+  id          NUMBER(10) not null,
+  code        VARCHAR2(30) not null,
+  longname    VARCHAR2(250 CHAR),
+  measunit    NUMBER(5) not null,
+  arcfl       NUMBER(1) not null,
+  arestfl     NUMBER(1) not null,
+  id_us       NUMBER(5),
+  correctdt   DATE,
+  prim        VARCHAR2(250 CHAR),
+  d_code      VARCHAR2(30),
+  id_hi       NUMBER(10),
+  deafl       NUMBER(1),
+  groupfl     NUMBER(1) not null,
+  nlevel      NUMBER(10) not null,
+  sbjcpt_typ  CHAR(1),
+  mmfl        NUMBER(1),
+  hideemptyfl NUMBER(1)
+)
+tablespace DWH_BUFFER
+  pctfree 10
+  initrans 1
+  maxtrans 255
+nologging;
+grant select on DWH_BUFFER.COL_T_DEAPRMDSC_TMP to AIBEK_BE;
+grant select, insert, update, delete on DWH_BUFFER.COL_T_DEAPRMDSC_TMP to DWH_BUFFER_FULL_ROLE;
+grant select on DWH_BUFFER.COL_T_DEAPRMDSC_TMP to DWH_BUFFER_READ_ROLE;
+grant select on DWH_BUFFER.COL_T_DEAPRMDSC_TMP to DWH_PRIM;
+grant select on DWH_BUFFER.COL_T_DEAPRMDSC_TMP to DWH_RISK;
+grant select on DWH_BUFFER.COL_T_DEAPRMDSC_TMP to DWH_SALES;
+grant select on DWH_BUFFER.COL_T_DEAPRMDSC_TMP to HEAD_DENIS_PL;
+grant select on DWH_BUFFER.COL_T_DEAPRMDSC_TMP to HEAD_EVGENIY_PI;
+grant select on DWH_BUFFER.COL_T_DEAPRMDSC_TMP to KRISTINA_KO;
+grant select on DWH_BUFFER.COL_T_DEAPRMDSC_TMP to PROCESS_RISK;
+grant select on DWH_BUFFER.COL_T_DEAPRMDSC_TMP to PROCESS_SALES;
+

@@ -1,0 +1,162 @@
+create table DWH_BUFFER.DELETED_W4_ACNT_CONTRACT
+(
+  amnd_date          DATE,
+  amnd_state         VARCHAR2(1 CHAR),
+  amnd_officer       NUMBER(18),
+  amnd_prev          NUMBER(18),
+  id                 NUMBER(18) not null,
+  pcat               VARCHAR2(1 CHAR),
+  con_cat            VARCHAR2(1 CHAR),
+  terminal_category  VARCHAR2(1 CHAR),
+  ccat               VARCHAR2(1 CHAR),
+  f_i                NUMBER(18),
+  branch             VARCHAR2(32 CHAR),
+  service_group      VARCHAR2(32 CHAR),
+  contract_number    VARCHAR2(64 CHAR),
+  contract_name      VARCHAR2(255 CHAR),
+  comment_text       VARCHAR2(255 CHAR),
+  base_relation      VARCHAR2(32 CHAR),
+  relation_tag       VARCHAR2(1 CHAR),
+  acnt_contract__id  NUMBER(18),
+  contr_type         NUMBER(18),
+  contr_subtype__id  NUMBER(18),
+  serv_pack__id      NUMBER(18),
+  old_pack           NUMBER(18),
+  channel            VARCHAR2(1 CHAR),
+  acc_scheme__id     NUMBER(18),
+  old_scheme         NUMBER(18),
+  product            VARCHAR2(32 CHAR),
+  product_prev       VARCHAR2(32 CHAR),
+  parent_product     VARCHAR2(32 CHAR),
+  main_product       NUMBER(18),
+  client__id         NUMBER(18),
+  client_type        NUMBER(18),
+  acnt_contract__oid NUMBER(18),
+  liab_category      VARCHAR2(1 CHAR),
+  liab_contract      NUMBER(18),
+  liab_contract_prev NUMBER(18),
+  behavior_group     NUMBER(18),
+  behavior_type      NUMBER(18),
+  behavior_type_prev NUMBER(18),
+  check_available    VARCHAR2(1 CHAR),
+  check_usage        VARCHAR2(1 CHAR),
+  curr               VARCHAR2(3 CHAR),
+  old_curr           VARCHAR2(3 CHAR),
+  auth_limit_amount  NUMBER(28,10) not null,
+  base_auth_limit    NUMBER(28,10) not null,
+  liab_balance       NUMBER(28,10) not null,
+  liab_blocked       NUMBER(28,10) not null,
+  own_balance        NUMBER(28,10) not null,
+  own_blocked        NUMBER(28,10) not null,
+  sub_balance        NUMBER(28,10) not null,
+  sub_blocked        NUMBER(28,10) not null,
+  total_blocked      NUMBER(28,10) not null,
+  total_balance      NUMBER(28,10) not null,
+  shared_balance     NUMBER(28,10) not null,
+  shared_blocked     NUMBER(28,10) not null,
+  amount_available   NUMBER(28,10) not null,
+  date_open          DATE,
+  date_expire        DATE,
+  last_billing_date  DATE,
+  next_billing_date  DATE,
+  last_scan          DATE,
+  card_expire        VARCHAR2(4 CHAR),
+  production_status  VARCHAR2(1 CHAR),
+  rbs_member_id      VARCHAR2(32 CHAR),
+  rbs_number         VARCHAR2(64 CHAR),
+  report_type        VARCHAR2(32 CHAR),
+  max_pin_attempts   NUMBER(3) not null,
+  pin_attempts       NUMBER(3) not null,
+  chip_scheme        NUMBER(18),
+  risk_scheme        NUMBER(18),
+  risk_factor        NUMBER(7,3) not null,
+  risk_factor_prev   NUMBER(7,3) not null,
+  contr_status       NUMBER(18),
+  merchant_id        VARCHAR2(255 CHAR),
+  tr_title           NUMBER(18),
+  tr_company         VARCHAR2(32 CHAR),
+  tr_country         VARCHAR2(3 CHAR),
+  tr_first_nam       VARCHAR2(32 CHAR),
+  tr_last_nam        VARCHAR2(32 CHAR),
+  tr_sic             VARCHAR2(4 CHAR),
+  add_info_01        VARCHAR2(255 CHAR),
+  add_info_02        VARCHAR2(255 CHAR),
+  add_info_03        VARCHAR2(255 CHAR),
+  add_info_04        VARCHAR2(255 CHAR),
+  contract_level     VARCHAR2(255 CHAR),
+  ext_data           VARCHAR2(4000 CHAR),
+  report_address     NUMBER(18),
+  share_balance      VARCHAR2(1 CHAR),
+  is_multycurrency   VARCHAR2(1 CHAR),
+  enables_item       VARCHAR2(1 CHAR),
+  cycle_length       NUMBER(3) not null,
+  interval_type      VARCHAR2(1 CHAR),
+  status_category    VARCHAR2(1 CHAR),
+  limit_is_active    VARCHAR2(1 CHAR),
+  settlement_type    VARCHAR2(1 CHAR),
+  is_ready           VARCHAR2(1 CHAR),
+  billing_contract   NUMBER(18)
+)
+tablespace DWH_BUFFER
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  )
+nologging;
+create index DWH_BUFFER.IDX_W4_ACNT_CONTRACT_1 on DWH_BUFFER.DELETED_W4_ACNT_CONTRACT (CONTRACT_NUMBER, AMND_STATE)
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  )
+  nologging;
+create index DWH_BUFFER.IDX_W4_ACNT_CONTRACT_2 on DWH_BUFFER.DELETED_W4_ACNT_CONTRACT (ACNT_CONTRACT__OID)
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  )
+  nologging;
+create index DWH_BUFFER.IDX_W4_ACNT_CONTRACT_3 on DWH_BUFFER.DELETED_W4_ACNT_CONTRACT (CLIENT__ID)
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  )
+  nologging;
+grant select on DWH_BUFFER.DELETED_W4_ACNT_CONTRACT to AIBEK_BE;
+grant select, insert, update, delete on DWH_BUFFER.DELETED_W4_ACNT_CONTRACT to DWH_BUFFER_FULL_ROLE;
+grant select on DWH_BUFFER.DELETED_W4_ACNT_CONTRACT to DWH_BUFFER_READ_ROLE;
+grant select on DWH_BUFFER.DELETED_W4_ACNT_CONTRACT to DWH_PRIM;
+grant select on DWH_BUFFER.DELETED_W4_ACNT_CONTRACT to DWH_RISK;
+grant select on DWH_BUFFER.DELETED_W4_ACNT_CONTRACT to DWH_SALES;
+grant select on DWH_BUFFER.DELETED_W4_ACNT_CONTRACT to HEAD_DENIS_PL;
+grant select on DWH_BUFFER.DELETED_W4_ACNT_CONTRACT to HEAD_EVGENIY_PI;
+grant select on DWH_BUFFER.DELETED_W4_ACNT_CONTRACT to KRISTINA_KO;
+grant select on DWH_BUFFER.DELETED_W4_ACNT_CONTRACT to PROCESS_RISK;
+grant select on DWH_BUFFER.DELETED_W4_ACNT_CONTRACT to PROCESS_SALES;
+

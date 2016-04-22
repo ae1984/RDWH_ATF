@@ -1,0 +1,31 @@
+create table DWH_RISK.TMP111
+(
+  dca_fil_code     VARCHAR2(500),
+  dca_code         VARCHAR2(500),
+  dca_pd           VARCHAR2(500),
+  qca_pd           VARCHAR2(500),
+  dca_name         VARCHAR2(500),
+  qca_name         VARCHAR2(500),
+  dca_client_class VARCHAR2(500),
+  colvir_cli_name  VARCHAR2(250 CHAR),
+  colvir_iin       VARCHAR2(30),
+  qca_code         VARCHAR2(500)
+)
+tablespace DWH_RISK
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+grant select on DWH_RISK.TMP111 to AIBEK_BE;
+grant select, insert, update, delete on DWH_RISK.TMP111 to DWH_RISK_FULL_ROLE;
+grant select on DWH_RISK.TMP111 to DWH_RISK_READ_ROLE;
+grant select on DWH_RISK.TMP111 to HEAD_DENIS_PL;
+grant select on DWH_RISK.TMP111 to KRISTINA_KO;
+grant select on DWH_RISK.TMP111 to PROCESS_RISK;
+

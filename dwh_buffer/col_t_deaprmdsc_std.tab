@@ -1,0 +1,80 @@
+create table DWH_BUFFER.COL_T_DEAPRMDSC_STD
+(
+  id          NUMBER(10) not null,
+  code        VARCHAR2(30) not null,
+  longname    VARCHAR2(250 CHAR) not null,
+  measunit    NUMBER(5) not null,
+  arcfl       NUMBER(1) not null,
+  arestfl     NUMBER(1) not null,
+  id_us       NUMBER(5),
+  correctdt   DATE,
+  prim        VARCHAR2(250 CHAR),
+  d_code      VARCHAR2(30),
+  id_hi       NUMBER(10),
+  deafl       NUMBER(1),
+  groupfl     NUMBER(1) not null,
+  nlevel      NUMBER(10) not null,
+  sbjcpt_typ  CHAR(1),
+  mmfl        NUMBER(1),
+  hideemptyfl NUMBER(1)
+)
+tablespace DWH_BUFFER
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  )
+nologging;
+comment on table DWH_BUFFER.COL_T_DEAPRMDSC_STD
+  is 'Справочник параметров сделок';
+comment on column DWH_BUFFER.COL_T_DEAPRMDSC_STD.id
+  is 'Идентификатор';
+comment on column DWH_BUFFER.COL_T_DEAPRMDSC_STD.code
+  is 'Кодовое представление записи';
+comment on column DWH_BUFFER.COL_T_DEAPRMDSC_STD.longname
+  is 'Длинное название';
+comment on column DWH_BUFFER.COL_T_DEAPRMDSC_STD.measunit
+  is 'Единица измерения';
+comment on column DWH_BUFFER.COL_T_DEAPRMDSC_STD.arcfl
+  is 'Архив';
+comment on column DWH_BUFFER.COL_T_DEAPRMDSC_STD.arestfl
+  is 'Запрет';
+comment on column DWH_BUFFER.COL_T_DEAPRMDSC_STD.id_us
+  is 'Исполнитель, корректировавший данные';
+comment on column DWH_BUFFER.COL_T_DEAPRMDSC_STD.correctdt
+  is 'Время записи физическое';
+comment on column DWH_BUFFER.COL_T_DEAPRMDSC_STD.prim
+  is 'Примечание';
+comment on column DWH_BUFFER.COL_T_DEAPRMDSC_STD.d_code
+  is 'Домен данных';
+comment on column DWH_BUFFER.COL_T_DEAPRMDSC_STD.id_hi
+  is 'Идентификатор верхнего уровня';
+comment on column DWH_BUFFER.COL_T_DEAPRMDSC_STD.deafl
+  is 'Флаг параметра договора';
+comment on column DWH_BUFFER.COL_T_DEAPRMDSC_STD.groupfl
+  is 'Признак группового элемента';
+comment on column DWH_BUFFER.COL_T_DEAPRMDSC_STD.nlevel
+  is 'Уровень в иерархии';
+comment on column DWH_BUFFER.COL_T_DEAPRMDSC_STD.sbjcpt_typ
+  is 'Тип понятия предметной области';
+comment on column DWH_BUFFER.COL_T_DEAPRMDSC_STD.mmfl
+  is 'Признак необходимости отправки межмодульного сообщения MDC.DEAPAR в случае редактирования значения параметра';
+comment on column DWH_BUFFER.COL_T_DEAPRMDSC_STD.hideemptyfl
+  is 'Признак скрытия пустых значений (только для договора)';
+grant select on DWH_BUFFER.COL_T_DEAPRMDSC_STD to AIBEK_BE;
+grant select, insert, update, delete on DWH_BUFFER.COL_T_DEAPRMDSC_STD to DWH_BUFFER_FULL_ROLE;
+grant select on DWH_BUFFER.COL_T_DEAPRMDSC_STD to DWH_BUFFER_READ_ROLE;
+grant select on DWH_BUFFER.COL_T_DEAPRMDSC_STD to DWH_PRIM;
+grant select on DWH_BUFFER.COL_T_DEAPRMDSC_STD to DWH_RISK;
+grant select on DWH_BUFFER.COL_T_DEAPRMDSC_STD to DWH_SALES;
+grant select on DWH_BUFFER.COL_T_DEAPRMDSC_STD to HEAD_DENIS_PL;
+grant select on DWH_BUFFER.COL_T_DEAPRMDSC_STD to HEAD_EVGENIY_PI;
+grant select on DWH_BUFFER.COL_T_DEAPRMDSC_STD to KRISTINA_KO;
+grant select on DWH_BUFFER.COL_T_DEAPRMDSC_STD to PROCESS_RISK;
+grant select on DWH_BUFFER.COL_T_DEAPRMDSC_STD to PROCESS_SALES;
+

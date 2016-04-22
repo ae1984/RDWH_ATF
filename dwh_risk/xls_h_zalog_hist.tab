@@ -1,0 +1,113 @@
+create table DWH_RISK.XLS_H_ZALOG_HIST
+(
+  sdt       DATE default sysdate,
+  report_dt DATE,
+  f1        VARCHAR2(1000),
+  f2        VARCHAR2(1000),
+  f3        VARCHAR2(1000),
+  f4        VARCHAR2(1000),
+  f5        VARCHAR2(1000),
+  f6        VARCHAR2(1000),
+  f7        VARCHAR2(1000),
+  f8        VARCHAR2(1000),
+  f9        VARCHAR2(1000),
+  f10       VARCHAR2(1000),
+  f11       VARCHAR2(1000),
+  f12       VARCHAR2(1000),
+  f13       VARCHAR2(1000),
+  f14       VARCHAR2(1000),
+  f15       VARCHAR2(1000),
+  f16       VARCHAR2(1000),
+  f17       VARCHAR2(1000),
+  f18       VARCHAR2(1000),
+  f19       VARCHAR2(1000),
+  f20       VARCHAR2(1000),
+  f21       VARCHAR2(1000),
+  f22       VARCHAR2(1000)
+)
+tablespace DWH_RISK
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+comment on table DWH_RISK.XLS_H_ZALOG_HIST
+  is 'залоги по филиалам за ';
+comment on column DWH_RISK.XLS_H_ZALOG_HIST.f1
+  is 'Подразделение
+';
+comment on column DWH_RISK.XLS_H_ZALOG_HIST.f2
+  is 'Код клиента
+';
+comment on column DWH_RISK.XLS_H_ZALOG_HIST.f3
+  is 'ФИО
+';
+comment on column DWH_RISK.XLS_H_ZALOG_HIST.f4
+  is 'БИН/ИИН
+';
+comment on column DWH_RISK.XLS_H_ZALOG_HIST.f5
+  is 'РНН
+';
+comment on column DWH_RISK.XLS_H_ZALOG_HIST.f6
+  is 'Наименование продукта
+';
+comment on column DWH_RISK.XLS_H_ZALOG_HIST.f7
+  is 'Референс договра
+';
+comment on column DWH_RISK.XLS_H_ZALOG_HIST.f8
+  is '№ договора
+';
+comment on column DWH_RISK.XLS_H_ZALOG_HIST.f9
+  is 'VCC
+';
+comment on column DWH_RISK.XLS_H_ZALOG_HIST.f10
+  is 'Референс Залога
+';
+comment on column DWH_RISK.XLS_H_ZALOG_HIST.f11
+  is 'задолженность по кредиту состоящая из сумм на счетах НПС
+';
+comment on column DWH_RISK.XLS_H_ZALOG_HIST.f12
+  is 'задолженность по кредитам состоящая из сумм на счетах НПС
+';
+comment on column DWH_RISK.XLS_H_ZALOG_HIST.f13
+  is 'коэффициент отнесения задолженности 
+';
+comment on column DWH_RISK.XLS_H_ZALOG_HIST.f14
+  is 'Залог для провизирования
+';
+comment on column DWH_RISK.XLS_H_ZALOG_HIST.f15
+  is 'Залог для провизирования в национальной валюте
+';
+comment on column DWH_RISK.XLS_H_ZALOG_HIST.f16
+  is 'залога для провизирования с коэффициентом ликвидности в национальной валюте
+';
+comment on column DWH_RISK.XLS_H_ZALOG_HIST.f17
+  is 'Описание залога
+';
+comment on column DWH_RISK.XLS_H_ZALOG_HIST.f18
+  is 'Тип залога
+';
+comment on column DWH_RISK.XLS_H_ZALOG_HIST.f19
+  is 'Залоговая стоимость
+';
+comment on column DWH_RISK.XLS_H_ZALOG_HIST.f20
+  is 'ID в системе колвир
+';
+comment on column DWH_RISK.XLS_H_ZALOG_HIST.f21
+  is 'Валюта залоговой стоимости
+';
+comment on column DWH_RISK.XLS_H_ZALOG_HIST.f22
+  is 'Валюта справедливой стоимости
+';
+grant select on DWH_RISK.XLS_H_ZALOG_HIST to AIBEK_BE;
+grant select, insert, update, delete on DWH_RISK.XLS_H_ZALOG_HIST to DWH_RISK_FULL_ROLE;
+grant select on DWH_RISK.XLS_H_ZALOG_HIST to DWH_RISK_READ_ROLE;
+grant select on DWH_RISK.XLS_H_ZALOG_HIST to HEAD_DENIS_PL;
+grant select on DWH_RISK.XLS_H_ZALOG_HIST to KRISTINA_KO;
+grant select on DWH_RISK.XLS_H_ZALOG_HIST to PROCESS_RISK;
+

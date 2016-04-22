@@ -1,0 +1,37 @@
+create table DWH_BUFFER.W4_OPT_ACNT_BALANCE_P
+(
+  acnt_contract__oid NUMBER,
+  client__id         NUMBER,
+  curr               VARCHAR2(3 CHAR),
+  gl_account         VARCHAR2(256 CHAR),
+  amount             NUMBER,
+  amount_curr        NUMBER,
+  amnd_date          DATE,
+  account_number     VARCHAR2(64 CHAR),
+  total_balance      NUMBER,
+  shifr              VARCHAR2(256 CHAR)
+)
+tablespace DWH_BUFFER
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  )
+nologging;
+grant select on DWH_BUFFER.W4_OPT_ACNT_BALANCE_P to AIBEK_BE;
+grant select, insert, update, delete on DWH_BUFFER.W4_OPT_ACNT_BALANCE_P to DWH_BUFFER_FULL_ROLE;
+grant select on DWH_BUFFER.W4_OPT_ACNT_BALANCE_P to DWH_BUFFER_READ_ROLE;
+grant select on DWH_BUFFER.W4_OPT_ACNT_BALANCE_P to DWH_PRIM;
+grant select on DWH_BUFFER.W4_OPT_ACNT_BALANCE_P to DWH_RISK;
+grant select on DWH_BUFFER.W4_OPT_ACNT_BALANCE_P to DWH_SALES;
+grant select on DWH_BUFFER.W4_OPT_ACNT_BALANCE_P to HEAD_DENIS_PL;
+grant select on DWH_BUFFER.W4_OPT_ACNT_BALANCE_P to HEAD_EVGENIY_PI;
+grant select on DWH_BUFFER.W4_OPT_ACNT_BALANCE_P to KRISTINA_KO;
+grant select on DWH_BUFFER.W4_OPT_ACNT_BALANCE_P to PROCESS_RISK;
+grant select on DWH_BUFFER.W4_OPT_ACNT_BALANCE_P to PROCESS_SALES;
+

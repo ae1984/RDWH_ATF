@@ -1,0 +1,22 @@
+create table DWH_RISK.H_SLACE_REGNUM_20150915
+(
+  registration_number VARCHAR2(500)
+)
+tablespace DWH_RISK
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+grant select on DWH_RISK.H_SLACE_REGNUM_20150915 to AIBEK_BE;
+grant select, insert, update, delete on DWH_RISK.H_SLACE_REGNUM_20150915 to DWH_RISK_FULL_ROLE;
+grant select on DWH_RISK.H_SLACE_REGNUM_20150915 to DWH_RISK_READ_ROLE;
+grant select on DWH_RISK.H_SLACE_REGNUM_20150915 to HEAD_DENIS_PL;
+grant select on DWH_RISK.H_SLACE_REGNUM_20150915 to KRISTINA_KO;
+grant select on DWH_RISK.H_SLACE_REGNUM_20150915 to PROCESS_RISK;
+

@@ -1,0 +1,56 @@
+create table DWH_BUFFER.COL_T_DEAPRD_STD
+(
+  id        NUMBER(10) not null,
+  longname  VARCHAR2(250 CHAR) not null,
+  time_type CHAR(1) not null,
+  time_unit NUMBER(5) not null,
+  arcfl     CHAR(1) not null,
+  correctdt DATE,
+  id_us     NUMBER(5),
+  prim      VARCHAR2(250 CHAR),
+  code      VARCHAR2(30) not null
+)
+tablespace DWH_BUFFER
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  )
+nologging;
+comment on table DWH_BUFFER.COL_T_DEAPRD_STD
+  is 'Возможные сроки договоров';
+comment on column DWH_BUFFER.COL_T_DEAPRD_STD.id
+  is 'Идентификатор';
+comment on column DWH_BUFFER.COL_T_DEAPRD_STD.longname
+  is 'Наименование';
+comment on column DWH_BUFFER.COL_T_DEAPRD_STD.time_type
+  is 'Тип временного интервала';
+comment on column DWH_BUFFER.COL_T_DEAPRD_STD.time_unit
+  is 'Количество интервалов';
+comment on column DWH_BUFFER.COL_T_DEAPRD_STD.arcfl
+  is 'Архив';
+comment on column DWH_BUFFER.COL_T_DEAPRD_STD.correctdt
+  is 'Время записи физическое';
+comment on column DWH_BUFFER.COL_T_DEAPRD_STD.id_us
+  is 'Исполнитель, корректировавший данные';
+comment on column DWH_BUFFER.COL_T_DEAPRD_STD.prim
+  is 'Описание';
+comment on column DWH_BUFFER.COL_T_DEAPRD_STD.code
+  is 'Код';
+grant select on DWH_BUFFER.COL_T_DEAPRD_STD to AIBEK_BE;
+grant select, insert, update, delete on DWH_BUFFER.COL_T_DEAPRD_STD to DWH_BUFFER_FULL_ROLE;
+grant select on DWH_BUFFER.COL_T_DEAPRD_STD to DWH_BUFFER_READ_ROLE;
+grant select on DWH_BUFFER.COL_T_DEAPRD_STD to DWH_PRIM;
+grant select on DWH_BUFFER.COL_T_DEAPRD_STD to DWH_RISK;
+grant select on DWH_BUFFER.COL_T_DEAPRD_STD to DWH_SALES;
+grant select on DWH_BUFFER.COL_T_DEAPRD_STD to HEAD_DENIS_PL;
+grant select on DWH_BUFFER.COL_T_DEAPRD_STD to HEAD_EVGENIY_PI;
+grant select on DWH_BUFFER.COL_T_DEAPRD_STD to KRISTINA_KO;
+grant select on DWH_BUFFER.COL_T_DEAPRD_STD to PROCESS_RISK;
+grant select on DWH_BUFFER.COL_T_DEAPRD_STD to PROCESS_SALES;
+

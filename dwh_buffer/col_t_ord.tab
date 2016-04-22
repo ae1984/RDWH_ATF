@@ -1,0 +1,153 @@
+create table DWH_BUFFER.COL_T_ORD
+(
+  dep_id    NUMBER(10) not null,
+  id        NUMBER(10) not null,
+  ord_id    NUMBER(10) not null,
+  tus_id    NUMBER(10) not null,
+  val_id    NUMBER(10),
+  correctdt DATE,
+  id_us     NUMBER(5),
+  dord      DATE not null,
+  nn        NUMBER(5) not null,
+  code      VARCHAR2(30),
+  postfl    NUMBER(1) not null,
+  flzo      NUMBER(1) not null,
+  planfl    NUMBER(1) not null,
+  nolimitfl NUMBER(1) not null,
+  arcfl     NUMBER(1) not null,
+  printfl   NUMBER(1) not null,
+  rate      FLOAT,
+  drecv     DATE,
+  dimport   DATE
+)
+tablespace DWH_BUFFER
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 4M
+    minextents 1
+    maxextents unlimited
+  )
+nologging;
+comment on table DWH_BUFFER.COL_T_ORD
+  is 'Документ';
+comment on column DWH_BUFFER.COL_T_ORD.dep_id
+  is 'Идентификатор отдела';
+comment on column DWH_BUFFER.COL_T_ORD.id
+  is 'Идентификатор';
+comment on column DWH_BUFFER.COL_T_ORD.ord_id
+  is 'Идентификатор документа';
+comment on column DWH_BUFFER.COL_T_ORD.tus_id
+  is 'Идентификатор пользователя';
+comment on column DWH_BUFFER.COL_T_ORD.val_id
+  is 'Идентификатор валюты';
+comment on column DWH_BUFFER.COL_T_ORD.correctdt
+  is 'Время записи физическое';
+comment on column DWH_BUFFER.COL_T_ORD.id_us
+  is 'Исполнитель, корректировавший данные';
+comment on column DWH_BUFFER.COL_T_ORD.dord
+  is 'Дата документа';
+comment on column DWH_BUFFER.COL_T_ORD.nn
+  is 'Номер по порядку';
+comment on column DWH_BUFFER.COL_T_ORD.code
+  is 'Кодовое представление записи';
+comment on column DWH_BUFFER.COL_T_ORD.postfl
+  is 'Флаг провода';
+comment on column DWH_BUFFER.COL_T_ORD.flzo
+  is 'Флаг заключительных оборотов';
+comment on column DWH_BUFFER.COL_T_ORD.planfl
+  is 'Флаг планируемого докумета';
+comment on column DWH_BUFFER.COL_T_ORD.nolimitfl
+  is 'Флаг безлимитного провода (без контроля остатков)';
+comment on column DWH_BUFFER.COL_T_ORD.arcfl
+  is 'Архив';
+comment on column DWH_BUFFER.COL_T_ORD.printfl
+  is 'Флаг необходимости печати первичного документа';
+comment on column DWH_BUFFER.COL_T_ORD.rate
+  is 'Валютный курс';
+comment on column DWH_BUFFER.COL_T_ORD.drecv
+  is 'Дата приема';
+comment on column DWH_BUFFER.COL_T_ORD.dimport
+  is 'Дата и время импорта документа в систему';
+create index DWH_BUFFER.IE_COL_T_ORD_CODE on DWH_BUFFER.COL_T_ORD (CODE)
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 4M
+    next 4M
+    minextents 1
+    maxextents unlimited
+  )
+  nologging;
+create index DWH_BUFFER.IE_COL_T_ORD_DRECV on DWH_BUFFER.COL_T_ORD (DRECV, DEP_ID, TUS_ID)
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 4M
+    next 4M
+    minextents 1
+    maxextents unlimited
+  )
+  compress  nologging;
+create index DWH_BUFFER.IE_COL_T_ORD_ID on DWH_BUFFER.COL_T_ORD (ID)
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  )
+  nologging;
+create index DWH_BUFFER.IE_COL_T_ORD_NN on DWH_BUFFER.COL_T_ORD (TUS_ID, ORD_ID, DORD, NN)
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 5M
+    next 4M
+    minextents 1
+    maxextents unlimited
+  )
+  compress 3  nologging;
+alter table DWH_BUFFER.COL_T_ORD
+  add constraint PK_COL_T_ORD primary key (DEP_ID, ID)
+  using index 
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 11M
+    next 4M
+    minextents 1
+    maxextents unlimited
+  );
+alter index DWH_BUFFER.PK_COL_T_ORD nologging;
+grant select on DWH_BUFFER.COL_T_ORD to AIBEK_BE;
+grant select, insert, update, delete on DWH_BUFFER.COL_T_ORD to DWH_BUFFER_FULL_ROLE;
+grant select on DWH_BUFFER.COL_T_ORD to DWH_BUFFER_READ_ROLE;
+grant select on DWH_BUFFER.COL_T_ORD to DWH_PRIM;
+grant select on DWH_BUFFER.COL_T_ORD to DWH_RISK;
+grant select on DWH_BUFFER.COL_T_ORD to DWH_SALES;
+grant select on DWH_BUFFER.COL_T_ORD to HEAD_DENIS_PL;
+grant select on DWH_BUFFER.COL_T_ORD to HEAD_EVGENIY_PI;
+grant select on DWH_BUFFER.COL_T_ORD to KRISTINA_KO;
+grant select on DWH_BUFFER.COL_T_ORD to PROCESS_RISK;
+grant select on DWH_BUFFER.COL_T_ORD to PROCESS_SALES;
+

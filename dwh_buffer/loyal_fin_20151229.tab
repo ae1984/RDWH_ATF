@@ -1,0 +1,31 @@
+create table DWH_BUFFER.LOYAL_FIN_20151229
+(
+  cli_id   NUMBER(10),
+  cli_code VARCHAR2(30),
+  iin      VARCHAR2(30),
+  rnn      VARCHAR2(12 CHAR),
+  is_act   NUMBER
+)
+tablespace DWH_BUFFER
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+grant select on DWH_BUFFER.LOYAL_FIN_20151229 to AIBEK_BE;
+grant select, insert, update, delete on DWH_BUFFER.LOYAL_FIN_20151229 to DWH_BUFFER_FULL_ROLE;
+grant select on DWH_BUFFER.LOYAL_FIN_20151229 to DWH_BUFFER_READ_ROLE;
+grant select on DWH_BUFFER.LOYAL_FIN_20151229 to DWH_PRIM;
+grant select on DWH_BUFFER.LOYAL_FIN_20151229 to DWH_RISK;
+grant select on DWH_BUFFER.LOYAL_FIN_20151229 to DWH_SALES;
+grant select on DWH_BUFFER.LOYAL_FIN_20151229 to HEAD_DENIS_PL;
+grant select on DWH_BUFFER.LOYAL_FIN_20151229 to HEAD_EVGENIY_PI;
+grant select on DWH_BUFFER.LOYAL_FIN_20151229 to KRISTINA_KO;
+grant select on DWH_BUFFER.LOYAL_FIN_20151229 to PROCESS_RISK;
+grant select on DWH_BUFFER.LOYAL_FIN_20151229 to PROCESS_SALES;
+

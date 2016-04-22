@@ -1,0 +1,49 @@
+create table DWH_BUFFER.REP_RESP
+(
+  campaign_code        VARCHAR2(20 CHAR),
+  offer_type           VARCHAR2(20 CHAR),
+  channel_path         VARCHAR2(4000 CHAR),
+  region               VARCHAR2(250 CHAR),
+  comment_ext          VARCHAR2(200 CHAR),
+  offer_open_dttm      DATE,
+  cnt_ofr              NUMBER,
+  is_sms_delivered     NUMBER,
+  is_call_got_through  NUMBER,
+  is_call_wrong_number NUMBER,
+  is_call_accept       NUMBER,
+  is_call_accept_maybe NUMBER,
+  cnt_app_dir          NUMBER,
+  cnt_app_can          NUMBER,
+  cnt_app_att          NUMBER,
+  cnt_deal_dir         NUMBER,
+  cnt_deal_can         NUMBER,
+  cnt_deal_att         NUMBER,
+  sum_deal_dir         NUMBER,
+  cnt_app_dir_7        NUMBER,
+  cnt_app_dir_14       NUMBER,
+  cnt_app_dir_21       NUMBER
+)
+tablespace DWH_BUFFER
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 128K
+    next 128K
+    minextents 1
+    maxextents unlimited
+  )
+nologging;
+grant select on DWH_BUFFER.REP_RESP to AIBEK_BE;
+grant select, insert, update, delete on DWH_BUFFER.REP_RESP to DWH_BUFFER_FULL_ROLE;
+grant select on DWH_BUFFER.REP_RESP to DWH_BUFFER_READ_ROLE;
+grant select on DWH_BUFFER.REP_RESP to DWH_PRIM;
+grant select on DWH_BUFFER.REP_RESP to DWH_RISK;
+grant select on DWH_BUFFER.REP_RESP to DWH_SALES;
+grant select on DWH_BUFFER.REP_RESP to HEAD_DENIS_PL;
+grant select on DWH_BUFFER.REP_RESP to HEAD_EVGENIY_PI;
+grant select on DWH_BUFFER.REP_RESP to KRISTINA_KO;
+grant select on DWH_BUFFER.REP_RESP to PROCESS_RISK;
+grant select on DWH_BUFFER.REP_RESP to PROCESS_SALES;
+

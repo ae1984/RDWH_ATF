@@ -1,0 +1,58 @@
+create table DWH_BUFFER.COL_SYNH
+(
+  snd_dt DATE,
+  id     NUMBER(10),
+  dsc_id NUMBER(10),
+  code   VARCHAR2(30),
+  cvalue VARCHAR2(250 CHAR)
+)
+tablespace DWH_BUFFER
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 100M
+    next 10M
+    minextents 1
+    maxextents unlimited
+  )
+nologging;
+create index DWH_BUFFER.IX_COL_SYNH_1 on DWH_BUFFER.COL_SYNH (ID)
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 10M
+    next 1M
+    minextents 1
+    maxextents unlimited
+  )
+  nologging;
+create index DWH_BUFFER.IX_COL_SYNH_2 on DWH_BUFFER.COL_SYNH (CODE)
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 10M
+    next 1M
+    minextents 1
+    maxextents unlimited
+  )
+  nologging;
+grant select on DWH_BUFFER.COL_SYNH to AIBEK_BE;
+grant select, insert, update, delete on DWH_BUFFER.COL_SYNH to DWH_BUFFER_FULL_ROLE;
+grant select on DWH_BUFFER.COL_SYNH to DWH_BUFFER_READ_ROLE;
+grant select on DWH_BUFFER.COL_SYNH to DWH_PRIM;
+grant select on DWH_BUFFER.COL_SYNH to DWH_RISK;
+grant select on DWH_BUFFER.COL_SYNH to DWH_SALES;
+grant select on DWH_BUFFER.COL_SYNH to HEAD_DENIS_PL;
+grant select on DWH_BUFFER.COL_SYNH to HEAD_EVGENIY_PI;
+grant select on DWH_BUFFER.COL_SYNH to KRISTINA_KO;
+grant select on DWH_BUFFER.COL_SYNH to PROCESS_RISK;
+grant select on DWH_BUFFER.COL_SYNH to PROCESS_SALES;
+

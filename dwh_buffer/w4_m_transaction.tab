@@ -1,0 +1,71 @@
+create table DWH_BUFFER.W4_M_TRANSACTION
+(
+  id                 NUMBER(18) not null,
+  posting_date       DATE,
+  local_date         DATE,
+  due_date           DATE,
+  posting_db_date    DATE,
+  portion            NUMBER(9) not null,
+  posting_status     VARCHAR2(1 CHAR),
+  f_i                NUMBER(18),
+  entry_type         VARCHAR2(1 CHAR),
+  request_cat        VARCHAR2(1 CHAR),
+  service_class      VARCHAR2(1 CHAR),
+  trans_subtype      NUMBER(18),
+  direction          NUMBER(1) not null,
+  trans_code         VARCHAR2(32 CHAR),
+  trans_curr         VARCHAR2(3 CHAR),
+  trans_amount       NUMBER(28,10) not null,
+  fx_seqv_n          NUMBER(18),
+  local_amount       NUMBER(28,10) not null,
+  source_account     NUMBER(18),
+  s_amount           NUMBER(28,10) not null,
+  s_fee_amount       NUMBER(28,10) not null,
+  source_code        VARCHAR2(255 CHAR),
+  source_service     NUMBER(18),
+  target_account     NUMBER(18),
+  t_amount           NUMBER(28,10) not null,
+  t_fee_amount       NUMBER(28,10) not null,
+  target_code        VARCHAR2(255 CHAR),
+  target_service     NUMBER(18),
+  mtr_details        VARCHAR2(4000 CHAR),
+  m_transaction__oid NUMBER(18),
+  doc__oid           NUMBER(18),
+  contract           NUMBER(18)
+)
+tablespace DWH_BUFFER
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+create index DWH_BUFFER.IX_W4_M_TRANSACTION_1 on DWH_BUFFER.W4_M_TRANSACTION (DOC__OID)
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  )
+  nologging;
+grant select on DWH_BUFFER.W4_M_TRANSACTION to AIBEK_BE;
+grant select, insert, update, delete on DWH_BUFFER.W4_M_TRANSACTION to DWH_BUFFER_FULL_ROLE;
+grant select on DWH_BUFFER.W4_M_TRANSACTION to DWH_BUFFER_READ_ROLE;
+grant select on DWH_BUFFER.W4_M_TRANSACTION to DWH_PRIM;
+grant select on DWH_BUFFER.W4_M_TRANSACTION to DWH_RISK;
+grant select on DWH_BUFFER.W4_M_TRANSACTION to DWH_SALES;
+grant select on DWH_BUFFER.W4_M_TRANSACTION to HEAD_DENIS_PL;
+grant select on DWH_BUFFER.W4_M_TRANSACTION to HEAD_EVGENIY_PI;
+grant select on DWH_BUFFER.W4_M_TRANSACTION to KRISTINA_KO;
+grant select on DWH_BUFFER.W4_M_TRANSACTION to PROCESS_RISK;
+grant select on DWH_BUFFER.W4_M_TRANSACTION to PROCESS_SALES;
+

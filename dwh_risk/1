@@ -1,0 +1,1675 @@
+--------------------------------------------------
+-- Export file for user DWH_RISK@DWH            --
+-- Created by Alexey-Ye on 10.02.2016, 14:18:35 --
+--------------------------------------------------
+
+set define off
+spool 1.log
+
+prompt
+prompt Creating table AGGREGATE_DATA_BEH_SCORECARD
+prompt ===========================================
+prompt
+@@aggregate_data_beh_scorecard.tab
+prompt
+prompt Creating table CALC_LOYAL_01
+prompt ============================
+prompt
+@@calc_loyal_01.tab
+prompt
+prompt Creating table CALC_LOYAL_02
+prompt ============================
+prompt
+@@calc_loyal_02.tab
+prompt
+prompt Creating table CALC_W4_ZP
+prompt =========================
+prompt
+@@calc_w4_zp.tab
+prompt
+prompt Creating table CALC_W4_ZP_0
+prompt ===========================
+prompt
+@@calc_w4_zp_0.tab
+prompt
+prompt Creating table CHARACTERISTICS
+prompt ==============================
+prompt
+@@characteristics.tab
+prompt
+prompt Creating table CLOBTABLE
+prompt ========================
+prompt
+@@clobtable.tab
+prompt
+prompt Creating table CONTR_LIST_RISK_20150921
+prompt =======================================
+prompt
+@@contr_list_risk_20150921.tab
+prompt
+prompt Creating table CP_REF_VCC
+prompt =========================
+prompt
+@@cp_ref_vcc.tab
+prompt
+prompt Creating table CP_RESTR_20160202
+prompt ================================
+prompt
+@@cp_restr_20160202.tab
+prompt
+prompt Creating table CREDIT_PORTFOLIO
+prompt ===============================
+prompt
+@@credit_portfolio.tab
+prompt
+prompt Creating table CREDIT_PORTFOLIO2
+prompt ================================
+prompt
+@@credit_portfolio2.tab
+prompt
+prompt Creating table CREDIT_PORTFOLIO3
+prompt ================================
+prompt
+@@credit_portfolio3.tab
+prompt
+prompt Creating table CREDIT_PROSROCHKA_TOMAIL
+prompt =======================================
+prompt
+@@credit_prosrochka_tomail.tab
+prompt
+prompt Creating table CREDIT_PROSROCHKA_20150702
+prompt =========================================
+prompt
+@@credit_prosrochka_20150702.tab
+prompt
+prompt Creating table CREDIT_PROSROCHKA_20150715
+prompt =========================================
+prompt
+@@credit_prosrochka_20150715.tab
+prompt
+prompt Creating table CREDIT_PROSROCHKA_20150715_1
+prompt ===========================================
+prompt
+@@credit_prosrochka_20150715_1.tab
+prompt
+prompt Creating table CREDIT_PROSROCHKA_20150715_2
+prompt ===========================================
+prompt
+@@credit_prosrochka_20150715_2.tab
+prompt
+prompt Creating table CSV_H_SAS_PORTFOLIO
+prompt ==================================
+prompt
+@@csv_h_sas_portfolio.tab
+prompt
+prompt Creating table CSV_SAS_PORTFOLIO
+prompt ================================
+prompt
+@@csv_sas_portfolio.tab
+prompt
+prompt Creating table DCA_EXCEPTION
+prompt ============================
+prompt
+@@dca_exception.tab
+prompt
+prompt Creating table DCA_MAX_CLI
+prompt ==========================
+prompt
+@@dca_max_cli.tab
+prompt
+prompt Creating table DCA_MAX_IIN
+prompt ==========================
+prompt
+@@dca_max_iin.tab
+prompt
+prompt Creating table DCA_TRGT_PD
+prompt ==========================
+prompt
+@@dca_trgt_pd.tab
+prompt
+prompt Creating table DCA_20150917
+prompt ===========================
+prompt
+@@dca_20150917.tab
+prompt
+prompt Creating table DCA_20150918
+prompt ===========================
+prompt
+@@dca_20150918.tab
+prompt
+prompt Creating table DM_DATE
+prompt ======================
+prompt
+@@dm_date.tab
+prompt
+prompt Creating table DM_LOAN_BASE_TMP
+prompt ===============================
+prompt
+@@dm_loan_base_tmp.tab
+prompt
+prompt Creating table DM_MM
+prompt ====================
+prompt
+@@dm_mm.tab
+prompt
+prompt Creating table DP_COVD
+prompt ======================
+prompt
+@@dp_covd.tab
+prompt
+prompt Creating table DP_COVD_E5
+prompt =========================
+prompt
+@@dp_covd_e5.tab
+prompt
+prompt Creating table DP_COVD2
+prompt =======================
+prompt
+@@dp_covd2.tab
+prompt
+prompt Creating table DP_COVD2_EVER
+prompt ============================
+prompt
+@@dp_covd2_ever.tab
+prompt
+prompt Creating table DP_COVD2_V2
+prompt ==========================
+prompt
+@@dp_covd2_v2.tab
+prompt
+prompt Creating table DP_COVD2_V2_TMP
+prompt ==============================
+prompt
+@@dp_covd2_v2_tmp.tab
+prompt
+prompt Creating table DP_EKZ_ALL_UNSEC_BAD
+prompt ===================================
+prompt
+@@dp_ekz_all_unsec_bad.tab
+prompt
+prompt Creating table DP_EKZ_ALL_UNSEC_P2
+prompt ==================================
+prompt
+@@dp_ekz_all_unsec_p2.tab
+prompt
+prompt Creating table DP_EKZ_ALL_UNSEC_P2_2
+prompt ====================================
+prompt
+@@dp_ekz_all_unsec_p2_2.tab
+prompt
+prompt Creating table DP_PRODS
+prompt =======================
+prompt
+@@dp_prods.tab
+prompt
+prompt Creating table DP_REJ_DESCR
+prompt ===========================
+prompt
+@@dp_rej_descr.tab
+prompt
+prompt Creating table DP_SAMPLE_FULL_E2
+prompt ================================
+prompt
+@@dp_sample_full_e2.tab
+prompt
+prompt Creating table DP_SAMPLE_FULL_E2_DAYS
+prompt =====================================
+prompt
+@@dp_sample_full_e2_days.tab
+prompt
+prompt Creating table DP_SAMPLE_FULL_E2_2
+prompt ==================================
+prompt
+@@dp_sample_full_e2_2.tab
+prompt
+prompt Creating table DP_SAMPLE_FULL_E3
+prompt ================================
+prompt
+@@dp_sample_full_e3.tab
+prompt
+prompt Creating table DP_SC_TST
+prompt ========================
+prompt
+@@dp_sc_tst.tab
+prompt
+prompt Creating table DP_TOD
+prompt =====================
+prompt
+@@dp_tod.tab
+prompt
+prompt Creating table DP_TOD_ADD_E1
+prompt ============================
+prompt
+@@dp_tod_add_e1.tab
+prompt
+prompt Creating table DP_TOD_COVD_E1
+prompt =============================
+prompt
+@@dp_tod_covd_e1.tab
+prompt
+prompt Creating table DP_TOD_COVD_E2
+prompt =============================
+prompt
+@@dp_tod_covd_e2.tab
+prompt
+prompt Creating table DP_TOD_COVD_E3
+prompt =============================
+prompt
+@@dp_tod_covd_e3.tab
+prompt
+prompt Creating table DP_TOD_COVD_E4
+prompt =============================
+prompt
+@@dp_tod_covd_e4.tab
+prompt
+prompt Creating table DWH_SIZE_STAT
+prompt ============================
+prompt
+@@dwh_size_stat.tab
+prompt
+prompt Creating table ETL_CRED_LINE
+prompt ============================
+prompt
+@@etl_cred_line.tab
+prompt
+prompt Creating table EXE_FCB
+prompt ======================
+prompt
+@@exe_fcb.tab
+prompt
+prompt Creating table EXE_FCB_NOT_CIGRESULT
+prompt ====================================
+prompt
+@@exe_fcb_not_cigresult.tab
+prompt
+prompt Creating table EXE_PROCESS_RESULTS
+prompt ==================================
+prompt
+@@exe_process_results.tab
+prompt
+prompt Creating table EXE_SCORINGRBPLOGS
+prompt =================================
+prompt
+@@exe_scoringrbplogs.tab
+prompt
+prompt Creating table FCB_COLLATERAL
+prompt =============================
+prompt
+@@fcb_collateral.tab
+prompt
+prompt Creating table FCB_CONTRACTS
+prompt ============================
+prompt
+@@fcb_contracts.tab
+prompt
+prompt Creating table FCB_ERR
+prompt ======================
+prompt
+@@fcb_err.tab
+prompt
+prompt Creating table FCB_GENERAL_INFORMATION
+prompt ======================================
+prompt
+@@fcb_general_information.tab
+prompt
+prompt Creating table FCB_PAYMENTSCALENDAR
+prompt ===================================
+prompt
+@@fcb_paymentscalendar.tab
+prompt
+prompt Creating table GSVP_PARS
+prompt ========================
+prompt
+@@gsvp_pars.tab
+prompt
+prompt Creating table GSVP_PARS_ERR
+prompt ============================
+prompt
+@@gsvp_pars_err.tab
+prompt
+prompt Creating table H_CALC_STEP_1
+prompt ============================
+prompt
+@@h_calc_step_1.tab
+prompt
+prompt Creating table H_CALC_STEP_10
+prompt =============================
+prompt
+@@h_calc_step_10.tab
+prompt
+prompt Creating table H_CALC_STEP_11
+prompt =============================
+prompt
+@@h_calc_step_11.tab
+prompt
+prompt Creating table H_CALC_STEP_11_0
+prompt ===============================
+prompt
+@@h_calc_step_11_0.tab
+prompt
+prompt Creating table H_CALC_STEP_12
+prompt =============================
+prompt
+@@h_calc_step_12.tab
+prompt
+prompt Creating table H_CALC_STEP_12_0
+prompt ===============================
+prompt
+@@h_calc_step_12_0.tab
+prompt
+prompt Creating table H_CALC_STEP_13
+prompt =============================
+prompt
+@@h_calc_step_13.tab
+prompt
+prompt Creating table H_CALC_STEP_14
+prompt =============================
+prompt
+@@h_calc_step_14.tab
+prompt
+prompt Creating table H_CALC_STEP_15
+prompt =============================
+prompt
+@@h_calc_step_15.tab
+prompt
+prompt Creating table H_CALC_STEP_2
+prompt ============================
+prompt
+@@h_calc_step_2.tab
+prompt
+prompt Creating table H_CALC_STEP_3
+prompt ============================
+prompt
+@@h_calc_step_3.tab
+prompt
+prompt Creating table H_CALC_STEP_4
+prompt ============================
+prompt
+@@h_calc_step_4.tab
+prompt
+prompt Creating table H_CALC_STEP_5
+prompt ============================
+prompt
+@@h_calc_step_5.tab
+prompt
+prompt Creating table H_CALC_STEP_5_1
+prompt ==============================
+prompt
+@@h_calc_step_5_1.tab
+prompt
+prompt Creating table H_CALC_STEP_6
+prompt ============================
+prompt
+@@h_calc_step_6.tab
+prompt
+prompt Creating table H_CALC_STEP_6_0
+prompt ==============================
+prompt
+@@h_calc_step_6_0.tab
+prompt
+prompt Creating table H_CALC_STEP_7
+prompt ============================
+prompt
+@@h_calc_step_7.tab
+prompt
+prompt Creating table H_CALC_STEP_8
+prompt ============================
+prompt
+@@h_calc_step_8.tab
+prompt
+prompt Creating table H_CALC_STEP_8_1
+prompt ==============================
+prompt
+@@h_calc_step_8_1.tab
+prompt
+prompt Creating table H_CALC_STEP_9
+prompt ============================
+prompt
+@@h_calc_step_9.tab
+prompt
+prompt Creating table H_CARD_SALARY_20150916
+prompt =====================================
+prompt
+@@h_card_salary_20150916.tab
+prompt
+prompt Creating table H_CP_20150929_GROUP
+prompt ==================================
+prompt
+@@h_cp_20150929_group.tab
+prompt
+prompt Creating table H_DCA_SMA_20150911
+prompt =================================
+prompt
+@@h_dca_sma_20150911.tab
+prompt
+prompt Creating table H_DCA_SMA_20150918
+prompt =================================
+prompt
+@@h_dca_sma_20150918.tab
+prompt
+prompt Creating table H_DP_EKZ_ALL_UNSEC_P2_2_DM1
+prompt ==========================================
+prompt
+@@h_dp_ekz_all_unsec_p2_2_dm1.tab
+prompt
+prompt Creating table H_DP_EKZ_ALL_UNSEC_P2_2_DM2
+prompt ==========================================
+prompt
+@@h_dp_ekz_all_unsec_p2_2_dm2.tab
+prompt
+prompt Creating table H_DP_EKZ_ALL_UNSEC_P2_2_DM3
+prompt ==========================================
+prompt
+@@h_dp_ekz_all_unsec_p2_2_dm3.tab
+prompt
+prompt Creating table H_DP_EKZ_ALL_UNSEC_P2_2_DM4
+prompt ==========================================
+prompt
+@@h_dp_ekz_all_unsec_p2_2_dm4.tab
+prompt
+prompt Creating table H_DP_EKZ_ALL_UNSEC_P2_2_DM5
+prompt ==========================================
+prompt
+@@h_dp_ekz_all_unsec_p2_2_dm5.tab
+prompt
+prompt Creating table H_DP_EKZ_ALL_UNSEC_P2_2_DM5_1
+prompt ============================================
+prompt
+@@h_dp_ekz_all_unsec_p2_2_dm5_1.tab
+prompt
+prompt Creating table H_DP_EKZ_ALL_UNSEC_P2_2_DM6
+prompt ==========================================
+prompt
+@@h_dp_ekz_all_unsec_p2_2_dm6.tab
+prompt
+prompt Creating table H_DP_EKZ_ALL_UNSEC_P2_2_DM7
+prompt ==========================================
+prompt
+@@h_dp_ekz_all_unsec_p2_2_dm7.tab
+prompt
+prompt Creating table H_DP_EKZ_ALL_UNSEC_P2_2_DM8
+prompt ==========================================
+prompt
+@@h_dp_ekz_all_unsec_p2_2_dm8.tab
+prompt
+prompt Creating table H_DP_EKZ_ALL_UNSEC_P2_2_DM8_1
+prompt ============================================
+prompt
+@@h_dp_ekz_all_unsec_p2_2_dm8_1.tab
+prompt
+prompt Creating table H_DP_EKZ_ALL_UNSEC_P2_2_RES
+prompt ==========================================
+prompt
+@@h_dp_ekz_all_unsec_p2_2_res.tab
+prompt
+prompt Creating table H_FCB_CONTRACTS
+prompt ==============================
+prompt
+@@h_fcb_contracts.tab
+prompt
+prompt Creating table H_FCB_HEAD_20150915
+prompt ==================================
+prompt
+@@h_fcb_head_20150915.tab
+prompt
+prompt Creating table H_FCB_OVERDUE_20150915
+prompt =====================================
+prompt
+@@h_fcb_overdue_20150915.tab
+prompt
+prompt Creating table H_FCB_OVERDUE_20150915_1
+prompt =======================================
+prompt
+@@h_fcb_overdue_20150915_1.tab
+prompt
+prompt Creating table H_FCB_OVERDUE_20150923
+prompt =====================================
+prompt
+@@h_fcb_overdue_20150923.tab
+prompt
+prompt Creating table H_SLACE_REGNUM_20150915
+prompt ======================================
+prompt
+@@h_slace_regnum_20150915.tab
+prompt
+prompt Creating table H_SLACE_REGNUM_20150923
+prompt ======================================
+prompt
+@@h_slace_regnum_20150923.tab
+prompt
+prompt Creating table H_TMP_20150910_RES
+prompt =================================
+prompt
+@@h_tmp_20150910_res.tab
+prompt
+prompt Creating table H_TMP_20150910_S
+prompt ===============================
+prompt
+@@h_tmp_20150910_s.tab
+prompt
+prompt Creating table H_XLS_CP_20150828
+prompt ================================
+prompt
+@@h_xls_cp_20150828.tab
+prompt
+prompt Creating table H_XLS_KAZAK_NAMES
+prompt ================================
+prompt
+@@h_xls_kazak_names.tab
+prompt
+prompt Creating table H_XLS_LOAN_20151022
+prompt ==================================
+prompt
+@@h_xls_loan_20151022.tab
+prompt
+prompt Creating table H_XLS_SUBSISTENCE
+prompt ================================
+prompt
+@@h_xls_subsistence.tab
+prompt
+prompt Creating table H_1_DP_COVD2_EVER_CORP_V2
+prompt ========================================
+prompt
+@@h_1_dp_covd2_ever_corp_v2.tab
+prompt
+prompt Creating table H_201508_STEP1
+prompt =============================
+prompt
+@@h_201508_step1.tab
+prompt
+prompt Creating table H_201508_STEP2_SALARY
+prompt ====================================
+prompt
+@@h_201508_step2_salary.tab
+prompt
+prompt Creating table H_201508_STEP3_RESULT
+prompt ====================================
+prompt
+@@h_201508_step3_result.tab
+prompt
+prompt Creating table H_201508_STEP4
+prompt =============================
+prompt
+@@h_201508_step4.tab
+prompt
+prompt Creating table H_201508_STEP5
+prompt =============================
+prompt
+@@h_201508_step5.tab
+prompt
+prompt Creating table H_201508_STEP6
+prompt =============================
+prompt
+@@h_201508_step6.tab
+prompt
+prompt Creating table H_201508_STEP6_1
+prompt ===============================
+prompt
+@@h_201508_step6_1.tab
+prompt
+prompt Creating table LOAN_BASE_STAT_SNAP
+prompt ==================================
+prompt
+@@loan_base_stat_snap.tab
+prompt
+prompt Creating table LOAN_BUF_RISK_20150921
+prompt =====================================
+prompt
+@@loan_buf_risk_20150921.tab
+prompt
+prompt Creating table LOAN_REQUEST
+prompt ===========================
+prompt
+@@loan_request.tab
+prompt
+prompt Creating table LOAN_REQUEST_APPROV_SCOR
+prompt =======================================
+prompt
+@@loan_request_approv_scor.tab
+prompt
+prompt Creating table LOAN_REQUEST_REJECT_CANCEL
+prompt =========================================
+prompt
+@@loan_request_reject_cancel.tab
+prompt
+prompt Creating table LOAN_SCHED
+prompt =========================
+prompt
+@@loan_sched.tab
+prompt
+prompt Creating table LOAN_SCHED_1
+prompt ===========================
+prompt
+@@loan_sched_1.tab
+prompt
+prompt Creating table LOANS_WITH_FRESH_OVERDUE
+prompt =======================================
+prompt
+@@loans_with_fresh_overdue.tab
+prompt
+prompt Creating table OLD_CODE
+prompt =======================
+prompt
+@@old_code.tab
+prompt
+prompt Creating table OVERDUE_LOANS_FROM_REPORTER
+prompt ==========================================
+prompt
+@@overdue_loans_from_reporter.tab
+prompt
+prompt Creating table OVRD_CP_MM_IIN
+prompt =============================
+prompt
+@@ovrd_cp_mm_iin.tab
+prompt
+prompt Creating table OVRD_MM_IIN
+prompt ==========================
+prompt
+@@ovrd_mm_iin.tab
+prompt
+prompt Creating table OWS_GL_TRACE
+prompt ===========================
+prompt
+@@ows_gl_trace.tab
+prompt
+prompt Creating table PREDICTOR_CALC_CODE
+prompt ==================================
+prompt
+@@predictor_calc_code.tab
+prompt
+prompt Creating table PROCESS_RESULTS_NOT_FOUND
+prompt ========================================
+prompt
+@@process_results_not_found.tab
+prompt
+prompt Creating table RISK_CUBE_20150921
+prompt =================================
+prompt
+@@risk_cube_20150921.tab
+prompt
+prompt Creating table SALARY_DCA_1
+prompt ===========================
+prompt
+@@salary_dca_1.tab
+prompt
+prompt Creating table SALARY_DCA_2
+prompt ===========================
+prompt
+@@salary_dca_2.tab
+prompt
+prompt Creating table SALARY_MM
+prompt ========================
+prompt
+@@salary_mm.tab
+prompt
+prompt Creating table SALARY_2_1
+prompt =========================
+prompt
+@@salary_2_1.tab
+prompt
+prompt Creating table SCORE_BEH_LOANS_ALIBEK
+prompt =====================================
+prompt
+@@score_beh_loans_alibek.tab
+prompt
+prompt Creating table SCORE_VALIDATION
+prompt ===============================
+prompt
+@@score_validation.tab
+prompt
+prompt Creating table SCORE_VALIDATION_DETAILS
+prompt =======================================
+prompt
+@@score_validation_details.tab
+prompt
+prompt Creating table TABLES_LOG
+prompt =========================
+prompt
+@@tables_log.tab
+prompt
+prompt Creating table TAB1
+prompt ===================
+prompt
+@@tab1.tab
+prompt
+prompt Creating table TAB2
+prompt ===================
+prompt
+@@tab2.tab
+prompt
+prompt Creating table TAB3
+prompt ===================
+prompt
+@@tab3.tab
+prompt
+prompt Creating table TAB4
+prompt ===================
+prompt
+@@tab4.tab
+prompt
+prompt Creating table TAB5_1
+prompt =====================
+prompt
+@@tab5_1.tab
+prompt
+prompt Creating table TAB5_2
+prompt =====================
+prompt
+@@tab5_2.tab
+prompt
+prompt Creating table T_CLOB
+prompt =====================
+prompt
+@@t_clob.tab
+prompt
+prompt Creating table TEMP_H_CP_OVRD_TEST
+prompt ==================================
+prompt
+@@temp_h_cp_ovrd_test.tab
+prompt
+prompt Creating table TEST_JOIN_2
+prompt ==========================
+prompt
+@@test_join_2.tab
+prompt
+prompt Creating table TEST_JOIN_3
+prompt ==========================
+prompt
+@@test_join_3.tab
+prompt
+prompt Creating table TEST_MONITOR
+prompt ===========================
+prompt
+@@test_monitor.tab
+prompt
+prompt Creating table TMP_CREDIT_PORTFOLIO
+prompt ===================================
+prompt
+@@tmp_credit_portfolio.tab
+prompt
+prompt Creating table TMP_DCA_QCA
+prompt ==========================
+prompt
+@@tmp_dca_qca.tab
+prompt
+prompt Creating table TMP111
+prompt =====================
+prompt
+@@tmp111.tab
+prompt
+prompt Creating table TMP_20150701
+prompt ===========================
+prompt
+@@tmp_20150701.tab
+prompt
+prompt Creating table TMP_20150703
+prompt ===========================
+prompt
+@@tmp_20150703.tab
+prompt
+prompt Creating table TMP_20150703_2
+prompt =============================
+prompt
+@@tmp_20150703_2.tab
+prompt
+prompt Creating table TMP_20150709
+prompt ===========================
+prompt
+@@tmp_20150709.tab
+prompt
+prompt Creating table TMP_20150710
+prompt ===========================
+prompt
+@@tmp_20150710.tab
+prompt
+prompt Creating table TMP_20150910
+prompt ===========================
+prompt
+@@tmp_20150910.tab
+prompt
+prompt Creating table TRANS_BEFORE_LOAN_ALIBEK
+prompt =======================================
+prompt
+@@trans_before_loan_alibek.tab
+prompt
+prompt Creating table UWI_DETAIL_STAGES
+prompt ================================
+prompt
+@@uwi_detail_stages.tab
+prompt
+prompt Creating table UWI_DETAIL_STAGES_1
+prompt ==================================
+prompt
+@@uwi_detail_stages_1.tab
+prompt
+prompt Creating table UWI_DETAIL_STAGES_111
+prompt ====================================
+prompt
+@@uwi_detail_stages_111.tab
+prompt
+prompt Creating table UWI_DETAIL_STAGES_2
+prompt ==================================
+prompt
+@@uwi_detail_stages_2.tab
+prompt
+prompt Creating table UWI_DETAIL_STAGES_3
+prompt ==================================
+prompt
+@@uwi_detail_stages_3.tab
+prompt
+prompt Creating table V_CP_DCA_20151117
+prompt ================================
+prompt
+@@v_cp_dca_20151117.tab
+prompt
+prompt Creating table V_CP_H
+prompt =====================
+prompt
+@@v_cp_h.tab
+prompt
+prompt Creating table V_DCA_CP_20151014
+prompt ================================
+prompt
+@@v_dca_cp_20151014.tab
+prompt
+prompt Creating table VINTAGE_RISK
+prompt ===========================
+prompt
+@@vintage_risk.tab
+prompt
+prompt Creating table VINT_H_CP_2
+prompt ==========================
+prompt
+@@vint_h_cp_2.tab
+prompt
+prompt Creating table V_SALARY_DCA_1_2_TAB
+prompt ===================================
+prompt
+@@v_salary_dca_1_2_tab.tab
+prompt
+prompt Creating table V_SALARY_DCA_2_1
+prompt ===============================
+prompt
+@@v_salary_dca_2_1.tab
+prompt
+prompt Creating table V_UO_H
+prompt =====================
+prompt
+@@v_uo_h.tab
+prompt
+prompt Creating table W_4_BAL
+prompt ======================
+prompt
+@@w_4_bal.tab
+prompt
+prompt Creating table XLS_CLICODE_20160202
+prompt ===================================
+prompt
+@@xls_clicode_20160202.tab
+prompt
+prompt Creating table XLS_H_CP_HIST
+prompt ============================
+prompt
+@@xls_h_cp_hist.tab
+prompt
+prompt Creating table XLS_H_CP_20151130_TEST
+prompt =====================================
+prompt
+@@xls_h_cp_20151130_test.tab
+prompt
+prompt Creating table XLS_H_DCA
+prompt ========================
+prompt
+@@xls_h_dca.tab
+prompt
+prompt Creating table XLS_H_EKZ_ALL_UNSEC_BAD
+prompt ======================================
+prompt
+@@xls_h_ekz_all_unsec_bad.tab
+prompt
+prompt Creating table XLS_H_EMERALD
+prompt ============================
+prompt
+@@xls_h_emerald.tab
+prompt
+prompt Creating table XLS_H_EMERALD_0
+prompt ==============================
+prompt
+@@xls_h_emerald_0.tab
+prompt
+prompt Creating table XLS_H_EMERALD_1
+prompt ==============================
+prompt
+@@xls_h_emerald_1.tab
+prompt
+prompt Creating table XLS_H_EMERALD_2
+prompt ==============================
+prompt
+@@xls_h_emerald_2.tab
+prompt
+prompt Creating table XLS_H_EMERALD_3
+prompt ==============================
+prompt
+@@xls_h_emerald_3.tab
+prompt
+prompt Creating table XLS_H_EMERALD_4
+prompt ==============================
+prompt
+@@xls_h_emerald_4.tab
+prompt
+prompt Creating table XLS_H_EMERALD_5
+prompt ==============================
+prompt
+@@xls_h_emerald_5.tab
+prompt
+prompt Creating table XLS_H_OKED_20160201
+prompt ==================================
+prompt
+@@xls_h_oked_20160201.tab
+prompt
+prompt Creating table XLS_H_PRODUCTTYPE
+prompt ================================
+prompt
+@@xls_h_producttype.tab
+prompt
+prompt Creating table XLS_H_PROSR_CRED_HIST
+prompt ====================================
+prompt
+@@xls_h_prosr_cred_hist.tab
+prompt
+prompt Creating table XLS_H_PROVIZ_HIST
+prompt ================================
+prompt
+@@xls_h_proviz_hist.tab
+prompt
+prompt Creating table XLS_H_QCA
+prompt ========================
+prompt
+@@xls_h_qca.tab
+prompt
+prompt Creating table XLS_H_QCA_UNIQ
+prompt =============================
+prompt
+@@xls_h_qca_uniq.tab
+prompt
+prompt Creating table XLS_H_REGNUM_20151211
+prompt ====================================
+prompt
+@@xls_h_regnum_20151211.tab
+prompt
+prompt Creating table XLS_H_SYRYM_20150116
+prompt ===================================
+prompt
+@@xls_h_syrym_20150116.tab
+prompt
+prompt Creating table XLS_H_SYRYM_20150116_1
+prompt =====================================
+prompt
+@@xls_h_syrym_20150116_1.tab
+prompt
+prompt Creating table XLS_H_TAXPAYER_KAZ
+prompt =================================
+prompt
+@@xls_h_taxpayer_kaz.tab
+prompt
+prompt Creating table XLS_H_UO_HIST
+prompt ============================
+prompt
+@@xls_h_uo_hist.tab
+prompt
+prompt Creating table XLS_H_VCC_DESCR
+prompt ==============================
+prompt
+@@xls_h_vcc_descr.tab
+prompt
+prompt Creating table XLS_H_VCC_DESCR_20151204
+prompt =======================================
+prompt
+@@xls_h_vcc_descr_20151204.tab
+prompt
+prompt Creating table XLS_H_ZALOG_HIST
+prompt ===============================
+prompt
+@@xls_h_zalog_hist.tab
+prompt
+prompt Creating table XLS_H_7130_HIST
+prompt ==============================
+prompt
+@@xls_h_7130_hist.tab
+prompt
+prompt Creating table XLS_PD_20160208
+prompt ==============================
+prompt
+@@xls_pd_20160208.tab
+prompt
+prompt Creating table XLS_QCA_20160208
+prompt ===============================
+prompt
+@@xls_qca_20160208.tab
+prompt
+prompt Creating table XLS_UWI_DETAIL_STAGES
+prompt ====================================
+prompt
+@@xls_uwi_detail_stages.tab
+prompt
+prompt Creating table XLS_VCC_FOR_DCA
+prompt ==============================
+prompt
+@@xls_vcc_for_dca.tab
+prompt
+prompt Creating table XML_PROCESS_RESULTS
+prompt ==================================
+prompt
+@@xml_process_results.tab
+prompt
+prompt Creating sequence ETL_TABLES_LOG_SEQ
+prompt ====================================
+prompt
+@@etl_tables_log_seq.seq
+prompt
+prompt Creating sequence TABLES_LOG_SEQ
+prompt ================================
+prompt
+@@tables_log_seq.seq
+prompt
+prompt Creating sequence TEST_MONITOR_SEQ
+prompt ==================================
+prompt
+@@test_monitor_seq.seq
+prompt
+prompt Creating sequence VERSION_SEQ
+prompt =============================
+prompt
+@@version_seq.seq
+prompt
+prompt Creating view DASH_BOARD
+prompt ========================
+prompt
+@@dash_board.vw
+prompt
+prompt Creating view UWI_PROC_STAGES
+prompt =============================
+prompt
+@@uwi_proc_stages.vw
+prompt
+prompt Creating view V_LOAN_REQUEST_APPROV_SCOR
+prompt ========================================
+prompt
+@@v_loan_request_approv_scor.vw
+prompt
+prompt Creating view V_LOAN_REQUEST_REJECT_CANCEL
+prompt ==========================================
+prompt
+@@v_loan_request_reject_cancel.vw
+prompt
+prompt Creating view V_SCORE_RESULTS
+prompt =============================
+prompt
+@@v_score_results.vw
+prompt
+prompt Creating view DEL_UWI_DETAIL_STAGES_0
+prompt =====================================
+prompt
+@@del_uwi_detail_stages_0.vw
+prompt
+prompt Creating view OWS_CONTRACT
+prompt ==========================
+prompt
+@@ows_contract.vw
+prompt
+prompt Creating view REP_RESP
+prompt ======================
+prompt
+@@rep_resp.vw
+prompt
+prompt Creating view UWI_DETAIL_STAGES_OLD
+prompt ===================================
+prompt
+@@uwi_detail_stages_old.vw
+prompt
+prompt Creating view UWI_DETAIL_STAGES_0_1
+prompt ===================================
+prompt
+@@uwi_detail_stages_0_1.vw
+prompt
+prompt Creating view UWI_DETAIL_STAGES_0_2
+prompt ===================================
+prompt
+@@uwi_detail_stages_0_2.vw
+prompt
+prompt Creating view UWI_DETAIL_STAGES_0_3
+prompt ===================================
+prompt
+@@uwi_detail_stages_0_3.vw
+prompt
+prompt Creating view V_BEH_SCORING_ALIBEK
+prompt ==================================
+prompt
+@@v_beh_scoring_alibek.vw
+prompt
+prompt Creating view V_COLVIR_TAB_DESCR
+prompt ================================
+prompt
+@@v_colvir_tab_descr.vw
+prompt
+prompt Creating function GET_NBRK_CURR
+prompt ===============================
+prompt
+@@get_nbrk_curr.fnc
+prompt
+prompt Creating view V_SALARY
+prompt ======================
+prompt
+@@v_salary.vw
+prompt
+prompt Creating view V_COMPANY_SALARY_20151015
+prompt =======================================
+prompt
+@@v_company_salary_20151015.vw
+prompt
+prompt Creating view V_COMPANY_SALARY_20151015_2
+prompt =========================================
+prompt
+@@v_company_salary_20151015_2.vw
+prompt
+prompt Creating view V_COMPANY_SALARY_20151015_3
+prompt =========================================
+prompt
+@@v_company_salary_20151015_3.vw
+prompt
+prompt Creating view V_CP_CORRECT_PD_20160208
+prompt ======================================
+prompt
+@@v_cp_correct_pd_20160208.vw
+prompt
+prompt Creating view V_CP_CORRECT_PD_20160210_TOP10
+prompt ============================================
+prompt
+@@v_cp_correct_pd_20160210_top10.vw
+prompt
+prompt Creating view V_CP_DCA_20151020
+prompt ===============================
+prompt
+@@v_cp_dca_20151020.vw
+prompt
+prompt Creating view V_CP_DCA_20151020_2
+prompt =================================
+prompt
+@@v_cp_dca_20151020_2.vw
+prompt
+prompt Creating view V_CP_DCA_20151117_0
+prompt =================================
+prompt
+@@v_cp_dca_20151117_0.vw
+prompt
+prompt Creating view V_CP_H_L3M
+prompt ========================
+prompt
+@@v_cp_h_l3m.vw
+prompt
+prompt Creating view V_CP_H_SAS
+prompt ========================
+prompt
+@@v_cp_h_sas.vw
+prompt
+prompt Creating view V_CP_H_0
+prompt ======================
+prompt
+@@v_cp_h_0.vw
+prompt
+prompt Creating view V_CP_H_2
+prompt ======================
+prompt
+@@v_cp_h_2.vw
+prompt
+prompt Creating view V_CP_RESTR_20160202
+prompt =================================
+prompt
+@@v_cp_restr_20160202.vw
+prompt
+prompt Creating view V_CREDIT_PROSROCHKA_20150702
+prompt ==========================================
+prompt
+@@v_credit_prosrochka_20150702.vw
+prompt
+prompt Creating view V_LOAN_SCHED
+prompt ==========================
+prompt
+@@v_loan_sched.vw
+prompt
+prompt Creating view V_CREDIT_PROSROCHKA_20150715
+prompt ==========================================
+prompt
+@@v_credit_prosrochka_20150715.vw
+prompt
+prompt Creating view V_CURRENCY_RATE
+prompt =============================
+prompt
+@@v_currency_rate.vw
+prompt
+prompt Creating view V_H_DCA_SMA_20151014
+prompt ==================================
+prompt
+@@v_h_dca_sma_20151014.vw
+prompt
+prompt Creating view V_DCA_CP_20151014_0
+prompt =================================
+prompt
+@@v_dca_cp_20151014_0.vw
+prompt
+prompt Creating view V_DCA_CP_20151203
+prompt ===============================
+prompt
+@@v_dca_cp_20151203.vw
+prompt
+prompt Creating view V_DCA_CP_20151203_2
+prompt =================================
+prompt
+@@v_dca_cp_20151203_2.vw
+prompt
+prompt Creating view V_DCA_SMA_IS
+prompt ==========================
+prompt
+@@v_dca_sma_is.vw
+prompt
+prompt Creating view V_DCA_20150918
+prompt ============================
+prompt
+@@v_dca_20150918.vw
+prompt
+prompt Creating view V_MOB_20150804
+prompt ============================
+prompt
+@@v_mob_20150804.vw
+prompt
+prompt Creating view V_DEFAULT_20150804
+prompt ================================
+prompt
+@@v_default_20150804.vw
+prompt
+prompt Creating view V_DM_LOAN_BASE_CLN
+prompt ================================
+prompt
+@@v_dm_loan_base_cln.vw
+prompt
+prompt Creating view V_FILIALS
+prompt =======================
+prompt
+@@v_filials.vw
+prompt
+prompt Creating view V_FILTER_FOR_PROCESS_RESULTS
+prompt ==========================================
+prompt
+@@v_filter_for_process_results.vw
+prompt
+prompt Creating view V_FILTER_FOR_SCORINGRBPLOGS
+prompt =========================================
+prompt
+@@v_filter_for_scoringrbplogs.vw
+prompt
+prompt Creating view V_FPD_20160203
+prompt ============================
+prompt
+@@v_fpd_20160203.vw
+prompt
+prompt Creating view V_FPD_20160208
+prompt ============================
+prompt
+@@v_fpd_20160208.vw
+prompt
+prompt Creating view V_GSVP_PARS
+prompt =========================
+prompt
+@@v_gsvp_pars.vw
+prompt
+prompt Creating view V_GSVP_PARS_1
+prompt ===========================
+prompt
+@@v_gsvp_pars_1.vw
+prompt
+prompt Creating view V_H_CP_20150929
+prompt =============================
+prompt
+@@v_h_cp_20150929.vw
+prompt
+prompt Creating view V_OKED
+prompt ====================
+prompt
+@@v_oked.vw
+prompt
+prompt Creating view V_H_CP_20160130
+prompt =============================
+prompt
+@@v_h_cp_20160130.vw
+prompt
+prompt Creating view V_H_CP_20160201
+prompt =============================
+prompt
+@@v_h_cp_20160201.vw
+prompt
+prompt Creating view V_H_DCA_SMA_20150911
+prompt ==================================
+prompt
+@@v_h_dca_sma_20150911.vw
+prompt
+prompt Creating view V_H_DP_EKZ_ALL_UNSEC_P2_2_RES
+prompt ===========================================
+prompt
+@@v_h_dp_ekz_all_unsec_p2_2_res.vw
+prompt
+prompt Creating view V_IS_HAVE_CREDIT_FOR_MM
+prompt =====================================
+prompt
+@@v_is_have_credit_for_mm.vw
+prompt
+prompt Creating view V_JOB_SCHED
+prompt =========================
+prompt
+@@v_job_sched.vw
+prompt
+prompt Creating view V_LOAN_FIL_DT
+prompt ===========================
+prompt
+@@v_loan_fil_dt.vw
+prompt
+prompt Creating view V_LOANREQ_CP_20151214
+prompt ===================================
+prompt
+@@v_loanreq_cp_20151214.vw
+prompt
+prompt Creating view V_LOANREQ_CP_20151215
+prompt ===================================
+prompt
+@@v_loanreq_cp_20151215.vw
+prompt
+prompt Creating view V_LOANREQ_CP_20151215_COPY
+prompt ========================================
+prompt
+@@v_loanreq_cp_20151215_copy.vw
+prompt
+prompt Creating view V_LOANREQ_CP_20151215_TEST
+prompt ========================================
+prompt
+@@v_loanreq_cp_20151215_test.vw
+prompt
+prompt Creating view V_LOANREQ_CP_20160106
+prompt ===================================
+prompt
+@@v_loanreq_cp_20160106.vw
+prompt
+prompt Creating view V_LOANREQ_CP_20160115
+prompt ===================================
+prompt
+@@v_loanreq_cp_20160115.vw
+prompt
+prompt Creating view V_LOANREQ_CP_20160115_1
+prompt =====================================
+prompt
+@@v_loanreq_cp_20160115_1.vw
+prompt
+prompt Creating view V_SALARY_DCA
+prompt ==========================
+prompt
+@@v_salary_dca.vw
+prompt
+prompt Creating view V_SALARY_1
+prompt ========================
+prompt
+@@v_salary_1.vw
+prompt
+prompt Creating view V_SALARY_DCA_1
+prompt ============================
+prompt
+@@v_salary_dca_1.vw
+prompt
+prompt Creating view V_SALARY_1_CORP
+prompt =============================
+prompt
+@@v_salary_1_corp.vw
+prompt
+prompt Creating view V_SALARY_DCA_1_1
+prompt ==============================
+prompt
+@@v_salary_dca_1_1.vw
+prompt
+prompt Creating view V_VCC_IIN_CLIENT_20160125
+prompt =======================================
+prompt
+@@v_vcc_iin_client_20160125.vw
+prompt
+prompt Creating view V_SALARY_DCA_1_2
+prompt ==============================
+prompt
+@@v_salary_dca_1_2.vw
+prompt
+prompt Creating view V_SALARY_MM
+prompt =========================
+prompt
+@@v_salary_mm.vw
+prompt
+prompt Creating view V_SALARY_DCA_2
+prompt ============================
+prompt
+@@v_salary_dca_2.vw
+prompt
+prompt Creating view V_SALARY_DCA_2_1_0
+prompt ================================
+prompt
+@@v_salary_dca_2_1_0.vw
+prompt
+prompt Creating view V_SALARY_DCA_3
+prompt ============================
+prompt
+@@v_salary_dca_3.vw
+prompt
+prompt Creating view V_SALARY_GRP_1
+prompt ============================
+prompt
+@@v_salary_grp_1.vw
+prompt
+prompt Creating view V_SALARY_GRP_1_1
+prompt ==============================
+prompt
+@@v_salary_grp_1_1.vw
+prompt
+prompt Creating view V_SALARY_2
+prompt ========================
+prompt
+@@v_salary_2.vw
+prompt
+prompt Creating view V_SALARY_2_1
+prompt ==========================
+prompt
+@@v_salary_2_1.vw
+prompt
+prompt Creating view V_SLACE_LOAN
+prompt ==========================
+prompt
+@@v_slace_loan.vw
+prompt
+prompt Creating view V_SLACE_LOAN_2008
+prompt ===============================
+prompt
+@@v_slace_loan_2008.vw
+prompt
+prompt Creating view V_SLACE_LOAN_2009
+prompt ===============================
+prompt
+@@v_slace_loan_2009.vw
+prompt
+prompt Creating view V_SLACE_LOAN_2010
+prompt ===============================
+prompt
+@@v_slace_loan_2010.vw
+prompt
+prompt Creating view V_SLACE_LOAN_2011
+prompt ===============================
+prompt
+@@v_slace_loan_2011.vw
+prompt
+prompt Creating view V_SLACE_LOAN_2012
+prompt ===============================
+prompt
+@@v_slace_loan_2012.vw
+prompt
+prompt Creating view V_SLACE_LOAN_2013
+prompt ===============================
+prompt
+@@v_slace_loan_2013.vw
+prompt
+prompt Creating view V_SLACE_LOAN_2014
+prompt ===============================
+prompt
+@@v_slace_loan_2014.vw
+prompt
+prompt Creating view V_SLACE_LOAN_2015
+prompt ===============================
+prompt
+@@v_slace_loan_2015.vw
+prompt
+prompt Creating view V_STAB_INDX
+prompt =========================
+prompt
+@@v_stab_indx.vw
+prompt
+prompt Creating view V_TEST_MONITOR
+prompt ============================
+prompt
+@@v_test_monitor.vw
+prompt
+prompt Creating view V_TMP_20150701
+prompt ============================
+prompt
+@@v_tmp_20150701.vw
+prompt
+prompt Creating view V_UO_H_0
+prompt ======================
+prompt
+@@v_uo_h_0.vw
+prompt
+prompt Creating view V_VINT_H_CP
+prompt =========================
+prompt
+@@v_vint_h_cp.vw
+prompt
+prompt Creating view V_VINT_H_CP_1
+prompt ===========================
+prompt
+@@v_vint_h_cp_1.vw
+prompt
+prompt Creating view V_VINT_H_CP_2
+prompt ===========================
+prompt
+@@v_vint_h_cp_2.vw
+prompt
+prompt Creating view V_W_4_BAL
+prompt =======================
+prompt
+@@v_w_4_bal.vw
+prompt
+prompt Creating view V_W4_TRANS
+prompt ========================
+prompt
+@@v_w4_trans.vw
+prompt
+prompt Creating view V_W4_TRANS_IIN
+prompt ============================
+prompt
+@@v_w4_trans_iin.vw
+prompt
+prompt Creating view V_XLS_H_EKZ_ALL_UNSEC_BAD
+prompt =======================================
+prompt
+@@v_xls_h_ekz_all_unsec_bad.vw
+prompt
+prompt Creating view V_20160202
+prompt ========================
+prompt
+@@v_20160202.vw
+prompt
+prompt Creating materialized view GCVP_PARS_SALARY_MV
+prompt ==============================================
+prompt
+@@gcvp_pars_salary_mv.mvw
+prompt
+prompt Creating package SMTP_MAIL
+prompt ==========================
+prompt
+@@smtp_mail.spc
+prompt
+prompt Creating package LOANS_OVERDUE
+prompt ==============================
+prompt
+@@loans_overdue.spc
+prompt
+prompt Creating package PROCESS
+prompt ========================
+prompt
+@@process.spc
+prompt
+prompt Creating package TOOLS
+prompt ======================
+prompt
+@@tools.spc
+prompt
+prompt Creating type T_TABLE_OF_VARCHAR2_50
+prompt ====================================
+prompt
+@@t_table_of_varchar2_50.tps
+prompt
+prompt Creating procedure CLOBTABLEINSERT
+prompt ==================================
+prompt
+@@clobtableinsert.prc
+prompt
+prompt Creating procedure EXE_FCB_INSERT
+prompt =================================
+prompt
+@@exe_fcb_insert.prc
+prompt
+prompt Creating procedure EXE_PROCESS_RESULTS_INSERT
+prompt =============================================
+prompt
+@@exe_process_results_insert.prc
+prompt
+prompt Creating procedure EXE_SCORINGRBPLOGS_INSERT
+prompt ============================================
+prompt
+@@exe_scoringrbplogs_insert.prc
+prompt
+prompt Creating procedure TEST_SAVE_BLOB
+prompt =================================
+prompt
+@@test_save_blob.prc
+prompt
+prompt Creating package body LOANS_OVERDUE
+prompt ===================================
+prompt
+@@loans_overdue.bdy
+prompt
+prompt Creating package body PROCESS
+prompt =============================
+prompt
+@@process.bdy
+prompt
+prompt Creating package body SMTP_MAIL
+prompt ===============================
+prompt
+@@smtp_mail.bdy
+prompt
+prompt Creating package body TOOLS
+prompt ===========================
+prompt
+@@tools.bdy
+prompt
+prompt Creating trigger COMPILE_HISTORY
+prompt ================================
+prompt
+@@compile_history.trg
+prompt
+prompt Creating trigger T_TABLES_LOG_ID
+prompt ================================
+prompt
+@@t_tables_log_id.trg
+
+spool off

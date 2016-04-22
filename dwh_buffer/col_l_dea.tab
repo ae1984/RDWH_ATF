@@ -1,0 +1,172 @@
+create table DWH_BUFFER.COL_L_DEA
+(
+  dep_id         NUMBER(10) not null,
+  id             NUMBER(10) not null,
+  prd_id         NUMBER(10),
+  dsf            DATE,
+  nsf            VARCHAR2(30),
+  pur_id         NUMBER(10) not null,
+  retfl          CHAR(1) default '1' not null,
+  wprcfl         CHAR(1) default '0' not null,
+  wodfl          CHAR(1) default '0' not null,
+  wtaxfl         CHAR(1) default '0' not null,
+  fixdebfl       CHAR(1) default '0' not null,
+  todate         DATE,
+  dea_state      NUMBER default 0,
+  css_dep_id     NUMBER(10),
+  css_id         NUMBER(10),
+  sell_id        NUMBER(10),
+  impfl          CHAR(1) default '0',
+  indexfl        CHAR(1) default '0' not null,
+  index_val_id   NUMBER(10),
+  index_val_rate FLOAT,
+  kindex         FLOAT
+)
+tablespace DWH_BUFFER
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 128K
+    next 4M
+    minextents 1
+    maxextents unlimited
+  )
+nologging;
+comment on table DWH_BUFFER.COL_L_DEA
+  is 'Договор кредита';
+comment on column DWH_BUFFER.COL_L_DEA.dep_id
+  is 'Идентификатор подразделения';
+comment on column DWH_BUFFER.COL_L_DEA.id
+  is 'Идентификатор документа';
+comment on column DWH_BUFFER.COL_L_DEA.prd_id
+  is 'Идентификатор срока договора';
+comment on column DWH_BUFFER.COL_L_DEA.dsf
+  is 'Дата счета-фактуры';
+comment on column DWH_BUFFER.COL_L_DEA.nsf
+  is 'Номер счета-фактуры';
+comment on column DWH_BUFFER.COL_L_DEA.pur_id
+  is 'Цель использования кредита';
+comment on column DWH_BUFFER.COL_L_DEA.retfl
+  is 'Признак 0/1 (корпоративная/розничная система)';
+comment on column DWH_BUFFER.COL_L_DEA.wprcfl
+  is 'Признак списания процентов';
+comment on column DWH_BUFFER.COL_L_DEA.wodfl
+  is 'Признак списания основного долга';
+comment on column DWH_BUFFER.COL_L_DEA.wtaxfl
+  is 'Признак списания штрафов';
+comment on column DWH_BUFFER.COL_L_DEA.fixdebfl
+  is 'Признак фиксирования задолженности';
+comment on column DWH_BUFFER.COL_L_DEA.todate
+  is 'Дата завершения для расчета срочности договора';
+comment on column DWH_BUFFER.COL_L_DEA.dea_state
+  is 'Состояние кредитного договора';
+comment on column DWH_BUFFER.COL_L_DEA.css_dep_id
+  is 'Идентификатор подразделения цессионария\цедента';
+comment on column DWH_BUFFER.COL_L_DEA.css_id
+  is 'Идентификатор цессионария\цедента';
+comment on column DWH_BUFFER.COL_L_DEA.sell_id
+  is 'Идентификатор торговой организации';
+comment on column DWH_BUFFER.COL_L_DEA.impfl
+  is 'Признак ввода действующих договоров';
+comment on column DWH_BUFFER.COL_L_DEA.indexfl
+  is 'Признак договора с индексацией';
+comment on column DWH_BUFFER.COL_L_DEA.index_val_id
+  is 'Валюта индекса';
+comment on column DWH_BUFFER.COL_L_DEA.index_val_rate
+  is 'Курс валюты индексации';
+comment on column DWH_BUFFER.COL_L_DEA.kindex
+  is 'Коэффициент индексации';
+create index DWH_BUFFER.FK_COL_L_DEA_G_CLI on DWH_BUFFER.COL_L_DEA (CSS_DEP_ID, CSS_ID)
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 4M
+    next 4M
+    minextents 1
+    maxextents unlimited
+  )
+  nologging;
+create index DWH_BUFFER.FK_COL_L_DEA_L_PURDSC on DWH_BUFFER.COL_L_DEA (PUR_ID)
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 4M
+    next 4M
+    minextents 1
+    maxextents unlimited
+  )
+  nologging;
+create index DWH_BUFFER.FK_COL_L_DEA_L_SELLAUTO on DWH_BUFFER.COL_L_DEA (SELL_ID)
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 4M
+    next 4M
+    minextents 1
+    maxextents unlimited
+  )
+  nologging;
+create index DWH_BUFFER.FK_COL_L_DEA_T_DEAPRD on DWH_BUFFER.COL_L_DEA (PRD_ID)
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 4M
+    next 4M
+    minextents 1
+    maxextents unlimited
+  )
+  nologging;
+create index DWH_BUFFER.FK_COL_L_DEA_T_VAL on DWH_BUFFER.COL_L_DEA (INDEX_VAL_ID)
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 4M
+    next 4M
+    minextents 1
+    maxextents unlimited
+  )
+  nologging;
+alter table DWH_BUFFER.COL_L_DEA
+  add constraint PK_COL_L_DEA primary key (DEP_ID, ID)
+  using index 
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 4M
+    next 4M
+    minextents 1
+    maxextents unlimited
+  );
+alter index DWH_BUFFER.PK_COL_L_DEA nologging;
+grant select on DWH_BUFFER.COL_L_DEA to AIBEK_BE;
+grant select, insert, update, delete on DWH_BUFFER.COL_L_DEA to DWH_BUFFER_FULL_ROLE;
+grant select on DWH_BUFFER.COL_L_DEA to DWH_BUFFER_READ_ROLE;
+grant select on DWH_BUFFER.COL_L_DEA to DWH_PRIM;
+grant select on DWH_BUFFER.COL_L_DEA to DWH_RISK;
+grant select on DWH_BUFFER.COL_L_DEA to DWH_SALES;
+grant select on DWH_BUFFER.COL_L_DEA to HEAD_DENIS_PL;
+grant select on DWH_BUFFER.COL_L_DEA to HEAD_EVGENIY_PI;
+grant select on DWH_BUFFER.COL_L_DEA to KRISTINA_KO;
+grant select on DWH_BUFFER.COL_L_DEA to PROCESS_RISK;
+grant select on DWH_BUFFER.COL_L_DEA to PROCESS_SALES;
+

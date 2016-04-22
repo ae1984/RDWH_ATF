@@ -1,0 +1,31 @@
+create table DWH_BUFFER.ETL_CS_CLI_RM_VCC
+(
+  id     NUMBER(10) not null,
+  dep_id NUMBER(10) not null,
+  vcc    VARCHAR2(250 CHAR),
+  rmcode VARCHAR2(250 CHAR)
+)
+tablespace DWH_BUFFER
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 4M
+    minextents 1
+    maxextents unlimited
+  )
+nologging;
+grant select on DWH_BUFFER.ETL_CS_CLI_RM_VCC to AIBEK_BE;
+grant select, insert, update, delete on DWH_BUFFER.ETL_CS_CLI_RM_VCC to DWH_BUFFER_FULL_ROLE;
+grant select on DWH_BUFFER.ETL_CS_CLI_RM_VCC to DWH_BUFFER_READ_ROLE;
+grant select on DWH_BUFFER.ETL_CS_CLI_RM_VCC to DWH_PRIM;
+grant select on DWH_BUFFER.ETL_CS_CLI_RM_VCC to DWH_RISK;
+grant select on DWH_BUFFER.ETL_CS_CLI_RM_VCC to DWH_SALES;
+grant select on DWH_BUFFER.ETL_CS_CLI_RM_VCC to HEAD_DENIS_PL;
+grant select on DWH_BUFFER.ETL_CS_CLI_RM_VCC to HEAD_EVGENIY_PI;
+grant select on DWH_BUFFER.ETL_CS_CLI_RM_VCC to KRISTINA_KO;
+grant select on DWH_BUFFER.ETL_CS_CLI_RM_VCC to PROCESS_RISK;
+grant select on DWH_BUFFER.ETL_CS_CLI_RM_VCC to PROCESS_SALES;
+

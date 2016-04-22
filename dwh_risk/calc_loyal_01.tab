@@ -1,0 +1,29 @@
+create table DWH_RISK.CALC_LOYAL_01
+(
+  iin          VARCHAR2(500),
+  report_dt    DATE,
+  mm           DATE,
+  ovrd_max     NUMBER,
+  cnt          NUMBER,
+  is_ovrd30_6m NUMBER,
+  is_ovrd_6m   NUMBER,
+  is_ovrd_cur  NUMBER
+)
+tablespace DWH_RISK
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+grant select on DWH_RISK.CALC_LOYAL_01 to AIBEK_BE;
+grant select, insert, update, delete on DWH_RISK.CALC_LOYAL_01 to DWH_RISK_FULL_ROLE;
+grant select on DWH_RISK.CALC_LOYAL_01 to DWH_RISK_READ_ROLE;
+grant select on DWH_RISK.CALC_LOYAL_01 to HEAD_DENIS_PL;
+grant select on DWH_RISK.CALC_LOYAL_01 to KRISTINA_KO;
+grant select on DWH_RISK.CALC_LOYAL_01 to PROCESS_RISK;
+

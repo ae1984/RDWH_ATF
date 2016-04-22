@@ -1,0 +1,54 @@
+create table DWH_BUFFER.ETL_DM_LOAN_BASE
+(
+  id            NUMBER(10) not null,
+  dep_id        NUMBER(10) not null,
+  cli_id        NUMBER(10),
+  cli_dep_id    NUMBER(10),
+  contract_num  VARCHAR2(30),
+  val_id        NUMBER(10),
+  val_code      VARCHAR2(30),
+  prd_code      VARCHAR2(30),
+  prd_name      VARCHAR2(250),
+  prd_term      VARCHAR2(250),
+  term_type     CHAR(1),
+  term_cnt      NUMBER(5),
+  fromdate      DATE,
+  todate        DATE,
+  state         VARCHAR2(250),
+  fil_code      VARCHAR2(30),
+  fil_name      VARCHAR2(250),
+  sum_full      NUMBER(18,2),
+  refer_wh      VARCHAR2(30),
+  rate          FLOAT,
+  acc_id        NUMBER,
+  acc_dep_id    NUMBER,
+  acc_pr_id     NUMBER,
+  acc_pr_dep_id NUMBER,
+  sell_dep_id   NUMBER(10),
+  csln_fromdate DATE,
+  obj_id        NUMBER(10)
+)
+tablespace DWH_BUFFER
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 4M
+    minextents 1
+    maxextents unlimited
+  )
+nologging;
+grant select on DWH_BUFFER.ETL_DM_LOAN_BASE to AIBEK_BE;
+grant select, insert, update, delete on DWH_BUFFER.ETL_DM_LOAN_BASE to DWH_BUFFER_FULL_ROLE;
+grant select on DWH_BUFFER.ETL_DM_LOAN_BASE to DWH_BUFFER_READ_ROLE;
+grant select on DWH_BUFFER.ETL_DM_LOAN_BASE to DWH_PRIM;
+grant select on DWH_BUFFER.ETL_DM_LOAN_BASE to DWH_RISK;
+grant select on DWH_BUFFER.ETL_DM_LOAN_BASE to DWH_SALES;
+grant select on DWH_BUFFER.ETL_DM_LOAN_BASE to HEAD_DENIS_PL;
+grant select on DWH_BUFFER.ETL_DM_LOAN_BASE to HEAD_EVGENIY_PI;
+grant select on DWH_BUFFER.ETL_DM_LOAN_BASE to KRISTINA_KO;
+grant select on DWH_BUFFER.ETL_DM_LOAN_BASE to PROCESS_RISK;
+grant select on DWH_BUFFER.ETL_DM_LOAN_BASE to PROCESS_SALES;
+

@@ -1,0 +1,25 @@
+create table DWH_RISK.DP_COVD_E5
+(
+  obj_id  NUMBER(10) not null,
+  rval    NUMBER,
+  horizon NUMBER,
+  covd    NUMBER
+)
+tablespace DWH_RISK
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+grant select on DWH_RISK.DP_COVD_E5 to AIBEK_BE;
+grant select, insert, update, delete on DWH_RISK.DP_COVD_E5 to DWH_RISK_FULL_ROLE;
+grant select on DWH_RISK.DP_COVD_E5 to DWH_RISK_READ_ROLE;
+grant select on DWH_RISK.DP_COVD_E5 to HEAD_DENIS_PL;
+grant select on DWH_RISK.DP_COVD_E5 to KRISTINA_KO;
+grant select on DWH_RISK.DP_COVD_E5 to PROCESS_RISK;
+

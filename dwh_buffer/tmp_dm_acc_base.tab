@@ -1,0 +1,45 @@
+create table DWH_BUFFER.TMP_DM_ACC_BASE
+(
+  id           NUMBER(10) not null,
+  dep_id       NUMBER(10) not null,
+  in_source_id VARCHAR2(81),
+  id_bal       NUMBER(10) not null,
+  cli_id       NUMBER(10) not null,
+  cli_dep_id   NUMBER(10) not null,
+  cli_code     VARCHAR2(30),
+  acc_code     VARCHAR2(34) not null,
+  bal_code     VARCHAR2(30) not null,
+  bal3         VARCHAR2(30),
+  acc_name     VARCHAR2(250 CHAR),
+  val_id       NUMBER(10),
+  val_code     VARCHAR2(30),
+  acc_state    VARCHAR2(30 CHAR) not null,
+  state_id     NUMBER(1) not null,
+  last_trn     DATE,
+  date_open    DATE not null,
+  date_close   DATE
+)
+tablespace DWH_BUFFER
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  )
+nologging;
+grant select on DWH_BUFFER.TMP_DM_ACC_BASE to AIBEK_BE;
+grant select, insert, update, delete on DWH_BUFFER.TMP_DM_ACC_BASE to DWH_BUFFER_FULL_ROLE;
+grant select on DWH_BUFFER.TMP_DM_ACC_BASE to DWH_BUFFER_READ_ROLE;
+grant select on DWH_BUFFER.TMP_DM_ACC_BASE to DWH_PRIM;
+grant select on DWH_BUFFER.TMP_DM_ACC_BASE to DWH_RISK;
+grant select on DWH_BUFFER.TMP_DM_ACC_BASE to DWH_SALES;
+grant select on DWH_BUFFER.TMP_DM_ACC_BASE to HEAD_DENIS_PL;
+grant select on DWH_BUFFER.TMP_DM_ACC_BASE to HEAD_EVGENIY_PI;
+grant select on DWH_BUFFER.TMP_DM_ACC_BASE to KRISTINA_KO;
+grant select on DWH_BUFFER.TMP_DM_ACC_BASE to PROCESS_RISK;
+grant select on DWH_BUFFER.TMP_DM_ACC_BASE to PROCESS_SALES;
+

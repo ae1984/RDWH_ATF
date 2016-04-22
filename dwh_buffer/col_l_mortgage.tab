@@ -1,0 +1,216 @@
+create table DWH_BUFFER.COL_L_MORTGAGE
+(
+  dep_id           NUMBER(10) not null,
+  id               NUMBER(10) not null,
+  dscr             VARCHAR2(500 CHAR),
+  ens_id           NUMBER(10) not null,
+  prim             VARCHAR2(1500 CHAR),
+  prtype           CHAR(1),
+  location         VARCHAR2(250 CHAR),
+  mortg_cost       NUMBER(18,2),
+  mrt_val_id       NUMBER(10),
+  market_cost      NUMBER(18,2),
+  mrk_val_id       NUMBER(10),
+  cli_dep_id$bk1   NUMBER(10),
+  cli_id$bk1       NUMBER(10),
+  refer            VARCHAR2(30),
+  propdoctype      CHAR(10),
+  propdocnum       VARCHAR2(30),
+  propdocdate      DATE,
+  qual_cat         NUMBER(1),
+  doccount         NUMBER(5),
+  l_dgvrreg        DATE,
+  reg_id           NUMBER(10),
+  secondaryfl      CHAR(1) not null,
+  constr_year      NUMBER(4),
+  reasscntr_dep_id NUMBER(10),
+  reasscntr_id     NUMBER(10),
+  gvrno            VARCHAR2(30 CHAR),
+  gvrorg           VARCHAR2(4000 CHAR),
+  assessment       VARCHAR2(250 CHAR),
+  apprais_id       NUMBER(10),
+  apprais_dep_id   NUMBER(10),
+  dapprais         DATE,
+  dover            DATE,
+  fapprais_id      NUMBER(10),
+  fapprais_dep_id  NUMBER(10),
+  leasingfl        CHAR(1) not null
+)
+tablespace DWH_BUFFER
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  )
+nologging;
+comment on table DWH_BUFFER.COL_L_MORTGAGE
+  is 'Объекты залога';
+comment on column DWH_BUFFER.COL_L_MORTGAGE.dep_id
+  is 'Идентификатор подразделения';
+comment on column DWH_BUFFER.COL_L_MORTGAGE.id
+  is 'Идентификатор';
+comment on column DWH_BUFFER.COL_L_MORTGAGE.dscr
+  is 'DSCR';
+comment on column DWH_BUFFER.COL_L_MORTGAGE.ens_id
+  is 'Вид обеспечения';
+comment on column DWH_BUFFER.COL_L_MORTGAGE.prim
+  is 'Примечание';
+comment on column DWH_BUFFER.COL_L_MORTGAGE.prtype
+  is 'Тип права собственности, домен L_PROP_RIGHT_TYPE';
+comment on column DWH_BUFFER.COL_L_MORTGAGE.location
+  is 'Местоположение';
+comment on column DWH_BUFFER.COL_L_MORTGAGE.mortg_cost
+  is 'Залоговая стоимость';
+comment on column DWH_BUFFER.COL_L_MORTGAGE.mrt_val_id
+  is 'Валюта залоговой стоимости';
+comment on column DWH_BUFFER.COL_L_MORTGAGE.market_cost
+  is 'Рыночная стоимость';
+comment on column DWH_BUFFER.COL_L_MORTGAGE.mrk_val_id
+  is 'Валюта рыночной стоимости';
+comment on column DWH_BUFFER.COL_L_MORTGAGE.cli_dep_id$bk1
+  is 'Ссылка на клиента.Подразделение';
+comment on column DWH_BUFFER.COL_L_MORTGAGE.cli_id$bk1
+  is 'Ссылка на клиента.Идентификатор';
+comment on column DWH_BUFFER.COL_L_MORTGAGE.refer
+  is 'Референс';
+comment on column DWH_BUFFER.COL_L_MORTGAGE.propdoctype
+  is 'Тип документа, подтверждающего право собственности';
+comment on column DWH_BUFFER.COL_L_MORTGAGE.propdocnum
+  is 'Номер документа, подтверждающего право собственности';
+comment on column DWH_BUFFER.COL_L_MORTGAGE.propdocdate
+  is 'Дата документа, подтверждающего право собственности';
+comment on column DWH_BUFFER.COL_L_MORTGAGE.qual_cat
+  is 'Категория качества';
+comment on column DWH_BUFFER.COL_L_MORTGAGE.doccount
+  is 'Количество документов';
+comment on column DWH_BUFFER.COL_L_MORTGAGE.l_dgvrreg
+  is 'Дата регистрации залога в госорганах';
+comment on column DWH_BUFFER.COL_L_MORTGAGE.reg_id
+  is 'Идентификатор страны местонахождения';
+comment on column DWH_BUFFER.COL_L_MORTGAGE.secondaryfl
+  is 'Признак вторичного обеспечения';
+comment on column DWH_BUFFER.COL_L_MORTGAGE.constr_year
+  is 'Год производства';
+comment on column DWH_BUFFER.COL_L_MORTGAGE.reasscntr_dep_id
+  is 'Идентификатор подразделения контрагента';
+comment on column DWH_BUFFER.COL_L_MORTGAGE.reasscntr_id
+  is 'Идентификатор контрагента';
+comment on column DWH_BUFFER.COL_L_MORTGAGE.gvrno
+  is 'Регистрационный номер';
+comment on column DWH_BUFFER.COL_L_MORTGAGE.gvrorg
+  is 'Орган осуществляющий госрегистацию';
+comment on column DWH_BUFFER.COL_L_MORTGAGE.assessment
+  is 'Данные об оценщике и документе оценки';
+comment on column DWH_BUFFER.COL_L_MORTGAGE.apprais_id
+  is 'Идентификатор оценщика';
+comment on column DWH_BUFFER.COL_L_MORTGAGE.apprais_dep_id
+  is 'Подразделение оценщика';
+comment on column DWH_BUFFER.COL_L_MORTGAGE.dapprais
+  is 'Начальная дата оценки';
+comment on column DWH_BUFFER.COL_L_MORTGAGE.dover
+  is 'Дата переоценки';
+comment on column DWH_BUFFER.COL_L_MORTGAGE.fapprais_id
+  is 'Идентификатор нач оценщика';
+comment on column DWH_BUFFER.COL_L_MORTGAGE.fapprais_dep_id
+  is 'Подразделение нач оценщика';
+comment on column DWH_BUFFER.COL_L_MORTGAGE.leasingfl
+  is 'Признак объекта фин. лизинга';
+create index DWH_BUFFER.FK_COL_L_MORTGAGE_APPR on DWH_BUFFER.COL_L_MORTGAGE (APPRAIS_DEP_ID, APPRAIS_ID)
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 4M
+    next 4M
+    minextents 1
+    maxextents unlimited
+  )
+  nologging;
+create index DWH_BUFFER.FK_COL_L_MORTGAGE_FAPPR on DWH_BUFFER.COL_L_MORTGAGE (FAPPRAIS_DEP_ID, FAPPRAIS_ID)
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 4M
+    next 4M
+    minextents 1
+    maxextents unlimited
+  )
+  nologging;
+create index DWH_BUFFER.FK_COL_L_MORTGAGE_L_ENSDSC on DWH_BUFFER.COL_L_MORTGAGE (ENS_ID)
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 4M
+    next 4M
+    minextents 1
+    maxextents unlimited
+  )
+  nologging;
+create index DWH_BUFFER.FK_COL_L_MORTGAGE_RE_G_CLI on DWH_BUFFER.COL_L_MORTGAGE (REASSCNTR_DEP_ID, REASSCNTR_ID)
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 4M
+    next 4M
+    minextents 1
+    maxextents unlimited
+  )
+  nologging;
+alter table DWH_BUFFER.COL_L_MORTGAGE
+  add constraint PK_COL_L_MORTGAGE primary key (DEP_ID, ID)
+  using index 
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 4M
+    next 4M
+    minextents 1
+    maxextents unlimited
+  );
+alter index DWH_BUFFER.PK_COL_L_MORTGAGE nologging;
+alter table DWH_BUFFER.COL_L_MORTGAGE
+  add constraint AK_REFER unique (REFER)
+  using index 
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 4M
+    next 4M
+    minextents 1
+    maxextents unlimited
+  );
+alter index DWH_BUFFER.AK_REFER nologging;
+grant select on DWH_BUFFER.COL_L_MORTGAGE to AIBEK_BE;
+grant select, insert, update, delete on DWH_BUFFER.COL_L_MORTGAGE to DWH_BUFFER_FULL_ROLE;
+grant select on DWH_BUFFER.COL_L_MORTGAGE to DWH_BUFFER_READ_ROLE;
+grant select on DWH_BUFFER.COL_L_MORTGAGE to DWH_PRIM;
+grant select on DWH_BUFFER.COL_L_MORTGAGE to DWH_RISK;
+grant select on DWH_BUFFER.COL_L_MORTGAGE to DWH_SALES;
+grant select on DWH_BUFFER.COL_L_MORTGAGE to HEAD_DENIS_PL;
+grant select on DWH_BUFFER.COL_L_MORTGAGE to HEAD_EVGENIY_PI;
+grant select on DWH_BUFFER.COL_L_MORTGAGE to KRISTINA_KO;
+grant select on DWH_BUFFER.COL_L_MORTGAGE to PROCESS_RISK;
+grant select on DWH_BUFFER.COL_L_MORTGAGE to PROCESS_SALES;
+

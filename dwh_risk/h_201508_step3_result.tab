@@ -1,0 +1,86 @@
+create table DWH_RISK.H_201508_STEP3_RESULT
+(
+  is_zp_proj               NUMBER,
+  is_staff                 NUMBER,
+  is_deposit               NUMBER,
+  client_id                VARCHAR2(500),
+  registration_number      VARCHAR2(500),
+  iin                      VARCHAR2(500),
+  rnn                      VARCHAR2(500),
+  sex                      VARCHAR2(500),
+  birthdate                VARCHAR2(500),
+  identity_card_issue_date VARCHAR2(500),
+  identity_card_number     VARCHAR2(500),
+  identity_card_expirydate VARCHAR2(500),
+  identity_card_authority  VARCHAR2(500),
+  education_lvl_id         VARCHAR2(500),
+  family_status_id         VARCHAR2(500),
+  credit_expert_full_name  VARCHAR2(500),
+  branch_name              VARCHAR2(500),
+  reg_region               VARCHAR2(500),
+  reg_city                 VARCHAR2(500),
+  reg_village              VARCHAR2(500),
+  reg_house                VARCHAR2(500),
+  reg_flat                 VARCHAR2(500),
+  reg_street               VARCHAR2(500),
+  reg_raion                VARCHAR2(500),
+  reg_microraion           VARCHAR2(500),
+  registrphone             VARCHAR2(500),
+  ac_region                VARCHAR2(500),
+  ac_city                  VARCHAR2(500),
+  ac_village               VARCHAR2(500),
+  ac_house                 VARCHAR2(500),
+  ac_flat                  VARCHAR2(500),
+  ac_street                VARCHAR2(500),
+  ac_raion                 VARCHAR2(500),
+  ac_microraion            VARCHAR2(500),
+  factphone                VARCHAR2(500),
+  stazh                    VARCHAR2(500),
+  stazh_all                VARCHAR2(500),
+  pkb_deist_zaimy          VARCHAR2(500),
+  pkb_zaverw_zaimy         VARCHAR2(500),
+  pkb_summa_zadolj         VARCHAR2(500),
+  pkb_platejei             VARCHAR2(500),
+  loan_amount              VARCHAR2(500),
+  currency                 VARCHAR2(500),
+  percent_rate             VARCHAR2(500),
+  free_repayment_schedule  VARCHAR2(500),
+  comission                VARCHAR2(500),
+  comission_service        VARCHAR2(500),
+  n_app_type               VARCHAR2(500),
+  srok_zaim                VARCHAR2(500),
+  children                 VARCHAR2(500),
+  isloyal                  VARCHAR2(500),
+  stat_nedvizh             VARCHAR2(500),
+  industriya               VARCHAR2(500),
+  propis_prozhiv           VARCHAR2(500),
+  zp_pr                    VARCHAR2(500),
+  title                    VARCHAR2(500),
+  status                   VARCHAR2(500),
+  start_date               VARCHAR2(500),
+  finish_date              VARCHAR2(500),
+  avr_zp                   VARCHAR2(500),
+  flag_voen                VARCHAR2(500),
+  p30p3mob                 VARCHAR2(500),
+  p60p6mob                 VARCHAR2(500),
+  p60p12mob                VARCHAR2(500),
+  p90p12mob                VARCHAR2(500)
+)
+tablespace DWH_RISK
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+grant select on DWH_RISK.H_201508_STEP3_RESULT to AIBEK_BE;
+grant select, insert, update, delete on DWH_RISK.H_201508_STEP3_RESULT to DWH_RISK_FULL_ROLE;
+grant select on DWH_RISK.H_201508_STEP3_RESULT to DWH_RISK_READ_ROLE;
+grant select on DWH_RISK.H_201508_STEP3_RESULT to HEAD_DENIS_PL;
+grant select on DWH_RISK.H_201508_STEP3_RESULT to KRISTINA_KO;
+grant select on DWH_RISK.H_201508_STEP3_RESULT to PROCESS_RISK;
+

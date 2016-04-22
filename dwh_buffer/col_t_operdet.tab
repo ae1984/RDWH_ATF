@@ -1,0 +1,56 @@
+create table DWH_BUFFER.COL_T_OPERDET
+(
+  id     NUMBER(10) not null,
+  njrn   NUMBER(10) not null,
+  code   VARCHAR2(18) not null,
+  cvalue VARCHAR2(250 CHAR)
+)
+tablespace DWH_BUFFER
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  )
+nologging;
+comment on table DWH_BUFFER.COL_T_OPERDET
+  is 'Детальный журнал значений атрибутов выполненной операции';
+comment on column DWH_BUFFER.COL_T_OPERDET.id
+  is 'Идентификатор процесса';
+comment on column DWH_BUFFER.COL_T_OPERDET.njrn
+  is 'Номер записи в журнале';
+comment on column DWH_BUFFER.COL_T_OPERDET.code
+  is 'Код атрибута';
+comment on column DWH_BUFFER.COL_T_OPERDET.cvalue
+  is 'Значение атриубта';
+alter table DWH_BUFFER.COL_T_OPERDET
+  add constraint PK_T_OPERDET primary key (ID, NJRN, CODE)
+  using index 
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+alter index DWH_BUFFER.PK_T_OPERDET nologging;
+grant select on DWH_BUFFER.COL_T_OPERDET to AIBEK_BE;
+grant select, insert, update, delete on DWH_BUFFER.COL_T_OPERDET to DWH_BUFFER_FULL_ROLE;
+grant select on DWH_BUFFER.COL_T_OPERDET to DWH_BUFFER_READ_ROLE;
+grant select on DWH_BUFFER.COL_T_OPERDET to DWH_PRIM;
+grant select on DWH_BUFFER.COL_T_OPERDET to DWH_RISK;
+grant select on DWH_BUFFER.COL_T_OPERDET to DWH_SALES;
+grant select on DWH_BUFFER.COL_T_OPERDET to HEAD_DENIS_PL;
+grant select on DWH_BUFFER.COL_T_OPERDET to HEAD_EVGENIY_PI;
+grant select on DWH_BUFFER.COL_T_OPERDET to KRISTINA_KO;
+grant select on DWH_BUFFER.COL_T_OPERDET to PROCESS_RISK;
+grant select on DWH_BUFFER.COL_T_OPERDET to PROCESS_SALES;
+

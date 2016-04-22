@@ -1,0 +1,33 @@
+create table DWH_RISK.DP_COVD2_EVER
+(
+  obj_id       NUMBER(10),
+  contract_id  NUMBER(10) not null,
+  contract_num VARCHAR2(30),
+  cli_id       NUMBER(10),
+  ever_2m      NUMBER,
+  ever_3m      NUMBER,
+  ever_6m      NUMBER,
+  ever_9m      NUMBER,
+  ever_12m     NUMBER,
+  ever_15m     NUMBER,
+  ever_18m     NUMBER,
+  ever_21m     NUMBER
+)
+tablespace DWH_RISK
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+grant select on DWH_RISK.DP_COVD2_EVER to AIBEK_BE;
+grant select, insert, update, delete on DWH_RISK.DP_COVD2_EVER to DWH_RISK_FULL_ROLE;
+grant select on DWH_RISK.DP_COVD2_EVER to DWH_RISK_READ_ROLE;
+grant select on DWH_RISK.DP_COVD2_EVER to HEAD_DENIS_PL;
+grant select on DWH_RISK.DP_COVD2_EVER to KRISTINA_KO;
+grant select on DWH_RISK.DP_COVD2_EVER to PROCESS_RISK;
+

@@ -1,0 +1,53 @@
+create table DWH_BUFFER.W4_TRANS_TYPE
+(
+  amnd_state        VARCHAR2(1 CHAR),
+  amnd_date         DATE,
+  amnd_officer      NUMBER(18),
+  amnd_prev         NUMBER(18),
+  id                NUMBER(18) not null,
+  name              VARCHAR2(255 CHAR),
+  service_class     VARCHAR2(1 CHAR),
+  s_cat             VARCHAR2(1 CHAR),
+  t_cat             VARCHAR2(1 CHAR),
+  dr_cr             NUMBER(1) not null,
+  is_impersonal     VARCHAR2(1 CHAR),
+  is_authorized     VARCHAR2(1 CHAR),
+  is_required       VARCHAR2(1 CHAR),
+  enable_adjustment VARCHAR2(1 CHAR),
+  enable_reversal   VARCHAR2(1 CHAR),
+  enable_request    VARCHAR2(1 CHAR),
+  prev_trans_type   NUMBER(18),
+  chain_type        VARCHAR2(1 CHAR),
+  charge_event      VARCHAR2(1 CHAR),
+  dispute_trn_class VARCHAR2(1 CHAR),
+  terminal_category VARCHAR2(1 CHAR),
+  production_type   VARCHAR2(1 CHAR),
+  production_event  VARCHAR2(32 CHAR),
+  trans_code        VARCHAR2(32 CHAR),
+  reversal_code     VARCHAR2(32 CHAR),
+  trans_type_idt    VARCHAR2(32 CHAR),
+  priority          NUMBER(9) not null
+)
+tablespace DWH_BUFFER
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+grant select on DWH_BUFFER.W4_TRANS_TYPE to AIBEK_BE;
+grant select, insert, update, delete on DWH_BUFFER.W4_TRANS_TYPE to DWH_BUFFER_FULL_ROLE;
+grant select on DWH_BUFFER.W4_TRANS_TYPE to DWH_BUFFER_READ_ROLE;
+grant select on DWH_BUFFER.W4_TRANS_TYPE to DWH_PRIM;
+grant select on DWH_BUFFER.W4_TRANS_TYPE to DWH_RISK;
+grant select on DWH_BUFFER.W4_TRANS_TYPE to DWH_SALES;
+grant select on DWH_BUFFER.W4_TRANS_TYPE to HEAD_DENIS_PL;
+grant select on DWH_BUFFER.W4_TRANS_TYPE to HEAD_EVGENIY_PI;
+grant select on DWH_BUFFER.W4_TRANS_TYPE to KRISTINA_KO;
+grant select on DWH_BUFFER.W4_TRANS_TYPE to PROCESS_RISK;
+grant select on DWH_BUFFER.W4_TRANS_TYPE to PROCESS_SALES;
+

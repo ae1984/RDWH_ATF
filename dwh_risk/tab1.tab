@@ -1,0 +1,41 @@
+create table DWH_RISK.TAB1
+(
+  f1  VARCHAR2(500),
+  f2  VARCHAR2(500),
+  f3  VARCHAR2(500),
+  f4  VARCHAR2(500),
+  f5  VARCHAR2(500),
+  f6  VARCHAR2(500),
+  f7  VARCHAR2(500),
+  f8  VARCHAR2(500),
+  f9  VARCHAR2(500),
+  f10 VARCHAR2(500),
+  f11 VARCHAR2(500),
+  f12 VARCHAR2(500),
+  f13 VARCHAR2(500),
+  f14 VARCHAR2(500),
+  f15 VARCHAR2(500),
+  f16 VARCHAR2(500),
+  f17 VARCHAR2(500),
+  f18 VARCHAR2(500)
+)
+tablespace DWH_RISK
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+comment on table DWH_RISK.TAB1
+  is '7130 Основной долг кредита, списанный за баланс';
+grant select on DWH_RISK.TAB1 to AIBEK_BE;
+grant select, insert, update, delete on DWH_RISK.TAB1 to DWH_RISK_FULL_ROLE;
+grant select on DWH_RISK.TAB1 to DWH_RISK_READ_ROLE;
+grant select on DWH_RISK.TAB1 to HEAD_DENIS_PL;
+grant select on DWH_RISK.TAB1 to KRISTINA_KO;
+grant select on DWH_RISK.TAB1 to PROCESS_RISK;
+

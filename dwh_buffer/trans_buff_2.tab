@@ -1,0 +1,69 @@
+create table DWH_BUFFER.TRANS_BUFF_2
+(
+  posting_date       DATE,
+  target_number      VARCHAR2(64 CHAR),
+  ows_client_id      NUMBER,
+  settl_amount       NUMBER(23,5) not null,
+  settl_curr         VARCHAR2(32 CHAR),
+  settl_curr_c       VARCHAR2(3 CHAR),
+  source_channel     VARCHAR2(1 CHAR),
+  source_number      VARCHAR2(64 CHAR),
+  target_channel     VARCHAR2(1 CHAR),
+  trans_amount       NUMBER(23,5) not null,
+  trans_city         VARCHAR2(32 CHAR),
+  trans_country      VARCHAR2(3 CHAR),
+  trans_curr         VARCHAR2(32 CHAR),
+  trans_curr_c       VARCHAR2(3 CHAR),
+  trans_date         DATE,
+  dir                NUMBER(1) not null,
+  op_type_code       NUMBER(18),
+  op_type_name       VARCHAR2(255 CHAR),
+  service_class      VARCHAR2(1 CHAR),
+  sic_mcc            VARCHAR2(4 CHAR),
+  amnd_date          DATE,
+  id_d               NUMBER(18) not null,
+  trans_details      VARCHAR2(500 CHAR),
+  m_trans_amount     NUMBER,
+  s_amount           NUMBER,
+  s_fee_amount       NUMBER,
+  t_amount           NUMBER,
+  t_fee_amount       NUMBER,
+  m_transaction__oid NUMBER
+)
+tablespace DWH_BUFFER
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 128K
+    next 128K
+    minextents 1
+    maxextents unlimited
+  )
+nologging;
+create index DWH_BUFFER.IX_TRANS_BUFF_2_1 on DWH_BUFFER.TRANS_BUFF_2 (M_TRANSACTION__OID)
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  )
+  nologging;
+grant select on DWH_BUFFER.TRANS_BUFF_2 to AIBEK_BE;
+grant select, insert, update, delete on DWH_BUFFER.TRANS_BUFF_2 to DWH_BUFFER_FULL_ROLE;
+grant select on DWH_BUFFER.TRANS_BUFF_2 to DWH_BUFFER_READ_ROLE;
+grant select on DWH_BUFFER.TRANS_BUFF_2 to DWH_PRIM;
+grant select on DWH_BUFFER.TRANS_BUFF_2 to DWH_RISK;
+grant select on DWH_BUFFER.TRANS_BUFF_2 to DWH_SALES;
+grant select on DWH_BUFFER.TRANS_BUFF_2 to HEAD_DENIS_PL;
+grant select on DWH_BUFFER.TRANS_BUFF_2 to HEAD_EVGENIY_PI;
+grant select on DWH_BUFFER.TRANS_BUFF_2 to KRISTINA_KO;
+grant select on DWH_BUFFER.TRANS_BUFF_2 to PROCESS_RISK;
+grant select on DWH_BUFFER.TRANS_BUFF_2 to PROCESS_SALES;
+

@@ -1,0 +1,78 @@
+create table DWH_BUFFER.OWS_CONTRACT_SNAP
+(
+  amnd_date          DATE,
+  ows_contract_id    NUMBER(18) not null,
+  con_cat            VARCHAR2(1 CHAR),
+  contract_number    VARCHAR2(64 CHAR),
+  contract_name      VARCHAR2(255 CHAR),
+  comment_text       VARCHAR2(255 CHAR),
+  ows_client_id      NUMBER(18),
+  acnt_contract__oid NUMBER(18),
+  auth_limit_amount  NUMBER(23,5) not null,
+  base_auth_limit    NUMBER(23,5) not null,
+  liab_balance       NUMBER(23,5) not null,
+  liab_blocked       NUMBER(23,5) not null,
+  own_balance        NUMBER(23,5) not null,
+  own_blocked        NUMBER(23,5) not null,
+  sub_balance        NUMBER(23,5) not null,
+  sub_blocked        NUMBER(23,5) not null,
+  total_balance      NUMBER(23,5) not null,
+  total_blocked      NUMBER(23,5) not null,
+  shared_balance     NUMBER(23,5) not null,
+  shared_blocked     NUMBER(23,5) not null,
+  amount_available   NUMBER(23,5) not null,
+  date_open          DATE,
+  date_expire        DATE,
+  last_billing_date  DATE,
+  next_billing_date  DATE,
+  last_scan          DATE,
+  card_expire        VARCHAR2(4 CHAR),
+  rbs_number         VARCHAR2(64 CHAR),
+  limit_is_active    VARCHAR2(1 CHAR),
+  is_ready           VARCHAR2(1 CHAR),
+  billing_contract   NUMBER(18),
+  contract_status    VARCHAR2(255 CHAR),
+  service_pack_name  VARCHAR2(255 CHAR),
+  service_pack_code  VARCHAR2(32 CHAR),
+  currency_code      VARCHAR2(3 CHAR),
+  currency_name      VARCHAR2(3 CHAR),
+  scheme_code        VARCHAR2(32 CHAR),
+  scheme_name        VARCHAR2(255 CHAR),
+  l_interest_rate    NUMBER(15,8),
+  interest_rate      NUMBER(15,8),
+  branch_name        VARCHAR2(255 CHAR),
+  branch_code        VARCHAR2(32 CHAR),
+  filial_name        VARCHAR2(255 CHAR),
+  filial_id          NUMBER(18),
+  plastic_type       VARCHAR2(256),
+  web_banking        VARCHAR2(255 CHAR),
+  sms_notify         VARCHAR2(4),
+  acc_scheme_type    VARCHAR2(14),
+  ccat               VARCHAR2(1 CHAR),
+  pcat               VARCHAR2(1 CHAR),
+  sdt                DATE
+)
+tablespace DWH_BUFFER
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 128K
+    next 128K
+    minextents 1
+    maxextents unlimited
+  )
+nologging;
+grant select on DWH_BUFFER.OWS_CONTRACT_SNAP to AIBEK_BE;
+grant select, insert, update, delete on DWH_BUFFER.OWS_CONTRACT_SNAP to DWH_BUFFER_FULL_ROLE;
+grant select on DWH_BUFFER.OWS_CONTRACT_SNAP to DWH_BUFFER_READ_ROLE;
+grant select on DWH_BUFFER.OWS_CONTRACT_SNAP to DWH_PRIM;
+grant select on DWH_BUFFER.OWS_CONTRACT_SNAP to DWH_RISK;
+grant select on DWH_BUFFER.OWS_CONTRACT_SNAP to DWH_SALES;
+grant select on DWH_BUFFER.OWS_CONTRACT_SNAP to HEAD_DENIS_PL;
+grant select on DWH_BUFFER.OWS_CONTRACT_SNAP to HEAD_EVGENIY_PI;
+grant select on DWH_BUFFER.OWS_CONTRACT_SNAP to KRISTINA_KO;
+grant select on DWH_BUFFER.OWS_CONTRACT_SNAP to PROCESS_RISK;
+grant select on DWH_BUFFER.OWS_CONTRACT_SNAP to PROCESS_SALES;
+

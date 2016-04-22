@@ -1,0 +1,49 @@
+create table DWH_BUFFER.C_DEP_20151229
+(
+  id        NUMBER(10) not null,
+  id_hi     NUMBER(10),
+  code      VARCHAR2(30) not null,
+  groupfl   NUMBER(1) not null,
+  nlevel    NUMBER(5) not null,
+  arcfl     NUMBER(1) not null,
+  arestfl   NUMBER(1) not null,
+  correctdt DATE,
+  id_us     NUMBER(5),
+  longname  VARCHAR2(250 CHAR) not null,
+  prim      VARCHAR2(250 CHAR),
+  userfl    NUMBER(1) not null,
+  objectfl  NUMBER(1) not null,
+  balfl     NUMBER(1) not null,
+  remotefl  NUMBER(1) not null,
+  budgetfl  NUMBER(1) not null,
+  payfl     NUMBER(1) not null,
+  expendfl  NUMBER(1) not null,
+  incomsfl  NUMBER(1) not null,
+  tax_ser   VARCHAR2(30),
+  tax_num   VARCHAR2(30),
+  tax_date  DATE,
+  tax_init  NUMBER(10)
+)
+tablespace DWH_BUFFER
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+grant select on DWH_BUFFER.C_DEP_20151229 to AIBEK_BE;
+grant select, insert, update, delete on DWH_BUFFER.C_DEP_20151229 to DWH_BUFFER_FULL_ROLE;
+grant select on DWH_BUFFER.C_DEP_20151229 to DWH_BUFFER_READ_ROLE;
+grant select on DWH_BUFFER.C_DEP_20151229 to DWH_PRIM;
+grant select on DWH_BUFFER.C_DEP_20151229 to DWH_RISK;
+grant select on DWH_BUFFER.C_DEP_20151229 to DWH_SALES;
+grant select on DWH_BUFFER.C_DEP_20151229 to HEAD_DENIS_PL;
+grant select on DWH_BUFFER.C_DEP_20151229 to HEAD_EVGENIY_PI;
+grant select on DWH_BUFFER.C_DEP_20151229 to KRISTINA_KO;
+grant select on DWH_BUFFER.C_DEP_20151229 to PROCESS_RISK;
+grant select on DWH_BUFFER.C_DEP_20151229 to PROCESS_SALES;
+

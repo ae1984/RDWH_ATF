@@ -1,0 +1,91 @@
+create table DWH_RISK.CREDIT_PORTFOLIO3
+(
+  refer_wh            VARCHAR2(30),
+  dt                  DATE,
+  sup_perc_cur        NUMBER,
+  sup_perc_equ        NUMBER,
+  debt_dea_cur        NUMBER,
+  debt_dea_equ        NUMBER,
+  ovrd_main_cur       NUMBER,
+  ovrd_main_equ       NUMBER,
+  interest_rate       NUMBER,
+  ovrd_prc_debt_b_cur NUMBER,
+  ovrd_prc_debt_b_equ NUMBER,
+  ovrd_main           NUMBER,
+  ovrd_prc            NUMBER,
+  wr_pd_cur           NUMBER,
+  wr_pd_equ           NUMBER
+)
+tablespace DWH_RISK
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 100M
+    minextents 1
+    maxextents unlimited
+  )
+nologging;
+comment on table DWH_RISK.CREDIT_PORTFOLIO3
+  is 'КП на дату';
+comment on column DWH_RISK.CREDIT_PORTFOLIO3.dt
+  is 'дата за (<=)';
+comment on column DWH_RISK.CREDIT_PORTFOLIO3.sup_perc_cur
+  is 'Начисленные проценты в валюте';
+comment on column DWH_RISK.CREDIT_PORTFOLIO3.sup_perc_equ
+  is 'Начисленные проценты в эквиваленте';
+comment on column DWH_RISK.CREDIT_PORTFOLIO3.debt_dea_cur
+  is 'Остаток задолженности по договору в валюте';
+comment on column DWH_RISK.CREDIT_PORTFOLIO3.debt_dea_equ
+  is 'Остаток задолженности по договору в эквиваленте';
+comment on column DWH_RISK.CREDIT_PORTFOLIO3.ovrd_main_cur
+  is 'Просроченная сумма по основному долгу в валюте';
+comment on column DWH_RISK.CREDIT_PORTFOLIO3.ovrd_main_equ
+  is 'Просроченная сумма по основному долгу в эквиваленте';
+comment on column DWH_RISK.CREDIT_PORTFOLIO3.interest_rate
+  is 'Процентная ставка';
+comment on column DWH_RISK.CREDIT_PORTFOLIO3.ovrd_prc_debt_b_cur
+  is 'Просроченные проценты баланс в валюте';
+comment on column DWH_RISK.CREDIT_PORTFOLIO3.ovrd_prc_debt_b_equ
+  is 'Просроченные проценты баланс в эквиваленте';
+comment on column DWH_RISK.CREDIT_PORTFOLIO3.ovrd_main
+  is 'Срок текущей просроченной задолженности по основному долгу';
+comment on column DWH_RISK.CREDIT_PORTFOLIO3.ovrd_prc
+  is 'Срок текущей просроченной задолженности по процентам';
+comment on column DWH_RISK.CREDIT_PORTFOLIO3.wr_pd_cur
+  is 'Списанный ОД в валюте';
+comment on column DWH_RISK.CREDIT_PORTFOLIO3.wr_pd_equ
+  is 'Списанный ОД в эквиваленте';
+create unique index DWH_RISK.IX_CREDIT_PORTFOLIO3_1 on DWH_RISK.CREDIT_PORTFOLIO3 (REFER_WH, DT)
+  tablespace DWH_RISK
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+create index DWH_RISK.IX_CREDIT_PORTFOLIO3_2 on DWH_RISK.CREDIT_PORTFOLIO3 (DT, REFER_WH)
+  tablespace DWH_RISK
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+grant select on DWH_RISK.CREDIT_PORTFOLIO3 to AIBEK_BE;
+grant select, insert, update, delete on DWH_RISK.CREDIT_PORTFOLIO3 to DWH_RISK_FULL_ROLE;
+grant select on DWH_RISK.CREDIT_PORTFOLIO3 to DWH_RISK_READ_ROLE;
+grant select on DWH_RISK.CREDIT_PORTFOLIO3 to HEAD_DENIS_PL;
+grant select on DWH_RISK.CREDIT_PORTFOLIO3 to KRISTINA_KO;
+grant select on DWH_RISK.CREDIT_PORTFOLIO3 to PROCESS_RISK;
+

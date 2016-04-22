@@ -1,0 +1,28 @@
+create table DWH_BUFFER.COL_T_BAL_LDT
+(
+  fromdate DATE not null
+)
+tablespace DWH_BUFFER
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  )
+nologging;
+grant select on DWH_BUFFER.COL_T_BAL_LDT to AIBEK_BE;
+grant select, insert, update, delete on DWH_BUFFER.COL_T_BAL_LDT to DWH_BUFFER_FULL_ROLE;
+grant select on DWH_BUFFER.COL_T_BAL_LDT to DWH_BUFFER_READ_ROLE;
+grant select on DWH_BUFFER.COL_T_BAL_LDT to DWH_PRIM;
+grant select on DWH_BUFFER.COL_T_BAL_LDT to DWH_RISK;
+grant select on DWH_BUFFER.COL_T_BAL_LDT to DWH_SALES;
+grant select on DWH_BUFFER.COL_T_BAL_LDT to HEAD_DENIS_PL;
+grant select on DWH_BUFFER.COL_T_BAL_LDT to HEAD_EVGENIY_PI;
+grant select on DWH_BUFFER.COL_T_BAL_LDT to KRISTINA_KO;
+grant select on DWH_BUFFER.COL_T_BAL_LDT to PROCESS_RISK;
+grant select on DWH_BUFFER.COL_T_BAL_LDT to PROCESS_SALES;
+

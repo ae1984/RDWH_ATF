@@ -1,0 +1,40 @@
+create table DWH_RISK.H_CALC_STEP_9
+(
+  process_guid         VARCHAR2(250),
+  registration_number  VARCHAR2(50),
+  nationality_kazak    NUMBER,
+  client_name          VARCHAR2(300 CHAR),
+  start_date           DATE,
+  birthdate            DATE,
+  sex                  CHAR(1 CHAR),
+  education            VARCHAR2(100 CHAR),
+  maritalstat          VARCHAR2(50 CHAR),
+  age                  NUMBER,
+  haspkbreport         NUMBER,
+  pkb_flag             NUMBER,
+  income_application   NUMBER,
+  registraddress       VARCHAR2(100),
+  factaddress          VARCHAR2(100),
+  reg_ac_city_same     NUMBER,
+  enq_num_12           NUMBER,
+  haspkbquerylast12mth NUMBER,
+  currentcontracts     NUMBER
+)
+tablespace DWH_RISK
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+grant select on DWH_RISK.H_CALC_STEP_9 to AIBEK_BE;
+grant select, insert, update, delete on DWH_RISK.H_CALC_STEP_9 to DWH_RISK_FULL_ROLE;
+grant select on DWH_RISK.H_CALC_STEP_9 to DWH_RISK_READ_ROLE;
+grant select on DWH_RISK.H_CALC_STEP_9 to HEAD_DENIS_PL;
+grant select on DWH_RISK.H_CALC_STEP_9 to KRISTINA_KO;
+grant select on DWH_RISK.H_CALC_STEP_9 to PROCESS_RISK;
+

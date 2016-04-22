@@ -1,0 +1,75 @@
+create table DWH_BUFFER.COL_C_TBLVAL
+(
+  id       NUMBER(10) not null,
+  nord     NUMBER(5) not null,
+  nord_col NUMBER(5) not null,
+  ex_value VARCHAR2(250 CHAR),
+  lf_value VARCHAR2(250),
+  rg_value VARCHAR2(250)
+)
+tablespace DWH_BUFFER
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  )
+nologging;
+comment on table DWH_BUFFER.COL_C_TBLVAL
+  is 'Значения ячеек таблицы решений';
+comment on column DWH_BUFFER.COL_C_TBLVAL.id
+  is 'Идентификатор таблицы';
+comment on column DWH_BUFFER.COL_C_TBLVAL.nord
+  is 'Идентификатор строки';
+comment on column DWH_BUFFER.COL_C_TBLVAL.nord_col
+  is 'Идентификатор колонки';
+comment on column DWH_BUFFER.COL_C_TBLVAL.ex_value
+  is 'Точное значение';
+comment on column DWH_BUFFER.COL_C_TBLVAL.lf_value
+  is 'Левое условие на значение, в случае, если интервал';
+comment on column DWH_BUFFER.COL_C_TBLVAL.rg_value
+  is 'Правое условие на значение, в случае, если интервал';
+create index DWH_BUFFER.FK_COL_C_TBLVAL_C_TBLCOL on DWH_BUFFER.COL_C_TBLVAL (ID, NORD_COL)
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 4M
+    next 4M
+    minextents 1
+    maxextents unlimited
+  )
+  nologging;
+alter table DWH_BUFFER.COL_C_TBLVAL
+  add constraint PK_COL_C_TBLVAL primary key (ID, NORD, NORD_COL)
+  using index 
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 4M
+    next 4M
+    minextents 1
+    maxextents unlimited
+  );
+alter index DWH_BUFFER.PK_COL_C_TBLVAL nologging;
+grant select on DWH_BUFFER.COL_C_TBLVAL to AIBEK_BE;
+grant select, insert, update, delete on DWH_BUFFER.COL_C_TBLVAL to DWH_BUFFER_FULL_ROLE;
+grant select on DWH_BUFFER.COL_C_TBLVAL to DWH_BUFFER_READ_ROLE;
+grant select on DWH_BUFFER.COL_C_TBLVAL to DWH_PRIM;
+grant select on DWH_BUFFER.COL_C_TBLVAL to DWH_RISK;
+grant select on DWH_BUFFER.COL_C_TBLVAL to DWH_SALES;
+grant select on DWH_BUFFER.COL_C_TBLVAL to HEAD_DENIS_PL;
+grant select on DWH_BUFFER.COL_C_TBLVAL to HEAD_EVGENIY_PI;
+grant select on DWH_BUFFER.COL_C_TBLVAL to KRISTINA_KO;
+grant select on DWH_BUFFER.COL_C_TBLVAL to PROCESS_RISK;
+grant select on DWH_BUFFER.COL_C_TBLVAL to PROCESS_SALES;
+

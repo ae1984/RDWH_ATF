@@ -1,0 +1,32 @@
+create table DWH_BUFFER.COL_C_RNDMETH
+(
+  id       NUMBER(10) not null,
+  longname VARCHAR2(250 CHAR),
+  ndec     NUMBER(1) not null,
+  hilow    NUMBER(1) not null,
+  code     VARCHAR2(30 CHAR)
+)
+tablespace DWH_BUFFER
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  )
+nologging;
+grant select on DWH_BUFFER.COL_C_RNDMETH to AIBEK_BE;
+grant select, insert, update, delete on DWH_BUFFER.COL_C_RNDMETH to DWH_BUFFER_FULL_ROLE;
+grant select on DWH_BUFFER.COL_C_RNDMETH to DWH_BUFFER_READ_ROLE;
+grant select on DWH_BUFFER.COL_C_RNDMETH to DWH_PRIM;
+grant select on DWH_BUFFER.COL_C_RNDMETH to DWH_RISK;
+grant select on DWH_BUFFER.COL_C_RNDMETH to DWH_SALES;
+grant select on DWH_BUFFER.COL_C_RNDMETH to HEAD_DENIS_PL;
+grant select on DWH_BUFFER.COL_C_RNDMETH to HEAD_EVGENIY_PI;
+grant select on DWH_BUFFER.COL_C_RNDMETH to KRISTINA_KO;
+grant select on DWH_BUFFER.COL_C_RNDMETH to PROCESS_RISK;
+grant select on DWH_BUFFER.COL_C_RNDMETH to PROCESS_SALES;
+

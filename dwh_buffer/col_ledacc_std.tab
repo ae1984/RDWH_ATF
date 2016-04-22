@@ -1,0 +1,175 @@
+create table DWH_BUFFER.COL_LEDACC_STD
+(
+  id        NUMBER(10) not null,
+  code      VARCHAR2(30) not null,
+  part_code CHAR(1) not null,
+  led_id    NUMBER(10) not null,
+  nlevel    NUMBER(5) not null,
+  id_hi     NUMBER(10),
+  groupfl   CHAR(1) not null,
+  arcfl     CHAR(1) not null,
+  arestfl   CHAR(1) not null,
+  clientfl  CHAR(1) not null,
+  budgetfl  CHAR(1) not null,
+  valutfl   CHAR(1) not null,
+  flzo      CHAR(1) not null,
+  activfl   CHAR(1) not null,
+  paymentfl CHAR(1) not null,
+  autofl    CHAR(1) not null,
+  longname  VARCHAR2(250 CHAR) not null,
+  name      VARCHAR2(30 CHAR),
+  opened    DATE not null,
+  closed    DATE,
+  correctdt DATE,
+  id_us     NUMBER(5),
+  restrule  NUMBER(1),
+  bdg_id    NUMBER(10),
+  prim      VARCHAR2(250),
+  avgrule   NUMBER(1),
+  rel_id    NUMBER(10),
+  manualfl  CHAR(1) not null,
+  dtlfl     CHAR(1) not null,
+  acc_type  CHAR(3)
+)
+tablespace DWH_BUFFER
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  )
+nologging;
+comment on table DWH_BUFFER.COL_LEDACC_STD
+  is 'План счетов ГК';
+comment on column DWH_BUFFER.COL_LEDACC_STD.id
+  is 'Идентификатор';
+comment on column DWH_BUFFER.COL_LEDACC_STD.code
+  is 'Код';
+comment on column DWH_BUFFER.COL_LEDACC_STD.part_code
+  is 'Код раздела плана счетов';
+comment on column DWH_BUFFER.COL_LEDACC_STD.led_id
+  is 'Идентификатор книги';
+comment on column DWH_BUFFER.COL_LEDACC_STD.nlevel
+  is 'Уровень в иерархии';
+comment on column DWH_BUFFER.COL_LEDACC_STD.id_hi
+  is 'Идентификатор верхнего уровня';
+comment on column DWH_BUFFER.COL_LEDACC_STD.groupfl
+  is 'Флаг группового элемента';
+comment on column DWH_BUFFER.COL_LEDACC_STD.arcfl
+  is 'Флаг архива';
+comment on column DWH_BUFFER.COL_LEDACC_STD.arestfl
+  is 'Запрет открывать субсчета';
+comment on column DWH_BUFFER.COL_LEDACC_STD.clientfl
+  is 'Флаг клиентского счета';
+comment on column DWH_BUFFER.COL_LEDACC_STD.budgetfl
+  is 'Флаг бюджетного счета';
+comment on column DWH_BUFFER.COL_LEDACC_STD.valutfl
+  is 'Флаг допустимости счетов в инвалюте';
+comment on column DWH_BUFFER.COL_LEDACC_STD.flzo
+  is 'Флаг централизации';
+comment on column DWH_BUFFER.COL_LEDACC_STD.activfl
+  is 'Флаг активности';
+comment on column DWH_BUFFER.COL_LEDACC_STD.paymentfl
+  is 'Флаг участия в платежной системе';
+comment on column DWH_BUFFER.COL_LEDACC_STD.autofl
+  is 'Разрешено автоматическое открытие субсчетов';
+comment on column DWH_BUFFER.COL_LEDACC_STD.longname
+  is 'Полное название';
+comment on column DWH_BUFFER.COL_LEDACC_STD.name
+  is 'Краткое название';
+comment on column DWH_BUFFER.COL_LEDACC_STD.opened
+  is 'Дата открытия счета';
+comment on column DWH_BUFFER.COL_LEDACC_STD.closed
+  is 'Дата закрыти счета';
+comment on column DWH_BUFFER.COL_LEDACC_STD.correctdt
+  is 'Дата коррекции';
+comment on column DWH_BUFFER.COL_LEDACC_STD.id_us
+  is 'Исполнитель-корректор';
+comment on column DWH_BUFFER.COL_LEDACC_STD.restrule
+  is 'Правило сохранения остатка';
+comment on column DWH_BUFFER.COL_LEDACC_STD.bdg_id
+  is 'Идентификатор правила бюджета';
+comment on column DWH_BUFFER.COL_LEDACC_STD.prim
+  is 'Примечание';
+comment on column DWH_BUFFER.COL_LEDACC_STD.avgrule
+  is 'Правило сохранения среднего остатка';
+comment on column DWH_BUFFER.COL_LEDACC_STD.rel_id
+  is 'Счет соответствия из старшей книги';
+comment on column DWH_BUFFER.COL_LEDACC_STD.manualfl
+  is 'Разрешено ручное открытие субсчетов';
+comment on column DWH_BUFFER.COL_LEDACC_STD.dtlfl
+  is 'Детализация счета Главной книги';
+comment on column DWH_BUFFER.COL_LEDACC_STD.acc_type
+  is 'Тип счета';
+create index DWH_BUFFER.FK_COL_LEDACC_STD_ID_HI on DWH_BUFFER.COL_LEDACC_STD (ID_HI)
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 4M
+    next 4M
+    minextents 1
+    maxextents unlimited
+  )
+  nologging;
+create index DWH_BUFFER.FK_COL_LEDACC_STD_REL on DWH_BUFFER.COL_LEDACC_STD (REL_ID)
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 4M
+    next 4M
+    minextents 1
+    maxextents unlimited
+  )
+  nologging;
+alter table DWH_BUFFER.COL_LEDACC_STD
+  add constraint PK_COL_LEDACC_STD primary key (ID)
+  using index 
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 4M
+    next 4M
+    minextents 1
+    maxextents unlimited
+  );
+alter index DWH_BUFFER.PK_COL_LEDACC_STD nologging;
+alter table DWH_BUFFER.COL_LEDACC_STD
+  add constraint AK_COL_LEDACC_STD_CODE unique (CODE)
+  using index 
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 4M
+    next 4M
+    minextents 1
+    maxextents unlimited
+  );
+alter index DWH_BUFFER.AK_COL_LEDACC_STD_CODE nologging;
+grant select on DWH_BUFFER.COL_LEDACC_STD to AIBEK_BE;
+grant select, insert, update, delete on DWH_BUFFER.COL_LEDACC_STD to DWH_BUFFER_FULL_ROLE;
+grant select on DWH_BUFFER.COL_LEDACC_STD to DWH_BUFFER_READ_ROLE;
+grant select on DWH_BUFFER.COL_LEDACC_STD to DWH_PRIM;
+grant select on DWH_BUFFER.COL_LEDACC_STD to DWH_RISK;
+grant select on DWH_BUFFER.COL_LEDACC_STD to DWH_SALES;
+grant select on DWH_BUFFER.COL_LEDACC_STD to HEAD_DENIS_PL;
+grant select on DWH_BUFFER.COL_LEDACC_STD to HEAD_EVGENIY_PI;
+grant select on DWH_BUFFER.COL_LEDACC_STD to KRISTINA_KO;
+grant select on DWH_BUFFER.COL_LEDACC_STD to PROCESS_RISK;
+grant select on DWH_BUFFER.COL_LEDACC_STD to PROCESS_SALES;
+

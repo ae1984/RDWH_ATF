@@ -1,0 +1,92 @@
+create table DWH_BUFFER.COL_G_CLIPHONE
+(
+  dep_id    NUMBER(10) not null,
+  id        NUMBER(10) not null,
+  nord      NUMBER(5) not null,
+  pnum      VARCHAR2(50) not null,
+  ptype     VARCHAR2(10),
+  prim      VARCHAR2(250 CHAR),
+  basfl     CHAR(1),
+  arcfl     CHAR(1),
+  ctype     VARCHAR2(30) not null,
+  correctdt DATE,
+  id_us     NUMBER(10)
+)
+tablespace DWH_BUFFER
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  )
+nologging;
+comment on table DWH_BUFFER.COL_G_CLIPHONE
+  is 'Телефонные номера субъектов';
+comment on column DWH_BUFFER.COL_G_CLIPHONE.dep_id
+  is 'Идентификатор подразделения';
+comment on column DWH_BUFFER.COL_G_CLIPHONE.id
+  is 'Идентификатор субъекта';
+comment on column DWH_BUFFER.COL_G_CLIPHONE.nord
+  is 'Порядковый номер';
+comment on column DWH_BUFFER.COL_G_CLIPHONE.pnum
+  is 'Номер телефона';
+comment on column DWH_BUFFER.COL_G_CLIPHONE.ptype
+  is 'Тип телефона (раб., дом., моб.)';
+comment on column DWH_BUFFER.COL_G_CLIPHONE.prim
+  is 'Примечание';
+comment on column DWH_BUFFER.COL_G_CLIPHONE.basfl
+  is 'Признак основного';
+comment on column DWH_BUFFER.COL_G_CLIPHONE.arcfl
+  is 'Не используется (в архиве)';
+comment on column DWH_BUFFER.COL_G_CLIPHONE.ctype
+  is 'Тип контакта (PHN,FAX)';
+comment on column DWH_BUFFER.COL_G_CLIPHONE.correctdt
+  is 'Дата коррекции';
+comment on column DWH_BUFFER.COL_G_CLIPHONE.id_us
+  is 'Пользователь коррекции';
+alter table DWH_BUFFER.COL_G_CLIPHONE
+  add constraint PK_COL_G_CLIPHONE primary key (DEP_ID, ID, NORD)
+  using index 
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 4M
+    next 4M
+    minextents 1
+    maxextents unlimited
+  );
+alter index DWH_BUFFER.PK_COL_G_CLIPHONE nologging;
+alter table DWH_BUFFER.COL_G_CLIPHONE
+  add constraint AK_COL_G_CLIPHONE unique (CTYPE, PNUM, DEP_ID, ID)
+  using index 
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 4M
+    next 4M
+    minextents 1
+    maxextents unlimited
+  );
+alter index DWH_BUFFER.AK_COL_G_CLIPHONE nologging;
+grant select on DWH_BUFFER.COL_G_CLIPHONE to AIBEK_BE;
+grant select, insert, update, delete on DWH_BUFFER.COL_G_CLIPHONE to DWH_BUFFER_FULL_ROLE;
+grant select on DWH_BUFFER.COL_G_CLIPHONE to DWH_BUFFER_READ_ROLE;
+grant select on DWH_BUFFER.COL_G_CLIPHONE to DWH_PRIM;
+grant select on DWH_BUFFER.COL_G_CLIPHONE to DWH_RISK;
+grant select on DWH_BUFFER.COL_G_CLIPHONE to DWH_SALES;
+grant select on DWH_BUFFER.COL_G_CLIPHONE to HEAD_DENIS_PL;
+grant select on DWH_BUFFER.COL_G_CLIPHONE to HEAD_EVGENIY_PI;
+grant select on DWH_BUFFER.COL_G_CLIPHONE to KRISTINA_KO;
+grant select on DWH_BUFFER.COL_G_CLIPHONE to PROCESS_RISK;
+grant select on DWH_BUFFER.COL_G_CLIPHONE to PROCESS_SALES;
+

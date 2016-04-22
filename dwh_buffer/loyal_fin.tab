@@ -1,0 +1,71 @@
+create table DWH_BUFFER.LOYAL_FIN
+(
+  cli_id   NUMBER(10),
+  cli_code VARCHAR2(30),
+  iin      VARCHAR2(30),
+  rnn      VARCHAR2(12 CHAR),
+  is_act   NUMBER
+)
+tablespace DWH_BUFFER
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 128K
+    next 128K
+    minextents 1
+    maxextents unlimited
+  )
+nologging;
+create index DWH_BUFFER.IX_LOYAL_FIN_CLI_CODE on DWH_BUFFER.LOYAL_FIN (CLI_CODE)
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  )
+  nologging;
+create index DWH_BUFFER.IX_LOYAL_FIN_CLI_ID on DWH_BUFFER.LOYAL_FIN (CLI_ID)
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  )
+  nologging;
+create index DWH_BUFFER.IX_LOYAL_FIN_IIN on DWH_BUFFER.LOYAL_FIN (IIN)
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  )
+  nologging;
+grant select on DWH_BUFFER.LOYAL_FIN to AIBEK_BE;
+grant select, insert, update, delete on DWH_BUFFER.LOYAL_FIN to DWH_BUFFER_FULL_ROLE;
+grant select on DWH_BUFFER.LOYAL_FIN to DWH_BUFFER_READ_ROLE;
+grant select on DWH_BUFFER.LOYAL_FIN to DWH_PRIM;
+grant select, insert, update, delete, references, alter, index on DWH_BUFFER.LOYAL_FIN to DWH_RISK;
+grant select on DWH_BUFFER.LOYAL_FIN to DWH_SALES;
+grant select on DWH_BUFFER.LOYAL_FIN to HEAD_DENIS_PL;
+grant select on DWH_BUFFER.LOYAL_FIN to HEAD_EVGENIY_PI;
+grant select on DWH_BUFFER.LOYAL_FIN to KRISTINA_KO;
+grant select on DWH_BUFFER.LOYAL_FIN to PROCESS_RISK;
+grant select on DWH_BUFFER.LOYAL_FIN to PROCESS_SALES;
+

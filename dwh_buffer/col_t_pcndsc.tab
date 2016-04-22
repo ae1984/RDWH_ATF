@@ -1,0 +1,145 @@
+create table DWH_BUFFER.COL_T_PCNDSC
+(
+  id        NUMBER(10) not null,
+  nver      NUMBER(5) not null,
+  vrf_id    NUMBER(10),
+  ver_type  VARCHAR2(10) not null,
+  pcn_type  VARCHAR2(10),
+  longname  VARCHAR2(250 CHAR) not null,
+  type_id   NUMBER(10) not null,
+  prim      VARCHAR2(250 CHAR),
+  correctdt DATE not null,
+  id_us     NUMBER(10) not null,
+  viewfl    CHAR(1) not null,
+  rnd_id    NUMBER(10)
+)
+tablespace DWH_BUFFER
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  )
+nologging;
+comment on table DWH_BUFFER.COL_T_PCNDSC
+  is 'Процентные ставки. Версии, ожидаемые санкции.';
+comment on column DWH_BUFFER.COL_T_PCNDSC.id
+  is 'ID ставки';
+comment on column DWH_BUFFER.COL_T_PCNDSC.nver
+  is 'номер версии';
+comment on column DWH_BUFFER.COL_T_PCNDSC.vrf_id
+  is 'Ожидаемая санкция';
+comment on column DWH_BUFFER.COL_T_PCNDSC.ver_type
+  is 'Тип версии';
+comment on column DWH_BUFFER.COL_T_PCNDSC.pcn_type
+  is 'Тип ставки (домен)';
+comment on column DWH_BUFFER.COL_T_PCNDSC.longname
+  is 'Название';
+comment on column DWH_BUFFER.COL_T_PCNDSC.type_id
+  is 'Тип ставки';
+comment on column DWH_BUFFER.COL_T_PCNDSC.prim
+  is 'примечание';
+comment on column DWH_BUFFER.COL_T_PCNDSC.correctdt
+  is 'Дата коррекции';
+comment on column DWH_BUFFER.COL_T_PCNDSC.id_us
+  is 'корректировавши пользователь';
+comment on column DWH_BUFFER.COL_T_PCNDSC.viewfl
+  is 'VIEWFL';
+comment on column DWH_BUFFER.COL_T_PCNDSC.rnd_id
+  is 'RND_ID';
+create index DWH_BUFFER.FK_COL_T_PCNDSC_C_RNDMETH on DWH_BUFFER.COL_T_PCNDSC (RND_ID)
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 4M
+    next 4M
+    minextents 1
+    maxextents unlimited
+  )
+  nologging;
+create index DWH_BUFFER.FK_COL_T_PCNDSC_IDVERTYP on DWH_BUFFER.COL_T_PCNDSC (ID, VER_TYPE, NVER)
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 4M
+    next 4M
+    minextents 1
+    maxextents unlimited
+  )
+  nologging;
+create index DWH_BUFFER.FK_COL_T_PCNDSC_T_PCN_TYPE on DWH_BUFFER.COL_T_PCNDSC (TYPE_ID)
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 4M
+    next 4M
+    minextents 1
+    maxextents unlimited
+  )
+  nologging;
+create index DWH_BUFFER.FK_COL_T_PCNDSC_T_VRFDSC on DWH_BUFFER.COL_T_PCNDSC (VRF_ID)
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 4M
+    next 4M
+    minextents 1
+    maxextents unlimited
+  )
+  nologging;
+create index DWH_BUFFER.FK_COL_T_PCNDSC_VERTYP on DWH_BUFFER.COL_T_PCNDSC (VER_TYPE, TYPE_ID)
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 4M
+    next 4M
+    minextents 1
+    maxextents unlimited
+  )
+  nologging;
+alter table DWH_BUFFER.COL_T_PCNDSC
+  add constraint PK_COL_T_PCNDSC primary key (ID, NVER)
+  using index 
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 4M
+    next 4M
+    minextents 1
+    maxextents unlimited
+  );
+alter index DWH_BUFFER.PK_COL_T_PCNDSC nologging;
+grant select on DWH_BUFFER.COL_T_PCNDSC to AIBEK_BE;
+grant select, insert, update, delete on DWH_BUFFER.COL_T_PCNDSC to DWH_BUFFER_FULL_ROLE;
+grant select on DWH_BUFFER.COL_T_PCNDSC to DWH_BUFFER_READ_ROLE;
+grant select on DWH_BUFFER.COL_T_PCNDSC to DWH_PRIM;
+grant select on DWH_BUFFER.COL_T_PCNDSC to DWH_RISK;
+grant select on DWH_BUFFER.COL_T_PCNDSC to DWH_SALES;
+grant select on DWH_BUFFER.COL_T_PCNDSC to HEAD_DENIS_PL;
+grant select on DWH_BUFFER.COL_T_PCNDSC to HEAD_EVGENIY_PI;
+grant select on DWH_BUFFER.COL_T_PCNDSC to KRISTINA_KO;
+grant select on DWH_BUFFER.COL_T_PCNDSC to PROCESS_RISK;
+grant select on DWH_BUFFER.COL_T_PCNDSC to PROCESS_SALES;
+

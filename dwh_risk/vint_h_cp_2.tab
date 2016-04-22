@@ -1,0 +1,205 @@
+create table DWH_RISK.VINT_H_CP_2
+(
+  cnt                NUMBER,
+  report_dt          DATE,
+  num_dog            VARCHAR2(500),
+  refer              VARCHAR2(500),
+  client_code        VARCHAR2(500),
+  dt_begin           DATE,
+  dt_begin_month     DATE,
+  dt_end             DATE,
+  mfo                VARCHAR2(12),
+  filial             VARCHAR2(12),
+  type_of_business   VARCHAR2(500),
+  product_code       VARCHAR2(500),
+  product_name       VARCHAR2(500),
+  vcc                VARCHAR2(500),
+  val_code           VARCHAR2(500),
+  amt_val            NUMBER,
+  amountloankzt_sum  NUMBER,
+  product_type       VARCHAR2(500),
+  obj_cred_code      VARCHAR2(500),
+  report_s           VARCHAR2(6),
+  spu                CHAR(2),
+  indicator          CHAR(3),
+  business           CHAR(3),
+  smeproduct         VARCHAR2(9),
+  smeproduct1        CHAR(8),
+  secunsec           VARCHAR2(9),
+  sectype            VARCHAR2(10),
+  cash               VARCHAR2(5),
+  cash_product       VARCHAR2(8),
+  flag_restruct      NUMBER,
+  flag_out_balance   NUMBER,
+  prc_amt_val        NUMBER,
+  prc_amt_kzt        NUMBER,
+  loanrest           NUMBER,
+  loanrest_all_month NUMBER,
+  penalty            NUMBER,
+  discount           NUMBER,
+  od_day_def         NUMBER,
+  prc_day_def        NUMBER,
+  def_days_od        VARCHAR2(500),
+  def_days_prc       VARCHAR2(500),
+  def_amt_od         VARCHAR2(500),
+  def_days           NUMBER,
+  def_amt_od_val     NUMBER,
+  def_amt_prc        VARCHAR2(500),
+  def_amt_prc_val    NUMBER,
+  count_of_credit    NUMBER,
+  mob                NUMBER,
+  count              NUMBER,
+  count_of_1p        NUMBER,
+  count_of_30p       NUMBER,
+  count_of_60p       NUMBER,
+  count_of_90p       NUMBER,
+  count_of_180p      NUMBER,
+  count_of_1p_sum    NUMBER,
+  count_of_30p_sum   NUMBER,
+  count_of_60p_sum   NUMBER,
+  count_of_90p_sum   NUMBER,
+  count_of_180p_sum  NUMBER,
+  _name_             VARCHAR2(9),
+  usd                NUMBER,
+  gbr                NUMBER,
+  rub                NUMBER,
+  eur                NUMBER,
+  f76                VARCHAR2(500),
+  f77                VARCHAR2(500),
+  f75                VARCHAR2(500),
+  type               VARCHAR2(4),
+  type1              VARCHAR2(5),
+  bank               CHAR(5),
+  biz                CHAR(5),
+  sec                VARCHAR2(12),
+  sme                VARCHAR2(12),
+  _0                 NUMBER,
+  _1                 NUMBER,
+  _2                 NUMBER,
+  _3                 NUMBER,
+  _4                 NUMBER,
+  _5                 NUMBER,
+  _6                 NUMBER,
+  _7                 NUMBER,
+  _8                 NUMBER,
+  _9                 NUMBER,
+  _10                NUMBER,
+  _11                NUMBER,
+  _12                NUMBER,
+  _13                NUMBER,
+  _14                NUMBER,
+  _15                NUMBER,
+  _16                NUMBER,
+  _17                NUMBER,
+  _18                NUMBER,
+  _19                NUMBER,
+  _20                NUMBER,
+  _21                NUMBER,
+  _22                NUMBER,
+  _23                NUMBER,
+  _24                NUMBER,
+  _25                NUMBER,
+  _26                NUMBER,
+  _27                NUMBER,
+  _28                NUMBER,
+  _29                NUMBER,
+  _30                NUMBER,
+  _31                NUMBER,
+  _32                NUMBER,
+  _33                NUMBER,
+  _34                NUMBER,
+  _35                NUMBER,
+  _36                NUMBER,
+  _37                NUMBER,
+  _38                NUMBER,
+  _39                NUMBER,
+  _40                NUMBER,
+  _41                NUMBER,
+  _42                NUMBER,
+  _43                NUMBER,
+  _44                NUMBER,
+  _45                NUMBER,
+  _46                NUMBER,
+  _47                NUMBER,
+  _48                NUMBER,
+  _49                NUMBER,
+  _50                NUMBER,
+  _51                NUMBER,
+  _52                NUMBER,
+  _53                NUMBER,
+  _54                NUMBER,
+  _55                NUMBER,
+  _56                NUMBER,
+  _57                NUMBER,
+  _58                NUMBER,
+  _59                NUMBER,
+  _60                NUMBER,
+  _61                NUMBER,
+  _62                NUMBER,
+  _63                NUMBER,
+  _64                NUMBER,
+  _65                NUMBER,
+  _66                NUMBER,
+  _67                NUMBER,
+  _68                NUMBER,
+  _69                NUMBER,
+  _70                NUMBER,
+  _71                NUMBER,
+  _72                NUMBER,
+  _73                NUMBER,
+  _74                NUMBER,
+  _75                NUMBER,
+  vallbankfilial     VARCHAR2(23),
+  vbankspufilial     VARCHAR2(25),
+  vproductfilial     VARCHAR2(23),
+  vpifilial          VARCHAR2(24),
+  vsecuredfilial     VARCHAR2(32),
+  vcorpspufilial     VARCHAR2(25),
+  vsmetypefilial     VARCHAR2(29),
+  vsmetypefilial1    VARCHAR2(28),
+  vpitypefilial      VARCHAR2(30),
+  vcash1filial       VARCHAR2(25),
+  vcash2filial       VARCHAR2(28)
+)
+tablespace DWH_RISK
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+create index DWH_RISK.VINT_H_CP_2_DT on DWH_RISK.VINT_H_CP_2 (REPORT_DT)
+  tablespace DWH_RISK
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+create index DWH_RISK.VINT_H_CP_2_NUM on DWH_RISK.VINT_H_CP_2 (NUM_DOG)
+  tablespace DWH_RISK
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+grant select on DWH_RISK.VINT_H_CP_2 to AIBEK_BE;
+grant select, insert, update, delete on DWH_RISK.VINT_H_CP_2 to DWH_RISK_FULL_ROLE;
+grant select on DWH_RISK.VINT_H_CP_2 to DWH_RISK_READ_ROLE;
+grant select on DWH_RISK.VINT_H_CP_2 to HEAD_DENIS_PL;
+grant select on DWH_RISK.VINT_H_CP_2 to KRISTINA_KO;
+grant select on DWH_RISK.VINT_H_CP_2 to PROCESS_RISK;
+

@@ -1,0 +1,47 @@
+create table DWH_BUFFER.CLIENT_ALL
+(
+  ksss_id    NUMBER not null,
+  client_src NUMBER(18) not null,
+  src        CHAR(1),
+  cli_code   VARCHAR2(32 CHAR),
+  iin        VARCHAR2(32 CHAR),
+  rnn        VARCHAR2(255 CHAR)
+)
+tablespace DWH_BUFFER
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 128K
+    next 128K
+    minextents 1
+    maxextents unlimited
+  )
+nologging;
+alter table DWH_BUFFER.CLIENT_ALL
+  add constraint PK_KSSS primary key (KSSS_ID)
+  using index 
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 10M
+    next 20M
+    minextents 1
+    maxextents unlimited
+  );
+grant select on DWH_BUFFER.CLIENT_ALL to AIBEK_BE;
+grant select, insert, update, delete on DWH_BUFFER.CLIENT_ALL to DWH_BUFFER_FULL_ROLE;
+grant select on DWH_BUFFER.CLIENT_ALL to DWH_BUFFER_READ_ROLE;
+grant select on DWH_BUFFER.CLIENT_ALL to DWH_PRIM;
+grant select on DWH_BUFFER.CLIENT_ALL to DWH_RISK;
+grant select on DWH_BUFFER.CLIENT_ALL to DWH_SALES;
+grant select on DWH_BUFFER.CLIENT_ALL to HEAD_DENIS_PL;
+grant select on DWH_BUFFER.CLIENT_ALL to HEAD_EVGENIY_PI;
+grant select on DWH_BUFFER.CLIENT_ALL to KRISTINA_KO;
+grant select on DWH_BUFFER.CLIENT_ALL to PROCESS_RISK;
+grant select on DWH_BUFFER.CLIENT_ALL to PROCESS_SALES;
+

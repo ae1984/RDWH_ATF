@@ -1,0 +1,39 @@
+create table DWH_BUFFER.COL_T_DEAPRMRUL
+(
+  dea_id    NUMBER(10) not null,
+  par_id    NUMBER(10) not null,
+  parvalue  VARCHAR2(30 CHAR),
+  mandfl    NUMBER(1) not null,
+  editfl    NUMBER(1) not null,
+  hidefl    NUMBER(1) not null,
+  npp       NUMBER(10),
+  sbj_id    NUMBER(10),
+  valuemask VARCHAR2(250),
+  maxvalue  VARCHAR2(30),
+  minvalue  VARCHAR2(30),
+  dynbox    VARCHAR2(30 CHAR)
+)
+tablespace DWH_BUFFER
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  )
+nologging;
+grant select on DWH_BUFFER.COL_T_DEAPRMRUL to AIBEK_BE;
+grant select, insert, update, delete on DWH_BUFFER.COL_T_DEAPRMRUL to DWH_BUFFER_FULL_ROLE;
+grant select on DWH_BUFFER.COL_T_DEAPRMRUL to DWH_BUFFER_READ_ROLE;
+grant select on DWH_BUFFER.COL_T_DEAPRMRUL to DWH_PRIM;
+grant select on DWH_BUFFER.COL_T_DEAPRMRUL to DWH_RISK;
+grant select on DWH_BUFFER.COL_T_DEAPRMRUL to DWH_SALES;
+grant select on DWH_BUFFER.COL_T_DEAPRMRUL to HEAD_DENIS_PL;
+grant select on DWH_BUFFER.COL_T_DEAPRMRUL to HEAD_EVGENIY_PI;
+grant select on DWH_BUFFER.COL_T_DEAPRMRUL to KRISTINA_KO;
+grant select on DWH_BUFFER.COL_T_DEAPRMRUL to PROCESS_RISK;
+grant select on DWH_BUFFER.COL_T_DEAPRMRUL to PROCESS_SALES;
+

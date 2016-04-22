@@ -1,0 +1,66 @@
+create table DWH_RISK.OWS_GL_TRACE
+(
+  id                NUMBER(18) not null,
+  gl_transfer__id   NUMBER(18),
+  curr              VARCHAR2(3 CHAR),
+  amount            NUMBER(28,10) not null,
+  cr_account        NUMBER(18),
+  cr_account_number VARCHAR2(64 CHAR),
+  cr_main_account   NUMBER(18),
+  cr_service        NUMBER(18),
+  dr_account        NUMBER(18),
+  dr_account_number VARCHAR2(64 CHAR),
+  dr_main_account   NUMBER(18),
+  dr_service        NUMBER(18),
+  m_transaction__id NUMBER(18),
+  trans_role        VARCHAR2(255 CHAR),
+  gl_doc_id         NUMBER(18),
+  cr_tariff         NUMBER(18),
+  dr_tariff         NUMBER(18),
+  entry_role        VARCHAR2(1 CHAR),
+  order_date        DATE,
+  partition_key     VARCHAR2(32 CHAR),
+  description       VARCHAR2(255 CHAR)
+)
+tablespace DWH_RISK
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+create index DWH_RISK.OWS_GL_TRACE_DT on DWH_RISK.OWS_GL_TRACE (ORDER_DATE)
+  tablespace DWH_RISK
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+create index DWH_RISK.OWS_GL_TRACE_MTID on DWH_RISK.OWS_GL_TRACE (M_TRANSACTION__ID)
+  tablespace DWH_RISK
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+grant select on DWH_RISK.OWS_GL_TRACE to AIBEK_BE;
+grant select, insert, update, delete on DWH_RISK.OWS_GL_TRACE to DWH_RISK_FULL_ROLE;
+grant select on DWH_RISK.OWS_GL_TRACE to DWH_RISK_READ_ROLE;
+grant select on DWH_RISK.OWS_GL_TRACE to HEAD_DENIS_PL;
+grant select on DWH_RISK.OWS_GL_TRACE to KRISTINA_KO;
+grant select on DWH_RISK.OWS_GL_TRACE to PROCESS_RISK;
+

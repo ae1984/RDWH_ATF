@@ -1,0 +1,61 @@
+create table DWH_RISK.H_201508_STEP2_SALARY
+(
+  mmyyyy        DATE,
+  iin           VARCHAR2(500),
+  trans_date    DATE,
+  ows_client_id NUMBER(18)
+)
+tablespace DWH_RISK
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+create index DWH_RISK.IX_H_201508_STEP2_SALARY_1 on DWH_RISK.H_201508_STEP2_SALARY (IIN, MMYYYY)
+  tablespace DWH_RISK
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+create index DWH_RISK.IX_H_201508_STEP2_SALARY_2 on DWH_RISK.H_201508_STEP2_SALARY (IIN, TRANS_DATE)
+  tablespace DWH_RISK
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+create index DWH_RISK.IX_H_201508_STEP2_SALARY_3 on DWH_RISK.H_201508_STEP2_SALARY (OWS_CLIENT_ID)
+  tablespace DWH_RISK
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+grant select on DWH_RISK.H_201508_STEP2_SALARY to AIBEK_BE;
+grant select, insert, update, delete on DWH_RISK.H_201508_STEP2_SALARY to DWH_RISK_FULL_ROLE;
+grant select on DWH_RISK.H_201508_STEP2_SALARY to DWH_RISK_READ_ROLE;
+grant select on DWH_RISK.H_201508_STEP2_SALARY to HEAD_DENIS_PL;
+grant select on DWH_RISK.H_201508_STEP2_SALARY to KRISTINA_KO;
+grant select on DWH_RISK.H_201508_STEP2_SALARY to PROCESS_RISK;
+

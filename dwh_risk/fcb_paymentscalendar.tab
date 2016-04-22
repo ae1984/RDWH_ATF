@@ -1,0 +1,30 @@
+create table DWH_RISK.FCB_PAYMENTSCALENDAR
+(
+  id              VARCHAR2(100),
+  loan_id         VARCHAR2(100),
+  contracttype    VARCHAR2(50),
+  codeofcontract  VARCHAR2(70),
+  agreementnumber VARCHAR2(50),
+  yyyy            VARCHAR2(402),
+  mm              VARCHAR2(400),
+  overdue_days    VARCHAR2(100),
+  overdue         VARCHAR2(50)
+)
+tablespace DWH_RISK
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+grant select on DWH_RISK.FCB_PAYMENTSCALENDAR to AIBEK_BE;
+grant select, insert, update, delete on DWH_RISK.FCB_PAYMENTSCALENDAR to DWH_RISK_FULL_ROLE;
+grant select on DWH_RISK.FCB_PAYMENTSCALENDAR to DWH_RISK_READ_ROLE;
+grant select on DWH_RISK.FCB_PAYMENTSCALENDAR to HEAD_DENIS_PL;
+grant select on DWH_RISK.FCB_PAYMENTSCALENDAR to KRISTINA_KO;
+grant select on DWH_RISK.FCB_PAYMENTSCALENDAR to PROCESS_RISK;
+

@@ -1,0 +1,52 @@
+create table DWH_BUFFER.COLLIE_TMP_ATF_PROSR_DEA
+(
+  q_id         NUMBER(10),
+  dea_refer    VARCHAR2(100),
+  id           NUMBER(10),
+  dep_id       NUMBER(10),
+  cli_id       NUMBER(10),
+  cli_dep_id   NUMBER(10),
+  bal_od_num   VARCHAR2(34),
+  bal_od_sum   NUMBER,
+  bal_od_code  VARCHAR2(30),
+  bal_prc_num  VARCHAR2(34),
+  bal_prc_sum  NUMBER,
+  bal_prc_code VARCHAR2(30),
+  off_od_num   VARCHAR2(34),
+  off_od_sum   NUMBER,
+  off_od_code  VARCHAR2(30),
+  off_prc_num  VARCHAR2(34),
+  off_prc_sum  NUMBER,
+  off_prc_code VARCHAR2(30),
+  dpr          DATE,
+  dod          DATE,
+  max_delay    NUMBER(5),
+  is_restr     NUMBER(1),
+  datefrom     DATE,
+  is_collector NUMBER(1),
+  dpr_n        DATE,
+  dod_n        DATE
+)
+tablespace DWH_BUFFER
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+grant select on DWH_BUFFER.COLLIE_TMP_ATF_PROSR_DEA to AIBEK_BE;
+grant select, insert, update, delete on DWH_BUFFER.COLLIE_TMP_ATF_PROSR_DEA to DWH_BUFFER_FULL_ROLE;
+grant select on DWH_BUFFER.COLLIE_TMP_ATF_PROSR_DEA to DWH_BUFFER_READ_ROLE;
+grant select on DWH_BUFFER.COLLIE_TMP_ATF_PROSR_DEA to DWH_PRIM;
+grant select on DWH_BUFFER.COLLIE_TMP_ATF_PROSR_DEA to DWH_RISK;
+grant select on DWH_BUFFER.COLLIE_TMP_ATF_PROSR_DEA to DWH_SALES;
+grant select on DWH_BUFFER.COLLIE_TMP_ATF_PROSR_DEA to HEAD_DENIS_PL;
+grant select on DWH_BUFFER.COLLIE_TMP_ATF_PROSR_DEA to HEAD_EVGENIY_PI;
+grant select on DWH_BUFFER.COLLIE_TMP_ATF_PROSR_DEA to KRISTINA_KO;
+grant select on DWH_BUFFER.COLLIE_TMP_ATF_PROSR_DEA to PROCESS_RISK;
+grant select on DWH_BUFFER.COLLIE_TMP_ATF_PROSR_DEA to PROCESS_SALES;
+

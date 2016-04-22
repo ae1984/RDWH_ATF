@@ -1,0 +1,42 @@
+create materialized view DWH_BUFFER.PAYROLL_LIST
+refresh complete on demand
+as
+select cast (a.iin_cl as varchar2(12)) iin,
+       /*min(case when b.iin_cl is not null
+                then 1
+                else 2
+                end)*/ 1 status
+from
+(select s.IIN_CL,
+        s.target_number
+from sal_trans s
+where 1=1
+    and s.POSTING_DATE between sysdate-40 and sysdate
+having sum(s.TRANS_AMOUNT)>=25000
+group by s.IIN_CL,
+         s.target_number
+    ) a
+left join
+(select distinct s.IIN_CL,
+                s.target_number
+from sal_trans s
+where 1=1
+    and s.POSTING_DATE < sysdate-85
+    ) b
+on a.IIN_CL=b.IIN_CL
+  and a.target_number=b.target_number
+where a.IIN_CL is not null
+group by a.iin_cl;
+grant select on DWH_BUFFER.PAYROLL_LIST to AIBEK_BE;
+grant select, insert, update, delete on DWH_BUFFER.PAYROLL_LIST to DWH_BUFFER_FULL_ROLE;
+grant select on DWH_BUFFER.PAYROLL_LIST to DWH_BUFFER_READ_ROLE;
+grant select on DWH_BUFFER.PAYROLL_LIST to DWH_PRIM;
+grant select on DWH_BUFFER.PAYROLL_LIST to DWH_RISK;
+grant select on DWH_BUFFER.PAYROLL_LIST to DWH_SALES;
+grant select on DWH_BUFFER.PAYROLL_LIST to HEAD_DENIS_PL;
+grant select on DWH_BUFFER.PAYROLL_LIST to HEAD_EVGENIY_PI;
+grant select on DWH_BUFFER.PAYROLL_LIST to KRISTINA_KO;
+grant select on DWH_BUFFER.PAYROLL_LIST to PROCESS_RISK;
+grant select on DWH_BUFFER.PAYROLL_LIST to PROCESS_SALES;
+
+

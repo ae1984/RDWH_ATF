@@ -1,0 +1,86 @@
+create table DWH_RISK.W_4_BAL
+(
+  trans_from       VARCHAR2(1020),
+  trans_to         VARCHAR2(1020),
+  source_contract  NUMBER(18),
+  target_contract  NUMBER(18),
+  trans_type       VARCHAR2(255 CHAR),
+  posting_db_date  DATE,
+  trans_date       DATE,
+  trans_curr       VARCHAR2(3 CHAR),
+  currency_code    VARCHAR2(3 CHAR),
+  direction        NUMBER(1),
+  bal              NUMBER,
+  source_number    VARCHAR2(64 CHAR),
+  target_number    VARCHAR2(64 CHAR),
+  ows_client_id    NUMBER,
+  w4_contract      NUMBER(18),
+  billing_contract NUMBER(18)
+)
+tablespace DWH_RISK
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  )
+nologging;
+create index DWH_RISK.IX_W_4_BAL_1 on DWH_RISK.W_4_BAL (OWS_CLIENT_ID, BILLING_CONTRACT, TRANS_DATE)
+  tablespace DWH_RISK
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+create index DWH_RISK.IX_W_4_BAL_2 on DWH_RISK.W_4_BAL (BILLING_CONTRACT, TRANS_DATE)
+  tablespace DWH_RISK
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+create index DWH_RISK.IX_W_4_BAL_3 on DWH_RISK.W_4_BAL (BILLING_CONTRACT, TRANS_TYPE, TRANS_DATE)
+  tablespace DWH_RISK
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+create index DWH_RISK.IX_W_4_BAL_4 on DWH_RISK.W_4_BAL (OWS_CLIENT_ID, POSTING_DB_DATE)
+  tablespace DWH_RISK
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+grant select on DWH_RISK.W_4_BAL to AIBEK_BE;
+grant select, insert, update, delete on DWH_RISK.W_4_BAL to DWH_RISK_FULL_ROLE;
+grant select on DWH_RISK.W_4_BAL to DWH_RISK_READ_ROLE;
+grant select on DWH_RISK.W_4_BAL to HEAD_DENIS_PL;
+grant select on DWH_RISK.W_4_BAL to KRISTINA_KO;
+grant select on DWH_RISK.W_4_BAL to PROCESS_RISK;
+

@@ -1,0 +1,113 @@
+create table DWH_RISK.XLS_H_7130_HIST
+(
+  sdt       DATE default sysdate,
+  report_dt DATE,
+  f1        VARCHAR2(500),
+  f2        VARCHAR2(500),
+  f3        VARCHAR2(500),
+  f4        VARCHAR2(500),
+  f5        VARCHAR2(500),
+  f6        VARCHAR2(500),
+  f7        VARCHAR2(500),
+  f8        VARCHAR2(500),
+  f9        VARCHAR2(500),
+  f10       VARCHAR2(500),
+  f11       VARCHAR2(500),
+  f12       VARCHAR2(500),
+  f13       VARCHAR2(500),
+  f14       VARCHAR2(500),
+  f15       VARCHAR2(500),
+  f16       VARCHAR2(500),
+  f17       VARCHAR2(500),
+  f18       VARCHAR2(500)
+)
+tablespace DWH_RISK
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+comment on table DWH_RISK.XLS_H_7130_HIST
+  is '7130 Основной долг кредита, списанный за баланс';
+comment on column DWH_RISK.XLS_H_7130_HIST.sdt
+  is 'системная дата добавления записи';
+comment on column DWH_RISK.XLS_H_7130_HIST.report_dt
+  is 'дата отчета из имени файла';
+comment on column DWH_RISK.XLS_H_7130_HIST.f1
+  is 'МФО
+';
+comment on column DWH_RISK.XLS_H_7130_HIST.f2
+  is 'ссудный лицевой счёт
+';
+comment on column DWH_RISK.XLS_H_7130_HIST.f3
+  is 'Счёт ГК (grossbook_id)
+';
+comment on column DWH_RISK.XLS_H_7130_HIST.f4
+  is 'Дата открытия лицевого счета
+';
+comment on column DWH_RISK.XLS_H_7130_HIST.f5
+  is 'РНН клиента
+';
+comment on column DWH_RISK.XLS_H_7130_HIST.f6
+  is 'ИИН БИН клиента
+';
+comment on column DWH_RISK.XLS_H_7130_HIST.f7
+  is 'Код клиента
+';
+comment on column DWH_RISK.XLS_H_7130_HIST.f8
+  is 'Наименование клиента
+';
+comment on column DWH_RISK.XLS_H_7130_HIST.f9
+  is 'номер договора
+';
+comment on column DWH_RISK.XLS_H_7130_HIST.f10
+  is 'дата выдачи кредита
+';
+comment on column DWH_RISK.XLS_H_7130_HIST.f11
+  is 'Код валюты
+';
+comment on column DWH_RISK.XLS_H_7130_HIST.f12
+  is 'Тип продукта
+';
+comment on column DWH_RISK.XLS_H_7130_HIST.f13
+  is 'Остаток основного долга, эквивалент* 
+';
+comment on column DWH_RISK.XLS_H_7130_HIST.f14
+  is 'Остаток основного долга, номинал*
+';
+comment on column DWH_RISK.XLS_H_7130_HIST.f15
+  is 'Остаток вознаграждения, эквивалент** 
+';
+comment on column DWH_RISK.XLS_H_7130_HIST.f16
+  is 'Остаток вознаграждения, номинал**
+';
+comment on column DWH_RISK.XLS_H_7130_HIST.f17
+  is 'Остаток штрафов и пени, эквивалент** 
+';
+comment on column DWH_RISK.XLS_H_7130_HIST.f18
+  is 'Остаток штрафов и пени, номинал**
+';
+create index DWH_RISK.IDX_XLS_H_7130_HIST_1 on DWH_RISK.XLS_H_7130_HIST (F7, F9, REPORT_DT)
+  tablespace DWH_RISK
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+grant select on DWH_RISK.XLS_H_7130_HIST to AIBEK_BE;
+grant select, insert, update, delete on DWH_RISK.XLS_H_7130_HIST to DWH_RISK_FULL_ROLE;
+grant select on DWH_RISK.XLS_H_7130_HIST to DWH_RISK_READ_ROLE;
+grant select on DWH_RISK.XLS_H_7130_HIST to HEAD_DENIS_PL;
+grant select on DWH_RISK.XLS_H_7130_HIST to KRISTINA_KO;
+grant select on DWH_RISK.XLS_H_7130_HIST to PROCESS_RISK;
+

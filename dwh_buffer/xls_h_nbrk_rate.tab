@@ -1,0 +1,107 @@
+create table DWH_BUFFER.XLS_H_NBRK_RATE
+(
+  sdt       DATE default sysdate,
+  dt        VARCHAR2(500),
+  aud_quant VARCHAR2(500),
+  aud       VARCHAR2(500),
+  gbp_quant VARCHAR2(500),
+  gbp       VARCHAR2(500),
+  dkk_quant VARCHAR2(500),
+  dkk       VARCHAR2(500),
+  aed_quant VARCHAR2(500),
+  aed       VARCHAR2(500),
+  usd_quant VARCHAR2(500),
+  usd       VARCHAR2(500),
+  eur_quant VARCHAR2(500),
+  eur       VARCHAR2(500),
+  cad_quant VARCHAR2(500),
+  cad       VARCHAR2(500),
+  cny_quant VARCHAR2(500),
+  cny       VARCHAR2(500),
+  kwd_quant VARCHAR2(500),
+  kwd       VARCHAR2(500),
+  kgs_quant VARCHAR2(500),
+  kgs       VARCHAR2(500),
+  mdl_quant VARCHAR2(500),
+  mdl       VARCHAR2(500),
+  nok_quant VARCHAR2(500),
+  nok       VARCHAR2(500),
+  sar_quant VARCHAR2(500),
+  sar       VARCHAR2(500),
+  rub_quant VARCHAR2(500),
+  rub       VARCHAR2(500),
+  xdr_quant VARCHAR2(500),
+  xdr       VARCHAR2(500),
+  sgd_quant VARCHAR2(500),
+  sgd       VARCHAR2(500),
+  uzs_quant VARCHAR2(500),
+  uzs       VARCHAR2(500),
+  uah_quant VARCHAR2(500),
+  uah       VARCHAR2(500),
+  sek_quant VARCHAR2(500),
+  sek       VARCHAR2(500),
+  chf_quant VARCHAR2(500),
+  chf       VARCHAR2(500),
+  krw_quant VARCHAR2(500),
+  krw       VARCHAR2(500),
+  jpy_quant VARCHAR2(500),
+  jpy       VARCHAR2(500),
+  byr_quant VARCHAR2(500),
+  byr       VARCHAR2(500),
+  pln_quant VARCHAR2(500),
+  pln       VARCHAR2(500),
+  zar_quant VARCHAR2(500),
+  zar       VARCHAR2(500),
+  try_quant VARCHAR2(500),
+  try       VARCHAR2(500),
+  huf_quant VARCHAR2(500),
+  huf       VARCHAR2(500),
+  czk_quant VARCHAR2(500),
+  czk       VARCHAR2(500),
+  tjs_quant VARCHAR2(500),
+  tjs       VARCHAR2(500),
+  hkd_quant VARCHAR2(500),
+  hkd       VARCHAR2(500),
+  brl_quant VARCHAR2(500),
+  brl       VARCHAR2(500),
+  myr_quant VARCHAR2(500),
+  myr       VARCHAR2(500),
+  azn_quant VARCHAR2(500),
+  azn       VARCHAR2(500),
+  inr_quant VARCHAR2(500),
+  inr       VARCHAR2(500),
+  thb_quant VARCHAR2(500),
+  thb       VARCHAR2(500),
+  amd_quant VARCHAR2(500),
+  amd       VARCHAR2(500),
+  gel_quant VARCHAR2(500),
+  gel       VARCHAR2(500),
+  irr_quant VARCHAR2(500),
+  irr       VARCHAR2(500),
+  mxn_quant VARCHAR2(500),
+  mxn       VARCHAR2(500)
+)
+tablespace DWH_BUFFER
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  )
+nologging;
+grant select on DWH_BUFFER.XLS_H_NBRK_RATE to AIBEK_BE;
+grant select, insert, update, delete on DWH_BUFFER.XLS_H_NBRK_RATE to DWH_BUFFER_FULL_ROLE;
+grant select on DWH_BUFFER.XLS_H_NBRK_RATE to DWH_BUFFER_READ_ROLE;
+grant select on DWH_BUFFER.XLS_H_NBRK_RATE to DWH_PRIM;
+grant select on DWH_BUFFER.XLS_H_NBRK_RATE to DWH_RISK;
+grant select on DWH_BUFFER.XLS_H_NBRK_RATE to DWH_SALES;
+grant select on DWH_BUFFER.XLS_H_NBRK_RATE to HEAD_DENIS_PL;
+grant select on DWH_BUFFER.XLS_H_NBRK_RATE to HEAD_EVGENIY_PI;
+grant select on DWH_BUFFER.XLS_H_NBRK_RATE to KRISTINA_KO;
+grant select on DWH_BUFFER.XLS_H_NBRK_RATE to PROCESS_RISK;
+grant select on DWH_BUFFER.XLS_H_NBRK_RATE to PROCESS_SALES;
+

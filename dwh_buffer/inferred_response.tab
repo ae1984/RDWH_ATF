@@ -1,0 +1,54 @@
+create table DWH_BUFFER.INFERRED_RESPONSE
+(
+  response_id         NUMBER not null,
+  response__oid       NUMBER,
+  response_type       CHAR(1),
+  resp_type           VARCHAR2(20 CHAR),
+  resp_date           DATE,
+  offer_id            NUMBER,
+  agr_id              NUMBER,
+  process_guid        VARCHAR2(50 CHAR),
+  contract_id         NUMBER,
+  registration_number VARCHAR2(50),
+  branch_name         VARCHAR2(500),
+  dep_name            VARCHAR2(500)
+)
+tablespace DWH_BUFFER
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 128K
+    next 128K
+    minextents 1
+    maxextents unlimited
+  )
+nologging;
+alter table DWH_BUFFER.INFERRED_RESPONSE
+  add constraint PK_RESPONSE primary key (RESPONSE_ID)
+  using index 
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+alter index DWH_BUFFER.PK_RESPONSE nologging;
+grant select on DWH_BUFFER.INFERRED_RESPONSE to AIBEK_BE;
+grant select, insert, update, delete on DWH_BUFFER.INFERRED_RESPONSE to DWH_BUFFER_FULL_ROLE;
+grant select on DWH_BUFFER.INFERRED_RESPONSE to DWH_BUFFER_READ_ROLE;
+grant select on DWH_BUFFER.INFERRED_RESPONSE to DWH_PRIM;
+grant select on DWH_BUFFER.INFERRED_RESPONSE to DWH_RISK;
+grant select on DWH_BUFFER.INFERRED_RESPONSE to DWH_SALES;
+grant select on DWH_BUFFER.INFERRED_RESPONSE to HEAD_DENIS_PL;
+grant select on DWH_BUFFER.INFERRED_RESPONSE to HEAD_EVGENIY_PI;
+grant select on DWH_BUFFER.INFERRED_RESPONSE to KRISTINA_KO;
+grant select on DWH_BUFFER.INFERRED_RESPONSE to PROCESS_RISK;
+grant select on DWH_BUFFER.INFERRED_RESPONSE to PROCESS_SALES;
+

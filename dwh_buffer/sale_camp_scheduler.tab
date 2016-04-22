@@ -1,0 +1,89 @@
+create table DWH_BUFFER.SALE_CAMP_SCHEDULER
+(
+  id               NUMBER not null,
+  id_sale_campaign NUMBER not null,
+  id_camp_pool     NUMBER not null,
+  id_campaign      NUMBER not null,
+  campaign_name    VARCHAR2(4000) not null,
+  id_pool          NUMBER not null,
+  pool_name        VARCHAR2(4000) not null,
+  created          DATE not null,
+  created_by       VARCHAR2(100) not null,
+  start_date       DATE not null,
+  state            VARCHAR2(100) not null,
+  close_date       DATE,
+  buffer_size      INTEGER
+)
+tablespace DWH_BUFFER
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 128K
+    next 128K
+    minextents 1
+    maxextents unlimited
+  )
+nologging;
+create index DWH_BUFFER.IX_ID_CAMP_POOL on DWH_BUFFER.SALE_CAMP_SCHEDULER (ID_CAMP_POOL)
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  )
+  nologging;
+alter table DWH_BUFFER.SALE_CAMP_SCHEDULER
+  add primary key (ID)
+  using index 
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+alter index DWH_BUFFER.SYS_C0059683 nologging;
+alter table DWH_BUFFER.SALE_CAMP_SCHEDULER
+  add constraint U_CAMP_POOL unique (ID_CAMP_POOL, START_DATE)
+  using index 
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+alter index DWH_BUFFER.U_CAMP_POOL nologging;
+alter table DWH_BUFFER.SALE_CAMP_SCHEDULER
+  add constraint C_BUF_SIZQ
+  check (BUFFER_SIZE>0);
+alter table DWH_BUFFER.SALE_CAMP_SCHEDULER
+  add constraint C_ST_DATE
+  check (start_date=trunc(start_date));
+grant select on DWH_BUFFER.SALE_CAMP_SCHEDULER to AIBEK_BE;
+grant select, insert, update, delete on DWH_BUFFER.SALE_CAMP_SCHEDULER to DWH_BUFFER_FULL_ROLE;
+grant select on DWH_BUFFER.SALE_CAMP_SCHEDULER to DWH_BUFFER_READ_ROLE;
+grant select on DWH_BUFFER.SALE_CAMP_SCHEDULER to DWH_PRIM;
+grant select on DWH_BUFFER.SALE_CAMP_SCHEDULER to DWH_RISK;
+grant select, insert, update, delete, references on DWH_BUFFER.SALE_CAMP_SCHEDULER to DWH_SALES;
+grant select on DWH_BUFFER.SALE_CAMP_SCHEDULER to HEAD_DENIS_PL;
+grant select, insert, update, delete, references on DWH_BUFFER.SALE_CAMP_SCHEDULER to HEAD_EVGENIY_PI;
+grant select on DWH_BUFFER.SALE_CAMP_SCHEDULER to KRISTINA_KO;
+grant select on DWH_BUFFER.SALE_CAMP_SCHEDULER to PROCESS_RISK;
+grant select, insert, update, delete, references on DWH_BUFFER.SALE_CAMP_SCHEDULER to PROCESS_SALES;
+

@@ -1,0 +1,118 @@
+create table DWH_BUFFER.DM_DELAY_CURR
+(
+  q_id         NUMBER(10),
+  dea_refer    VARCHAR2(100),
+  id           NUMBER(10),
+  dep_id       NUMBER(10),
+  cli_id       NUMBER(10),
+  cli_dep_id   NUMBER(10),
+  bal_od_num   VARCHAR2(34),
+  bal_od_sum   NUMBER,
+  bal_od_code  VARCHAR2(30),
+  bal_prc_num  VARCHAR2(34),
+  bal_prc_sum  NUMBER,
+  bal_prc_code VARCHAR2(30),
+  off_od_num   VARCHAR2(34),
+  off_od_sum   NUMBER,
+  off_od_code  VARCHAR2(30),
+  off_prc_num  VARCHAR2(34),
+  off_prc_sum  NUMBER,
+  off_prc_code VARCHAR2(30),
+  dpr          DATE,
+  dod          DATE,
+  max_delay    NUMBER(5),
+  is_restr     NUMBER(1),
+  datefrom     DATE,
+  is_collector NUMBER(1)
+)
+tablespace DWH_BUFFER
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 128K
+    next 128K
+    minextents 1
+    maxextents unlimited
+  )
+nologging;
+comment on table DWH_BUFFER.DM_DELAY_CURR
+  is 'Текущий срез просроченных кредитов';
+comment on column DWH_BUFFER.DM_DELAY_CURR.q_id
+  is 'ID ХД Колвир';
+comment on column DWH_BUFFER.DM_DELAY_CURR.dea_refer
+  is 'Референс ХД Колвир';
+comment on column DWH_BUFFER.DM_DELAY_CURR.id
+  is 'ID кредита';
+comment on column DWH_BUFFER.DM_DELAY_CURR.dep_id
+  is 'DEP_ID кредита';
+comment on column DWH_BUFFER.DM_DELAY_CURR.cli_id
+  is 'ID клиента';
+comment on column DWH_BUFFER.DM_DELAY_CURR.cli_dep_id
+  is 'DEP_ID клиента';
+comment on column DWH_BUFFER.DM_DELAY_CURR.bal_od_num
+  is 'Номер счета просроченного ОД';
+comment on column DWH_BUFFER.DM_DELAY_CURR.bal_od_sum
+  is 'Сумма просроченного ОД';
+comment on column DWH_BUFFER.DM_DELAY_CURR.bal_od_code
+  is 'Балансовый просроченного ОД';
+comment on column DWH_BUFFER.DM_DELAY_CURR.bal_prc_num
+  is 'Номер счета просроченных процентов';
+comment on column DWH_BUFFER.DM_DELAY_CURR.bal_prc_sum
+  is 'Сумма просроченных процентов
+';
+comment on column DWH_BUFFER.DM_DELAY_CURR.bal_prc_code
+  is 'Балансовый просроченных процентов
+';
+comment on column DWH_BUFFER.DM_DELAY_CURR.off_od_num
+  is 'Номер счета списанного ОД';
+comment on column DWH_BUFFER.DM_DELAY_CURR.off_od_sum
+  is 'Сумма списанного ОД';
+comment on column DWH_BUFFER.DM_DELAY_CURR.off_od_code
+  is 'Балансовый списанного ОД';
+comment on column DWH_BUFFER.DM_DELAY_CURR.off_prc_num
+  is 'Номер счета списанных процентов';
+comment on column DWH_BUFFER.DM_DELAY_CURR.off_prc_sum
+  is 'Сумма списанных процентов
+';
+comment on column DWH_BUFFER.DM_DELAY_CURR.off_prc_code
+  is 'Балансовый списанных процентов
+';
+comment on column DWH_BUFFER.DM_DELAY_CURR.dpr
+  is 'Дата выхода на просрочку по процентам';
+comment on column DWH_BUFFER.DM_DELAY_CURR.dod
+  is 'Дата выхода на просрочку по ОД';
+comment on column DWH_BUFFER.DM_DELAY_CURR.max_delay
+  is 'Максимальный срок просрочки';
+comment on column DWH_BUFFER.DM_DELAY_CURR.is_restr
+  is 'Признак реструктуризации';
+comment on column DWH_BUFFER.DM_DELAY_CURR.datefrom
+  is 'Дата выдачи кредита';
+comment on column DWH_BUFFER.DM_DELAY_CURR.is_collector
+  is 'Признак передачи в коллекторскую компанию';
+create index DWH_BUFFER.I_CLIID_DEL_CUR on DWH_BUFFER.DM_DELAY_CURR (CLI_ID)
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  )
+  nologging;
+grant select on DWH_BUFFER.DM_DELAY_CURR to AIBEK_BE;
+grant select, insert, update, delete on DWH_BUFFER.DM_DELAY_CURR to DWH_BUFFER_FULL_ROLE;
+grant select on DWH_BUFFER.DM_DELAY_CURR to DWH_BUFFER_READ_ROLE;
+grant select on DWH_BUFFER.DM_DELAY_CURR to DWH_PRIM;
+grant select on DWH_BUFFER.DM_DELAY_CURR to DWH_RISK;
+grant select on DWH_BUFFER.DM_DELAY_CURR to DWH_SALES;
+grant select on DWH_BUFFER.DM_DELAY_CURR to HEAD_DENIS_PL;
+grant select on DWH_BUFFER.DM_DELAY_CURR to HEAD_EVGENIY_PI;
+grant select on DWH_BUFFER.DM_DELAY_CURR to KRISTINA_KO;
+grant select on DWH_BUFFER.DM_DELAY_CURR to PROCESS_RISK;
+grant select on DWH_BUFFER.DM_DELAY_CURR to PROCESS_SALES;
+

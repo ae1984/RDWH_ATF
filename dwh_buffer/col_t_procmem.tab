@@ -1,0 +1,94 @@
+create table DWH_BUFFER.COL_T_PROCMEM
+(
+  id     NUMBER(10) not null,
+  bop_id NUMBER(10) not null,
+  nmem   NUMBER(5) not null,
+  nord   NUMBER(3) not null,
+  dep_id NUMBER(10) not null,
+  ord_id NUMBER(10) not null,
+  mainfl CHAR(1) not null,
+  sended CHAR(1) not null
+)
+tablespace DWH_BUFFER
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  )
+nologging;
+comment on table DWH_BUFFER.COL_T_PROCMEM
+  is 'Участники процесса';
+comment on column DWH_BUFFER.COL_T_PROCMEM.id
+  is 'Идентификатор процесса';
+comment on column DWH_BUFFER.COL_T_PROCMEM.bop_id
+  is 'Идентификатор бизнес-процесса';
+comment on column DWH_BUFFER.COL_T_PROCMEM.nmem
+  is 'Номер участника бизнес-процесса';
+comment on column DWH_BUFFER.COL_T_PROCMEM.nord
+  is 'Порядковый номер участника (для множественных участников)';
+comment on column DWH_BUFFER.COL_T_PROCMEM.dep_id
+  is 'Идентификатор подразделения документа';
+comment on column DWH_BUFFER.COL_T_PROCMEM.ord_id
+  is 'Идентификатор документа';
+comment on column DWH_BUFFER.COL_T_PROCMEM.mainfl
+  is 'Признак главного участника';
+comment on column DWH_BUFFER.COL_T_PROCMEM.sended
+  is 'Признак выдачи изменений участника в центр (для филиалов)';
+create index DWH_BUFFER.FK_PROCMEM_ORDERS on DWH_BUFFER.COL_T_PROCMEM (DEP_ID, ORD_ID)
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 6M
+    next 4M
+    minextents 1
+    maxextents unlimited
+  )
+  nologging;
+create index DWH_BUFFER.FK_PROCMEM_POS on DWH_BUFFER.COL_T_PROCMEM (BOP_ID, NMEM)
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 4M
+    next 4M
+    minextents 1
+    maxextents unlimited
+  )
+  compress;
+alter table DWH_BUFFER.COL_T_PROCMEM
+  add constraint PK_COL_T_PROCMEM primary key (ID, BOP_ID, NMEM, NORD)
+  using index 
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 9M
+    next 4M
+    minextents 1
+    maxextents unlimited
+  );
+alter index DWH_BUFFER.PK_COL_T_PROCMEM nologging;
+grant select on DWH_BUFFER.COL_T_PROCMEM to AIBEK_BE;
+grant select, insert, update, delete on DWH_BUFFER.COL_T_PROCMEM to DWH_BUFFER_FULL_ROLE;
+grant select on DWH_BUFFER.COL_T_PROCMEM to DWH_BUFFER_READ_ROLE;
+grant select on DWH_BUFFER.COL_T_PROCMEM to DWH_PRIM;
+grant select on DWH_BUFFER.COL_T_PROCMEM to DWH_RISK;
+grant select on DWH_BUFFER.COL_T_PROCMEM to DWH_SALES;
+grant select on DWH_BUFFER.COL_T_PROCMEM to HEAD_DENIS_PL;
+grant select on DWH_BUFFER.COL_T_PROCMEM to HEAD_EVGENIY_PI;
+grant select on DWH_BUFFER.COL_T_PROCMEM to KRISTINA_KO;
+grant select on DWH_BUFFER.COL_T_PROCMEM to PROCESS_RISK;
+grant select on DWH_BUFFER.COL_T_PROCMEM to PROCESS_SALES;
+

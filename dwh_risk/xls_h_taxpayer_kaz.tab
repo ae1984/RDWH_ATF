@@ -1,0 +1,50 @@
+create table DWH_RISK.XLS_H_TAXPAYER_KAZ
+(
+  dt                DATE,
+  bin               VARCHAR2(500),
+  okpo              VARCHAR2(500),
+  company_name_kaz  VARCHAR2(500),
+  company_name      VARCHAR2(500),
+  oked              VARCHAR2(500),
+  activity_type_kaz VARCHAR2(500),
+  activity_type     VARCHAR2(500),
+  kato              VARCHAR2(500),
+  city_kaz          VARCHAR2(500),
+  city              VARCHAR2(500),
+  krp_code          VARCHAR2(500),
+  krp_name_kaz      VARCHAR2(500),
+  krp_name          VARCHAR2(500),
+  oked2             VARCHAR2(500)
+)
+tablespace DWH_RISK
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  )
+nologging;
+create index DWH_RISK.IX_XLS_H_TAXPAYER_KAZ_1 on DWH_RISK.XLS_H_TAXPAYER_KAZ (BIN, DT)
+  tablespace DWH_RISK
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  )
+  nologging;
+grant select on DWH_RISK.XLS_H_TAXPAYER_KAZ to AIBEK_BE;
+grant select, insert, update, delete on DWH_RISK.XLS_H_TAXPAYER_KAZ to DWH_RISK_FULL_ROLE;
+grant select on DWH_RISK.XLS_H_TAXPAYER_KAZ to DWH_RISK_READ_ROLE;
+grant select on DWH_RISK.XLS_H_TAXPAYER_KAZ to HEAD_DENIS_PL;
+grant select on DWH_RISK.XLS_H_TAXPAYER_KAZ to KRISTINA_KO;
+grant select on DWH_RISK.XLS_H_TAXPAYER_KAZ to PROCESS_RISK;
+

@@ -1,0 +1,51 @@
+create table DWH_RISK.H_201508_STEP5
+(
+  nn            NUMBER,
+  contract_id   NUMBER(10) not null,
+  dep_id        NUMBER(10) not null,
+  cli_id        NUMBER(10),
+  cli_dep_id    NUMBER(10),
+  contract_num  VARCHAR2(30),
+  val_id        NUMBER(10),
+  val_code      VARCHAR2(30),
+  prd_code      VARCHAR2(30),
+  prd_name      VARCHAR2(250 CHAR),
+  prd_term      VARCHAR2(250 CHAR),
+  term_type     CHAR(1),
+  term_cnt      NUMBER(5),
+  fromdate      DATE,
+  todate        DATE,
+  state         VARCHAR2(250 CHAR),
+  fil_code      VARCHAR2(30),
+  fil_name      VARCHAR2(250 CHAR),
+  sum_full      NUMBER(18,2),
+  refer_wh      VARCHAR2(30),
+  rate          FLOAT,
+  acc_id        NUMBER,
+  acc_dep_id    NUMBER,
+  acc_pr_id     NUMBER,
+  acc_pr_dep_id NUMBER,
+  sell_dep_id   NUMBER(10),
+  csln_fromdate DATE,
+  obj_id        NUMBER(10),
+  iin           VARCHAR2(30),
+  rnn           VARCHAR2(12 CHAR)
+)
+tablespace DWH_RISK
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+grant select on DWH_RISK.H_201508_STEP5 to AIBEK_BE;
+grant select, insert, update, delete on DWH_RISK.H_201508_STEP5 to DWH_RISK_FULL_ROLE;
+grant select on DWH_RISK.H_201508_STEP5 to DWH_RISK_READ_ROLE;
+grant select on DWH_RISK.H_201508_STEP5 to HEAD_DENIS_PL;
+grant select on DWH_RISK.H_201508_STEP5 to KRISTINA_KO;
+grant select on DWH_RISK.H_201508_STEP5 to PROCESS_RISK;
+

@@ -1,0 +1,78 @@
+create table DWH_BUFFER.COL_Q_ROW
+(
+  id        NUMBER(10) not null,
+  obj_id    NUMBER(10) not null,
+  row_id    NUMBER(10) not null,
+  sch_id    NUMBER(10),
+  fromdate  DATE not null,
+  rval      NUMBER,
+  rval_us   NUMBER,
+  val_id    NUMBER(10),
+  mark      CHAR(1),
+  text      VARCHAR2(30 CHAR),
+  correctdt DATE,
+  id_us     NUMBER(5)
+)
+tablespace DWH_BUFFER
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  )
+nologging;
+create index DWH_BUFFER.COL_Q_ROW_ID on DWH_BUFFER.COL_Q_ROW (ID)
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  )
+  nologging;
+create index DWH_BUFFER.COL_Q_ROW_OBJID on DWH_BUFFER.COL_Q_ROW (OBJ_ID, FROMDATE)
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  )
+  nologging;
+create index DWH_BUFFER.IX_COL_Q_ROW_3 on DWH_BUFFER.COL_Q_ROW (OBJ_ID, ROW_ID, FROMDATE)
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  )
+  nologging;
+grant select on DWH_BUFFER.COL_Q_ROW to AIBEK_BE;
+grant select, insert, update, delete on DWH_BUFFER.COL_Q_ROW to DWH_BUFFER_FULL_ROLE;
+grant select on DWH_BUFFER.COL_Q_ROW to DWH_BUFFER_READ_ROLE;
+grant select on DWH_BUFFER.COL_Q_ROW to DWH_PRIM;
+grant select on DWH_BUFFER.COL_Q_ROW to DWH_RISK;
+grant select on DWH_BUFFER.COL_Q_ROW to DWH_SALES;
+grant select on DWH_BUFFER.COL_Q_ROW to HEAD_DENIS_PL;
+grant select on DWH_BUFFER.COL_Q_ROW to HEAD_EVGENIY_PI;
+grant select on DWH_BUFFER.COL_Q_ROW to KRISTINA_KO;
+grant select on DWH_BUFFER.COL_Q_ROW to PROCESS_RISK;
+grant select on DWH_BUFFER.COL_Q_ROW to PROCESS_SALES;
+

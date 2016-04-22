@@ -1,0 +1,32 @@
+create table DWH_BUFFER.ETL_DM_LOAN_BASE_2
+(
+  id                NUMBER(10) not null,
+  dep_id            NUMBER(10) not null,
+  dcl_id            NUMBER(10),
+  product_code_atf  VARCHAR2(4000 CHAR),
+  product_name_atf  VARCHAR2(4000 CHAR),
+  target_code_atf   VARCHAR2(4000 CHAR),
+  target_name_atf   VARCHAR2(4000 CHAR),
+  pcn_com           NUMBER,
+  pcn_rate          NUMBER,
+  restruct_code_atf VARCHAR2(4000 CHAR),
+  restruct_name_atf VARCHAR2(4000 CHAR),
+  pcn_service       NUMBER,
+  effective_rate    VARCHAR2(4000)
+)
+tablespace DWH_BUFFER
+  pctfree 10
+  initrans 1
+  maxtrans 255;
+grant select on DWH_BUFFER.ETL_DM_LOAN_BASE_2 to AIBEK_BE;
+grant select, insert, update, delete on DWH_BUFFER.ETL_DM_LOAN_BASE_2 to DWH_BUFFER_FULL_ROLE;
+grant select on DWH_BUFFER.ETL_DM_LOAN_BASE_2 to DWH_BUFFER_READ_ROLE;
+grant select on DWH_BUFFER.ETL_DM_LOAN_BASE_2 to DWH_PRIM;
+grant select on DWH_BUFFER.ETL_DM_LOAN_BASE_2 to DWH_RISK;
+grant select on DWH_BUFFER.ETL_DM_LOAN_BASE_2 to DWH_SALES;
+grant select on DWH_BUFFER.ETL_DM_LOAN_BASE_2 to HEAD_DENIS_PL;
+grant select on DWH_BUFFER.ETL_DM_LOAN_BASE_2 to HEAD_EVGENIY_PI;
+grant select on DWH_BUFFER.ETL_DM_LOAN_BASE_2 to KRISTINA_KO;
+grant select on DWH_BUFFER.ETL_DM_LOAN_BASE_2 to PROCESS_RISK;
+grant select on DWH_BUFFER.ETL_DM_LOAN_BASE_2 to PROCESS_SALES;
+

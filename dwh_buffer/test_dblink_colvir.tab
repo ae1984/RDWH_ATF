@@ -1,0 +1,37 @@
+create table DWH_BUFFER.TEST_DBLINK_COLVIR
+(
+  val_id     NUMBER(10) not null,
+  dep_id     NUMBER(10) not null,
+  id         NUMBER(10) not null,
+  flzo       NUMBER(1) not null,
+  planfl     NUMBER(1) not null,
+  fromdate   DATE not null,
+  bal_in     NUMBER(18,2) not null,
+  bal_out    NUMBER(18,2) not null,
+  specfl     NUMBER(1) not null,
+  natval_in  NUMBER(18,2),
+  natval_out NUMBER(18,2)
+)
+tablespace DWH_BUFFER
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+grant select on DWH_BUFFER.TEST_DBLINK_COLVIR to AIBEK_BE;
+grant select, insert, update, delete on DWH_BUFFER.TEST_DBLINK_COLVIR to DWH_BUFFER_FULL_ROLE;
+grant select on DWH_BUFFER.TEST_DBLINK_COLVIR to DWH_BUFFER_READ_ROLE;
+grant select on DWH_BUFFER.TEST_DBLINK_COLVIR to DWH_PRIM;
+grant select on DWH_BUFFER.TEST_DBLINK_COLVIR to DWH_RISK;
+grant select on DWH_BUFFER.TEST_DBLINK_COLVIR to DWH_SALES;
+grant select on DWH_BUFFER.TEST_DBLINK_COLVIR to HEAD_DENIS_PL;
+grant select on DWH_BUFFER.TEST_DBLINK_COLVIR to HEAD_EVGENIY_PI;
+grant select on DWH_BUFFER.TEST_DBLINK_COLVIR to KRISTINA_KO;
+grant select on DWH_BUFFER.TEST_DBLINK_COLVIR to PROCESS_RISK;
+grant select on DWH_BUFFER.TEST_DBLINK_COLVIR to PROCESS_SALES;
+

@@ -1,0 +1,31 @@
+create table DWH_BUFFER.SAL_TR
+(
+  agr_id          NUMBER,
+  cli_id          NUMBER,
+  posting_date    DATE,
+  acc_scheme_type VARCHAR2(14)
+)
+tablespace DWH_BUFFER
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 128K
+    next 128K
+    minextents 1
+    maxextents unlimited
+  )
+nologging;
+grant select on DWH_BUFFER.SAL_TR to AIBEK_BE;
+grant select, insert, update, delete on DWH_BUFFER.SAL_TR to DWH_BUFFER_FULL_ROLE;
+grant select on DWH_BUFFER.SAL_TR to DWH_BUFFER_READ_ROLE;
+grant select on DWH_BUFFER.SAL_TR to DWH_PRIM;
+grant select on DWH_BUFFER.SAL_TR to DWH_RISK;
+grant select on DWH_BUFFER.SAL_TR to DWH_SALES;
+grant select on DWH_BUFFER.SAL_TR to HEAD_DENIS_PL;
+grant select on DWH_BUFFER.SAL_TR to HEAD_EVGENIY_PI;
+grant select on DWH_BUFFER.SAL_TR to KRISTINA_KO;
+grant select on DWH_BUFFER.SAL_TR to PROCESS_RISK;
+grant select on DWH_BUFFER.SAL_TR to PROCESS_SALES;
+

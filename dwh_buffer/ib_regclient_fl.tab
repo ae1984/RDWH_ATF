@@ -1,0 +1,62 @@
+create table DWH_BUFFER.IB_REGCLIENT_FL
+(
+  id              NUMBER(20) not null,
+  firstname       NVARCHAR2(100) not null,
+  lastname        NVARCHAR2(100) not null,
+  middlename      NVARCHAR2(100),
+  idn             NVARCHAR2(12) not null,
+  login           NVARCHAR2(50) not null,
+  userstatus      NUMBER(10) not null,
+  regdate         DATE not null,
+  lastsessiondate DATE,
+  sdt             DATE
+)
+tablespace DWH_BUFFER
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 128K
+    next 128K
+    minextents 1
+    maxextents unlimited
+  )
+nologging;
+comment on column DWH_BUFFER.IB_REGCLIENT_FL.id
+  is 'ID';
+comment on column DWH_BUFFER.IB_REGCLIENT_FL.firstname
+  is 'Фамилия';
+comment on column DWH_BUFFER.IB_REGCLIENT_FL.lastname
+  is 'Имя';
+comment on column DWH_BUFFER.IB_REGCLIENT_FL.middlename
+  is 'Отчество';
+comment on column DWH_BUFFER.IB_REGCLIENT_FL.idn
+  is 'ИИН';
+comment on column DWH_BUFFER.IB_REGCLIENT_FL.login
+  is 'Логин (номер телефона)';
+comment on column DWH_BUFFER.IB_REGCLIENT_FL.userstatus
+  is 'Код статуса клиента.
+0 - UserStatus.Initial - "Предварительная регистрация";
+2 - UserStatus.Active - "Активен";
+3 - UserStatus.Blocked - "Заблокирован";
+6 - UserStatus.Disabled - "Отключен";
+';
+comment on column DWH_BUFFER.IB_REGCLIENT_FL.regdate
+  is 'Дата регистрации';
+comment on column DWH_BUFFER.IB_REGCLIENT_FL.lastsessiondate
+  is 'Дата последнего входа';
+comment on column DWH_BUFFER.IB_REGCLIENT_FL.sdt
+  is 'ETL. Дата импорта в таблицу';
+grant select on DWH_BUFFER.IB_REGCLIENT_FL to AIBEK_BE;
+grant select, insert, update, delete on DWH_BUFFER.IB_REGCLIENT_FL to DWH_BUFFER_FULL_ROLE;
+grant select on DWH_BUFFER.IB_REGCLIENT_FL to DWH_BUFFER_READ_ROLE;
+grant select on DWH_BUFFER.IB_REGCLIENT_FL to DWH_PRIM;
+grant select on DWH_BUFFER.IB_REGCLIENT_FL to DWH_RISK;
+grant select on DWH_BUFFER.IB_REGCLIENT_FL to DWH_SALES;
+grant select on DWH_BUFFER.IB_REGCLIENT_FL to HEAD_DENIS_PL;
+grant select on DWH_BUFFER.IB_REGCLIENT_FL to HEAD_EVGENIY_PI;
+grant select on DWH_BUFFER.IB_REGCLIENT_FL to KRISTINA_KO;
+grant select on DWH_BUFFER.IB_REGCLIENT_FL to PROCESS_RISK;
+grant select on DWH_BUFFER.IB_REGCLIENT_FL to PROCESS_SALES;
+

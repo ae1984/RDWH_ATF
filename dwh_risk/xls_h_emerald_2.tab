@@ -1,0 +1,37 @@
+create table DWH_RISK.XLS_H_EMERALD_2
+(
+  company_name              VARCHAR2(500),
+  bin                       VARCHAR2(500),
+  bin_tax                   VARCHAR2(500),
+  sector                    VARCHAR2(500),
+  activity_type             VARCHAR2(500),
+  fil                       VARCHAR2(500),
+  emp_cnt                   VARCHAR2(500),
+  fot                       VARCHAR2(500),
+  iin                       VARCHAR2(30),
+  pd                        NUMBER,
+  is_active_taxpayer        NUMBER,
+  is_calc_avg_pd            NUMBER,
+  avg_pd_by_sector          NUMBER,
+  avg_pd_by_fot             NUMBER,
+  avg_pd_by_activity_type   NUMBER,
+  avg_pd_by_activity_type_2 NUMBER
+)
+tablespace DWH_RISK
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+grant select on DWH_RISK.XLS_H_EMERALD_2 to AIBEK_BE;
+grant select, insert, update, delete on DWH_RISK.XLS_H_EMERALD_2 to DWH_RISK_FULL_ROLE;
+grant select on DWH_RISK.XLS_H_EMERALD_2 to DWH_RISK_READ_ROLE;
+grant select on DWH_RISK.XLS_H_EMERALD_2 to HEAD_DENIS_PL;
+grant select on DWH_RISK.XLS_H_EMERALD_2 to KRISTINA_KO;
+grant select on DWH_RISK.XLS_H_EMERALD_2 to PROCESS_RISK;
+

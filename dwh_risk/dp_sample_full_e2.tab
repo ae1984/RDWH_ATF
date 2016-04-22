@@ -1,0 +1,84 @@
+create table DWH_RISK.DP_SAMPLE_FULL_E2
+(
+  is_zp_proj          NUMBER,
+  is_zp_proj_3m       NUMBER,
+  is_zp_card          NUMBER,
+  is_staff            NUMBER,
+  is_deposit          NUMBER,
+  contract_id         NUMBER(10),
+  obj_id              NUMBER(10),
+  cli_id              NUMBER(10),
+  contract_num        VARCHAR2(30),
+  title               VARCHAR2(500),
+  csln_fromdate       DATE,
+  month_              DATE,
+  year_               DATE,
+  def_1               NUMBER,
+  ever_90_6           NUMBER,
+  ever_60_6           NUMBER,
+  ever_90_9           NUMBER,
+  ever_60_9           NUMBER,
+  ever_90_12          NUMBER,
+  ever_60_12          NUMBER,
+  ever_90_15          NUMBER,
+  ever_60_15          NUMBER,
+  ever_90_18          NUMBER,
+  ever_60_18          NUMBER,
+  part                CHAR(5),
+  same_contract_cnter NUMBER
+)
+tablespace DWH_RISK
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+create index DWH_RISK.DP_SAMPLE_FULL_E2_CI_IDX on DWH_RISK.DP_SAMPLE_FULL_E2 (CONTRACT_ID)
+  tablespace DWH_RISK
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+create index DWH_RISK.DP_SAMPLE_FULL_E2_CLID_IDX on DWH_RISK.DP_SAMPLE_FULL_E2 (CLI_ID)
+  tablespace DWH_RISK
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+create index DWH_RISK.DP_SAMPLE_FULL_E2_CN_IDX on DWH_RISK.DP_SAMPLE_FULL_E2 (CONTRACT_NUM)
+  tablespace DWH_RISK
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+grant select on DWH_RISK.DP_SAMPLE_FULL_E2 to AIBEK_BE;
+grant select, insert, update, delete on DWH_RISK.DP_SAMPLE_FULL_E2 to DWH_RISK_FULL_ROLE;
+grant select on DWH_RISK.DP_SAMPLE_FULL_E2 to DWH_RISK_READ_ROLE;
+grant select on DWH_RISK.DP_SAMPLE_FULL_E2 to HEAD_DENIS_PL;
+grant select on DWH_RISK.DP_SAMPLE_FULL_E2 to KRISTINA_KO;
+grant select on DWH_RISK.DP_SAMPLE_FULL_E2 to PROCESS_RISK;
+grant select on DWH_RISK.DP_SAMPLE_FULL_E2 to PUBLIC;
+

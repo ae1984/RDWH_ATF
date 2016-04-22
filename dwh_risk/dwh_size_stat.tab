@@ -1,0 +1,26 @@
+create table DWH_RISK.DWH_SIZE_STAT
+(
+  mb           NUMBER,
+  segment_name VARCHAR2(100),
+  segment_type VARCHAR2(20),
+  sdt          DATE
+)
+tablespace DWH_RISK
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+grant select on DWH_RISK.DWH_SIZE_STAT to AIBEK_BE;
+grant select on DWH_RISK.DWH_SIZE_STAT to DWH_BUFFER;
+grant select, insert, update, delete on DWH_RISK.DWH_SIZE_STAT to DWH_RISK_FULL_ROLE;
+grant select on DWH_RISK.DWH_SIZE_STAT to DWH_RISK_READ_ROLE;
+grant select on DWH_RISK.DWH_SIZE_STAT to HEAD_DENIS_PL;
+grant select on DWH_RISK.DWH_SIZE_STAT to KRISTINA_KO;
+grant select on DWH_RISK.DWH_SIZE_STAT to PROCESS_RISK;
+

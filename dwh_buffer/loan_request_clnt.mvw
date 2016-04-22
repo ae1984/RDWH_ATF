@@ -1,0 +1,36 @@
+create materialized view DWH_BUFFER.LOAN_REQUEST_CLNT
+refresh complete on demand
+as
+select process_guid,min(agr_id) agr_id
+from (
+select process_guid,
+       cl.agr_id
+from loan_request lr
+inner join client cl
+on decode(lr.client_id,'0','-1',lr.client_id)=cl.cli_code
+union
+select process_guid,
+       cl.agr_id
+from loan_request lr
+inner join client cl
+on lr.rnn=cl.rnn
+union
+select process_guid,
+       cl.agr_id
+from loan_request lr
+inner join client cl
+on lr.iin=cl.iin)
+group by process_guid;
+grant select on DWH_BUFFER.LOAN_REQUEST_CLNT to AIBEK_BE;
+grant select, insert, update, delete on DWH_BUFFER.LOAN_REQUEST_CLNT to DWH_BUFFER_FULL_ROLE;
+grant select on DWH_BUFFER.LOAN_REQUEST_CLNT to DWH_BUFFER_READ_ROLE;
+grant select on DWH_BUFFER.LOAN_REQUEST_CLNT to DWH_PRIM;
+grant select on DWH_BUFFER.LOAN_REQUEST_CLNT to DWH_RISK;
+grant select on DWH_BUFFER.LOAN_REQUEST_CLNT to DWH_SALES;
+grant select on DWH_BUFFER.LOAN_REQUEST_CLNT to HEAD_DENIS_PL;
+grant select on DWH_BUFFER.LOAN_REQUEST_CLNT to HEAD_EVGENIY_PI;
+grant select on DWH_BUFFER.LOAN_REQUEST_CLNT to KRISTINA_KO;
+grant select on DWH_BUFFER.LOAN_REQUEST_CLNT to PROCESS_RISK;
+grant select on DWH_BUFFER.LOAN_REQUEST_CLNT to PROCESS_SALES;
+
+

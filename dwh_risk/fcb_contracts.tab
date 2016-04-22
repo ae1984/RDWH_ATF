@@ -1,0 +1,50 @@
+create table DWH_RISK.FCB_CONTRACTS
+(
+  id                             VARCHAR2(100),
+  loan_id                        VARCHAR2(100),
+  contracttype                   CHAR(19),
+  codeofcontract                 VARCHAR2(70),
+  agreementnumber                VARCHAR2(50),
+  typeoffounding_id              VARCHAR2(10),
+  typeoffounding                 VARCHAR2(50),
+  currency                       VARCHAR2(10),
+  contractstatus_id              VARCHAR2(10),
+  contractstatus                 VARCHAR2(50),
+  dateofcreditstart              VARCHAR2(50),
+  dateofcreditend                VARCHAR2(50),
+  totalamount                    VARCHAR2(50),
+  creditlimit                    VARCHAR2(50),
+  numberofoutstandinginstalments VARCHAR2(50),
+  numberofinstalments            VARCHAR2(50),
+  residualamount                 VARCHAR2(50),
+  periodicityofpayments_id       VARCHAR2(10),
+  periodicityofpayments          VARCHAR2(50),
+  numberofoverdueinstalments     VARCHAR2(50),
+  overdueamount                  VARCHAR2(50),
+  monthlyinstalmentamount        VARCHAR2(50),
+  nominalrate                    VARCHAR2(10),
+  interestrate                   VARCHAR2(10),
+  financialinstitution_id        VARCHAR2(10),
+  financialinstitution           VARCHAR2(50),
+  subjectrole_id                 VARCHAR2(10),
+  subjectrole                    VARCHAR2(50),
+  lastupdate                     VARCHAR2(50)
+)
+tablespace DWH_RISK
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+grant select on DWH_RISK.FCB_CONTRACTS to AIBEK_BE;
+grant select, insert, update, delete on DWH_RISK.FCB_CONTRACTS to DWH_RISK_FULL_ROLE;
+grant select on DWH_RISK.FCB_CONTRACTS to DWH_RISK_READ_ROLE;
+grant select on DWH_RISK.FCB_CONTRACTS to HEAD_DENIS_PL;
+grant select on DWH_RISK.FCB_CONTRACTS to KRISTINA_KO;
+grant select on DWH_RISK.FCB_CONTRACTS to PROCESS_RISK;
+

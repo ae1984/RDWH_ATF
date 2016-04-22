@@ -1,0 +1,45 @@
+create table DWH_RISK.EXE_PROCESS_RESULTS
+(
+  process_guid       VARCHAR2(200),
+  process_code       VARCHAR2(70),
+  process_version    NUMBER,
+  process_xml        CLOB,
+  start_date         DATE,
+  finish_date        DATE,
+  process_status     VARCHAR2(50),
+  subdivision        VARCHAR2(50),
+  step_counter       NUMBER,
+  initiator_code     VARCHAR2(100),
+  process_num        NUMBER,
+  process_status_ext VARCHAR2(450)
+)
+tablespace DWH_RISK
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+create index DWH_RISK.IX_EXE_PROCESS_RESULTS_1 on DWH_RISK.EXE_PROCESS_RESULTS (PROCESS_GUID)
+  tablespace DWH_RISK
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+grant select on DWH_RISK.EXE_PROCESS_RESULTS to AIBEK_BE;
+grant select, insert, update, delete on DWH_RISK.EXE_PROCESS_RESULTS to DWH_RISK_FULL_ROLE;
+grant select on DWH_RISK.EXE_PROCESS_RESULTS to DWH_RISK_READ_ROLE;
+grant select on DWH_RISK.EXE_PROCESS_RESULTS to HEAD_DENIS_PL;
+grant select on DWH_RISK.EXE_PROCESS_RESULTS to KRISTINA_KO;
+grant select on DWH_RISK.EXE_PROCESS_RESULTS to PROCESS_RISK;
+

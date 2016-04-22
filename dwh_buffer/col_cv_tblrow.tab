@@ -1,0 +1,51 @@
+create table DWH_BUFFER.COL_CV_TBLROW
+(
+  table_code VARCHAR2(30) not null,
+  table_name VARCHAR2(250 CHAR) not null,
+  id         NUMBER(10) not null,
+  nord       NUMBER(5) not null,
+  npp        NUMBER(5) not null,
+  longname   VARCHAR2(250 CHAR),
+  solution   VARCHAR2(250 CHAR),
+  autoname   CHAR(1)
+)
+tablespace DWH_BUFFER
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  )
+nologging;
+comment on column DWH_BUFFER.COL_CV_TBLROW.table_code
+  is 'Код таблицы';
+comment on column DWH_BUFFER.COL_CV_TBLROW.table_name
+  is 'Наименование таблицы';
+comment on column DWH_BUFFER.COL_CV_TBLROW.id
+  is 'Идентификатор таблицы';
+comment on column DWH_BUFFER.COL_CV_TBLROW.nord
+  is 'Идентификатор строки';
+comment on column DWH_BUFFER.COL_CV_TBLROW.npp
+  is 'Номер строки';
+comment on column DWH_BUFFER.COL_CV_TBLROW.longname
+  is 'Текстовое описание строки таблицы';
+comment on column DWH_BUFFER.COL_CV_TBLROW.solution
+  is 'Решение';
+comment on column DWH_BUFFER.COL_CV_TBLROW.autoname
+  is 'Признак автоматически сохраненного наименования';
+grant select on DWH_BUFFER.COL_CV_TBLROW to AIBEK_BE;
+grant select, insert, update, delete on DWH_BUFFER.COL_CV_TBLROW to DWH_BUFFER_FULL_ROLE;
+grant select on DWH_BUFFER.COL_CV_TBLROW to DWH_BUFFER_READ_ROLE;
+grant select on DWH_BUFFER.COL_CV_TBLROW to DWH_PRIM;
+grant select on DWH_BUFFER.COL_CV_TBLROW to DWH_RISK;
+grant select on DWH_BUFFER.COL_CV_TBLROW to DWH_SALES;
+grant select on DWH_BUFFER.COL_CV_TBLROW to HEAD_DENIS_PL;
+grant select on DWH_BUFFER.COL_CV_TBLROW to HEAD_EVGENIY_PI;
+grant select on DWH_BUFFER.COL_CV_TBLROW to KRISTINA_KO;
+grant select on DWH_BUFFER.COL_CV_TBLROW to PROCESS_RISK;
+grant select on DWH_BUFFER.COL_CV_TBLROW to PROCESS_SALES;
+

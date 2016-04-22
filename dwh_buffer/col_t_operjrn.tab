@@ -1,0 +1,200 @@
+create table DWH_BUFFER.COL_T_OPERJRN
+(
+  id         NUMBER(10) not null,
+  njrn       NUMBER(5) not null,
+  bop_id     NUMBER(10) not null,
+  noper      NUMBER(5) not null,
+  doper      DATE,
+  execdt     DATE,
+  tus_id     NUMBER(10) not null,
+  dep_id     NUMBER(10),
+  ord_id     NUMBER(10),
+  dscr       VARCHAR2(500 CHAR),
+  tra_id     NUMBER(10),
+  cha_id     NUMBER(10),
+  rat_id     NUMBER(10),
+  undofl     CHAR(1) not null,
+  cancelfl   CHAR(1),
+  glfl       CHAR(1),
+  endstat    NUMBER(5),
+  sopr       NUMBER(18,2),
+  val_id     NUMBER(10),
+  nolimitfl  CHAR(1),
+  refer      VARCHAR2(30),
+  sendfl     CHAR(1),
+  undo_njrn  NUMBER(5),
+  priority   NUMBER(5),
+  dep_tus_id NUMBER(10),
+  run_id     NUMBER(10)
+)
+tablespace DWH_BUFFER
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  )
+nologging;
+comment on table DWH_BUFFER.COL_T_OPERJRN
+  is 'Журнал операций';
+comment on column DWH_BUFFER.COL_T_OPERJRN.id
+  is 'Идентификатор процесса';
+comment on column DWH_BUFFER.COL_T_OPERJRN.njrn
+  is 'Номер записи в журнале';
+comment on column DWH_BUFFER.COL_T_OPERJRN.bop_id
+  is 'Идентификатор бизнес-процесса';
+comment on column DWH_BUFFER.COL_T_OPERJRN.noper
+  is 'Номер операции';
+comment on column DWH_BUFFER.COL_T_OPERJRN.doper
+  is 'Операционный день';
+comment on column DWH_BUFFER.COL_T_OPERJRN.execdt
+  is 'Время выполнения физическое';
+comment on column DWH_BUFFER.COL_T_OPERJRN.tus_id
+  is 'Идентификатор исполнителя';
+comment on column DWH_BUFFER.COL_T_OPERJRN.dep_id
+  is 'Идентификатор подразделения документа - главного участника';
+comment on column DWH_BUFFER.COL_T_OPERJRN.ord_id
+  is 'Идентификатор документа - главного участника';
+comment on column DWH_BUFFER.COL_T_OPERJRN.dscr
+  is 'Текстовое описание операции';
+comment on column DWH_BUFFER.COL_T_OPERJRN.tra_id
+  is 'Идентификатор транзакции';
+comment on column DWH_BUFFER.COL_T_OPERJRN.cha_id
+  is 'Идентификатор банковской операции';
+comment on column DWH_BUFFER.COL_T_OPERJRN.rat_id
+  is 'Идентификатор ожидаемой санкции';
+comment on column DWH_BUFFER.COL_T_OPERJRN.undofl
+  is 'Признак отмененной операции';
+comment on column DWH_BUFFER.COL_T_OPERJRN.cancelfl
+  is 'Признак отменяющей операции';
+comment on column DWH_BUFFER.COL_T_OPERJRN.glfl
+  is 'Признак разнесения в Главную Книгу';
+comment on column DWH_BUFFER.COL_T_OPERJRN.endstat
+  is 'Выходное состояние процесса после выполнения операции';
+comment on column DWH_BUFFER.COL_T_OPERJRN.sopr
+  is 'Сумма операции';
+comment on column DWH_BUFFER.COL_T_OPERJRN.val_id
+  is 'Валюта операции';
+comment on column DWH_BUFFER.COL_T_OPERJRN.nolimitfl
+  is 'Признак - не контролировать остаток при выполнении операции (для филиалов)';
+comment on column DWH_BUFFER.COL_T_OPERJRN.refer
+  is 'Референс операции (для филиалов)';
+comment on column DWH_BUFFER.COL_T_OPERJRN.sendfl
+  is 'Признак необходимости выдачи';
+comment on column DWH_BUFFER.COL_T_OPERJRN.undo_njrn
+  is 'Номер отмененившей операции по журналу (заполняется у отмененных операций)';
+comment on column DWH_BUFFER.COL_T_OPERJRN.priority
+  is 'Приоритет проводок (для контроля лимитов)';
+comment on column DWH_BUFFER.COL_T_OPERJRN.dep_tus_id
+  is 'Подразделение пользователя, выполнившего операцию';
+comment on column DWH_BUFFER.COL_T_OPERJRN.run_id
+  is 'Журнал отката';
+create index DWH_BUFFER.COL_T_OPERJRN_REFER on DWH_BUFFER.COL_T_OPERJRN (REFER)
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 50M
+    next 4M
+    minextents 1
+    maxextents unlimited
+  )
+  nologging;
+create index DWH_BUFFER.FK_OPERJRN_BASIS on DWH_BUFFER.COL_T_OPERJRN (DEP_ID, ORD_ID)
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 4M
+    next 4M
+    minextents 1
+    maxextents unlimited
+  )
+  compress 1  nologging;
+create index DWH_BUFFER.FK_OPERJRN_OPER on DWH_BUFFER.COL_T_OPERJRN (BOP_ID, NOPER)
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 8M
+    next 4M
+    minextents 1
+    maxextents unlimited
+  )
+  compress  nologging;
+create index DWH_BUFFER.FK_OPERJRNTRAN on DWH_BUFFER.COL_T_OPERJRN (TRA_ID)
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 4M
+    next 4M
+    minextents 1
+    maxextents unlimited
+  )
+  nologging;
+create index DWH_BUFFER.FK_T_OPERJRN_DOPER on DWH_BUFFER.COL_T_OPERJRN (DOPER, BOP_ID, NOPER)
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 8M
+    next 4M
+    minextents 1
+    maxextents unlimited
+  )
+  compress  nologging;
+create index DWH_BUFFER.FK_T_OPERJRN_OPRRUN on DWH_BUFFER.COL_T_OPERJRN (RUN_ID)
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 4M
+    next 4M
+    minextents 1
+    maxextents unlimited
+  )
+  nologging;
+alter table DWH_BUFFER.COL_T_OPERJRN
+  add constraint PK_T_OPERJRN primary key (ID, NJRN)
+  using index 
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 16M
+    next 4M
+    minextents 1
+    maxextents unlimited
+  );
+alter index DWH_BUFFER.PK_T_OPERJRN nologging;
+grant select on DWH_BUFFER.COL_T_OPERJRN to AIBEK_BE;
+grant select, insert, update, delete on DWH_BUFFER.COL_T_OPERJRN to DWH_BUFFER_FULL_ROLE;
+grant select on DWH_BUFFER.COL_T_OPERJRN to DWH_BUFFER_READ_ROLE;
+grant select on DWH_BUFFER.COL_T_OPERJRN to DWH_PRIM;
+grant select on DWH_BUFFER.COL_T_OPERJRN to DWH_RISK;
+grant select on DWH_BUFFER.COL_T_OPERJRN to DWH_SALES;
+grant select on DWH_BUFFER.COL_T_OPERJRN to HEAD_DENIS_PL;
+grant select on DWH_BUFFER.COL_T_OPERJRN to HEAD_EVGENIY_PI;
+grant select on DWH_BUFFER.COL_T_OPERJRN to KRISTINA_KO;
+grant select on DWH_BUFFER.COL_T_OPERJRN to PROCESS_RISK;
+grant select on DWH_BUFFER.COL_T_OPERJRN to PROCESS_SALES;
+

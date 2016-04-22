@@ -1,0 +1,39 @@
+create table DWH_RISK.OVRD_MM_IIN
+(
+  dt            DATE,
+  iin           VARCHAR2(30),
+  ovrd_main_max NUMBER,
+  ovrd_prc_max  NUMBER,
+  ovrd_max      NUMBER
+)
+tablespace DWH_RISK
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+create index DWH_RISK.IX_OVRD_MM_IIN_1 on DWH_RISK.OVRD_MM_IIN (IIN, DT)
+  tablespace DWH_RISK
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  )
+  nologging;
+grant select on DWH_RISK.OVRD_MM_IIN to AIBEK_BE;
+grant select, insert, update, delete on DWH_RISK.OVRD_MM_IIN to DWH_RISK_FULL_ROLE;
+grant select on DWH_RISK.OVRD_MM_IIN to DWH_RISK_READ_ROLE;
+grant select on DWH_RISK.OVRD_MM_IIN to HEAD_DENIS_PL;
+grant select on DWH_RISK.OVRD_MM_IIN to KRISTINA_KO;
+grant select on DWH_RISK.OVRD_MM_IIN to PROCESS_RISK;
+

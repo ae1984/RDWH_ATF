@@ -1,0 +1,30 @@
+create table DWH_RISK.XLS_PD_20160208
+(
+  nn               VARCHAR2(500),
+  fil_code         VARCHAR2(500),
+  code             VARCHAR2(500),
+  name             VARCHAR2(500),
+  pd               VARCHAR2(500),
+  client_class     VARCHAR2(500),
+  pd_clear         VARCHAR2(500),
+  pd_dca_corrected VARCHAR2(500),
+  check_           VARCHAR2(500)
+)
+tablespace DWH_RISK
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+grant select on DWH_RISK.XLS_PD_20160208 to AIBEK_BE;
+grant select, insert, update, delete on DWH_RISK.XLS_PD_20160208 to DWH_RISK_FULL_ROLE;
+grant select on DWH_RISK.XLS_PD_20160208 to DWH_RISK_READ_ROLE;
+grant select on DWH_RISK.XLS_PD_20160208 to HEAD_DENIS_PL;
+grant select on DWH_RISK.XLS_PD_20160208 to KRISTINA_KO;
+grant select on DWH_RISK.XLS_PD_20160208 to PROCESS_RISK;
+

@@ -1,0 +1,27 @@
+create table DWH_RISK.DP_PRODS
+(
+  prodname VARCHAR2(200) not null,
+  prodtype VARCHAR2(200) not null
+)
+tablespace DWH_RISK
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+comment on column DWH_RISK.DP_PRODS.prodname
+  is 'название продукту';
+comment on column DWH_RISK.DP_PRODS.prodtype
+  is 'тип продукта';
+grant select on DWH_RISK.DP_PRODS to AIBEK_BE;
+grant select, insert, update, delete on DWH_RISK.DP_PRODS to DWH_RISK_FULL_ROLE;
+grant select on DWH_RISK.DP_PRODS to DWH_RISK_READ_ROLE;
+grant select on DWH_RISK.DP_PRODS to HEAD_DENIS_PL;
+grant select on DWH_RISK.DP_PRODS to KRISTINA_KO;
+grant select on DWH_RISK.DP_PRODS to PROCESS_RISK;
+

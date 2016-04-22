@@ -1,0 +1,135 @@
+create table DWH_BUFFER.COL_G_ACCBLN
+(
+  dep_id    NUMBER(10) not null,
+  id        NUMBER(10) not null,
+  cha_id    NUMBER(10) not null,
+  code      VARCHAR2(34) not null,
+  altercode VARCHAR2(34),
+  dreg      DATE not null,
+  ord_id    NUMBER(10),
+  lsttrndt  DATE
+)
+tablespace DWH_BUFFER
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  )
+nologging;
+comment on table DWH_BUFFER.COL_G_ACCBLN
+  is 'Лицевой счёт';
+comment on column DWH_BUFFER.COL_G_ACCBLN.dep_id
+  is 'Идентификатор отдела';
+comment on column DWH_BUFFER.COL_G_ACCBLN.id
+  is 'Идентификатор счета';
+comment on column DWH_BUFFER.COL_G_ACCBLN.cha_id
+  is 'Идентификатор бал/счета';
+comment on column DWH_BUFFER.COL_G_ACCBLN.code
+  is 'Кодовое представление записи';
+comment on column DWH_BUFFER.COL_G_ACCBLN.altercode
+  is 'Альтернативный код';
+comment on column DWH_BUFFER.COL_G_ACCBLN.dreg
+  is 'Дата регистрации';
+comment on column DWH_BUFFER.COL_G_ACCBLN.ord_id
+  is 'Идентификатор вспомагательного документа-счета';
+comment on column DWH_BUFFER.COL_G_ACCBLN.lsttrndt
+  is 'Дата последнего движения по счету';
+create index DWH_BUFFER.AK_COL_G_ACCBLN_ALTERCODE on DWH_BUFFER.COL_G_ACCBLN (ALTERCODE)
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 4M
+    next 4M
+    minextents 1
+    maxextents unlimited
+  )
+  nologging;
+create index DWH_BUFFER.FK_COL_G_ACCBLN_ORD on DWH_BUFFER.COL_G_ACCBLN (DEP_ID, ORD_ID)
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 4M
+    next 4M
+    minextents 1
+    maxextents unlimited
+  )
+  compress  nologging;
+create index DWH_BUFFER.IE_COL_G_ACCBLN_FND on DWH_BUFFER.COL_G_ACCBLN (CHA_ID, DEP_ID, CODE)
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 4M
+    next 4M
+    minextents 1
+    maxextents unlimited
+  )
+  compress  nologging;
+create index DWH_BUFFER.IE_COL_G_ACCBLN_IBAN_SEGM on DWH_BUFFER.COL_G_ACCBLN (SUBSTR(CODE,5,10))
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 4M
+    next 4M
+    minextents 1
+    maxextents unlimited
+  )
+  nologging;
+alter table DWH_BUFFER.COL_G_ACCBLN
+  add constraint PK_COL_G_ACCBLN primary key (DEP_ID, ID)
+  using index 
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 4M
+    next 4M
+    minextents 1
+    maxextents unlimited
+  );
+alter index DWH_BUFFER.PK_COL_G_ACCBLN nologging;
+alter table DWH_BUFFER.COL_G_ACCBLN
+  add constraint AK_COL_G_ACCBLN_CODE unique (CODE)
+  using index 
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 4M
+    next 4M
+    minextents 1
+    maxextents unlimited
+  );
+alter index DWH_BUFFER.AK_COL_G_ACCBLN_CODE nologging;
+grant select on DWH_BUFFER.COL_G_ACCBLN to AIBEK_BE;
+grant select, insert, update, delete on DWH_BUFFER.COL_G_ACCBLN to DWH_BUFFER_FULL_ROLE;
+grant select on DWH_BUFFER.COL_G_ACCBLN to DWH_BUFFER_READ_ROLE;
+grant select on DWH_BUFFER.COL_G_ACCBLN to DWH_PRIM;
+grant select on DWH_BUFFER.COL_G_ACCBLN to DWH_RISK;
+grant select on DWH_BUFFER.COL_G_ACCBLN to DWH_SALES;
+grant select on DWH_BUFFER.COL_G_ACCBLN to HEAD_DENIS_PL;
+grant select on DWH_BUFFER.COL_G_ACCBLN to HEAD_EVGENIY_PI;
+grant select on DWH_BUFFER.COL_G_ACCBLN to KRISTINA_KO;
+grant select on DWH_BUFFER.COL_G_ACCBLN to PROCESS_RISK;
+grant select on DWH_BUFFER.COL_G_ACCBLN to PROCESS_SALES;
+

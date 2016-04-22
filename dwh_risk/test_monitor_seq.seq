@@ -1,0 +1,7 @@
+create sequence DWH_RISK.TEST_MONITOR_SEQ
+minvalue 1
+maxvalue 9999999999999999999999999999
+start with 1223
+increment by 1
+nocache;
+

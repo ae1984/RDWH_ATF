@@ -1,0 +1,32 @@
+create table DWH_BUFFER.OWS_CARD_ACTIVATION_2
+(
+  contract_number    VARCHAR2(64 CHAR),
+  acnt_contract__oid NUMBER(18),
+  amnd_date          DATE,
+  chng               VARCHAR2(4 CHAR),
+  amnd_officer       NUMBER
+)
+tablespace DWH_BUFFER
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 128K
+    next 128K
+    minextents 1
+    maxextents unlimited
+  )
+nologging;
+grant select on DWH_BUFFER.OWS_CARD_ACTIVATION_2 to AIBEK_BE;
+grant select, insert, update, delete on DWH_BUFFER.OWS_CARD_ACTIVATION_2 to DWH_BUFFER_FULL_ROLE;
+grant select on DWH_BUFFER.OWS_CARD_ACTIVATION_2 to DWH_BUFFER_READ_ROLE;
+grant select on DWH_BUFFER.OWS_CARD_ACTIVATION_2 to DWH_PRIM;
+grant select on DWH_BUFFER.OWS_CARD_ACTIVATION_2 to DWH_RISK;
+grant select on DWH_BUFFER.OWS_CARD_ACTIVATION_2 to DWH_SALES;
+grant select on DWH_BUFFER.OWS_CARD_ACTIVATION_2 to HEAD_DENIS_PL;
+grant select on DWH_BUFFER.OWS_CARD_ACTIVATION_2 to HEAD_EVGENIY_PI;
+grant select on DWH_BUFFER.OWS_CARD_ACTIVATION_2 to KRISTINA_KO;
+grant select on DWH_BUFFER.OWS_CARD_ACTIVATION_2 to PROCESS_RISK;
+grant select on DWH_BUFFER.OWS_CARD_ACTIVATION_2 to PROCESS_SALES;
+

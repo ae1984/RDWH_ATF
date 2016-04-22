@@ -1,0 +1,73 @@
+create table DWH_BUFFER.NBRK_CURRENCY_RATE
+(
+  dt        DATE not null,
+  rate      FLOAT not null,
+  alph_code VARCHAR2(30),
+  num_code  VARCHAR2(30),
+  val_id    NUMBER(10)
+)
+tablespace DWH_BUFFER
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  )
+nologging;
+comment on column DWH_BUFFER.NBRK_CURRENCY_RATE.val_id
+  is 'Идентификатор валюты';
+create index DWH_BUFFER.IDX_NBRK_CURRENCY_RATE_1 on DWH_BUFFER.NBRK_CURRENCY_RATE (DT, ALPH_CODE)
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  )
+  nologging;
+create index DWH_BUFFER.IDX_NBRK_CURRENCY_RATE_2 on DWH_BUFFER.NBRK_CURRENCY_RATE (DT, NUM_CODE)
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  )
+  nologging;
+create index DWH_BUFFER.IDX_NBRK_CURRENCY_RATE_3 on DWH_BUFFER.NBRK_CURRENCY_RATE (DT, VAL_ID)
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  )
+  nologging;
+grant select on DWH_BUFFER.NBRK_CURRENCY_RATE to AIBEK_BE;
+grant select, insert, update, delete on DWH_BUFFER.NBRK_CURRENCY_RATE to DWH_BUFFER_FULL_ROLE;
+grant select on DWH_BUFFER.NBRK_CURRENCY_RATE to DWH_BUFFER_READ_ROLE;
+grant select on DWH_BUFFER.NBRK_CURRENCY_RATE to DWH_PRIM;
+grant select on DWH_BUFFER.NBRK_CURRENCY_RATE to DWH_RISK;
+grant select on DWH_BUFFER.NBRK_CURRENCY_RATE to DWH_SALES;
+grant select on DWH_BUFFER.NBRK_CURRENCY_RATE to HEAD_DENIS_PL;
+grant select on DWH_BUFFER.NBRK_CURRENCY_RATE to HEAD_EVGENIY_PI;
+grant select on DWH_BUFFER.NBRK_CURRENCY_RATE to KRISTINA_KO;
+grant select on DWH_BUFFER.NBRK_CURRENCY_RATE to PROCESS_RISK;
+grant select on DWH_BUFFER.NBRK_CURRENCY_RATE to PROCESS_SALES;
+

@@ -1,0 +1,84 @@
+create table DWH_BUFFER.DM_LOAN_PAYM_3
+(
+  contract_id  NUMBER(10) not null,
+  id           NUMBER(10) not null,
+  longname     VARCHAR2(250 CHAR),
+  doper        DATE not null,
+  amount_val   NUMBER(18,2),
+  prc          NUMBER(5),
+  dclcfrom     DATE,
+  dclcto       DATE,
+  csr_code     VARCHAR2(30),
+  waitdate     DATE,
+  paysdok      NUMBER(18,2),
+  sdok         NUMBER(18,2),
+  dclose       DATE,
+  paysdokn     NUMBER(18,2),
+  sdokn        NUMBER(18,2),
+  fix_pay_nord NUMBER(10)
+)
+tablespace DWH_BUFFER
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 128K
+    next 128K
+    minextents 1
+    maxextents unlimited
+  )
+nologging;
+comment on column DWH_BUFFER.DM_LOAN_PAYM_3.id
+  is 'Идентификатор пункта графика договора';
+comment on column DWH_BUFFER.DM_LOAN_PAYM_3.doper
+  is 'Дата платежа';
+comment on column DWH_BUFFER.DM_LOAN_PAYM_3.amount_val
+  is 'Распределенная сумма';
+comment on column DWH_BUFFER.DM_LOAN_PAYM_3.prc
+  is 'Значение процента';
+comment on column DWH_BUFFER.DM_LOAN_PAYM_3.dclcfrom
+  is 'Дата начала периода начисления';
+comment on column DWH_BUFFER.DM_LOAN_PAYM_3.dclcto
+  is 'Дата окончания периода начисления';
+comment on column DWH_BUFFER.DM_LOAN_PAYM_3.csr_code
+  is 'Код символа кассового плана';
+comment on column DWH_BUFFER.DM_LOAN_PAYM_3.waitdate
+  is 'Дата окончания срока ожидания';
+comment on column DWH_BUFFER.DM_LOAN_PAYM_3.paysdok
+  is 'Неоплаченная сумма счета';
+comment on column DWH_BUFFER.DM_LOAN_PAYM_3.sdok
+  is 'Сумма счета';
+comment on column DWH_BUFFER.DM_LOAN_PAYM_3.dclose
+  is 'Дата полного погашения';
+comment on column DWH_BUFFER.DM_LOAN_PAYM_3.paysdokn
+  is 'Неоплаченная сумма номинал';
+comment on column DWH_BUFFER.DM_LOAN_PAYM_3.sdokn
+  is 'Сумма извещения номинал';
+comment on column DWH_BUFFER.DM_LOAN_PAYM_3.fix_pay_nord
+  is 'Фиксированный номер варианта расчетов';
+create index DWH_BUFFER.DM_LOAN_PAYM_3_ID on DWH_BUFFER.DM_LOAN_PAYM_3 (CONTRACT_ID, ID)
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  )
+  nologging;
+grant select on DWH_BUFFER.DM_LOAN_PAYM_3 to AIBEK_BE;
+grant select, insert, update, delete on DWH_BUFFER.DM_LOAN_PAYM_3 to DWH_BUFFER_FULL_ROLE;
+grant select on DWH_BUFFER.DM_LOAN_PAYM_3 to DWH_BUFFER_READ_ROLE;
+grant select on DWH_BUFFER.DM_LOAN_PAYM_3 to DWH_PRIM;
+grant select on DWH_BUFFER.DM_LOAN_PAYM_3 to DWH_RISK;
+grant select on DWH_BUFFER.DM_LOAN_PAYM_3 to DWH_SALES;
+grant select on DWH_BUFFER.DM_LOAN_PAYM_3 to HEAD_DENIS_PL;
+grant select on DWH_BUFFER.DM_LOAN_PAYM_3 to HEAD_EVGENIY_PI;
+grant select on DWH_BUFFER.DM_LOAN_PAYM_3 to KRISTINA_KO;
+grant select on DWH_BUFFER.DM_LOAN_PAYM_3 to PROCESS_RISK;
+grant select on DWH_BUFFER.DM_LOAN_PAYM_3 to PROCESS_SALES;
+

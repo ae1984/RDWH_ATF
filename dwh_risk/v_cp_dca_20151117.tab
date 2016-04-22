@@ -1,0 +1,70 @@
+create table DWH_RISK.V_CP_DCA_20151117
+(
+  report_dt           DATE,
+  refer               VARCHAR2(500),
+  cli_code            VARCHAR2(500),
+  dpd_max             NUMBER,
+  debt                NUMBER,
+  sum_proviz          NUMBER,
+  pd                  VARCHAR2(500),
+  lgd                 VARCHAR2(500),
+  llp                 NUMBER,
+  outstanding         NUMBER,
+  ifrs_interest_llp   NUMBER,
+  llp_total           NUMBER,
+  llp_prc             VARCHAR2(500),
+  current_coverage    NUMBER,
+  class_              VARCHAR2(500),
+  isl                 VARCHAR2(500),
+  llp_od              NUMBER,
+  llp_prcprc          NUMBER,
+  ldp                 VARCHAR2(500),
+  pd_dca              NUMBER,
+  report_dt_lead6     DATE,
+  dpd_lead6           NUMBER,
+  report_dt_lead12    DATE,
+  dpd_lead12          NUMBER,
+  pd_60_3             NUMBER,
+  pd_60_6             NUMBER,
+  pd_90_6             NUMBER,
+  pd_90_12            NUMBER,
+  refer_wh            VARCHAR2(30),
+  dt                  DATE,
+  sup_perc_cur        NUMBER,
+  sup_perc_equ        NUMBER,
+  debt_dea_cur        NUMBER,
+  debt_dea_equ        NUMBER,
+  ovrd_main_cur       NUMBER,
+  ovrd_main_equ       NUMBER,
+  interest_rate       NUMBER,
+  ovrd_prc_debt_b_cur NUMBER,
+  ovrd_prc_debt_b_equ NUMBER,
+  ovrd_main           NUMBER,
+  ovrd_prc            NUMBER,
+  wr_pd_cur           NUMBER,
+  wr_pd_equ           NUMBER,
+  type_of_business    VARCHAR2(500),
+  vcc                 VARCHAR2(500),
+  short_vcc           VARCHAR2(100),
+  is_restruct         NUMBER,
+  is_corp             NUMBER,
+  is_sme              NUMBER
+)
+tablespace DWH_RISK
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+grant select on DWH_RISK.V_CP_DCA_20151117 to AIBEK_BE;
+grant select, insert, update, delete on DWH_RISK.V_CP_DCA_20151117 to DWH_RISK_FULL_ROLE;
+grant select on DWH_RISK.V_CP_DCA_20151117 to DWH_RISK_READ_ROLE;
+grant select on DWH_RISK.V_CP_DCA_20151117 to HEAD_DENIS_PL;
+grant select on DWH_RISK.V_CP_DCA_20151117 to KRISTINA_KO;
+grant select on DWH_RISK.V_CP_DCA_20151117 to PROCESS_RISK;
+

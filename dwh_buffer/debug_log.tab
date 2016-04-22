@@ -1,0 +1,46 @@
+create table DWH_BUFFER.DEBUG_LOG
+(
+  id   NUMBER not null,
+  dt   TIMESTAMP(6) default sysdate,
+  proc VARCHAR2(1000),
+  val  VARCHAR2(4000)
+)
+tablespace DWH_BUFFER
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 128K
+    next 128K
+    minextents 1
+    maxextents unlimited
+  )
+nologging;
+create unique index DWH_BUFFER.DEBUG_LOG_IDX1 on DWH_BUFFER.DEBUG_LOG (ID)
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  )
+  nologging;
+alter table DWH_BUFFER.DEBUG_LOG
+  add constraint DL_ID primary key (ID);
+grant select on DWH_BUFFER.DEBUG_LOG to AIBEK_BE;
+grant select, insert, update, delete on DWH_BUFFER.DEBUG_LOG to DWH_BUFFER_FULL_ROLE;
+grant select on DWH_BUFFER.DEBUG_LOG to DWH_BUFFER_READ_ROLE;
+grant select on DWH_BUFFER.DEBUG_LOG to DWH_PRIM;
+grant select on DWH_BUFFER.DEBUG_LOG to DWH_RISK;
+grant select on DWH_BUFFER.DEBUG_LOG to DWH_SALES;
+grant select on DWH_BUFFER.DEBUG_LOG to HEAD_DENIS_PL;
+grant select on DWH_BUFFER.DEBUG_LOG to HEAD_EVGENIY_PI;
+grant select on DWH_BUFFER.DEBUG_LOG to KRISTINA_KO;
+grant select on DWH_BUFFER.DEBUG_LOG to PROCESS_RISK;
+grant select on DWH_BUFFER.DEBUG_LOG to PROCESS_SALES;
+

@@ -1,0 +1,34 @@
+create table DWH_BUFFER.EKZ_RET_GETSTEPSLAST7DAYS
+(
+  regnumber       NVARCHAR2(50),
+  process_guid    VARCHAR2(50) not null,
+  message_date    DATE not null,
+  message_comment NVARCHAR2(500),
+  pr_status       NVARCHAR2(200),
+  rejectreasons   VARCHAR2(500),
+  sdt             DATE
+)
+tablespace DWH_BUFFER
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 128K
+    next 128K
+    minextents 1
+    maxextents unlimited
+  )
+nologging;
+grant select on DWH_BUFFER.EKZ_RET_GETSTEPSLAST7DAYS to AIBEK_BE;
+grant select, insert, update, delete on DWH_BUFFER.EKZ_RET_GETSTEPSLAST7DAYS to DWH_BUFFER_FULL_ROLE;
+grant select on DWH_BUFFER.EKZ_RET_GETSTEPSLAST7DAYS to DWH_BUFFER_READ_ROLE;
+grant select on DWH_BUFFER.EKZ_RET_GETSTEPSLAST7DAYS to DWH_PRIM;
+grant select on DWH_BUFFER.EKZ_RET_GETSTEPSLAST7DAYS to DWH_RISK;
+grant select on DWH_BUFFER.EKZ_RET_GETSTEPSLAST7DAYS to DWH_SALES;
+grant select on DWH_BUFFER.EKZ_RET_GETSTEPSLAST7DAYS to HEAD_DENIS_PL;
+grant select on DWH_BUFFER.EKZ_RET_GETSTEPSLAST7DAYS to HEAD_EVGENIY_PI;
+grant select on DWH_BUFFER.EKZ_RET_GETSTEPSLAST7DAYS to KRISTINA_KO;
+grant select on DWH_BUFFER.EKZ_RET_GETSTEPSLAST7DAYS to PROCESS_RISK;
+grant select on DWH_BUFFER.EKZ_RET_GETSTEPSLAST7DAYS to PROCESS_SALES;
+

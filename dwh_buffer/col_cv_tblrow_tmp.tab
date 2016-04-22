@@ -1,0 +1,28 @@
+create table DWH_BUFFER.COL_CV_TBLROW_TMP
+(
+  table_code VARCHAR2(30) not null,
+  table_name VARCHAR2(250 CHAR) not null,
+  id         NUMBER(10) not null,
+  nord       NUMBER(5) not null,
+  npp        NUMBER(5) not null,
+  longname   VARCHAR2(250 CHAR),
+  solution   VARCHAR2(250 CHAR),
+  autoname   CHAR(1)
+)
+tablespace DWH_BUFFER
+  pctfree 10
+  initrans 1
+  maxtrans 255
+nologging;
+grant select on DWH_BUFFER.COL_CV_TBLROW_TMP to AIBEK_BE;
+grant select, insert, update, delete on DWH_BUFFER.COL_CV_TBLROW_TMP to DWH_BUFFER_FULL_ROLE;
+grant select on DWH_BUFFER.COL_CV_TBLROW_TMP to DWH_BUFFER_READ_ROLE;
+grant select on DWH_BUFFER.COL_CV_TBLROW_TMP to DWH_PRIM;
+grant select on DWH_BUFFER.COL_CV_TBLROW_TMP to DWH_RISK;
+grant select on DWH_BUFFER.COL_CV_TBLROW_TMP to DWH_SALES;
+grant select on DWH_BUFFER.COL_CV_TBLROW_TMP to HEAD_DENIS_PL;
+grant select on DWH_BUFFER.COL_CV_TBLROW_TMP to HEAD_EVGENIY_PI;
+grant select on DWH_BUFFER.COL_CV_TBLROW_TMP to KRISTINA_KO;
+grant select on DWH_BUFFER.COL_CV_TBLROW_TMP to PROCESS_RISK;
+grant select on DWH_BUFFER.COL_CV_TBLROW_TMP to PROCESS_SALES;
+

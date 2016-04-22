@@ -1,0 +1,31 @@
+create table DWH_RISK.LOANS_WITH_FRESH_OVERDUE
+(
+  business_segment_name VARCHAR2(50),
+  client_code           NUMBER,
+  client_name           VARCHAR2(100),
+  loan_code             VARCHAR2(50),
+  vcc                   NUMBER,
+  outstanding_total_kzt NUMBER(15,2),
+  principal_regular_kzt NUMBER(15,2),
+  principal_overdue_kzt NUMBER(15,2),
+  interest_overdue_kzt  NUMBER(15,2),
+  days_overdue_max      NUMBER
+)
+tablespace DWH_RISK
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+grant select on DWH_RISK.LOANS_WITH_FRESH_OVERDUE to AIBEK_BE;
+grant select, insert, update, delete on DWH_RISK.LOANS_WITH_FRESH_OVERDUE to DWH_RISK_FULL_ROLE;
+grant select on DWH_RISK.LOANS_WITH_FRESH_OVERDUE to DWH_RISK_READ_ROLE;
+grant select on DWH_RISK.LOANS_WITH_FRESH_OVERDUE to HEAD_DENIS_PL;
+grant select on DWH_RISK.LOANS_WITH_FRESH_OVERDUE to KRISTINA_KO;
+grant select on DWH_RISK.LOANS_WITH_FRESH_OVERDUE to PROCESS_RISK;
+

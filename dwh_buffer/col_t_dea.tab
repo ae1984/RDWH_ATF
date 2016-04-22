@@ -1,0 +1,263 @@
+create table DWH_BUFFER.COL_T_DEA
+(
+  dep_id         NUMBER(10) not null,
+  id             NUMBER(10) not null,
+  dcl_id         NUMBER(10) not null,
+  cli_dep_id     NUMBER(10),
+  cli_id         NUMBER(10),
+  dea_dep_id     NUMBER(10),
+  dea_id         NUMBER(10),
+  arestfl        NUMBER(1) not null,
+  sdok           NUMBER(18,2),
+  analiz_t       NUMBER(5),
+  analiz_d       NUMBER(5),
+  analiz_g       NUMBER(5),
+  fromdate       DATE,
+  todate         DATE,
+  longname       VARCHAR2(250 CHAR),
+  prim           VARCHAR2(250 CHAR),
+  buhfl          NUMBER(1) not null,
+  closefl        NUMBER(1) not null,
+  trf_idcat      NUMBER(10),
+  analiz_l       NUMBER(5),
+  analiz_b       NUMBER(5),
+  knp            VARCHAR2(30),
+  nhist          NUMBER(5),
+  period         NUMBER(5),
+  perunit        NUMBER(5),
+  eqval_id       NUMBER(10),
+  vrate_id       NUMBER(10),
+  refer          VARCHAR2(30),
+  vrate_date     DATE,
+  sell_dep_id    NUMBER(10),
+  bal_dep_id     NUMBER(10),
+  srv_dep_id     NUMBER(10),
+  cli_acc_dep_id NUMBER,
+  cli_acc_id     NUMBER
+)
+tablespace DWH_BUFFER
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 4M
+    minextents 1
+    maxextents unlimited
+  )
+nologging;
+comment on table DWH_BUFFER.COL_T_DEA
+  is 'Сделки и договора';
+comment on column DWH_BUFFER.COL_T_DEA.dep_id
+  is 'Идентификатор подразделения';
+comment on column DWH_BUFFER.COL_T_DEA.id
+  is 'Идентификатор';
+comment on column DWH_BUFFER.COL_T_DEA.dcl_id
+  is 'Идентификатор типа';
+comment on column DWH_BUFFER.COL_T_DEA.cli_dep_id
+  is 'Идентификатор отдела клиента';
+comment on column DWH_BUFFER.COL_T_DEA.cli_id
+  is 'Идентификатор клиента';
+comment on column DWH_BUFFER.COL_T_DEA.dea_dep_id
+  is 'Идентификатор старшего подразд';
+comment on column DWH_BUFFER.COL_T_DEA.dea_id
+  is 'Идентификатор старшей сделки';
+comment on column DWH_BUFFER.COL_T_DEA.arestfl
+  is 'Запрет';
+comment on column DWH_BUFFER.COL_T_DEA.sdok
+  is 'Сумма документа';
+comment on column DWH_BUFFER.COL_T_DEA.analiz_t
+  is 'Способ расчета графика погашения';
+comment on column DWH_BUFFER.COL_T_DEA.analiz_d
+  is 'Аналитический признак цели';
+comment on column DWH_BUFFER.COL_T_DEA.analiz_g
+  is 'Аналитический признак обеспече';
+comment on column DWH_BUFFER.COL_T_DEA.fromdate
+  is 'Дата начала интервала действия';
+comment on column DWH_BUFFER.COL_T_DEA.todate
+  is 'Конец интервала действия';
+comment on column DWH_BUFFER.COL_T_DEA.longname
+  is 'Длинное название';
+comment on column DWH_BUFFER.COL_T_DEA.prim
+  is 'Примечание';
+comment on column DWH_BUFFER.COL_T_DEA.buhfl
+  is 'Флаг бухгалтерской регистрации';
+comment on column DWH_BUFFER.COL_T_DEA.closefl
+  is 'Флаг завершения договора';
+comment on column DWH_BUFFER.COL_T_DEA.trf_idcat
+  is 'Идентификатор типа тарифа по у';
+comment on column DWH_BUFFER.COL_T_DEA.analiz_l
+  is 'Аналитический признак срочност';
+comment on column DWH_BUFFER.COL_T_DEA.analiz_b
+  is 'Аналитический признак срочност';
+comment on column DWH_BUFFER.COL_T_DEA.knp
+  is 'Код назначения платежа';
+comment on column DWH_BUFFER.COL_T_DEA.nhist
+  is 'Номер исторической записи';
+comment on column DWH_BUFFER.COL_T_DEA.period
+  is 'Период договора';
+comment on column DWH_BUFFER.COL_T_DEA.perunit
+  is 'Единица измерения периода';
+comment on column DWH_BUFFER.COL_T_DEA.eqval_id
+  is 'Валюта эквивалента';
+comment on column DWH_BUFFER.COL_T_DEA.vrate_id
+  is 'Тип валютного курса';
+comment on column DWH_BUFFER.COL_T_DEA.refer
+  is 'Референс';
+comment on column DWH_BUFFER.COL_T_DEA.vrate_date
+  is '???? ?????';
+comment on column DWH_BUFFER.COL_T_DEA.sell_dep_id
+  is 'Точка продажи';
+comment on column DWH_BUFFER.COL_T_DEA.bal_dep_id
+  is 'Балансовое подразделение договора для использования в бухмоделях';
+comment on column DWH_BUFFER.COL_T_DEA.srv_dep_id
+  is 'Текущее подразделение обслуживания договора';
+comment on column DWH_BUFFER.COL_T_DEA.cli_acc_dep_id
+  is 'Идентификатор подразделения текущего счета';
+comment on column DWH_BUFFER.COL_T_DEA.cli_acc_id
+  is 'Идентификатор текущего счета';
+create index DWH_BUFFER.FK_COL_T_DEA_C_DEP on DWH_BUFFER.COL_T_DEA (SELL_DEP_ID)
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 4M
+    next 4M
+    minextents 1
+    maxextents unlimited
+  )
+  nologging;
+create index DWH_BUFFER.FK_COL_T_DEA_C_DEP1 on DWH_BUFFER.COL_T_DEA (BAL_DEP_ID)
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 4M
+    next 4M
+    minextents 1
+    maxextents unlimited
+  )
+  nologging;
+create index DWH_BUFFER.FK_COL_T_DEA_C_DEP2 on DWH_BUFFER.COL_T_DEA (SRV_DEP_ID)
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 4M
+    next 4M
+    minextents 1
+    maxextents unlimited
+  )
+  nologging;
+create index DWH_BUFFER.FK_COL_T_DEA_COL_T_DEACLS on DWH_BUFFER.COL_T_DEA (DCL_ID)
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 4M
+    next 4M
+    minextents 1
+    maxextents unlimited
+  )
+  compress  nologging;
+create index DWH_BUFFER.FK_COL_T_DEA_G_ACCBLN on DWH_BUFFER.COL_T_DEA (CLI_ACC_DEP_ID, CLI_ACC_ID)
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 4M
+    next 4M
+    minextents 1
+    maxextents unlimited
+  )
+  nologging;
+create index DWH_BUFFER.FK_COL_T_DEA_G_CLI on DWH_BUFFER.COL_T_DEA (CLI_DEP_ID, CLI_ID)
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 4M
+    next 4M
+    minextents 1
+    maxextents unlimited
+  )
+  compress 1  nologging;
+create index DWH_BUFFER.FK_COL_T_DEA_HI on DWH_BUFFER.COL_T_DEA (DEA_DEP_ID, DEA_ID)
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 4M
+    next 4M
+    minextents 1
+    maxextents unlimited
+  )
+  nologging;
+create index DWH_BUFFER.IE_COL_T_DEA_FROMDATE on DWH_BUFFER.COL_T_DEA (FROMDATE, DEP_ID)
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 4M
+    next 4M
+    minextents 1
+    maxextents unlimited
+  )
+  compress  nologging;
+create index DWH_BUFFER.IE_COL_T_DEA_REFER on DWH_BUFFER.COL_T_DEA (REFER)
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 4M
+    next 4M
+    minextents 1
+    maxextents unlimited
+  )
+  nologging;
+alter table DWH_BUFFER.COL_T_DEA
+  add constraint PK_COL_T_DEA primary key (DEP_ID, ID)
+  using index 
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 4M
+    next 4M
+    minextents 1
+    maxextents unlimited
+  );
+alter index DWH_BUFFER.PK_COL_T_DEA nologging;
+grant select on DWH_BUFFER.COL_T_DEA to AIBEK_BE;
+grant select, insert, update, delete on DWH_BUFFER.COL_T_DEA to DWH_BUFFER_FULL_ROLE;
+grant select on DWH_BUFFER.COL_T_DEA to DWH_BUFFER_READ_ROLE;
+grant select on DWH_BUFFER.COL_T_DEA to DWH_PRIM;
+grant select on DWH_BUFFER.COL_T_DEA to DWH_RISK;
+grant select on DWH_BUFFER.COL_T_DEA to DWH_SALES;
+grant select on DWH_BUFFER.COL_T_DEA to HEAD_DENIS_PL;
+grant select on DWH_BUFFER.COL_T_DEA to HEAD_EVGENIY_PI;
+grant select on DWH_BUFFER.COL_T_DEA to KRISTINA_KO;
+grant select on DWH_BUFFER.COL_T_DEA to PROCESS_RISK;
+grant select on DWH_BUFFER.COL_T_DEA to PROCESS_SALES;
+

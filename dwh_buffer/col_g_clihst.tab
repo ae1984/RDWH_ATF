@@ -1,0 +1,475 @@
+create table DWH_BUFFER.COL_G_CLIHST
+(
+  dep_id            NUMBER(10) not null,
+  id                NUMBER(10) not null,
+  fromdate          DATE not null,
+  todate            DATE not null,
+  aut_id            NUMBER(10),
+  ban_id            NUMBER(10),
+  arcfl             NUMBER(1) not null,
+  arestfl           NUMBER(1) not null,
+  correctdt         DATE,
+  id_us             NUMBER(5),
+  name              VARCHAR2(30 CHAR) not null,
+  longname          VARCHAR2(250 CHAR) not null,
+  birdate           DATE,
+  prim              VARCHAR2(250 CHAR),
+  taxcode           VARCHAR2(30),
+  address           VARCHAR2(250 CHAR),
+  phone             VARCHAR2(30),
+  cli_id            NUMBER(10),
+  swift_name        VARCHAR2(140),
+  hdr_dep_id        NUMBER(10),
+  hdr_id            NUMBER(10),
+  shi_id            NUMBER(10),
+  privform          NUMBER(5),
+  corporfl          NUMBER(1) not null,
+  licnum            VARCHAR2(30),
+  regfin            DATE,
+  addrjur           VARCHAR2(250 CHAR),
+  email             VARCHAR2(30),
+  wwwadr            VARCHAR2(250),
+  fax               VARCHAR2(30),
+  sendfl            CHAR(1),
+  opform            VARCHAR2(30),
+  passdat           DATE,
+  passnum           VARCHAR2(30 CHAR),
+  passorg           VARCHAR2(250 CHAR),
+  passser           VARCHAR2(15 CHAR),
+  bankfl            NUMBER(1) not null,
+  foreignfl         NUMBER(1) not null,
+  jurfl             NUMBER(1) not null,
+  reg_id            NUMBER(10),
+  residfl           NUMBER(1) not null,
+  sect_id           VARCHAR2(5),
+  decease_date      DATE,
+  okpo              VARCHAR2(30),
+  codeword          VARCHAR2(30 CHAR),
+  codeword_date     DATE,
+  pboyulfl          NUMBER(1) not null,
+  affilfl           NUMBER(1) not null,
+  passfin           DATE,
+  pname1            VARCHAR2(30 CHAR),
+  pname2            VARCHAR2(30 CHAR),
+  pname3            VARCHAR2(30 CHAR),
+  pnamepast         VARCHAR2(30 CHAR),
+  psex              CHAR(1),
+  pstidx            VARCHAR2(10),
+  pstidxjur         VARCHAR2(10),
+  ptitle            NUMBER(5),
+  regdate           DATE,
+  regorg            VARCHAR2(250 CHAR),
+  sik               VARCHAR2(30),
+  tax_id            NUMBER(10),
+  tus_id            NUMBER(10),
+  birplace          VARCHAR2(250 CHAR),
+  sgm_id            NUMBER(10),
+  workorg           VARCHAR2(120 CHAR),
+  workaddr          VARCHAR2(250 CHAR),
+  dolgnost          VARCHAR2(250 CHAR),
+  trf_idcat         NUMBER(10),
+  upp_pname1        VARCHAR2(30 CHAR),
+  plname1           VARCHAR2(30),
+  plname2           VARCHAR2(30),
+  plname3           VARCHAR2(30),
+  llongname         VARCHAR2(250),
+  passtyp           VARCHAR2(5),
+  cons_id           NUMBER(10),
+  dcl_id            NUMBER(10),
+  visitdate         DATE,
+  fld50f_code       VARCHAR2(4),
+  fld50f_identifier VARCHAR2(30),
+  swift_name_ru     VARCHAR2(140),
+  bin_iin           VARCHAR2(12 CHAR),
+  reginitdate       DATE,
+  passtyp_id        NUMBER(10)
+)
+tablespace DWH_BUFFER
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  )
+nologging;
+comment on table DWH_BUFFER.COL_G_CLIHST
+  is 'История клиента';
+comment on column DWH_BUFFER.COL_G_CLIHST.dep_id
+  is 'Идентификатор отдела';
+comment on column DWH_BUFFER.COL_G_CLIHST.id
+  is 'Идентификатор';
+comment on column DWH_BUFFER.COL_G_CLIHST.fromdate
+  is 'Дата начала интервала действия';
+comment on column DWH_BUFFER.COL_G_CLIHST.todate
+  is 'Дата конца интервала действия';
+comment on column DWH_BUFFER.COL_G_CLIHST.aut_id
+  is 'Идентификатор доступа';
+comment on column DWH_BUFFER.COL_G_CLIHST.ban_id
+  is 'Идентификатор банка';
+comment on column DWH_BUFFER.COL_G_CLIHST.arcfl
+  is 'Архив';
+comment on column DWH_BUFFER.COL_G_CLIHST.arestfl
+  is 'Запрет';
+comment on column DWH_BUFFER.COL_G_CLIHST.correctdt
+  is 'Время записи физическое';
+comment on column DWH_BUFFER.COL_G_CLIHST.id_us
+  is 'Исполнитель, корректировавший данные';
+comment on column DWH_BUFFER.COL_G_CLIHST.name
+  is 'Наименование';
+comment on column DWH_BUFFER.COL_G_CLIHST.longname
+  is 'Длинное название';
+comment on column DWH_BUFFER.COL_G_CLIHST.birdate
+  is 'Дата рождения';
+comment on column DWH_BUFFER.COL_G_CLIHST.prim
+  is 'Примечание';
+comment on column DWH_BUFFER.COL_G_CLIHST.taxcode
+  is 'Рег.номер налогоплательщика';
+comment on column DWH_BUFFER.COL_G_CLIHST.address
+  is 'Адрес';
+comment on column DWH_BUFFER.COL_G_CLIHST.phone
+  is 'Телефон';
+comment on column DWH_BUFFER.COL_G_CLIHST.cli_id
+  is 'Идентификатор типа';
+comment on column DWH_BUFFER.COL_G_CLIHST.swift_name
+  is 'SWIFT_NAME';
+comment on column DWH_BUFFER.COL_G_CLIHST.hdr_dep_id
+  is 'Идентификатор отдела головной организации';
+comment on column DWH_BUFFER.COL_G_CLIHST.hdr_id
+  is 'Идентификатор головной организации';
+comment on column DWH_BUFFER.COL_G_CLIHST.shi_id
+  is 'Идентификатор отраслевой принадлежности';
+comment on column DWH_BUFFER.COL_G_CLIHST.privform
+  is 'Форма собственности';
+comment on column DWH_BUFFER.COL_G_CLIHST.corporfl
+  is 'Признак корпоративного клиента';
+comment on column DWH_BUFFER.COL_G_CLIHST.licnum
+  is 'Номер лицензии';
+comment on column DWH_BUFFER.COL_G_CLIHST.regfin
+  is 'Срок регистрации.лицензирования организации (до какого срока)';
+comment on column DWH_BUFFER.COL_G_CLIHST.addrjur
+  is 'Адрес юридический';
+comment on column DWH_BUFFER.COL_G_CLIHST.email
+  is 'Адрес электронной почты';
+comment on column DWH_BUFFER.COL_G_CLIHST.wwwadr
+  is 'Cтраница клиента в глобальной сети Internet или адрес в других сетях';
+comment on column DWH_BUFFER.COL_G_CLIHST.fax
+  is 'Fax клиента';
+comment on column DWH_BUFFER.COL_G_CLIHST.sendfl
+  is 'Признак рассылки';
+comment on column DWH_BUFFER.COL_G_CLIHST.opform
+  is 'Организационно-правовая форма';
+comment on column DWH_BUFFER.COL_G_CLIHST.passdat
+  is 'Дата выдачи документа';
+comment on column DWH_BUFFER.COL_G_CLIHST.passnum
+  is 'Номер документа';
+comment on column DWH_BUFFER.COL_G_CLIHST.passorg
+  is 'Орган, выдавший документ';
+comment on column DWH_BUFFER.COL_G_CLIHST.passser
+  is 'Серия документа';
+comment on column DWH_BUFFER.COL_G_CLIHST.bankfl
+  is 'Флаг финансового учреждения';
+comment on column DWH_BUFFER.COL_G_CLIHST.foreignfl
+  is 'Зарубежный';
+comment on column DWH_BUFFER.COL_G_CLIHST.jurfl
+  is 'Флаг юридического лица';
+comment on column DWH_BUFFER.COL_G_CLIHST.reg_id
+  is 'Страна регистрации';
+comment on column DWH_BUFFER.COL_G_CLIHST.residfl
+  is 'Флаг резидента';
+comment on column DWH_BUFFER.COL_G_CLIHST.sect_id
+  is 'Сектор экономики';
+comment on column DWH_BUFFER.COL_G_CLIHST.decease_date
+  is 'Дата смерти';
+comment on column DWH_BUFFER.COL_G_CLIHST.okpo
+  is 'Код ОКПО';
+comment on column DWH_BUFFER.COL_G_CLIHST.codeword
+  is 'Кодовое слово';
+comment on column DWH_BUFFER.COL_G_CLIHST.codeword_date
+  is 'Дата окончания действия кодового слова';
+comment on column DWH_BUFFER.COL_G_CLIHST.pboyulfl
+  is 'Флаг ПБОЮЛ';
+comment on column DWH_BUFFER.COL_G_CLIHST.affilfl
+  is 'Флаг аффилированности с банком';
+comment on column DWH_BUFFER.COL_G_CLIHST.passfin
+  is 'Срок действия удостоверяющего документа (до какого срока)';
+comment on column DWH_BUFFER.COL_G_CLIHST.pname1
+  is 'Фамилия физического лица';
+comment on column DWH_BUFFER.COL_G_CLIHST.pname2
+  is 'Имя физического лица';
+comment on column DWH_BUFFER.COL_G_CLIHST.pname3
+  is 'Отчество физического лица';
+comment on column DWH_BUFFER.COL_G_CLIHST.pnamepast
+  is 'Предыдущая фамилия (например, девичья) физического лица';
+comment on column DWH_BUFFER.COL_G_CLIHST.psex
+  is 'Пол физического лица';
+comment on column DWH_BUFFER.COL_G_CLIHST.pstidx
+  is 'Почтовый индекс';
+comment on column DWH_BUFFER.COL_G_CLIHST.pstidxjur
+  is 'Почтовый индекс юридический';
+comment on column DWH_BUFFER.COL_G_CLIHST.ptitle
+  is 'Обращение к физическому лицу';
+comment on column DWH_BUFFER.COL_G_CLIHST.regdate
+  is 'Дата регистрации/лицензирования организации';
+comment on column DWH_BUFFER.COL_G_CLIHST.regorg
+  is 'Регистрирующий орган (наименование)';
+comment on column DWH_BUFFER.COL_G_CLIHST.sik
+  is 'Социальный идентификационный код';
+comment on column DWH_BUFFER.COL_G_CLIHST.tax_id
+  is 'Идентификатор налогового комитета, в котором зарегистрирован субъект';
+comment on column DWH_BUFFER.COL_G_CLIHST.tus_id
+  is 'Идентификатор персонального менеджера';
+comment on column DWH_BUFFER.COL_G_CLIHST.birplace
+  is 'Место рождения';
+comment on column DWH_BUFFER.COL_G_CLIHST.sgm_id
+  is 'Идентификатор сегмента рынка';
+comment on column DWH_BUFFER.COL_G_CLIHST.workorg
+  is 'Место работы - наименование организации';
+comment on column DWH_BUFFER.COL_G_CLIHST.workaddr
+  is 'Место работы - адрес организации';
+comment on column DWH_BUFFER.COL_G_CLIHST.dolgnost
+  is 'Место работы - должность';
+comment on column DWH_BUFFER.COL_G_CLIHST.trf_idcat
+  is 'Идентификатор тарифной категории';
+comment on column DWH_BUFFER.COL_G_CLIHST.upp_pname1
+  is 'Фамилия физического лица UPPERCASE';
+comment on column DWH_BUFFER.COL_G_CLIHST.plname1
+  is 'Фамилия физического лица на латыни';
+comment on column DWH_BUFFER.COL_G_CLIHST.plname2
+  is 'Имя физического лица на латыни';
+comment on column DWH_BUFFER.COL_G_CLIHST.plname3
+  is 'Отчество физического лица на латыни';
+comment on column DWH_BUFFER.COL_G_CLIHST.llongname
+  is 'Длинное название на латыни';
+comment on column DWH_BUFFER.COL_G_CLIHST.passtyp
+  is 'PASSTYP';
+comment on column DWH_BUFFER.COL_G_CLIHST.cons_id
+  is 'Идентификатор консультанта';
+comment on column DWH_BUFFER.COL_G_CLIHST.dcl_id
+  is 'Идентификатор продукта';
+comment on column DWH_BUFFER.COL_G_CLIHST.visitdate
+  is 'Дата обращения';
+comment on column DWH_BUFFER.COL_G_CLIHST.fld50f_code
+  is '50F Party Identifier - Code';
+comment on column DWH_BUFFER.COL_G_CLIHST.fld50f_identifier
+  is '50F Party Identifier - Identifier';
+comment on column DWH_BUFFER.COL_G_CLIHST.swift_name_ru
+  is 'SWIFT_NAME_RU';
+comment on column DWH_BUFFER.COL_G_CLIHST.bin_iin
+  is 'БИН/ИИН';
+comment on column DWH_BUFFER.COL_G_CLIHST.reginitdate
+  is 'Дата первичной регистрации';
+comment on column DWH_BUFFER.COL_G_CLIHST.passtyp_id
+  is 'Идентификатор типа документа';
+create index DWH_BUFFER.FK_COL_G_CLIHST_C_USR on DWH_BUFFER.COL_G_CLIHST (TUS_ID)
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 4M
+    next 4M
+    minextents 1
+    maxextents unlimited
+  )
+  nologging;
+create index DWH_BUFFER.FK_COL_G_CLIHST_G_BNK on DWH_BUFFER.COL_G_CLIHST (BAN_ID)
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 4M
+    next 4M
+    minextents 1
+    maxextents unlimited
+  )
+  nologging;
+create index DWH_BUFFER.FK_COL_G_CLIHST_G_CLI2 on DWH_BUFFER.COL_G_CLIHST (HDR_DEP_ID, HDR_ID)
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 4M
+    next 4M
+    minextents 1
+    maxextents unlimited
+  )
+  nologging;
+create index DWH_BUFFER.FK_COL_G_CLIHST_G_ECNDSC on DWH_BUFFER.COL_G_CLIHST (SHI_ID)
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 4M
+    next 4M
+    minextents 1
+    maxextents unlimited
+  )
+  nologging;
+create index DWH_BUFFER.FK_COL_G_CLIHST_M_SGM on DWH_BUFFER.COL_G_CLIHST (SGM_ID)
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 4M
+    next 4M
+    minextents 1
+    maxextents unlimited
+  )
+  nologging;
+create index DWH_BUFFER.FK_COL_G_CLIHST_P_TAXDEP on DWH_BUFFER.COL_G_CLIHST (TAX_ID)
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 4M
+    next 4M
+    minextents 1
+    maxextents unlimited
+  )
+  nologging;
+create index DWH_BUFFER.FK_COL_G_CLIHST_S_TRFGRP on DWH_BUFFER.COL_G_CLIHST (TRF_IDCAT)
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 4M
+    next 4M
+    minextents 1
+    maxextents unlimited
+  )
+  nologging;
+create index DWH_BUFFER.FK_COL_G_CLIHST_T_ACCGRP on DWH_BUFFER.COL_G_CLIHST (DEP_ID, AUT_ID)
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 4M
+    next 4M
+    minextents 1
+    maxextents unlimited
+  )
+  compress  nologging;
+create index DWH_BUFFER.FK_COL_G_CLIHST_UPP_PNAME1 on DWH_BUFFER.COL_G_CLIHST (UPP_PNAME1)
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 4M
+    next 4M
+    minextents 1
+    maxextents unlimited
+  )
+  nologging;
+create index DWH_BUFFER.IE_COL_G_CLIHST_BIN_IIN on DWH_BUFFER.COL_G_CLIHST (BIN_IIN)
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 4M
+    next 4M
+    minextents 1
+    maxextents unlimited
+  )
+  nologging;
+create index DWH_BUFFER.IE_COL_G_CLIHST_BIRDATE on DWH_BUFFER.COL_G_CLIHST (BIRDATE)
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 4M
+    next 4M
+    minextents 1
+    maxextents unlimited
+  )
+  nologging;
+create index DWH_BUFFER.IE_COL_G_CLIHST_PASSNUM on DWH_BUFFER.COL_G_CLIHST (PASSNUM)
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 4M
+    next 4M
+    minextents 1
+    maxextents unlimited
+  )
+  nologging;
+create index DWH_BUFFER.IE_COL_G_CLIHST_SEND on DWH_BUFFER.COL_G_CLIHST (SENDFL, DEP_ID)
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 4M
+    next 4M
+    minextents 1
+    maxextents unlimited
+  )
+  compress  nologging;
+create index DWH_BUFFER.IE_COL_G_CLIHST_TAX on DWH_BUFFER.COL_G_CLIHST (TAXCODE)
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 4M
+    next 4M
+    minextents 1
+    maxextents unlimited
+  )
+  nologging;
+alter table DWH_BUFFER.COL_G_CLIHST
+  add constraint PK_COL_G_CLIHST primary key (DEP_ID, ID, FROMDATE)
+  using index 
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 4M
+    next 4M
+    minextents 1
+    maxextents unlimited
+  );
+alter index DWH_BUFFER.PK_COL_G_CLIHST nologging;
+grant select on DWH_BUFFER.COL_G_CLIHST to AIBEK_BE;
+grant select, insert, update, delete on DWH_BUFFER.COL_G_CLIHST to DWH_BUFFER_FULL_ROLE;
+grant select on DWH_BUFFER.COL_G_CLIHST to DWH_BUFFER_READ_ROLE;
+grant select on DWH_BUFFER.COL_G_CLIHST to DWH_PRIM;
+grant select on DWH_BUFFER.COL_G_CLIHST to DWH_RISK;
+grant select on DWH_BUFFER.COL_G_CLIHST to DWH_SALES;
+grant select on DWH_BUFFER.COL_G_CLIHST to HEAD_DENIS_PL;
+grant select on DWH_BUFFER.COL_G_CLIHST to HEAD_EVGENIY_PI;
+grant select on DWH_BUFFER.COL_G_CLIHST to KRISTINA_KO;
+grant select on DWH_BUFFER.COL_G_CLIHST to PROCESS_RISK;
+grant select on DWH_BUFFER.COL_G_CLIHST to PROCESS_SALES;
+

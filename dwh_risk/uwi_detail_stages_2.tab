@@ -1,0 +1,115 @@
+create table DWH_RISK.UWI_DETAIL_STAGES_2
+(
+  start_dt_tm            DATE,
+  start_dt               DATE,
+  start_hh               NUMBER,
+  start_mm               DATE,
+  start_week             DATE,
+  finish_dt_tm           DATE,
+  finish_dt              DATE,
+  time_to_decision       NUMBER,
+  process_status         VARCHAR2(250),
+  step_counter           NUMBER(10),
+  currency_code          VARCHAR2(50),
+  registration_number    VARCHAR2(50),
+  branch_name            VARCHAR2(250),
+  dep_name               VARCHAR2(250),
+  title                  VARCHAR2(250),
+  product_group          VARCHAR2(250),
+  requested_sum          NUMBER,
+  preaproved_sum         NUMBER,
+  approved_sum           NUMBER,
+  how_many_calls         NUMBER,
+  salaryflag             VARCHAR2(1 CHAR),
+  isloyal                NUMBER(5),
+  learnbank              VARCHAR2(200 CHAR),
+  cashmethodn            VARCHAR2(100 CHAR),
+  app_count              NUMBER,
+  loan_count             NUMBER,
+  loan_sum               NUMBER,
+  app_count_client       NUMBER,
+  first_time_request     NUMBER,
+  pr_status              VARCHAR2(200 CHAR),
+  f2_date                DATE,
+  f2_dt                  DATE,
+  find_client_colvir     NUMBER,
+  agreement_dt           DATE,
+  agreement_mm           DATE,
+  time_to_f2             NUMBER,
+  had_f2                 NUMBER,
+  time_to_cash           NUMBER,
+  finish_date            DATE,
+  finish_mm              DATE,
+  verifier_date          DATE,
+  verifier_dd            DATE,
+  verifier_mm            DATE,
+  dbtype                 NUMBER(1),
+  reject_reason          VARCHAR2(4000),
+  product_name           VARCHAR2(300 CHAR),
+  security_completed     VARCHAR2(10),
+  protocol_date          DATE,
+  request_state_code     VARCHAR2(50),
+  decision               VARCHAR2(250),
+  credadm_completed      VARCHAR2(10),
+  category               VARCHAR2(100 CHAR),
+  guarantee_completed    VARCHAR2(10),
+  iin                    VARCHAR2(24),
+  verifier_desc          VARCHAR2(2000 CHAR),
+  initiator_code         VARCHAR2(50 CHAR),
+  full_name              VARCHAR2(250),
+  process_code           VARCHAR2(250),
+  process_version        NUMBER,
+  process_guid           VARCHAR2(250),
+  client_name            VARCHAR2(300 CHAR),
+  status                 VARCHAR2(226),
+  stage                  VARCHAR2(16),
+  staff_process          NUMBER,
+  wrong_client_data      NUMBER,
+  stopped_before_scoring NUMBER,
+  stopped_after_scoring  NUMBER,
+  is_application         NUMBER,
+  approved_scoring       NUMBER,
+  approved_verification  NUMBER,
+  credit_admins_passed   NUMBER,
+  client_got_money       NUMBER,
+  ready_for_scoring      NUMBER,
+  ready_for_verif        NUMBER,
+  approved_first_time    NUMBER,
+  apporved_on_first_app  NUMBER,
+  no_apps_last_month     NUMBER,
+  pd                     NUMBER,
+  pd_cc                  NUMBER,
+  pd_round               NUMBER,
+  pd_cc_round            NUMBER,
+  income                 NUMBER,
+  first_time_request2    NUMBER,
+  is_income75plus        NUMBER,
+  is_income90plus        NUMBER,
+  is_income105plus       NUMBER,
+  is_4a                  NUMBER,
+  lr_approv_scor_1       VARCHAR2(250),
+  is_reject_cancel       NUMBER,
+  is_approv_scor         NUMBER,
+  lr_reject_cancel_1     VARCHAR2(250),
+  lr_reject_cancel_2     VARCHAR2(250),
+  lr_reject_cancel_3     VARCHAR2(250),
+  lr_n3                  VARCHAR2(250)
+)
+tablespace DWH_RISK
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+grant select on DWH_RISK.UWI_DETAIL_STAGES_2 to AIBEK_BE;
+grant select, insert, update, delete on DWH_RISK.UWI_DETAIL_STAGES_2 to DWH_RISK_FULL_ROLE;
+grant select on DWH_RISK.UWI_DETAIL_STAGES_2 to DWH_RISK_READ_ROLE;
+grant select on DWH_RISK.UWI_DETAIL_STAGES_2 to HEAD_DENIS_PL;
+grant select on DWH_RISK.UWI_DETAIL_STAGES_2 to KRISTINA_KO;
+grant select on DWH_RISK.UWI_DETAIL_STAGES_2 to PROCESS_RISK;
+

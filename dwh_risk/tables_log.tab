@@ -1,0 +1,25 @@
+create table DWH_RISK.TABLES_LOG
+(
+  id         NUMBER not null,
+  table_name VARCHAR2(200) not null,
+  sdt        DATE,
+  rec_count  NUMBER
+)
+tablespace DWH_RISK
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 128K
+    next 128K
+    minextents 1
+    maxextents unlimited
+  );
+grant select on DWH_RISK.TABLES_LOG to AIBEK_BE;
+grant select, insert, update, delete on DWH_RISK.TABLES_LOG to DWH_RISK_FULL_ROLE;
+grant select on DWH_RISK.TABLES_LOG to DWH_RISK_READ_ROLE;
+grant select on DWH_RISK.TABLES_LOG to HEAD_DENIS_PL;
+grant select on DWH_RISK.TABLES_LOG to KRISTINA_KO;
+grant select on DWH_RISK.TABLES_LOG to PROCESS_RISK;
+

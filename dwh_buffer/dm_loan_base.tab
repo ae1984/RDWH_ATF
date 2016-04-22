@@ -1,0 +1,151 @@
+create table DWH_BUFFER.DM_LOAN_BASE
+(
+  contract_id   NUMBER(10) not null,
+  dep_id        NUMBER(10) not null,
+  cli_id        NUMBER(10),
+  cli_dep_id    NUMBER(10),
+  contract_num  VARCHAR2(30),
+  val_id        NUMBER(10),
+  val_code      VARCHAR2(30),
+  prd_code      VARCHAR2(30),
+  prd_name      VARCHAR2(250 CHAR),
+  prd_term      VARCHAR2(250 CHAR),
+  term_type     CHAR(1),
+  term_cnt      NUMBER(5),
+  fromdate      DATE,
+  todate        DATE,
+  state         VARCHAR2(250 CHAR),
+  fil_code      VARCHAR2(30),
+  fil_name      VARCHAR2(250 CHAR),
+  sum_full      NUMBER(18,2),
+  refer_wh      VARCHAR2(30),
+  rate          FLOAT,
+  acc_id        NUMBER,
+  acc_dep_id    NUMBER,
+  acc_pr_id     NUMBER,
+  acc_pr_dep_id NUMBER,
+  sell_dep_id   NUMBER(10),
+  csln_fromdate DATE,
+  obj_id        NUMBER(10)
+)
+tablespace DWH_BUFFER
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 128K
+    next 128K
+    minextents 1
+    maxextents unlimited
+  )
+nologging;
+comment on table DWH_BUFFER.DM_LOAN_BASE
+  is 'Основная информация по кредитам';
+comment on column DWH_BUFFER.DM_LOAN_BASE.contract_id
+  is 'ID договора';
+comment on column DWH_BUFFER.DM_LOAN_BASE.dep_id
+  is 'DEP_ID договора';
+comment on column DWH_BUFFER.DM_LOAN_BASE.cli_id
+  is 'ID клиента';
+comment on column DWH_BUFFER.DM_LOAN_BASE.cli_dep_id
+  is 'DEP_ID клиента';
+comment on column DWH_BUFFER.DM_LOAN_BASE.contract_num
+  is 'Номер договора';
+comment on column DWH_BUFFER.DM_LOAN_BASE.val_id
+  is 'ID валюты';
+comment on column DWH_BUFFER.DM_LOAN_BASE.val_code
+  is 'Код валюты';
+comment on column DWH_BUFFER.DM_LOAN_BASE.prd_code
+  is 'Код продукта';
+comment on column DWH_BUFFER.DM_LOAN_BASE.prd_name
+  is 'Наименование продукта';
+comment on column DWH_BUFFER.DM_LOAN_BASE.prd_term
+  is 'Срок кредита (текст)';
+comment on column DWH_BUFFER.DM_LOAN_BASE.term_type
+  is 'Измерение срока (дни, месяцы, годы)';
+comment on column DWH_BUFFER.DM_LOAN_BASE.term_cnt
+  is 'Срок кредита в единицах';
+comment on column DWH_BUFFER.DM_LOAN_BASE.fromdate
+  is 'Дата выдачи';
+comment on column DWH_BUFFER.DM_LOAN_BASE.todate
+  is 'Дата окончания';
+comment on column DWH_BUFFER.DM_LOAN_BASE.state
+  is 'Состояние договора (активен, погашен)';
+comment on column DWH_BUFFER.DM_LOAN_BASE.fil_code
+  is 'Код филиала';
+comment on column DWH_BUFFER.DM_LOAN_BASE.fil_name
+  is 'Наименование филиала';
+comment on column DWH_BUFFER.DM_LOAN_BASE.sum_full
+  is 'Сумма выдачи';
+comment on column DWH_BUFFER.DM_LOAN_BASE.refer_wh
+  is 'Референс кредита в ХД Колвир';
+comment on column DWH_BUFFER.DM_LOAN_BASE.rate
+  is 'Процентная ставка';
+comment on column DWH_BUFFER.DM_LOAN_BASE.acc_id
+  is 'ID счета основного долга';
+comment on column DWH_BUFFER.DM_LOAN_BASE.acc_dep_id
+  is 'DEP_ID счета основного долга';
+comment on column DWH_BUFFER.DM_LOAN_BASE.acc_pr_id
+  is 'ID счета процентов';
+comment on column DWH_BUFFER.DM_LOAN_BASE.acc_pr_dep_id
+  is 'DEP_ID счета процентов';
+comment on column DWH_BUFFER.DM_LOAN_BASE.sell_dep_id
+  is 'Точка продажи';
+comment on column DWH_BUFFER.DM_LOAN_BASE.csln_fromdate
+  is 'CSLN_FROMDATE';
+comment on column DWH_BUFFER.DM_LOAN_BASE.obj_id
+  is 'OBJ_ID';
+create index DWH_BUFFER.I_LOAN_CLI_ID on DWH_BUFFER.DM_LOAN_BASE (CLI_ID)
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  )
+  nologging;
+create index DWH_BUFFER.IX_DM_LOAN_BASE_1 on DWH_BUFFER.DM_LOAN_BASE (REFER_WH)
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  )
+  nologging;
+alter table DWH_BUFFER.DM_LOAN_BASE
+  add constraint PK_LOAN primary key (CONTRACT_ID, DEP_ID)
+  using index 
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+alter index DWH_BUFFER.PK_LOAN nologging;
+grant select on DWH_BUFFER.DM_LOAN_BASE to AIBEK_BE;
+grant select, insert, update, delete on DWH_BUFFER.DM_LOAN_BASE to DWH_BUFFER_FULL_ROLE;
+grant select on DWH_BUFFER.DM_LOAN_BASE to DWH_BUFFER_READ_ROLE;
+grant select on DWH_BUFFER.DM_LOAN_BASE to DWH_PRIM;
+grant select on DWH_BUFFER.DM_LOAN_BASE to DWH_RISK;
+grant select on DWH_BUFFER.DM_LOAN_BASE to DWH_SALES;
+grant select on DWH_BUFFER.DM_LOAN_BASE to HEAD_DENIS_PL;
+grant select on DWH_BUFFER.DM_LOAN_BASE to HEAD_EVGENIY_PI;
+grant select on DWH_BUFFER.DM_LOAN_BASE to KRISTINA_KO;
+grant select on DWH_BUFFER.DM_LOAN_BASE to PROCESS_RISK;
+grant select on DWH_BUFFER.DM_LOAN_BASE to PROCESS_SALES;
+

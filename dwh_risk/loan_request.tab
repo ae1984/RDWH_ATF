@@ -1,0 +1,231 @@
+create table DWH_RISK.LOAN_REQUEST
+(
+  addmphone                  VARCHAR2(50 CHAR),
+  agreement_date             DATE,
+  app_date                   DATE,
+  app_filename               VARCHAR2(80 CHAR),
+  app_status                 VARCHAR2(50),
+  app_type                   VARCHAR2(3),
+  appl_date                  DATE,
+  appl_status                VARCHAR2(50 CHAR),
+  application_id             NUMBER,
+  approval_status            VARCHAR2(50 CHAR),
+  approved_amount            NUMBER(18,2),
+  begin_date                 DATE,
+  birthdate                  DATE,
+  branch_id                  VARCHAR2(3),
+  branch_name                VARCHAR2(250),
+  call_expert_code           VARCHAR2(250),
+  call_expert_name           VARCHAR2(250),
+  call_fl                    NUMBER(1),
+  call_target                VARCHAR2(2500),
+  call1dec                   VARCHAR2(100 CHAR),
+  call2dec                   VARCHAR2(100 CHAR),
+  call3dec                   VARCHAR2(100 CHAR),
+  call4dec                   VARCHAR2(100 CHAR),
+  call5dec                   VARCHAR2(100 CHAR),
+  call6dec                   VARCHAR2(100 CHAR),
+  cashmethodid               CHAR(10 CHAR),
+  cashmethodn                VARCHAR2(100 CHAR),
+  category                   VARCHAR2(100 CHAR),
+  cc_checkresult             VARCHAR2(50 CHAR),
+  chairman_code              VARCHAR2(50),
+  child_guid                 VARCHAR2(100 CHAR),
+  child_status               VARCHAR2(50 CHAR),
+  client_desc                VARCHAR2(2000 CHAR),
+  client_id                  VARCHAR2(10),
+  client_name                VARCHAR2(300 CHAR),
+  commison                   NUMBER,
+  commservice                NUMBER,
+  comworkexp                 NUMBER(10),
+  conf1_contphone            VARCHAR2(20 CHAR),
+  conf2_contphone            VARCHAR2(20 CHAR),
+  contract_type              VARCHAR2(250),
+  credadm_completed          VARCHAR2(10),
+  credcom_code               VARCHAR2(250),
+  credcom_name               VARCHAR2(250),
+  credit_expert_code         VARCHAR2(80),
+  credit_expert_full_name    VARCHAR2(250),
+  currency_code              VARCHAR2(50),
+  database_desc              VARCHAR2(2000 CHAR),
+  dbtype                     NUMBER(1),
+  decision                   VARCHAR2(250),
+  dep_id                     VARCHAR2(6),
+  dep_name                   VARCHAR2(250),
+  depname                    VARCHAR2(100 CHAR),
+  dsum                       NUMBER,
+  education                  VARCHAR2(100 CHAR),
+  email                      VARCHAR2(200 CHAR),
+  employee_id                NUMBER(10),
+  employer_desc              VARCHAR2(2000 CHAR),
+  end_date                   DATE,
+  escalation                 NUMBER,
+  f2_date                    DATE,
+  factphone                  VARCHAR2(30 CHAR),
+  file_status                VARCHAR2(50),
+  finish_date                DATE,
+  first_name                 VARCHAR2(100),
+  full_name                  VARCHAR2(250),
+  guarantee_completed        VARCHAR2(10),
+  guarantee_expert_code      VARCHAR2(80),
+  guarantee_expert_full_name VARCHAR2(250),
+  idcardnum                  VARCHAR2(50 CHAR),
+  iin                        VARCHAR2(24),
+  income                     NUMBER,
+  initiator_code             VARCHAR2(50 CHAR),
+  inquirywphone              VARCHAR2(100 CHAR),
+  inquirywphone_int          VARCHAR2(100 CHAR),
+  inscardnum                 VARCHAR2(20 CHAR),
+  institution                VARCHAR2(20 CHAR),
+  isemp                      NUMBER(3),
+  isloyal                    NUMBER(5),
+  isremaked                  CHAR(1),
+  isrev                      VARCHAR2(1 CHAR),
+  isrunning                  NUMBER(3),
+  l_process_code             VARCHAR2(250),
+  last_name                  VARCHAR2(100),
+  learnbank                  VARCHAR2(200 CHAR),
+  loan_amount                VARCHAR2(100),
+  loan_period                VARCHAR2(100),
+  loanperiod                 NUMBER(10),
+  lpurpose                   VARCHAR2(200 CHAR),
+  main_contract_num          VARCHAR2(50 CHAR),
+  maritalstat                VARCHAR2(50 CHAR),
+  middle_name                VARCHAR2(100),
+  monsum                     NUMBER,
+  mphone                     VARCHAR2(20 CHAR),
+  non_riskmanager_code       VARCHAR2(200 CHAR),
+  org_bin                    VARCHAR2(200),
+  org_name                   VARCHAR2(400 CHAR),
+  org_rnn                    VARCHAR2(200),
+  organization               VARCHAR2(1000),
+  parent_guid                VARCHAR2(200),
+  parent_regnum              VARCHAR2(50 CHAR),
+  partnerid                  NUMBER(10),
+  partnern                   VARCHAR2(400 CHAR),
+  pkb_deist_zaimy            NUMBER(24,2),
+  pkb_platejei               NUMBER(24,2),
+  pkb_summa_zadolj           NUMBER(24,2),
+  pkb_zaverw_zaimy           NUMBER(24,2),
+  postname                   VARCHAR2(200 CHAR),
+  pr_status                  VARCHAR2(200 CHAR),
+  process_code               VARCHAR2(250),
+  process_guid               VARCHAR2(250),
+  process_num                NUMBER(10),
+  process_status             VARCHAR2(250),
+  process_version            NUMBER,
+  product                    VARCHAR2(100 CHAR),
+  product_name               VARCHAR2(200 CHAR),
+  producttype                VARCHAR2(50 CHAR),
+  producttypen               VARCHAR2(100 CHAR),
+  prompt_status              NUMBER,
+  protocol_date              DATE,
+  protocol_number            VARCHAR2(250),
+  reason_non_cash_group_id   VARCHAR2(100),
+  reason_non_cash_group_name VARCHAR2(500 CHAR),
+  registration_number        VARCHAR2(50),
+  registrphone               VARCHAR2(20 CHAR),
+  request_state_code         VARCHAR2(50),
+  risk_manager_date          DATE,
+  riskmanager_code           VARCHAR2(250),
+  riskmanager_desicion       VARCHAR2(50),
+  riskmanager_name           VARCHAR2(200 CHAR),
+  riskmgr_small_credcom      VARCHAR2(50),
+  rnn                        VARCHAR2(12),
+  rrn                        VARCHAR2(20 CHAR),
+  salary_project_rnn1        VARCHAR2(20 CHAR),
+  salary_project_rnn2        VARCHAR2(20 CHAR),
+  salary_project_rnn3        VARCHAR2(20 CHAR),
+  salaryflag                 VARCHAR2(1 CHAR),
+  security_completed         VARCHAR2(10),
+  security_expert_code       VARCHAR2(80),
+  security_expert_full_name  VARCHAR2(250),
+  sendactivateflag           VARCHAR2(1 CHAR),
+  sex                        CHAR(1 CHAR),
+  short_name                 VARCHAR2(100 CHAR),
+  signdoc_date               DATE,
+  specflag                   NUMBER(5),
+  src                        VARCHAR2(3 CHAR),
+  ssum                       NUMBER,
+  stage                      VARCHAR2(3),
+  start_date                 DATE,
+  step_counter               NUMBER(10),
+  subdivision                VARCHAR2(100 CHAR),
+  subtypeid                  VARCHAR2(20 CHAR),
+  subtypename                VARCHAR2(200 CHAR),
+  title                      VARCHAR2(250),
+  uname                      VARCHAR2(500),
+  verefeir_code              VARCHAR2(80),
+  verefeir_date              DATE,
+  verefeir_decision          VARCHAR2(100),
+  verefeir_name              VARCHAR2(200),
+  verifier_code              VARCHAR2(30 CHAR),
+  verifier_date              DATE,
+  verifier_desc              VARCHAR2(2000 CHAR),
+  verifier_name              VARCHAR2(150 CHAR),
+  verifier_result            VARCHAR2(150 CHAR),
+  verifierconfremakecnt      NUMBER(10),
+  verifierremakecnt          NUMBER(10),
+  way4_date                  DATE,
+  way4_error                 VARCHAR2(500 CHAR),
+  wconf1_contphone           VARCHAR2(20 CHAR),
+  wconf2_contphone           VARCHAR2(20 CHAR),
+  workexp                    NUMBER(10),
+  wphone                     VARCHAR2(20 CHAR),
+  wphone_int                 VARCHAR2(100 CHAR)
+)
+tablespace DWH_RISK
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  )
+nologging;
+create index DWH_RISK.IX_LOAN_REQUEST1 on DWH_RISK.LOAN_REQUEST (REGISTRATION_NUMBER)
+  tablespace DWH_RISK
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+create index DWH_RISK.IX_LOAN_REQUEST2 on DWH_RISK.LOAN_REQUEST (IIN)
+  tablespace DWH_RISK
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+create index DWH_RISK.IX_LOAN_REQUEST3 on DWH_RISK.LOAN_REQUEST (PR_STATUS)
+  tablespace DWH_RISK
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+grant select on DWH_RISK.LOAN_REQUEST to AIBEK_BE;
+grant select, insert, update, delete on DWH_RISK.LOAN_REQUEST to DWH_RISK_FULL_ROLE;
+grant select on DWH_RISK.LOAN_REQUEST to DWH_RISK_READ_ROLE;
+grant select on DWH_RISK.LOAN_REQUEST to HEAD_DENIS_PL;
+grant select on DWH_RISK.LOAN_REQUEST to KRISTINA_KO;
+grant select on DWH_RISK.LOAN_REQUEST to PROCESS_RISK;
+

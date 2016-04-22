@@ -1,0 +1,50 @@
+create table DWH_RISK.V_DCA_CP_20151014
+(
+  rpt_date      DATE,
+  code          VARCHAR2(30),
+  name          VARCHAR2(500),
+  pd            NUMBER(38,12),
+  pd_lag        NUMBER,
+  is_more_10prc NUMBER,
+  is_2times     NUMBER,
+  pd_prc        NUMBER,
+  pd_prc0       NUMBER,
+  pd_prc_step10 VARCHAR2(6),
+  pd_prc_step5  VARCHAR2(6),
+  f5            VARCHAR2(500),
+  report_dt_m1  DATE,
+  dpd_m1        NUMBER,
+  od_m1         NUMBER,
+  ovrd_od_m1    NUMBER,
+  od_ovrdod_m1  NUMBER,
+  report_dt_m2  DATE,
+  dpd_m2        NUMBER,
+  od_m2         NUMBER,
+  ovrd_od_m2    NUMBER,
+  od_ovrdod_m2  NUMBER,
+  report_dt_m0  DATE,
+  dpd_m0        NUMBER,
+  od_m0         NUMBER,
+  ovrd_od_m0    NUMBER,
+  od_ovrdod_m0  NUMBER,
+  is_avaible_cp NUMBER,
+  is_err        NUMBER
+)
+tablespace DWH_RISK
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+grant select on DWH_RISK.V_DCA_CP_20151014 to AIBEK_BE;
+grant select, insert, update, delete on DWH_RISK.V_DCA_CP_20151014 to DWH_RISK_FULL_ROLE;
+grant select on DWH_RISK.V_DCA_CP_20151014 to DWH_RISK_READ_ROLE;
+grant select on DWH_RISK.V_DCA_CP_20151014 to HEAD_DENIS_PL;
+grant select on DWH_RISK.V_DCA_CP_20151014 to KRISTINA_KO;
+grant select on DWH_RISK.V_DCA_CP_20151014 to PROCESS_RISK;
+

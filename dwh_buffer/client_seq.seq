@@ -1,0 +1,7 @@
+create sequence DWH_BUFFER.CLIENT_SEQ
+minvalue 1
+maxvalue 9999999999999999999999999999
+start with 12509459
+increment by 1
+nocache;
+

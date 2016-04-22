@@ -1,0 +1,25 @@
+create table DWH_RISK.XML_PROCESS_RESULTS
+(
+  process_guid   VARCHAR2(200),
+  income         VARCHAR2(100),
+  registraddress VARCHAR2(100),
+  factaddress    VARCHAR2(100)
+)
+tablespace DWH_RISK
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+grant select on DWH_RISK.XML_PROCESS_RESULTS to AIBEK_BE;
+grant select, insert, update, delete on DWH_RISK.XML_PROCESS_RESULTS to DWH_RISK_FULL_ROLE;
+grant select on DWH_RISK.XML_PROCESS_RESULTS to DWH_RISK_READ_ROLE;
+grant select on DWH_RISK.XML_PROCESS_RESULTS to HEAD_DENIS_PL;
+grant select on DWH_RISK.XML_PROCESS_RESULTS to KRISTINA_KO;
+grant select on DWH_RISK.XML_PROCESS_RESULTS to PROCESS_RISK;
+

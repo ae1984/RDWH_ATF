@@ -1,0 +1,46 @@
+create table DWH_RISK.CONTR_LIST_RISK_20150921
+(
+  contract_id          NUMBER(10) not null,
+  dep_id               NUMBER(10) not null,
+  val_id               NUMBER(10),
+  val_code             VARCHAR2(30),
+  pcn_com              NUMBER,
+  pcn_rate             NUMBER,
+  product_name_atf     VARCHAR2(4000),
+  target_name_atf      VARCHAR2(4000),
+  restruct_name_atf    VARCHAR2(4000),
+  prod_type            VARCHAR2(11),
+  fromdate             DATE,
+  todate               DATE,
+  state                VARCHAR2(250 CHAR),
+  sum_full             NUMBER,
+  effective_rate       NUMBER,
+  wt_effective_rate    NUMBER,
+  filial_name          VARCHAR2(250 CHAR),
+  branch_name          VARCHAR2(250 CHAR),
+  principal_acc_id     NUMBER,
+  ovd_principal_acc_id NUMBER,
+  ow_principal_acc_id  NUMBER,
+  cl_type              VARCHAR2(12),
+  segm                 VARCHAR2(40),
+  salary_flag_ekz      VARCHAR2(1 CHAR),
+  loyal_flag_ekz       NUMBER
+)
+tablespace DWH_RISK
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+grant select on DWH_RISK.CONTR_LIST_RISK_20150921 to AIBEK_BE;
+grant select, insert, update, delete on DWH_RISK.CONTR_LIST_RISK_20150921 to DWH_RISK_FULL_ROLE;
+grant select on DWH_RISK.CONTR_LIST_RISK_20150921 to DWH_RISK_READ_ROLE;
+grant select on DWH_RISK.CONTR_LIST_RISK_20150921 to HEAD_DENIS_PL;
+grant select on DWH_RISK.CONTR_LIST_RISK_20150921 to KRISTINA_KO;
+grant select on DWH_RISK.CONTR_LIST_RISK_20150921 to PROCESS_RISK;
+

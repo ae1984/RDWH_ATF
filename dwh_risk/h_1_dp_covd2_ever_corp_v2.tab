@@ -1,0 +1,28 @@
+create table DWH_RISK.H_1_DP_COVD2_EVER_CORP_V2
+(
+  refer         VARCHAR2(500),
+  regnum        VARCHAR2(500),
+  fromdate_mm   DATE,
+  ovrd_max      NUMBER,
+  is_have_cp    NUMBER,
+  ever_12m      NUMBER,
+  ever_12m_ovrd NUMBER
+)
+tablespace DWH_RISK
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+grant select on DWH_RISK.H_1_DP_COVD2_EVER_CORP_V2 to AIBEK_BE;
+grant select, insert, update, delete on DWH_RISK.H_1_DP_COVD2_EVER_CORP_V2 to DWH_RISK_FULL_ROLE;
+grant select on DWH_RISK.H_1_DP_COVD2_EVER_CORP_V2 to DWH_RISK_READ_ROLE;
+grant select on DWH_RISK.H_1_DP_COVD2_EVER_CORP_V2 to HEAD_DENIS_PL;
+grant select on DWH_RISK.H_1_DP_COVD2_EVER_CORP_V2 to KRISTINA_KO;
+grant select on DWH_RISK.H_1_DP_COVD2_EVER_CORP_V2 to PROCESS_RISK;
+

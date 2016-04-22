@@ -1,0 +1,92 @@
+create table DWH_BUFFER.H_OWS_CLIENT
+(
+  amnd_state         VARCHAR2(1 CHAR),
+  amnd_date          DATE,
+  amnd_officer       NUMBER(18),
+  amnd_prev          NUMBER(18),
+  id                 NUMBER(18) not null,
+  f_i                NUMBER(18),
+  branch             VARCHAR2(32 CHAR),
+  ccat               VARCHAR2(1 CHAR),
+  pcat               VARCHAR2(1 CHAR),
+  clt                NUMBER(18),
+  service_group      VARCHAR2(32 CHAR),
+  short_name         VARCHAR2(255 CHAR),
+  title              NUMBER(18),
+  first_nam          VARCHAR2(255 CHAR),
+  last_nam           VARCHAR2(255 CHAR),
+  birth_nam          VARCHAR2(255 CHAR),
+  mother_s_nam       VARCHAR2(255 CHAR),
+  birth_date         DATE,
+  birth_place        VARCHAR2(255 CHAR),
+  father_s_nam       VARCHAR2(255 CHAR),
+  company_nam        VARCHAR2(255 CHAR),
+  trade_nam          VARCHAR2(255 CHAR),
+  enable_affiliation VARCHAR2(1 CHAR),
+  affiliated_with    NUMBER(18),
+  reg_number_type    VARCHAR2(32 CHAR),
+  reg_number         VARCHAR2(32 CHAR),
+  reg_details        VARCHAR2(255 CHAR),
+  affiliation_type   VARCHAR2(32 CHAR),
+  client_number      VARCHAR2(32 CHAR),
+  itn                VARCHAR2(32 CHAR),
+  tax_position       VARCHAR2(32 CHAR),
+  country            VARCHAR2(3 CHAR),
+  state              VARCHAR2(32 CHAR),
+  city               VARCHAR2(255 CHAR),
+  address_zip        VARCHAR2(32 CHAR),
+  address_line_1     VARCHAR2(255 CHAR),
+  address_line_2     VARCHAR2(255 CHAR),
+  address_line_3     VARCHAR2(255 CHAR),
+  address_line_4     VARCHAR2(255 CHAR),
+  phone              VARCHAR2(32 CHAR),
+  phone_h            VARCHAR2(32 CHAR),
+  phone_m            VARCHAR2(32 CHAR),
+  fax                VARCHAR2(32 CHAR),
+  fax_h              VARCHAR2(32 CHAR),
+  e_mail             VARCHAR2(255 CHAR),
+  delivery_type      NUMBER(18),
+  date_expire        DATE,
+  date_open          DATE,
+  gender             VARCHAR2(1 CHAR),
+  language           NUMBER(18),
+  marital_status     NUMBER(18),
+  profession         VARCHAR2(255 CHAR),
+  tr_title           NUMBER(18),
+  tr_first_nam       VARCHAR2(32 CHAR),
+  tr_last_nam        VARCHAR2(32 CHAR),
+  tr_company_nam     VARCHAR2(32 CHAR),
+  add_date_01        DATE,
+  add_date_02        DATE,
+  add_info_01        VARCHAR2(3900 CHAR),
+  add_info_02        VARCHAR2(3900 CHAR),
+  add_info_03        VARCHAR2(3900 CHAR),
+  add_info_04        VARCHAR2(3900 CHAR),
+  is_ready           VARCHAR2(1 CHAR),
+  citizenship        VARCHAR2(3 CHAR),
+  url                VARCHAR2(255 CHAR),
+  company_department VARCHAR2(255 CHAR)
+)
+tablespace DWH_BUFFER
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+grant select on DWH_BUFFER.H_OWS_CLIENT to AIBEK_BE;
+grant select, insert, update, delete on DWH_BUFFER.H_OWS_CLIENT to DWH_BUFFER_FULL_ROLE;
+grant select on DWH_BUFFER.H_OWS_CLIENT to DWH_BUFFER_READ_ROLE;
+grant select on DWH_BUFFER.H_OWS_CLIENT to DWH_PRIM;
+grant select on DWH_BUFFER.H_OWS_CLIENT to DWH_RISK;
+grant select on DWH_BUFFER.H_OWS_CLIENT to DWH_SALES;
+grant select on DWH_BUFFER.H_OWS_CLIENT to HEAD_DENIS_PL;
+grant select on DWH_BUFFER.H_OWS_CLIENT to HEAD_EVGENIY_PI;
+grant select on DWH_BUFFER.H_OWS_CLIENT to KRISTINA_KO;
+grant select on DWH_BUFFER.H_OWS_CLIENT to PROCESS_RISK;
+grant select on DWH_BUFFER.H_OWS_CLIENT to PROCESS_SALES;
+

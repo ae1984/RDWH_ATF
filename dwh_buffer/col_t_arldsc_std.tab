@@ -1,0 +1,131 @@
+create table DWH_BUFFER.COL_T_ARLDSC_STD
+(
+  id           NUMBER(10) not null,
+  longname     VARCHAR2(250 CHAR) not null,
+  sbj_id       NUMBER(10) not null,
+  basetype     VARCHAR2(10) not null,
+  dtlbop_id    NUMBER(10) not null,
+  correctdt    DATE,
+  id_us        NUMBER(5),
+  prim         VARCHAR2(250 CHAR),
+  code         VARCHAR2(30) not null,
+  incomfl      CHAR(1) not null,
+  anchartfl    CHAR(1) not null,
+  anlcha_id    NUMBER(10),
+  cha_id       NUMBER(10),
+  deashdfl     CHAR(1) not null,
+  loopfl       CHAR(1) not null,
+  npp          NUMBER(5) not null,
+  nopartfl     CHAR(1) not null,
+  nopayfl      CHAR(1) not null,
+  priority     NUMBER(5),
+  nonegfl      CHAR(1) not null,
+  arestfl      CHAR(1) not null,
+  val_id       NUMBER(10),
+  wroff_id     NUMBER(10),
+  bnkatrusg    VARCHAR2(30),
+  alias        VARCHAR2(30),
+  name_rpt     VARCHAR2(250 CHAR),
+  priority2    NUMBER(5),
+  addfl        CHAR(1) not null,
+  immediatefl  CHAR(1),
+  updshdfl     CHAR(1),
+  clcfl        CHAR(1 CHAR),
+  prepay       CHAR(1),
+  pay_priority NUMBER(5),
+  alias_add    VARCHAR2(30)
+)
+tablespace DWH_BUFFER
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  )
+nologging;
+comment on table DWH_BUFFER.COL_T_ARLDSC_STD
+  is 'Виды сумм к оплате/поступлению';
+comment on column DWH_BUFFER.COL_T_ARLDSC_STD.id
+  is 'Идентификатор вида суммы';
+comment on column DWH_BUFFER.COL_T_ARLDSC_STD.longname
+  is 'Наименование вида суммы';
+comment on column DWH_BUFFER.COL_T_ARLDSC_STD.sbj_id
+  is 'Идентификатор предметной области';
+comment on column DWH_BUFFER.COL_T_ARLDSC_STD.basetype
+  is 'Тип базы для расчета';
+comment on column DWH_BUFFER.COL_T_ARLDSC_STD.dtlbop_id
+  is 'Сценарий порождаемой детали';
+comment on column DWH_BUFFER.COL_T_ARLDSC_STD.correctdt
+  is 'Дата коррекции';
+comment on column DWH_BUFFER.COL_T_ARLDSC_STD.id_us
+  is 'Исполнитель-корректор';
+comment on column DWH_BUFFER.COL_T_ARLDSC_STD.prim
+  is 'Примечание';
+comment on column DWH_BUFFER.COL_T_ARLDSC_STD.code
+  is 'Код вида суммы';
+comment on column DWH_BUFFER.COL_T_ARLDSC_STD.incomfl
+  is 'Признак поступлений';
+comment on column DWH_BUFFER.COL_T_ARLDSC_STD.anchartfl
+  is 'Признак использования аналитических счетов';
+comment on column DWH_BUFFER.COL_T_ARLDSC_STD.anlcha_id
+  is 'Идентификатор аналитического счёта';
+comment on column DWH_BUFFER.COL_T_ARLDSC_STD.cha_id
+  is 'Идентификатор базового плана счетов';
+comment on column DWH_BUFFER.COL_T_ARLDSC_STD.deashdfl
+  is 'Признак включения в график договора';
+comment on column DWH_BUFFER.COL_T_ARLDSC_STD.loopfl
+  is 'Признак циклического расчета';
+comment on column DWH_BUFFER.COL_T_ARLDSC_STD.npp
+  is 'Порядок расчета';
+comment on column DWH_BUFFER.COL_T_ARLDSC_STD.nopartfl
+  is 'Запрет расчетов частичными суммами';
+comment on column DWH_BUFFER.COL_T_ARLDSC_STD.nopayfl
+  is 'Запрет порождения платежей';
+comment on column DWH_BUFFER.COL_T_ARLDSC_STD.priority
+  is 'Приоритет оплаты для плановых сумм';
+comment on column DWH_BUFFER.COL_T_ARLDSC_STD.nonegfl
+  is 'Запрет отрицательных сумм';
+comment on column DWH_BUFFER.COL_T_ARLDSC_STD.arestfl
+  is 'Признак валюты, отличной от валюты договора';
+comment on column DWH_BUFFER.COL_T_ARLDSC_STD.val_id
+  is 'Валюта суммы';
+comment on column DWH_BUFFER.COL_T_ARLDSC_STD.wroff_id
+  is 'Логическое ППО для определения списаны выставленные суммы или нет';
+comment on column DWH_BUFFER.COL_T_ARLDSC_STD.bnkatrusg
+  is 'Цель использования платежных атрибутов';
+comment on column DWH_BUFFER.COL_T_ARLDSC_STD.alias
+  is 'Код суммы для использования в различных процедурах';
+comment on column DWH_BUFFER.COL_T_ARLDSC_STD.name_rpt
+  is 'Наименование суммы для использования в отчетах';
+comment on column DWH_BUFFER.COL_T_ARLDSC_STD.priority2
+  is 'Приоритет оплаты для просроченных и прочих сумм';
+comment on column DWH_BUFFER.COL_T_ARLDSC_STD.addfl
+  is 'Признак Доначисление вместо выставления новой';
+comment on column DWH_BUFFER.COL_T_ARLDSC_STD.immediatefl
+  is 'Признак немедленного порождения';
+comment on column DWH_BUFFER.COL_T_ARLDSC_STD.updshdfl
+  is 'Признак пересчета суммы по графику';
+comment on column DWH_BUFFER.COL_T_ARLDSC_STD.clcfl
+  is 'Признак периодического начисления';
+comment on column DWH_BUFFER.COL_T_ARLDSC_STD.prepay
+  is 'Признак разрешения списания с предоплаты';
+comment on column DWH_BUFFER.COL_T_ARLDSC_STD.pay_priority
+  is 'Приоритет оплаты выставленных сумм';
+comment on column DWH_BUFFER.COL_T_ARLDSC_STD.alias_add
+  is 'Код отсроченного вида суммы';
+grant select on DWH_BUFFER.COL_T_ARLDSC_STD to AIBEK_BE;
+grant select, insert, update, delete on DWH_BUFFER.COL_T_ARLDSC_STD to DWH_BUFFER_FULL_ROLE;
+grant select on DWH_BUFFER.COL_T_ARLDSC_STD to DWH_BUFFER_READ_ROLE;
+grant select on DWH_BUFFER.COL_T_ARLDSC_STD to DWH_PRIM;
+grant select on DWH_BUFFER.COL_T_ARLDSC_STD to DWH_RISK;
+grant select on DWH_BUFFER.COL_T_ARLDSC_STD to DWH_SALES;
+grant select on DWH_BUFFER.COL_T_ARLDSC_STD to HEAD_DENIS_PL;
+grant select on DWH_BUFFER.COL_T_ARLDSC_STD to HEAD_EVGENIY_PI;
+grant select on DWH_BUFFER.COL_T_ARLDSC_STD to KRISTINA_KO;
+grant select on DWH_BUFFER.COL_T_ARLDSC_STD to PROCESS_RISK;
+grant select on DWH_BUFFER.COL_T_ARLDSC_STD to PROCESS_SALES;
+

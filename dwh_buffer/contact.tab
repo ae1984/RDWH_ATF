@@ -1,0 +1,97 @@
+create table DWH_BUFFER.CONTACT
+(
+  contact_id                 NUMBER not null,
+  offer_id                   NUMBER,
+  agr_id                     NUMBER,
+  cli_id                     NUMBER,
+  dep_id                     NUMBER,
+  cli_code                   VARCHAR2(30),
+  campaign_code              VARCHAR2(20 CHAR),
+  offer_type                 VARCHAR2(20 CHAR),
+  channel                    VARCHAR2(20 CHAR),
+  interraction_phase         NUMBER,
+  offer_open_dttm            DATE,
+  offer_close_dttm           DATE,
+  contact_creation_dttm      DATE,
+  contact_open_dttm          DATE,
+  contact_status_code        VARCHAR2(3 CHAR),
+  contact_status_change_dttm DATE
+)
+tablespace DWH_BUFFER
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 128K
+    next 128K
+    minextents 1
+    maxextents unlimited
+  )
+nologging;
+create index DWH_BUFFER.IX_CON_AGR_ID on DWH_BUFFER.CONTACT (AGR_ID)
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  )
+  nologging;
+create index DWH_BUFFER.IX_CON_AGR_OFFER on DWH_BUFFER.CONTACT (AGR_ID, OFFER_ID)
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  )
+  nologging;
+create index DWH_BUFFER.IX_CONTACT_AGR_CHAN on DWH_BUFFER.CONTACT (AGR_ID, CHANNEL)
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  )
+  nologging;
+alter table DWH_BUFFER.CONTACT
+  add constraint PK_CONTACT primary key (CONTACT_ID)
+  using index 
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+alter index DWH_BUFFER.PK_CONTACT nologging;
+grant select on DWH_BUFFER.CONTACT to AIBEK_BE;
+grant select, insert, update, delete on DWH_BUFFER.CONTACT to DWH_BUFFER_FULL_ROLE;
+grant select on DWH_BUFFER.CONTACT to DWH_BUFFER_READ_ROLE;
+grant select on DWH_BUFFER.CONTACT to DWH_PRIM;
+grant select on DWH_BUFFER.CONTACT to DWH_RISK;
+grant select, insert, update, delete on DWH_BUFFER.CONTACT to DWH_SALES;
+grant select on DWH_BUFFER.CONTACT to HEAD_DENIS_PL;
+grant select, insert, update, delete on DWH_BUFFER.CONTACT to HEAD_EVGENIY_PI;
+grant select on DWH_BUFFER.CONTACT to KRISTINA_KO;
+grant select on DWH_BUFFER.CONTACT to PROCESS_RISK;
+grant select, insert, update, delete on DWH_BUFFER.CONTACT to PROCESS_SALES;
+

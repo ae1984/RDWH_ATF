@@ -1,0 +1,38 @@
+create table DWH_RISK.H_CP_20150929_GROUP
+(
+  report_dt        DATE,
+  product_group    VARCHAR2(500),
+  short_vcc        VARCHAR2(500),
+  ovrd_grp         VARCHAR2(13),
+  main_equ         NUMBER,
+  prc_dea_equ      NUMBER,
+  prc_dea_ovrd_equ NUMBER,
+  rwo_short        VARCHAR2(500),
+  rwo_short_lag3   VARCHAR2(500),
+  rwo_short_lag6   VARCHAR2(500),
+  rwo_short_lag9   VARCHAR2(500),
+  is_rwo_new       NUMBER,
+  is_restruct      VARCHAR2(500),
+  ifrs_industry    VARCHAR2(500),
+  vcc_name         VARCHAR2(500),
+  fromdate         DATE,
+  mfo              VARCHAR2(500)
+)
+tablespace DWH_RISK
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+grant select on DWH_RISK.H_CP_20150929_GROUP to AIBEK_BE;
+grant select, insert, update, delete on DWH_RISK.H_CP_20150929_GROUP to DWH_RISK_FULL_ROLE;
+grant select on DWH_RISK.H_CP_20150929_GROUP to DWH_RISK_READ_ROLE;
+grant select on DWH_RISK.H_CP_20150929_GROUP to HEAD_DENIS_PL;
+grant select on DWH_RISK.H_CP_20150929_GROUP to KRISTINA_KO;
+grant select on DWH_RISK.H_CP_20150929_GROUP to PROCESS_RISK;
+

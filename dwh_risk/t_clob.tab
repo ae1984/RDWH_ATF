@@ -1,0 +1,12 @@
+create global temporary table DWH_RISK.T_CLOB
+(
+  pclob LONG
+)
+on commit delete rows;
+grant select on DWH_RISK.T_CLOB to AIBEK_BE;
+grant select, insert, update, delete on DWH_RISK.T_CLOB to DWH_RISK_FULL_ROLE;
+grant select on DWH_RISK.T_CLOB to DWH_RISK_READ_ROLE;
+grant select on DWH_RISK.T_CLOB to HEAD_DENIS_PL;
+grant select on DWH_RISK.T_CLOB to KRISTINA_KO;
+grant select on DWH_RISK.T_CLOB to PROCESS_RISK;
+

@@ -1,0 +1,38 @@
+create table DWH_RISK.V_SALARY_DCA_1_2_TAB
+(
+  mm                         DATE,
+  bin                        VARCHAR2(4000 CHAR),
+  is_have_bin                NUMBER,
+  stab_indx_dca              NUMBER,
+  stab_indx_gr_dca           NUMBER,
+  stab_indx_3                NUMBER,
+  stab_indx_gr_3             NUMBER,
+  delay_zp_index             NUMBER,
+  is_more50prc_stab          NUMBER,
+  is_more50prc_delay_zp      NUMBER,
+  pd                         NUMBER,
+  is_more_10prc              NUMBER,
+  is_2times                  NUMBER,
+  is_2times_or_is_more_10prc NUMBER,
+  is_delay_zp_grp            NUMBER,
+  is_less_zp_corp            NUMBER,
+  is_less_zp_corp_usd        NUMBER,
+  cl_name_w4                 VARCHAR2(255 CHAR),
+  cl_name_colvir             VARCHAR2(30 CHAR),
+  vcc                        VARCHAR2(250 CHAR),
+  is_have_dublicate_client   NUMBER,
+  vcc_descr                  VARCHAR2(500),
+  is_have_loan               NUMBER
+)
+tablespace DWH_RISK
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+

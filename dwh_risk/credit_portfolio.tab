@@ -1,0 +1,139 @@
+create table DWH_RISK.CREDIT_PORTFOLIO
+(
+  sdt                 DATE default sysdate,
+  dt                  DATE,
+  refer               VARCHAR2(30),
+  contract_num        VARCHAR2(30),
+  val_code            VARCHAR2(5),
+  client_name         VARCHAR2(500),
+  client_code         VARCHAR2(30),
+  iin                 VARCHAR2(20),
+  amount              NUMBER,
+  amountkzt           NUMBER,
+  rate                NUMBER,
+  startdate           DATE,
+  finishdate          DATE,
+  fil_code            VARCHAR2(30),
+  fil_name            VARCHAR2(250 CHAR),
+  sell_dep_id         NUMBER(10),
+  obj_id              NUMBER(10),
+  prd_code            VARCHAR2(30),
+  prd_name            VARCHAR2(250 CHAR),
+  sup_perc_cur        NUMBER,
+  sup_perc_equ        NUMBER,
+  debt_dea_cur        NUMBER,
+  debt_dea_equ        NUMBER,
+  ovrd_main_cur       NUMBER,
+  ovrd_main_equ       NUMBER,
+  interest_rate       NUMBER,
+  ovrd_prc_debt_b_cur NUMBER,
+  ovrd_prc_debt_b_equ NUMBER,
+  ovrd_main           NUMBER,
+  ovrd_prc            NUMBER,
+  wr_pd_cur           NUMBER,
+  wr_pd_equ           NUMBER,
+  state               VARCHAR2(250 CHAR)
+)
+tablespace DWH_RISK
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+comment on table DWH_RISK.CREDIT_PORTFOLIO
+  is 'КП на дату';
+comment on column DWH_RISK.CREDIT_PORTFOLIO.sdt
+  is 'дата создания записи';
+comment on column DWH_RISK.CREDIT_PORTFOLIO.dt
+  is 'дата за (<=)';
+comment on column DWH_RISK.CREDIT_PORTFOLIO.refer
+  is 'референс';
+comment on column DWH_RISK.CREDIT_PORTFOLIO.contract_num
+  is 'номер договора';
+comment on column DWH_RISK.CREDIT_PORTFOLIO.val_code
+  is 'Валюта ';
+comment on column DWH_RISK.CREDIT_PORTFOLIO.client_name
+  is 'Наименование  заемщика';
+comment on column DWH_RISK.CREDIT_PORTFOLIO.client_code
+  is 'Код клиента';
+comment on column DWH_RISK.CREDIT_PORTFOLIO.iin
+  is 'ИИН/БИН';
+comment on column DWH_RISK.CREDIT_PORTFOLIO.amount
+  is 'Валюта выдачи
+';
+comment on column DWH_RISK.CREDIT_PORTFOLIO.amountkzt
+  is 'Валюта выдачи
+ KZT';
+comment on column DWH_RISK.CREDIT_PORTFOLIO.rate
+  is 'Процентная ставка
+';
+comment on column DWH_RISK.CREDIT_PORTFOLIO.startdate
+  is 'Дата выдачи
+';
+comment on column DWH_RISK.CREDIT_PORTFOLIO.finishdate
+  is 'Дата погашения
+';
+comment on column DWH_RISK.CREDIT_PORTFOLIO.fil_code
+  is 'Код филиала';
+comment on column DWH_RISK.CREDIT_PORTFOLIO.fil_name
+  is 'Наименование филиала';
+comment on column DWH_RISK.CREDIT_PORTFOLIO.sell_dep_id
+  is 'Код точки продаж';
+comment on column DWH_RISK.CREDIT_PORTFOLIO.obj_id
+  is 'Связка с катрочкой ХД (q_row)';
+comment on column DWH_RISK.CREDIT_PORTFOLIO.prd_code
+  is 'Код продукта';
+comment on column DWH_RISK.CREDIT_PORTFOLIO.prd_name
+  is 'Наименование продукта';
+comment on column DWH_RISK.CREDIT_PORTFOLIO.sup_perc_cur
+  is 'Начисленные проценты в валюте';
+comment on column DWH_RISK.CREDIT_PORTFOLIO.sup_perc_equ
+  is 'Начисленные проценты в эквиваленте';
+comment on column DWH_RISK.CREDIT_PORTFOLIO.debt_dea_cur
+  is 'Остаток задолженности по договору в валюте';
+comment on column DWH_RISK.CREDIT_PORTFOLIO.debt_dea_equ
+  is 'Остаток задолженности по договору в эквиваленте';
+comment on column DWH_RISK.CREDIT_PORTFOLIO.ovrd_main_cur
+  is 'Просроченная сумма по основному долгу в валюте';
+comment on column DWH_RISK.CREDIT_PORTFOLIO.ovrd_main_equ
+  is 'Просроченная сумма по основному долгу в эквиваленте';
+comment on column DWH_RISK.CREDIT_PORTFOLIO.interest_rate
+  is 'Процентная ставка';
+comment on column DWH_RISK.CREDIT_PORTFOLIO.ovrd_prc_debt_b_cur
+  is 'Просроченные проценты баланс в валюте';
+comment on column DWH_RISK.CREDIT_PORTFOLIO.ovrd_prc_debt_b_equ
+  is 'Просроченные проценты баланс в эквиваленте';
+comment on column DWH_RISK.CREDIT_PORTFOLIO.ovrd_main
+  is 'Срок текущей просроченной задолженности по основному долгу';
+comment on column DWH_RISK.CREDIT_PORTFOLIO.ovrd_prc
+  is 'Срок текущей просроченной задолженности по процентам';
+comment on column DWH_RISK.CREDIT_PORTFOLIO.wr_pd_cur
+  is 'Списанный ОД в валюте';
+comment on column DWH_RISK.CREDIT_PORTFOLIO.wr_pd_equ
+  is 'Списанный ОД в эквиваленте';
+comment on column DWH_RISK.CREDIT_PORTFOLIO.state
+  is 'статус на момент создания записи (SDT)';
+create index DWH_RISK.IDX_CREDIT_PORTFOLIO_1 on DWH_RISK.CREDIT_PORTFOLIO (DT, REFER)
+  tablespace DWH_RISK
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+grant select on DWH_RISK.CREDIT_PORTFOLIO to AIBEK_BE;
+grant select, insert, update, delete on DWH_RISK.CREDIT_PORTFOLIO to DWH_RISK_FULL_ROLE;
+grant select on DWH_RISK.CREDIT_PORTFOLIO to DWH_RISK_READ_ROLE;
+grant select on DWH_RISK.CREDIT_PORTFOLIO to HEAD_DENIS_PL;
+grant select on DWH_RISK.CREDIT_PORTFOLIO to KRISTINA_KO;
+grant select on DWH_RISK.CREDIT_PORTFOLIO to PROCESS_RISK;
+

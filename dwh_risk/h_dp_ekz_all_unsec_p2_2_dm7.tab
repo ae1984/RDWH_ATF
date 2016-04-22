@@ -1,0 +1,30 @@
+create table DWH_RISK.H_DP_EKZ_ALL_UNSEC_P2_2_DM7
+(
+  client_id           VARCHAR2(10),
+  registration_number VARCHAR2(30),
+  iin                 VARCHAR2(24),
+  rnn                 VARCHAR2(4000 CHAR),
+  cli_code            VARCHAR2(30),
+  ows_client_id       NUMBER,
+  cli_id              NUMBER,
+  chr11               NUMBER,
+  chr12               NUMBER
+)
+tablespace DWH_RISK
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+grant select on DWH_RISK.H_DP_EKZ_ALL_UNSEC_P2_2_DM7 to AIBEK_BE;
+grant select, insert, update, delete on DWH_RISK.H_DP_EKZ_ALL_UNSEC_P2_2_DM7 to DWH_RISK_FULL_ROLE;
+grant select on DWH_RISK.H_DP_EKZ_ALL_UNSEC_P2_2_DM7 to DWH_RISK_READ_ROLE;
+grant select on DWH_RISK.H_DP_EKZ_ALL_UNSEC_P2_2_DM7 to HEAD_DENIS_PL;
+grant select on DWH_RISK.H_DP_EKZ_ALL_UNSEC_P2_2_DM7 to KRISTINA_KO;
+grant select on DWH_RISK.H_DP_EKZ_ALL_UNSEC_P2_2_DM7 to PROCESS_RISK;
+

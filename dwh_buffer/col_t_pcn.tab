@@ -1,0 +1,84 @@
+create table DWH_BUFFER.COL_T_PCN
+(
+  id      NUMBER(10) not null,
+  code    VARCHAR2(30 CHAR) not null,
+  specfl  NUMBER(1) not null,
+  type_id NUMBER(10)
+)
+tablespace DWH_BUFFER
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  )
+nologging;
+comment on table DWH_BUFFER.COL_T_PCN
+  is 'Процентные ставки';
+comment on column DWH_BUFFER.COL_T_PCN.id
+  is 'ID ставки';
+comment on column DWH_BUFFER.COL_T_PCN.code
+  is 'Уникальный код';
+comment on column DWH_BUFFER.COL_T_PCN.specfl
+  is 'Признак индивидуальной ставки';
+comment on column DWH_BUFFER.COL_T_PCN.type_id
+  is 'Тип ставки';
+create index DWH_BUFFER.FK_COL_T_PCN_COL_T_PCN_TYPE on DWH_BUFFER.COL_T_PCN (TYPE_ID, SPECFL)
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 4M
+    next 4M
+    minextents 1
+    maxextents unlimited
+  )
+  nologging;
+alter table DWH_BUFFER.COL_T_PCN
+  add constraint PK_COL_T_PCN primary key (ID)
+  using index 
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 4M
+    next 4M
+    minextents 1
+    maxextents unlimited
+  );
+alter index DWH_BUFFER.PK_COL_T_PCN nologging;
+alter table DWH_BUFFER.COL_T_PCN
+  add constraint AK_COL_T_PCN unique (CODE)
+  using index 
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 4M
+    next 4M
+    minextents 1
+    maxextents unlimited
+  );
+alter index DWH_BUFFER.AK_COL_T_PCN nologging;
+grant select on DWH_BUFFER.COL_T_PCN to AIBEK_BE;
+grant select, insert, update, delete on DWH_BUFFER.COL_T_PCN to DWH_BUFFER_FULL_ROLE;
+grant select on DWH_BUFFER.COL_T_PCN to DWH_BUFFER_READ_ROLE;
+grant select on DWH_BUFFER.COL_T_PCN to DWH_PRIM;
+grant select on DWH_BUFFER.COL_T_PCN to DWH_RISK;
+grant select on DWH_BUFFER.COL_T_PCN to DWH_SALES;
+grant select on DWH_BUFFER.COL_T_PCN to HEAD_DENIS_PL;
+grant select on DWH_BUFFER.COL_T_PCN to HEAD_EVGENIY_PI;
+grant select on DWH_BUFFER.COL_T_PCN to KRISTINA_KO;
+grant select on DWH_BUFFER.COL_T_PCN to PROCESS_RISK;
+grant select on DWH_BUFFER.COL_T_PCN to PROCESS_SALES;
+

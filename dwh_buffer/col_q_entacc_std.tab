@@ -1,0 +1,131 @@
+create table DWH_BUFFER.COL_Q_ENTACC_STD
+(
+  id       NUMBER(10) not null,
+  code     VARCHAR2(30) not null,
+  longname VARCHAR2(250 CHAR) not null,
+  ent_id   NUMBER(10) not null,
+  acctype  CHAR(1) not null,
+  anlcode  VARCHAR2(18),
+  bpscode  VARCHAR2(18),
+  objvalfl CHAR(1) not null,
+  val_id   NUMBER(10),
+  arcfl    CHAR(1) not null,
+  npp      NUMBER(5)
+)
+tablespace DWH_BUFFER
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  )
+nologging;
+comment on table DWH_BUFFER.COL_Q_ENTACC_STD
+  is 'Типы счетов сущностей';
+comment on column DWH_BUFFER.COL_Q_ENTACC_STD.id
+  is 'Идентификатор';
+comment on column DWH_BUFFER.COL_Q_ENTACC_STD.code
+  is 'Код';
+comment on column DWH_BUFFER.COL_Q_ENTACC_STD.longname
+  is 'Наименование';
+comment on column DWH_BUFFER.COL_Q_ENTACC_STD.ent_id
+  is 'Идентификатор сущности';
+comment on column DWH_BUFFER.COL_Q_ENTACC_STD.acctype
+  is 'Тип счета';
+comment on column DWH_BUFFER.COL_Q_ENTACC_STD.anlcode
+  is 'Код аналитического плана счетов';
+comment on column DWH_BUFFER.COL_Q_ENTACC_STD.bpscode
+  is 'Код БПС';
+comment on column DWH_BUFFER.COL_Q_ENTACC_STD.objvalfl
+  is 'Признак валюты объекта';
+comment on column DWH_BUFFER.COL_Q_ENTACC_STD.val_id
+  is 'Идентификатор валюты';
+comment on column DWH_BUFFER.COL_Q_ENTACC_STD.arcfl
+  is 'Архив';
+comment on column DWH_BUFFER.COL_Q_ENTACC_STD.npp
+  is 'Номер по порядку';
+create index DWH_BUFFER.FK_COL_Q_ENTACC_STD_VAL on DWH_BUFFER.COL_Q_ENTACC_STD (VAL_ID)
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 4M
+    next 4M
+    minextents 1
+    maxextents unlimited
+  )
+  nologging;
+create index DWH_BUFFER.IE_COL_Q_ENTACC_STD_ANLCODE on DWH_BUFFER.COL_Q_ENTACC_STD (ANLCODE, ENT_ID)
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 4M
+    next 4M
+    minextents 1
+    maxextents unlimited
+  )
+  nologging;
+create index DWH_BUFFER.IE_COL_Q_ENTACC_STD_BPSCODE on DWH_BUFFER.COL_Q_ENTACC_STD (BPSCODE, ENT_ID)
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 4M
+    next 4M
+    minextents 1
+    maxextents unlimited
+  )
+  nologging;
+alter table DWH_BUFFER.COL_Q_ENTACC_STD
+  add constraint PK_COL_Q_ENTACC_STD primary key (ID)
+  using index 
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 4M
+    next 4M
+    minextents 1
+    maxextents unlimited
+  );
+alter index DWH_BUFFER.PK_COL_Q_ENTACC_STD nologging;
+alter table DWH_BUFFER.COL_Q_ENTACC_STD
+  add constraint AK_COL_Q_ENTACC_STD_ENT_CODE unique (ENT_ID, CODE)
+  using index 
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 4M
+    next 4M
+    minextents 1
+    maxextents unlimited
+  );
+alter index DWH_BUFFER.AK_COL_Q_ENTACC_STD_ENT_CODE nologging;
+grant select on DWH_BUFFER.COL_Q_ENTACC_STD to AIBEK_BE;
+grant select, insert, update, delete on DWH_BUFFER.COL_Q_ENTACC_STD to DWH_BUFFER_FULL_ROLE;
+grant select on DWH_BUFFER.COL_Q_ENTACC_STD to DWH_BUFFER_READ_ROLE;
+grant select on DWH_BUFFER.COL_Q_ENTACC_STD to DWH_PRIM;
+grant select on DWH_BUFFER.COL_Q_ENTACC_STD to DWH_RISK;
+grant select on DWH_BUFFER.COL_Q_ENTACC_STD to DWH_SALES;
+grant select on DWH_BUFFER.COL_Q_ENTACC_STD to HEAD_DENIS_PL;
+grant select on DWH_BUFFER.COL_Q_ENTACC_STD to HEAD_EVGENIY_PI;
+grant select on DWH_BUFFER.COL_Q_ENTACC_STD to KRISTINA_KO;
+grant select on DWH_BUFFER.COL_Q_ENTACC_STD to PROCESS_RISK;
+grant select on DWH_BUFFER.COL_Q_ENTACC_STD to PROCESS_SALES;
+

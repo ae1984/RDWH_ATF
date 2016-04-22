@@ -1,0 +1,95 @@
+create table DWH_BUFFER.COL_T_BOP_STAT_STD
+(
+  id           NUMBER(10) not null,
+  nord         NUMBER(5) not null,
+  code         VARCHAR2(30) not null,
+  name         VARCHAR2(30 CHAR) not null,
+  shortname    VARCHAR2(10 CHAR),
+  longname     VARCHAR2(250 CHAR) not null,
+  forkfl       CHAR(1) not null,
+  finishfl     CHAR(1) not null,
+  originfl     CHAR(1) not null,
+  autogofl     CHAR(1) not null,
+  arcfl        CHAR(1) not null,
+  prim         VARCHAR2(250 CHAR),
+  correctdt    DATE,
+  id_us        NUMBER(5),
+  xpos1        NUMBER(10),
+  ypos1        NUMBER(10),
+  xpos2        NUMBER(10),
+  ypos2        NUMBER(10),
+  editfl       CHAR(1) not null,
+  standstate   CHAR(1 CHAR),
+  color        NUMBER(10),
+  brn_interact CHAR(1)
+)
+tablespace DWH_BUFFER
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  )
+nologging;
+comment on table DWH_BUFFER.COL_T_BOP_STAT_STD
+  is 'Состояния процесса';
+comment on column DWH_BUFFER.COL_T_BOP_STAT_STD.id
+  is 'Идентификатор';
+comment on column DWH_BUFFER.COL_T_BOP_STAT_STD.nord
+  is 'Номер состояния';
+comment on column DWH_BUFFER.COL_T_BOP_STAT_STD.code
+  is 'Код состояния';
+comment on column DWH_BUFFER.COL_T_BOP_STAT_STD.name
+  is 'Имя';
+comment on column DWH_BUFFER.COL_T_BOP_STAT_STD.shortname
+  is 'Краткое имя';
+comment on column DWH_BUFFER.COL_T_BOP_STAT_STD.longname
+  is 'Длинное имя';
+comment on column DWH_BUFFER.COL_T_BOP_STAT_STD.forkfl
+  is 'Флаг точки ветвления';
+comment on column DWH_BUFFER.COL_T_BOP_STAT_STD.finishfl
+  is 'Флаг завершения';
+comment on column DWH_BUFFER.COL_T_BOP_STAT_STD.originfl
+  is 'Исходная точка';
+comment on column DWH_BUFFER.COL_T_BOP_STAT_STD.autogofl
+  is 'Разрешение автоперехода';
+comment on column DWH_BUFFER.COL_T_BOP_STAT_STD.arcfl
+  is 'Флаг архива';
+comment on column DWH_BUFFER.COL_T_BOP_STAT_STD.prim
+  is 'Примечание';
+comment on column DWH_BUFFER.COL_T_BOP_STAT_STD.correctdt
+  is 'Время коррекции';
+comment on column DWH_BUFFER.COL_T_BOP_STAT_STD.id_us
+  is 'Исполнитель-корректор';
+comment on column DWH_BUFFER.COL_T_BOP_STAT_STD.xpos1
+  is 'Координата X1';
+comment on column DWH_BUFFER.COL_T_BOP_STAT_STD.ypos1
+  is 'Координата Y1';
+comment on column DWH_BUFFER.COL_T_BOP_STAT_STD.xpos2
+  is 'Координата X2';
+comment on column DWH_BUFFER.COL_T_BOP_STAT_STD.ypos2
+  is 'Координата Y2';
+comment on column DWH_BUFFER.COL_T_BOP_STAT_STD.editfl
+  is 'Возможность редактирования в этом состоянии (уже немного устарел)';
+comment on column DWH_BUFFER.COL_T_BOP_STAT_STD.standstate
+  is 'Стандартное состояние';
+comment on column DWH_BUFFER.COL_T_BOP_STAT_STD.color
+  is 'Цвет в списке';
+comment on column DWH_BUFFER.COL_T_BOP_STAT_STD.brn_interact
+  is 'Тип взаимодействия голова-филиал.Контрольная точка состояния операции';
+grant select on DWH_BUFFER.COL_T_BOP_STAT_STD to AIBEK_BE;
+grant select, insert, update, delete on DWH_BUFFER.COL_T_BOP_STAT_STD to DWH_BUFFER_FULL_ROLE;
+grant select on DWH_BUFFER.COL_T_BOP_STAT_STD to DWH_BUFFER_READ_ROLE;
+grant select on DWH_BUFFER.COL_T_BOP_STAT_STD to DWH_PRIM;
+grant select on DWH_BUFFER.COL_T_BOP_STAT_STD to DWH_RISK;
+grant select on DWH_BUFFER.COL_T_BOP_STAT_STD to DWH_SALES;
+grant select on DWH_BUFFER.COL_T_BOP_STAT_STD to HEAD_DENIS_PL;
+grant select on DWH_BUFFER.COL_T_BOP_STAT_STD to HEAD_EVGENIY_PI;
+grant select on DWH_BUFFER.COL_T_BOP_STAT_STD to KRISTINA_KO;
+grant select on DWH_BUFFER.COL_T_BOP_STAT_STD to PROCESS_RISK;
+grant select on DWH_BUFFER.COL_T_BOP_STAT_STD to PROCESS_SALES;
+

@@ -1,0 +1,212 @@
+create table DWH_BUFFER.COL_G_ADDRESS
+(
+  id         NUMBER(10) not null,
+  id_hi      NUMBER(10),
+  nlevel     NUMBER(5) not null,
+  groupfl    CHAR(1) not null,
+  code       VARCHAR2(30),
+  longname   VARCHAR2(250 CHAR),
+  id_us      NUMBER(10),
+  correctdt  DATE,
+  fulladdr   VARCHAR2(500 CHAR),
+  arcfl      CHAR(1),
+  prim       VARCHAR2(250 CHAR),
+  tdc_id     NUMBER(10),
+  addrpart   VARCHAR2(10),
+  endadrfl   CHAR(1),
+  nodtlfl    CHAR(1),
+  addrhouse  VARCHAR2(10 CHAR),
+  addrbody   VARCHAR2(10 CHAR),
+  addrbuild  VARCHAR2(10 CHAR),
+  post_index VARCHAR2(10 CHAR),
+  tax_id     NUMBER(10),
+  okato      VARCHAR2(30),
+  manfl      CHAR(1),
+  tax_area   VARCHAR2(30),
+  status     VARCHAR2(10),
+  addrvlad   VARCHAR2(10 CHAR)
+)
+tablespace DWH_BUFFER
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  )
+nologging;
+comment on table DWH_BUFFER.COL_G_ADDRESS
+  is 'Справочник территориальных и почтовых адресов';
+comment on column DWH_BUFFER.COL_G_ADDRESS.id
+  is 'Ид адреса';
+comment on column DWH_BUFFER.COL_G_ADDRESS.id_hi
+  is 'Ид адреса верхнего уровня';
+comment on column DWH_BUFFER.COL_G_ADDRESS.nlevel
+  is 'Номер уровня';
+comment on column DWH_BUFFER.COL_G_ADDRESS.groupfl
+  is 'Признак группы';
+comment on column DWH_BUFFER.COL_G_ADDRESS.code
+  is 'Код адреса';
+comment on column DWH_BUFFER.COL_G_ADDRESS.longname
+  is 'Наименование';
+comment on column DWH_BUFFER.COL_G_ADDRESS.id_us
+  is 'Ид пользователя';
+comment on column DWH_BUFFER.COL_G_ADDRESS.correctdt
+  is 'Дата коррекции';
+comment on column DWH_BUFFER.COL_G_ADDRESS.fulladdr
+  is 'Полный адрес';
+comment on column DWH_BUFFER.COL_G_ADDRESS.arcfl
+  is 'Признак архива';
+comment on column DWH_BUFFER.COL_G_ADDRESS.prim
+  is 'Примечание';
+comment on column DWH_BUFFER.COL_G_ADDRESS.tdc_id
+  is 'Тип территориального деления';
+comment on column DWH_BUFFER.COL_G_ADDRESS.addrpart
+  is 'Элемент адреса';
+comment on column DWH_BUFFER.COL_G_ADDRESS.endadrfl
+  is 'Конечный адрес';
+comment on column DWH_BUFFER.COL_G_ADDRESS.nodtlfl
+  is 'Не требует детализации';
+comment on column DWH_BUFFER.COL_G_ADDRESS.addrhouse
+  is 'Дом';
+comment on column DWH_BUFFER.COL_G_ADDRESS.addrbody
+  is 'Корпус';
+comment on column DWH_BUFFER.COL_G_ADDRESS.addrbuild
+  is 'Строение';
+comment on column DWH_BUFFER.COL_G_ADDRESS.post_index
+  is 'Почтовый индекс';
+comment on column DWH_BUFFER.COL_G_ADDRESS.tax_id
+  is 'Налоговая инспекция';
+comment on column DWH_BUFFER.COL_G_ADDRESS.okato
+  is 'Код ОКАТО';
+comment on column DWH_BUFFER.COL_G_ADDRESS.manfl
+  is 'Признак ручного ввода';
+comment on column DWH_BUFFER.COL_G_ADDRESS.tax_area
+  is 'Код участка налоговой инспекции';
+comment on column DWH_BUFFER.COL_G_ADDRESS.status
+  is 'Статус адреса';
+comment on column DWH_BUFFER.COL_G_ADDRESS.addrvlad
+  is 'Владение';
+create index DWH_BUFFER.FK_COL_G_ADDRESS_TAX on DWH_BUFFER.COL_G_ADDRESS (TAX_ID)
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 4M
+    next 4M
+    minextents 1
+    maxextents unlimited
+  )
+  nologging;
+create index DWH_BUFFER.FK_COL_G_ADDRESS_TERDSC on DWH_BUFFER.COL_G_ADDRESS (TDC_ID)
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 4M
+    next 4M
+    minextents 1
+    maxextents unlimited
+  )
+  nologging;
+create index DWH_BUFFER.IE_COL_G_ADDRESS_CODEPART on DWH_BUFFER.COL_G_ADDRESS (CODE, ADDRPART)
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 4M
+    next 4M
+    minextents 1
+    maxextents unlimited
+  )
+  nologging;
+create index DWH_BUFFER.IE_COL_G_ADDRESS_NAMEPART on DWH_BUFFER.COL_G_ADDRESS (LONGNAME, ADDRPART, TDC_ID)
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 72M
+    next 4M
+    minextents 1
+    maxextents unlimited
+  )
+  nologging;
+create index DWH_BUFFER.IE_COL_G_ADDRESS_NLEVEL on DWH_BUFFER.COL_G_ADDRESS (NLEVEL)
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 4M
+    next 4M
+    minextents 1
+    maxextents unlimited
+  )
+  nologging;
+create index DWH_BUFFER.IE_COL_G_ADDRESS_PART on DWH_BUFFER.COL_G_ADDRESS (ADDRPART)
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 4M
+    next 4M
+    minextents 1
+    maxextents unlimited
+  )
+  nologging;
+alter table DWH_BUFFER.COL_G_ADDRESS
+  add constraint PK_COL_G_ADDRESS primary key (ID)
+  using index 
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 4M
+    next 4M
+    minextents 1
+    maxextents unlimited
+  );
+alter index DWH_BUFFER.PK_COL_G_ADDRESS nologging;
+alter table DWH_BUFFER.COL_G_ADDRESS
+  add constraint AK_COL_G_ADDRESS_LNAME unique (ID_HI, TDC_ID, LONGNAME, CODE)
+  using index 
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 112M
+    next 4M
+    minextents 1
+    maxextents unlimited
+  );
+alter index DWH_BUFFER.AK_COL_G_ADDRESS_LNAME nologging;
+grant select on DWH_BUFFER.COL_G_ADDRESS to AIBEK_BE;
+grant select, insert, update, delete on DWH_BUFFER.COL_G_ADDRESS to DWH_BUFFER_FULL_ROLE;
+grant select on DWH_BUFFER.COL_G_ADDRESS to DWH_BUFFER_READ_ROLE;
+grant select on DWH_BUFFER.COL_G_ADDRESS to DWH_PRIM;
+grant select on DWH_BUFFER.COL_G_ADDRESS to DWH_RISK;
+grant select on DWH_BUFFER.COL_G_ADDRESS to DWH_SALES;
+grant select on DWH_BUFFER.COL_G_ADDRESS to HEAD_DENIS_PL;
+grant select on DWH_BUFFER.COL_G_ADDRESS to HEAD_EVGENIY_PI;
+grant select on DWH_BUFFER.COL_G_ADDRESS to KRISTINA_KO;
+grant select on DWH_BUFFER.COL_G_ADDRESS to PROCESS_RISK;
+grant select on DWH_BUFFER.COL_G_ADDRESS to PROCESS_SALES;
+

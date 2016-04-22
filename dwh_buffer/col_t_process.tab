@@ -1,0 +1,110 @@
+create table DWH_BUFFER.COL_T_PROCESS
+(
+  id         NUMBER(10) not null,
+  bop_id     NUMBER(10) not null,
+  nstat      NUMBER(5) not null,
+  closefl    CHAR(1) not null,
+  dep_id     NUMBER(10),
+  refer      VARCHAR2(30),
+  sendfl$bk1 CHAR(1),
+  arcfl      CHAR(1),
+  adr_id$bk1 NUMBER(10)
+)
+tablespace DWH_BUFFER
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  )
+nologging;
+comment on table DWH_BUFFER.COL_T_PROCESS
+  is 'Процессы';
+comment on column DWH_BUFFER.COL_T_PROCESS.id
+  is 'Идентификатор процесса';
+comment on column DWH_BUFFER.COL_T_PROCESS.bop_id
+  is 'Идентификатор бизнес-процесса';
+comment on column DWH_BUFFER.COL_T_PROCESS.nstat
+  is 'Номер текущего состояния процесса';
+comment on column DWH_BUFFER.COL_T_PROCESS.closefl
+  is 'Признак завершения';
+comment on column DWH_BUFFER.COL_T_PROCESS.dep_id
+  is 'Идентификатор подразделения';
+comment on column DWH_BUFFER.COL_T_PROCESS.refer
+  is 'Референс процесса (для филиалов)';
+comment on column DWH_BUFFER.COL_T_PROCESS.sendfl$bk1
+  is 'Признак необходимости отправки (для филиалов)';
+comment on column DWH_BUFFER.COL_T_PROCESS.arcfl
+  is 'Признак архива';
+comment on column DWH_BUFFER.COL_T_PROCESS.adr_id$bk1
+  is 'Адрес для выдачи';
+create index DWH_BUFFER.COL_T_PROCESS_REFER on DWH_BUFFER.COL_T_PROCESS (REFER)
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 20M
+    next 4M
+    minextents 1
+    maxextents unlimited
+  )
+  nologging;
+create index DWH_BUFFER.FK_PROCESS_DEP on DWH_BUFFER.COL_T_PROCESS (DEP_ID)
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 4M
+    next 4M
+    minextents 1
+    maxextents unlimited
+  )
+  compress  nologging;
+create index DWH_BUFFER.FK_PROCESS_STATE on DWH_BUFFER.COL_T_PROCESS (BOP_ID, NSTAT, DEP_ID)
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 4M
+    next 4M
+    minextents 1
+    maxextents unlimited
+  )
+  compress  nologging;
+alter table DWH_BUFFER.COL_T_PROCESS
+  add constraint PK_COL_T_PROCESS primary key (ID)
+  using index 
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 5M
+    next 4M
+    minextents 1
+    maxextents unlimited
+  );
+alter index DWH_BUFFER.PK_COL_T_PROCESS nologging;
+grant select on DWH_BUFFER.COL_T_PROCESS to AIBEK_BE;
+grant select, insert, update, delete on DWH_BUFFER.COL_T_PROCESS to DWH_BUFFER_FULL_ROLE;
+grant select on DWH_BUFFER.COL_T_PROCESS to DWH_BUFFER_READ_ROLE;
+grant select on DWH_BUFFER.COL_T_PROCESS to DWH_PRIM;
+grant select on DWH_BUFFER.COL_T_PROCESS to DWH_RISK;
+grant select on DWH_BUFFER.COL_T_PROCESS to DWH_SALES;
+grant select on DWH_BUFFER.COL_T_PROCESS to HEAD_DENIS_PL;
+grant select on DWH_BUFFER.COL_T_PROCESS to HEAD_EVGENIY_PI;
+grant select on DWH_BUFFER.COL_T_PROCESS to KRISTINA_KO;
+grant select on DWH_BUFFER.COL_T_PROCESS to PROCESS_RISK;
+grant select on DWH_BUFFER.COL_T_PROCESS to PROCESS_SALES;
+

@@ -1,0 +1,72 @@
+create table DWH_RISK.ETL_CRED_LINE
+(
+  dep_id         NUMBER(10) not null,
+  id             NUMBER(10) not null,
+  dtl_id         NUMBER,
+  dcl_code       VARCHAR2(30) not null,
+  dcl_id         NUMBER(10) not null,
+  dcl_name       VARCHAR2(250 CHAR),
+  code           VARCHAR2(30),
+  dord           DATE not null,
+  fromdate       DATE,
+  csln_fromdate  DATE,
+  todate         DATE,
+  cli_name       VARCHAR2(250 CHAR),
+  cli_dep_id     NUMBER(10),
+  cli_id         NUMBER(10),
+  amount         VARCHAR2(27 CHAR),
+  val_code       VARCHAR2(3 CHAR),
+  lastdea        DATE,
+  val_id         NUMBER(10),
+  jurfl          CHAR(1) not null,
+  cli_code       VARCHAR2(30) not null,
+  proc_id        NUMBER(10) not null,
+  bop_id         NUMBER(10) not null,
+  nstat          NUMBER(5) not null,
+  statname       VARCHAR2(250 CHAR),
+  editfl         CHAR(1) not null,
+  dep_code       VARCHAR2(30) not null,
+  dep_name       VARCHAR2(250 CHAR) not null,
+  bal_dep_id     NUMBER(10),
+  bal_dep_code   VARCHAR2(30 CHAR),
+  bal_dep_name   VARCHAR2(250 CHAR),
+  srv_dep_id     NUMBER(10),
+  srv_dep_code   VARCHAR2(30 CHAR),
+  srv_dep_name   VARCHAR2(250 CHAR),
+  sell_dep_id    NUMBER(10),
+  sell_dep_code  VARCHAR2(30 CHAR),
+  sell_dep_name  VARCHAR2(250 CHAR),
+  prim           VARCHAR2(250 CHAR),
+  tuser_name     VARCHAR2(250 CHAR),
+  correctdt      DATE,
+  analiz_l       VARCHAR2(250 CHAR),
+  operday        DATE,
+  impfl          VARCHAR2(1),
+  sumlimpay      VARCHAR2(27 CHAR),
+  trf_idcat      NUMBER(10),
+  trfcat_code    VARCHAR2(5 CHAR),
+  trfcat_name    VARCHAR2(250 CHAR),
+  nocorrlimfl    CHAR(1 CHAR),
+  prd_id         NUMBER(10),
+  prd_name       VARCHAR2(250 CHAR),
+  islineextended VARCHAR2(4000 CHAR),
+  refer          VARCHAR2(30)
+)
+tablespace DWH_RISK
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+grant select on DWH_RISK.ETL_CRED_LINE to AIBEK_BE;
+grant select, insert, update, delete on DWH_RISK.ETL_CRED_LINE to DWH_RISK_FULL_ROLE;
+grant select on DWH_RISK.ETL_CRED_LINE to DWH_RISK_READ_ROLE;
+grant select on DWH_RISK.ETL_CRED_LINE to HEAD_DENIS_PL;
+grant select on DWH_RISK.ETL_CRED_LINE to KRISTINA_KO;
+grant select on DWH_RISK.ETL_CRED_LINE to PROCESS_RISK;
+

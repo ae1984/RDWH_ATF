@@ -1,0 +1,47 @@
+create table DWH_RISK.CHARACTERISTICS
+(
+  sdt          DATE default sysdate,
+  dt           DATE,
+  iin          VARCHAR2(20),
+  process_guid VARCHAR2(50),
+  chr1         NUMBER,
+  chr2         NUMBER,
+  chr3         NUMBER,
+  chr4         NUMBER,
+  chr5         NUMBER,
+  chr6         NUMBER,
+  chr7         DATE,
+  chr8         NUMBER,
+  chr9         NUMBER,
+  chr10        DATE,
+  chr11        NUMBER,
+  chr12        NUMBER,
+  chr13        NUMBER,
+  chr14        NUMBER,
+  chr15        NUMBER,
+  chr16        NUMBER,
+  chr17        NUMBER,
+  chr20        NUMBER,
+  chr21        NUMBER,
+  chr22        NUMBER,
+  chr23        NUMBER,
+  chr24        NUMBER
+)
+tablespace DWH_RISK
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+grant select on DWH_RISK.CHARACTERISTICS to AIBEK_BE;
+grant select, insert, update, delete on DWH_RISK.CHARACTERISTICS to DWH_RISK_FULL_ROLE;
+grant select on DWH_RISK.CHARACTERISTICS to DWH_RISK_READ_ROLE;
+grant select on DWH_RISK.CHARACTERISTICS to HEAD_DENIS_PL;
+grant select on DWH_RISK.CHARACTERISTICS to KRISTINA_KO;
+grant select on DWH_RISK.CHARACTERISTICS to PROCESS_RISK;
+

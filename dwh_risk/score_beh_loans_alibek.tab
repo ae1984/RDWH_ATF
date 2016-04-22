@@ -1,0 +1,27 @@
+create table DWH_RISK.SCORE_BEH_LOANS_ALIBEK
+(
+  contract_num VARCHAR2(30),
+  fromdate     DATE,
+  good_bad     NUMBER,
+  id_colvir    NUMBER,
+  id_way       NUMBER,
+  agr_id       NUMBER
+)
+tablespace DWH_RISK
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+grant select on DWH_RISK.SCORE_BEH_LOANS_ALIBEK to AIBEK_BE;
+grant select, insert, update, delete on DWH_RISK.SCORE_BEH_LOANS_ALIBEK to DWH_RISK_FULL_ROLE;
+grant select on DWH_RISK.SCORE_BEH_LOANS_ALIBEK to DWH_RISK_READ_ROLE;
+grant select on DWH_RISK.SCORE_BEH_LOANS_ALIBEK to HEAD_DENIS_PL;
+grant select on DWH_RISK.SCORE_BEH_LOANS_ALIBEK to KRISTINA_KO;
+grant select on DWH_RISK.SCORE_BEH_LOANS_ALIBEK to PROCESS_RISK;
+

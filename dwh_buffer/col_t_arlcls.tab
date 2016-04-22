@@ -1,0 +1,50 @@
+create table DWH_BUFFER.COL_T_ARLCLS
+(
+  dcl_id    NUMBER(10) not null,
+  clc_id    NUMBER(10) not null,
+  deaeditfl CHAR(1) not null,
+  pay_type  CHAR(1),
+  pay_id    NUMBER(10),
+  priority  NUMBER(5) not null,
+  priority2 NUMBER(5) not null
+)
+tablespace DWH_BUFFER
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  )
+nologging;
+comment on table DWH_BUFFER.COL_T_ARLCLS
+  is 'Виды сумм к оплате/поступлению для продукта';
+comment on column DWH_BUFFER.COL_T_ARLCLS.dcl_id
+  is 'Идентификатор продукта';
+comment on column DWH_BUFFER.COL_T_ARLCLS.clc_id
+  is 'Идентификатор правила расчета';
+comment on column DWH_BUFFER.COL_T_ARLCLS.deaeditfl
+  is 'Разрешение коррекции в договоре';
+comment on column DWH_BUFFER.COL_T_ARLCLS.pay_type
+  is 'Вариант расчетов';
+comment on column DWH_BUFFER.COL_T_ARLCLS.pay_id
+  is 'Идентификатор варианта расчетов по платежам';
+comment on column DWH_BUFFER.COL_T_ARLCLS.priority
+  is 'Приоритет оплаты для плановых сумм';
+comment on column DWH_BUFFER.COL_T_ARLCLS.priority2
+  is 'Приоритет оплаты для просроченных и прочих сумм';
+grant select on DWH_BUFFER.COL_T_ARLCLS to AIBEK_BE;
+grant select, insert, update, delete on DWH_BUFFER.COL_T_ARLCLS to DWH_BUFFER_FULL_ROLE;
+grant select on DWH_BUFFER.COL_T_ARLCLS to DWH_BUFFER_READ_ROLE;
+grant select on DWH_BUFFER.COL_T_ARLCLS to DWH_PRIM;
+grant select on DWH_BUFFER.COL_T_ARLCLS to DWH_RISK;
+grant select on DWH_BUFFER.COL_T_ARLCLS to DWH_SALES;
+grant select on DWH_BUFFER.COL_T_ARLCLS to HEAD_DENIS_PL;
+grant select on DWH_BUFFER.COL_T_ARLCLS to HEAD_EVGENIY_PI;
+grant select on DWH_BUFFER.COL_T_ARLCLS to KRISTINA_KO;
+grant select on DWH_BUFFER.COL_T_ARLCLS to PROCESS_RISK;
+grant select on DWH_BUFFER.COL_T_ARLCLS to PROCESS_SALES;
+

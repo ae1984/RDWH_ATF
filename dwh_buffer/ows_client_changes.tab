@@ -1,0 +1,38 @@
+create table DWH_BUFFER.OWS_CLIENT_CHANGES
+(
+  ows_client_id NUMBER(18),
+  amnd_date     DATE,
+  todate        DATE,
+  amnd_officer  NUMBER(18),
+  id            NUMBER(18) not null,
+  f_i           NUMBER(18),
+  service_group VARCHAR2(32 CHAR),
+  company_nam   VARCHAR2(255 CHAR),
+  cli_code      VARCHAR2(32 CHAR),
+  is_ready      VARCHAR2(1 CHAR),
+  vcc           VARCHAR2(6 CHAR)
+)
+tablespace DWH_BUFFER
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  )
+nologging;
+grant select on DWH_BUFFER.OWS_CLIENT_CHANGES to AIBEK_BE;
+grant select, insert, update, delete on DWH_BUFFER.OWS_CLIENT_CHANGES to DWH_BUFFER_FULL_ROLE;
+grant select on DWH_BUFFER.OWS_CLIENT_CHANGES to DWH_BUFFER_READ_ROLE;
+grant select on DWH_BUFFER.OWS_CLIENT_CHANGES to DWH_PRIM;
+grant select on DWH_BUFFER.OWS_CLIENT_CHANGES to DWH_RISK;
+grant select on DWH_BUFFER.OWS_CLIENT_CHANGES to DWH_SALES;
+grant select on DWH_BUFFER.OWS_CLIENT_CHANGES to HEAD_DENIS_PL;
+grant select on DWH_BUFFER.OWS_CLIENT_CHANGES to HEAD_EVGENIY_PI;
+grant select on DWH_BUFFER.OWS_CLIENT_CHANGES to KRISTINA_KO;
+grant select on DWH_BUFFER.OWS_CLIENT_CHANGES to PROCESS_RISK;
+grant select on DWH_BUFFER.OWS_CLIENT_CHANGES to PROCESS_SALES;
+

@@ -1,0 +1,7 @@
+create sequence DWH_BUFFER.CLIENT_PHONES_SEQ
+minvalue 1
+maxvalue 9999999999999999999999999999
+start with 2224419029
+increment by 1
+cache 20;
+

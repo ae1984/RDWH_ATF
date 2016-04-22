@@ -1,0 +1,119 @@
+create table DWH_BUFFER.CLIENT_PHONES
+(
+  id           NUMBER not null,
+  id_customer  NUMBER not null,
+  phone_type   NUMBER not null,
+  country_code VARCHAR2(5),
+  network_code VARCHAR2(20),
+  phone_number VARCHAR2(100) not null,
+  isacceptable INTEGER,
+  isactive     INTEGER,
+  need_manual  INTEGER,
+  created      DATE,
+  created_by   VARCHAR2(50),
+  updated      DATE,
+  updated_by   VARCHAR2(50)
+)
+tablespace DWH_BUFFER
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 128K
+    next 128K
+    minextents 1
+    maxextents unlimited
+  )
+nologging;
+create unique index DWH_BUFFER.IX_CL_PH on DWH_BUFFER.CLIENT_PHONES (ID_CUSTOMER, PHONE_TYPE, NVL(NETWORK_CODE,'N/A'), PHONE_NUMBER)
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  )
+  nologging;
+create index DWH_BUFFER.IX_CL_PH_IDCUS on DWH_BUFFER.CLIENT_PHONES (ID_CUSTOMER)
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  )
+  nologging;
+create index DWH_BUFFER.IX_CL_PH_P on DWH_BUFFER.CLIENT_PHONES (ID_CUSTOMER, NVL(NETWORK_CODE,'N/A'), PHONE_NUMBER)
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  )
+  nologging;
+create index DWH_BUFFER.IX_CL_PH_SEL on DWH_BUFFER.CLIENT_PHONES (ISACCEPTABLE, ISACTIVE)
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  )
+  nologging;
+alter table DWH_BUFFER.CLIENT_PHONES
+  add primary key (ID)
+  using index 
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+alter index DWH_BUFFER.SYS_C0059450 nologging;
+alter table DWH_BUFFER.CLIENT_PHONES
+  add constraint FK_PH_TYPE foreign key (PHONE_TYPE)
+  references DWH_BUFFER.DICT_PHONE_TYPES (ID);
+alter table DWH_BUFFER.CLIENT_PHONES
+  add constraint C_CL_PH_ACCEPTABLE
+  check (isAcceptable in (0,1));
+alter table DWH_BUFFER.CLIENT_PHONES
+  add constraint C_CL_PH_ACTIVE
+  check (isActive in (0,1));
+alter table DWH_BUFFER.CLIENT_PHONES
+  add constraint C_CL_PH_MANUAL
+  check (need_Manual in (0,1));
+grant select on DWH_BUFFER.CLIENT_PHONES to AIBEK_BE;
+grant select, insert, update, delete on DWH_BUFFER.CLIENT_PHONES to DWH_BUFFER_FULL_ROLE;
+grant select on DWH_BUFFER.CLIENT_PHONES to DWH_BUFFER_READ_ROLE;
+grant select on DWH_BUFFER.CLIENT_PHONES to DWH_PRIM;
+grant select on DWH_BUFFER.CLIENT_PHONES to DWH_RISK;
+grant select on DWH_BUFFER.CLIENT_PHONES to DWH_SALES;
+grant select on DWH_BUFFER.CLIENT_PHONES to HEAD_DENIS_PL;
+grant select on DWH_BUFFER.CLIENT_PHONES to HEAD_EVGENIY_PI;
+grant select on DWH_BUFFER.CLIENT_PHONES to KRISTINA_KO;
+grant select on DWH_BUFFER.CLIENT_PHONES to PROCESS_RISK;
+grant select on DWH_BUFFER.CLIENT_PHONES to PROCESS_SALES;
+

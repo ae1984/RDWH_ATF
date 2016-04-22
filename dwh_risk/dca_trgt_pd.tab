@@ -1,0 +1,34 @@
+create table DWH_RISK.DCA_TRGT_PD
+(
+  load_id   NUMBER(10),
+  load_date DATE,
+  rpt_date  DATE,
+  month     VARCHAR2(2),
+  year      VARCHAR2(4),
+  code      VARCHAR2(30),
+  pd_type   NUMBER(10),
+  pd_text   VARCHAR2(100),
+  pd        NUMBER(38,12),
+  var1      NUMBER(24,12),
+  var2      NUMBER(24,12),
+  var3      NUMBER(24,12),
+  var4      NUMBER(24,12)
+)
+tablespace DWH_RISK
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+grant select on DWH_RISK.DCA_TRGT_PD to AIBEK_BE;
+grant select, insert, update, delete on DWH_RISK.DCA_TRGT_PD to DWH_RISK_FULL_ROLE;
+grant select on DWH_RISK.DCA_TRGT_PD to DWH_RISK_READ_ROLE;
+grant select on DWH_RISK.DCA_TRGT_PD to HEAD_DENIS_PL;
+grant select on DWH_RISK.DCA_TRGT_PD to KRISTINA_KO;
+grant select on DWH_RISK.DCA_TRGT_PD to PROCESS_RISK;
+

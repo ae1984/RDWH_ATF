@@ -1,0 +1,38 @@
+create table DWH_RISK.DCA_20150918
+(
+  fil_code     VARCHAR2(30),
+  code         VARCHAR2(30),
+  name         VARCHAR2(500),
+  load_id      NUMBER(10),
+  pd_type      NUMBER(10),
+  month        VARCHAR2(2),
+  year         VARCHAR2(4),
+  rpt_date     DATE,
+  pd           NUMBER(38,12),
+  vcc          VARCHAR2(10 CHAR),
+  vcc_type     VARCHAR2(500),
+  contract_num VARCHAR2(30),
+  obj_id       NUMBER(10),
+  ovrd_main    NUMBER,
+  ovrd_prc     NUMBER,
+  is_cif_base  NUMBER,
+  is_loan_base NUMBER
+)
+tablespace DWH_RISK
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+grant select on DWH_RISK.DCA_20150918 to AIBEK_BE;
+grant select, insert, update, delete on DWH_RISK.DCA_20150918 to DWH_RISK_FULL_ROLE;
+grant select on DWH_RISK.DCA_20150918 to DWH_RISK_READ_ROLE;
+grant select on DWH_RISK.DCA_20150918 to HEAD_DENIS_PL;
+grant select on DWH_RISK.DCA_20150918 to KRISTINA_KO;
+grant select on DWH_RISK.DCA_20150918 to PROCESS_RISK;
+

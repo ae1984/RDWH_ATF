@@ -1,0 +1,48 @@
+create table DWH_RISK.DP_COVD2
+(
+  obj_id     NUMBER(10) not null,
+  ovd_cnter  NUMBER,
+  start_date DATE,
+  end_date   DATE
+)
+tablespace DWH_RISK
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+comment on column DWH_RISK.DP_COVD2.ovd_cnter
+  is 'ѕор€дковый номер просрочки(просрочка по телу
+>1000тг)';
+comment on column DWH_RISK.DP_COVD2.start_date
+  is 'ƒата начала непрерывной просрочки(просрочка по телу >1000)
+';
+comment on column DWH_RISK.DP_COVD2.end_date
+  is 'ƒата окончани€ непрерывной просрочки(просрочка по телу >1000)
+
+';
+create index DWH_RISK.DP_COVD2_IDX_OBJ_SEDD on DWH_RISK.DP_COVD2 (OBJ_ID, START_DATE, END_DATE)
+  tablespace DWH_RISK
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+grant select on DWH_RISK.DP_COVD2 to AIBEK_BE;
+grant select, insert, update, delete on DWH_RISK.DP_COVD2 to DWH_RISK_FULL_ROLE;
+grant select on DWH_RISK.DP_COVD2 to DWH_RISK_READ_ROLE;
+grant select on DWH_RISK.DP_COVD2 to HEAD_DENIS_PL;
+grant select on DWH_RISK.DP_COVD2 to KRISTINA_KO;
+grant select on DWH_RISK.DP_COVD2 to PROCESS_RISK;
+grant select on DWH_RISK.DP_COVD2 to PUBLIC;
+

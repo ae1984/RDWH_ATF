@@ -1,0 +1,49 @@
+create table DWH_RISK.H_TMP_20150910_S
+(
+  mmyyyy        DATE,
+  iin           VARCHAR2(500),
+  trans_date    DATE,
+  ows_client_id NUMBER(18)
+)
+tablespace DWH_RISK
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+create index DWH_RISK.IX_H_TMP_20150910_S_1 on DWH_RISK.H_TMP_20150910_S (IIN, MMYYYY)
+  tablespace DWH_RISK
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+create index DWH_RISK.IX_H_TMP_20150910_S_2 on DWH_RISK.H_TMP_20150910_S (IIN, TRANS_DATE)
+  tablespace DWH_RISK
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+grant select on DWH_RISK.H_TMP_20150910_S to AIBEK_BE;
+grant select, insert, update, delete on DWH_RISK.H_TMP_20150910_S to DWH_RISK_FULL_ROLE;
+grant select on DWH_RISK.H_TMP_20150910_S to DWH_RISK_READ_ROLE;
+grant select on DWH_RISK.H_TMP_20150910_S to HEAD_DENIS_PL;
+grant select on DWH_RISK.H_TMP_20150910_S to KRISTINA_KO;
+grant select on DWH_RISK.H_TMP_20150910_S to PROCESS_RISK;
+

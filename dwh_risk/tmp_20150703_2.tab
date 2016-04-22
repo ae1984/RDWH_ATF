@@ -1,0 +1,39 @@
+create table DWH_RISK.TMP_20150703_2
+(
+  diff           NUMBER,
+  dni            NUMBER,
+  dni_prosrochki NUMBER,
+  dt_vznosa_plan DATE,
+  contract_id    NUMBER(10) not null,
+  cli_code       VARCHAR2(30),
+  state          VARCHAR2(250 CHAR),
+  contract_num   VARCHAR2(30),
+  full_name      VARCHAR2(250 CHAR),
+  cl_type        VARCHAR2(17),
+  period         VARCHAR2(8),
+  od             NUMBER,
+  od_prosroch    NUMBER,
+  od_paid        NUMBER,
+  od_ost         NUMBER,
+  amt_p          NUMBER,
+  paid           NUMBER,
+  amt_plan       NUMBER
+)
+tablespace DWH_RISK
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+grant select on DWH_RISK.TMP_20150703_2 to AIBEK_BE;
+grant select, insert, update, delete on DWH_RISK.TMP_20150703_2 to DWH_RISK_FULL_ROLE;
+grant select on DWH_RISK.TMP_20150703_2 to DWH_RISK_READ_ROLE;
+grant select on DWH_RISK.TMP_20150703_2 to HEAD_DENIS_PL;
+grant select on DWH_RISK.TMP_20150703_2 to KRISTINA_KO;
+grant select on DWH_RISK.TMP_20150703_2 to PROCESS_RISK;
+

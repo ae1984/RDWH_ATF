@@ -1,0 +1,53 @@
+create table DWH_RISK.EXE_FCB
+(
+  id                VARCHAR2(100),
+  creditordernumber VARCHAR2(100),
+  rnn               VARCHAR2(20),
+  reporttypeid      VARCHAR2(25),
+  reporttypename    VARCHAR2(200),
+  usercode          VARCHAR2(200),
+  querydate         DATE,
+  definition        CLOB
+)
+tablespace DWH_RISK
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+create index DWH_RISK.EXE_FCB_ID on DWH_RISK.EXE_FCB (ID)
+  tablespace DWH_RISK
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+create index DWH_RISK.IX_EXE_FCB_1 on DWH_RISK.EXE_FCB (CREDITORDERNUMBER)
+  tablespace DWH_RISK
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+grant select on DWH_RISK.EXE_FCB to AIBEK_BE;
+grant select, insert, update, delete on DWH_RISK.EXE_FCB to DWH_RISK_FULL_ROLE;
+grant select on DWH_RISK.EXE_FCB to DWH_RISK_READ_ROLE;
+grant select on DWH_RISK.EXE_FCB to HEAD_DENIS_PL;
+grant select on DWH_RISK.EXE_FCB to KRISTINA_KO;
+grant select on DWH_RISK.EXE_FCB to PROCESS_RISK;
+

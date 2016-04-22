@@ -1,0 +1,236 @@
+create table DWH_BUFFER.COL_T_ARLCLC
+(
+  id          NUMBER(10) not null,
+  arl_id      NUMBER(10) not null,
+  shd_id      NUMBER(10),
+  sumclc      VARCHAR2(18),
+  sumshd      VARCHAR2(18),
+  individual  CHAR(1) not null,
+  knp         VARCHAR2(30),
+  nord_dsc    NUMBER(5),
+  sbj_id      NUMBER(10),
+  csr_id      NUMBER(10),
+  pcn_id      NUMBER(10),
+  payacccurr  CHAR(1) not null,
+  cmsbypay    CHAR(1) not null,
+  csrval_id   NUMBER(10),
+  calcdatefl  CHAR(1) not null,
+  skipfl      CHAR(1) not null,
+  yearsplitfl CHAR(1) not null,
+  bsnamt_code VARCHAR2(18),
+  bsnclc_code VARCHAR2(18),
+  bsnshd_code VARCHAR2(18),
+  mthamt_code VARCHAR2(18),
+  payday_id   NUMBER(10) not null,
+  pcnfixfl    CHAR(1) not null,
+  rnd2_id     NUMBER(5),
+  knptbl_id   NUMBER(10)
+)
+tablespace DWH_BUFFER
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  )
+nologging;
+comment on table DWH_BUFFER.COL_T_ARLCLC
+  is 'Правила расчета сумм к оплате/поступлению';
+comment on column DWH_BUFFER.COL_T_ARLCLC.id
+  is 'Идентификатор правила расчета';
+comment on column DWH_BUFFER.COL_T_ARLCLC.arl_id
+  is 'Идентификатор вида суммы';
+comment on column DWH_BUFFER.COL_T_ARLCLC.shd_id
+  is 'Идентификатор шаблона графика';
+comment on column DWH_BUFFER.COL_T_ARLCLC.sumclc
+  is 'Метод расчета суммы';
+comment on column DWH_BUFFER.COL_T_ARLCLC.sumshd
+  is 'Метод распределения суммы';
+comment on column DWH_BUFFER.COL_T_ARLCLC.individual
+  is 'Признак индивидуального';
+comment on column DWH_BUFFER.COL_T_ARLCLC.knp
+  is 'Код назначения платежа (КНП)';
+comment on column DWH_BUFFER.COL_T_ARLCLC.nord_dsc
+  is 'Порядковый номер описания';
+comment on column DWH_BUFFER.COL_T_ARLCLC.sbj_id
+  is 'Идентификатор предметной области';
+comment on column DWH_BUFFER.COL_T_ARLCLC.csr_id
+  is 'Идентификатор символа касплана';
+comment on column DWH_BUFFER.COL_T_ARLCLC.pcn_id
+  is 'Идентификатор процентной ставки';
+comment on column DWH_BUFFER.COL_T_ARLCLC.payacccurr
+  is 'Признак, разрешающий выплату на счета в другой валюте';
+comment on column DWH_BUFFER.COL_T_ARLCLC.cmsbypay
+  is 'Признак взятия комиссии из суммы платежа';
+comment on column DWH_BUFFER.COL_T_ARLCLC.csrval_id
+  is 'Идентификатор символа касплана для валютных ордеров';
+comment on column DWH_BUFFER.COL_T_ARLCLC.calcdatefl
+  is 'Считать по плановым/фактическим дням';
+comment on column DWH_BUFFER.COL_T_ARLCLC.skipfl
+  is 'Пропускать при расчете графика';
+comment on column DWH_BUFFER.COL_T_ARLCLC.yearsplitfl
+  is 'Разбивать расчетный период на два при переходе в следующий год';
+comment on column DWH_BUFFER.COL_T_ARLCLC.bsnamt_code
+  is 'Бизнес метода амортизации';
+comment on column DWH_BUFFER.COL_T_ARLCLC.bsnclc_code
+  is 'Бизнес метода расчета суммы';
+comment on column DWH_BUFFER.COL_T_ARLCLC.bsnshd_code
+  is 'Бизнес метода распределения суммы';
+comment on column DWH_BUFFER.COL_T_ARLCLC.mthamt_code
+  is 'Метода амортизации';
+comment on column DWH_BUFFER.COL_T_ARLCLC.payday_id
+  is 'Правило расчета даты платежа';
+comment on column DWH_BUFFER.COL_T_ARLCLC.pcnfixfl
+  is 'Отображение ставки по дате договора';
+comment on column DWH_BUFFER.COL_T_ARLCLC.rnd2_id
+  is 'Метод округления в валюте получения';
+comment on column DWH_BUFFER.COL_T_ARLCLC.knptbl_id
+  is 'Идентификатор таблицы решений для КНП';
+create index DWH_BUFFER.FK_COL_T_ARLCLC_C_DECTBL on DWH_BUFFER.COL_T_ARLCLC (KNPTBL_ID)
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 4M
+    next 4M
+    minextents 1
+    maxextents unlimited
+  )
+  nologging;
+create index DWH_BUFFER.FK_COL_T_ARLCLC_C_REGDYNPROC on DWH_BUFFER.COL_T_ARLCLC (PAYDAY_ID)
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 4M
+    next 4M
+    minextents 1
+    maxextents unlimited
+  )
+  nologging;
+create index DWH_BUFFER.FK_COL_T_ARLCLC_C_RNDMETH on DWH_BUFFER.COL_T_ARLCLC (RND2_ID)
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 4M
+    next 4M
+    minextents 1
+    maxextents unlimited
+  )
+  nologging;
+create index DWH_BUFFER.FK_COL_T_ARLCLC_G_CSHCHR on DWH_BUFFER.COL_T_ARLCLC (CSR_ID)
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 4M
+    next 4M
+    minextents 1
+    maxextents unlimited
+  )
+  nologging;
+create index DWH_BUFFER.FK_COL_T_ARLCLC_G_CSHCHR_VAL on DWH_BUFFER.COL_T_ARLCLC (CSRVAL_ID)
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 4M
+    next 4M
+    minextents 1
+    maxextents unlimited
+  )
+  nologging;
+create index DWH_BUFFER.FK_COL_T_ARLCLC_T_ARLDSC on DWH_BUFFER.COL_T_ARLCLC (ARL_ID)
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 4M
+    next 4M
+    minextents 1
+    maxextents unlimited
+  )
+  nologging;
+create index DWH_BUFFER.FK_COL_T_ARLCLC_T_OPRDESC on DWH_BUFFER.COL_T_ARLCLC (SBJ_ID, NORD_DSC)
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 4M
+    next 4M
+    minextents 1
+    maxextents unlimited
+  )
+  nologging;
+create index DWH_BUFFER.FK_COL_T_ARLCLC_T_PCN on DWH_BUFFER.COL_T_ARLCLC (PCN_ID)
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 4M
+    next 4M
+    minextents 1
+    maxextents unlimited
+  )
+  nologging;
+create index DWH_BUFFER.FK_T_ARLCLC_TIME_TABLE_SAMPLE on DWH_BUFFER.COL_T_ARLCLC (SHD_ID)
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 4M
+    next 4M
+    minextents 1
+    maxextents unlimited
+  )
+  nologging;
+alter table DWH_BUFFER.COL_T_ARLCLC
+  add constraint PK_COL_T_ARLCLC primary key (ID)
+  using index 
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 4M
+    next 4M
+    minextents 1
+    maxextents unlimited
+  );
+alter index DWH_BUFFER.PK_COL_T_ARLCLC nologging;
+grant select on DWH_BUFFER.COL_T_ARLCLC to AIBEK_BE;
+grant select, insert, update, delete on DWH_BUFFER.COL_T_ARLCLC to DWH_BUFFER_FULL_ROLE;
+grant select on DWH_BUFFER.COL_T_ARLCLC to DWH_BUFFER_READ_ROLE;
+grant select on DWH_BUFFER.COL_T_ARLCLC to DWH_PRIM;
+grant select on DWH_BUFFER.COL_T_ARLCLC to DWH_RISK;
+grant select on DWH_BUFFER.COL_T_ARLCLC to DWH_SALES;
+grant select on DWH_BUFFER.COL_T_ARLCLC to HEAD_DENIS_PL;
+grant select on DWH_BUFFER.COL_T_ARLCLC to HEAD_EVGENIY_PI;
+grant select on DWH_BUFFER.COL_T_ARLCLC to KRISTINA_KO;
+grant select on DWH_BUFFER.COL_T_ARLCLC to PROCESS_RISK;
+grant select on DWH_BUFFER.COL_T_ARLCLC to PROCESS_SALES;
+

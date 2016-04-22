@@ -1,0 +1,74 @@
+create materialized view DWH_BUFFER.MV_LOANS_COLLATERALS_20151028
+refresh complete on demand
+as
+select /*+ parallel(8)*/
+      /*-- parallel(md,16) use_nl(md,l,d,m,p,r,s,e)*/
+      md.DEP_ID,
+      md.ID,
+      md.dea_dep_id,
+      md.dea_id,
+      d.cli_dep_id as dea_cli_dep_id,
+      d.cli_id as dea_cli_id,
+      md.mrt_dep_id,
+      md.mrt_id,
+      md.VAL_ID,
+      md.DEA_CODE,
+      md.DEA_DATE,
+      md.FROMDATE,
+      md.TODATE,
+      m.DSCR,
+      m.ENS_ID as ENS_KND,
+      m.PRIM,
+      m.PRTYPE,
+      m.LOCATION,
+      m.MRT_VAL_ID,
+      m.MRK_VAL_ID,
+      md.CLI_DEP_ID,
+      md.CLI_ID,
+      m.REFER,
+      md.AMOUNT as GRID_AMOUNT,
+      m.MORTG_COST,
+      e.CODE as ENS_KND_CODE,
+      e.LONGNAME as ENS_KND_NAME,
+      e.STYP,
+      md.DEA_CODE as CONTR_NUM,
+      md.DEA_DATE as ENS_DATE,
+      p.ID as PROC_ID,
+      p.BOP_ID,
+      p.NSTAT,
+      md.CORRECTDT,
+      s.NAME as STATNAME,
+      md.loanreqfl,
+      l.dea_state as credit_state,
+      l.prd_id as credit_prd_id
+from  col_l_dea l,
+      col_t_dea d,
+      col_T_PROCESS p,
+      col_T_PROCMEM r,
+      col_L_MRTDEA md,
+      col_L_MORTGAGE m,
+      col_T_BOP_STAT_STD s,
+      col_L_ENSDSC_STD e
+where  1=1
+      and e.id = m.ENS_ID
+      and m.DEP_ID = md.MRT_DEP_ID and m.ID = md.MRT_ID
+      and p.ID = r.ID
+      and r.ORD_ID = m.ID and r.DEP_ID = m.DEP_ID
+      and s.ID = p.BOP_ID and s.NORD = p.NSTAT
+      and l.id=md.dea_id and l.dep_id=md.dea_dep_id
+      and l.dep_id=d.dep_id and l.id=d.id
+      and md.FROMDATE<sysdate
+      and nvl(md.TODATE,sysdate+1)>sysdate;
+grant select on DWH_BUFFER.MV_LOANS_COLLATERALS_20151028 to AIBEK_BE;
+grant select, insert, update, delete on DWH_BUFFER.MV_LOANS_COLLATERALS_20151028 to DWH_BUFFER_FULL_ROLE;
+grant select on DWH_BUFFER.MV_LOANS_COLLATERALS_20151028 to DWH_BUFFER_READ_ROLE;
+grant select on DWH_BUFFER.MV_LOANS_COLLATERALS_20151028 to DWH_PRIM;
+grant select on DWH_BUFFER.MV_LOANS_COLLATERALS_20151028 to DWH_RISK;
+grant select on DWH_BUFFER.MV_LOANS_COLLATERALS_20151028 to DWH_SALES;
+grant select on DWH_BUFFER.MV_LOANS_COLLATERALS_20151028 to HEAD_DENIS_PL;
+grant select on DWH_BUFFER.MV_LOANS_COLLATERALS_20151028 to HEAD_EVGENIY_PI;
+grant select on DWH_BUFFER.MV_LOANS_COLLATERALS_20151028 to KRISTINA_KO;
+grant select on DWH_BUFFER.MV_LOANS_COLLATERALS_20151028 to PROCESS_RISK;
+grant select on DWH_BUFFER.MV_LOANS_COLLATERALS_20151028 to PROCESS_SALES;
+
+

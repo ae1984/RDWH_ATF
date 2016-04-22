@@ -1,0 +1,30 @@
+create table DWH_BUFFER.EXAMPLE_DATA_2
+(
+  owner      VARCHAR2(90) not null,
+  table_name VARCHAR2(90) not null,
+  count_rec  NUMBER
+)
+tablespace DWH_BUFFER
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  )
+nologging;
+grant select on DWH_BUFFER.EXAMPLE_DATA_2 to AIBEK_BE;
+grant select, insert, update, delete on DWH_BUFFER.EXAMPLE_DATA_2 to DWH_BUFFER_FULL_ROLE;
+grant select on DWH_BUFFER.EXAMPLE_DATA_2 to DWH_BUFFER_READ_ROLE;
+grant select on DWH_BUFFER.EXAMPLE_DATA_2 to DWH_PRIM;
+grant select on DWH_BUFFER.EXAMPLE_DATA_2 to DWH_RISK;
+grant select on DWH_BUFFER.EXAMPLE_DATA_2 to DWH_SALES;
+grant select on DWH_BUFFER.EXAMPLE_DATA_2 to HEAD_DENIS_PL;
+grant select on DWH_BUFFER.EXAMPLE_DATA_2 to HEAD_EVGENIY_PI;
+grant select on DWH_BUFFER.EXAMPLE_DATA_2 to KRISTINA_KO;
+grant select on DWH_BUFFER.EXAMPLE_DATA_2 to PROCESS_RISK;
+grant select on DWH_BUFFER.EXAMPLE_DATA_2 to PROCESS_SALES;
+

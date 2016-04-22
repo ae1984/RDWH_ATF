@@ -1,0 +1,34 @@
+create table DWH_RISK.XLS_H_REGNUM_20151211
+(
+  regnum       VARCHAR2(500),
+  dt           VARCHAR2(500),
+  typprod      VARCHAR2(500),
+  d_log_odds   VARCHAR2(500),
+  ñ_log_odds   VARCHAR2(500),
+  s_log_odds   VARCHAR2(500),
+  p_log_odds   VARCHAR2(500),
+  cc_model     VARCHAR2(500),
+  tenor_grp_st VARCHAR2(500),
+  log_score    VARCHAR2(500),
+  y            VARCHAR2(500),
+  pd           VARCHAR2(500),
+  pdc          VARCHAR2(500)
+)
+tablespace DWH_RISK
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+grant select on DWH_RISK.XLS_H_REGNUM_20151211 to AIBEK_BE;
+grant select, insert, update, delete on DWH_RISK.XLS_H_REGNUM_20151211 to DWH_RISK_FULL_ROLE;
+grant select on DWH_RISK.XLS_H_REGNUM_20151211 to DWH_RISK_READ_ROLE;
+grant select on DWH_RISK.XLS_H_REGNUM_20151211 to HEAD_DENIS_PL;
+grant select on DWH_RISK.XLS_H_REGNUM_20151211 to KRISTINA_KO;
+grant select on DWH_RISK.XLS_H_REGNUM_20151211 to PROCESS_RISK;
+

@@ -1,0 +1,213 @@
+create table DWH_RISK.XLS_H_PROSR_CRED_HIST
+(
+  sdt       DATE default sysdate,
+  report_dt DATE,
+  f1        VARCHAR2(500),
+  f2        VARCHAR2(500),
+  f3        VARCHAR2(500),
+  f4        VARCHAR2(500),
+  f5        VARCHAR2(500),
+  f6        VARCHAR2(500),
+  f7        VARCHAR2(500),
+  f8        VARCHAR2(500),
+  f9        VARCHAR2(500),
+  f10       VARCHAR2(500),
+  f11       VARCHAR2(500),
+  f12       VARCHAR2(500),
+  f13       VARCHAR2(500),
+  f14       VARCHAR2(500),
+  f15       VARCHAR2(500),
+  f16       VARCHAR2(500),
+  f17       VARCHAR2(500),
+  f18       VARCHAR2(500),
+  f19       VARCHAR2(500),
+  f20       VARCHAR2(500),
+  f21       VARCHAR2(500),
+  f22       VARCHAR2(500),
+  f23       VARCHAR2(500),
+  f24       VARCHAR2(500),
+  f25       VARCHAR2(500),
+  f26       VARCHAR2(500),
+  f27       VARCHAR2(500),
+  f28       VARCHAR2(500),
+  f29       VARCHAR2(500),
+  f30       VARCHAR2(500),
+  f31       VARCHAR2(500),
+  f32       VARCHAR2(500),
+  f33       VARCHAR2(500),
+  f34       VARCHAR2(500),
+  f35       VARCHAR2(500),
+  f36       VARCHAR2(500),
+  f37       VARCHAR2(500),
+  f38       VARCHAR2(500),
+  f39       VARCHAR2(500),
+  f40       VARCHAR2(500),
+  f41       VARCHAR2(500),
+  f42       VARCHAR2(500),
+  f43       VARCHAR2(500)
+)
+tablespace DWH_RISK
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+comment on table DWH_RISK.XLS_H_PROSR_CRED_HIST
+  is 'Просроченные кредиты на дата';
+comment on column DWH_RISK.XLS_H_PROSR_CRED_HIST.sdt
+  is 'системная дата добавления записи';
+comment on column DWH_RISK.XLS_H_PROSR_CRED_HIST.report_dt
+  is 'дата отчета из имени файла';
+comment on column DWH_RISK.XLS_H_PROSR_CRED_HIST.f1
+  is 'МФО филиала
+';
+comment on column DWH_RISK.XLS_H_PROSR_CRED_HIST.f2
+  is 'Наименование заемщика
+';
+comment on column DWH_RISK.XLS_H_PROSR_CRED_HIST.f3
+  is 'ID клиента
+';
+comment on column DWH_RISK.XLS_H_PROSR_CRED_HIST.f4
+  is 'РНН
+';
+comment on column DWH_RISK.XLS_H_PROSR_CRED_HIST.f5
+  is 'БИН/ИИН
+';
+comment on column DWH_RISK.XLS_H_PROSR_CRED_HIST.f6
+  is 'Группа RM
+';
+comment on column DWH_RISK.XLS_H_PROSR_CRED_HIST.f7
+  is '№ договора
+';
+comment on column DWH_RISK.XLS_H_PROSR_CRED_HIST.f8
+  is 'Дата договора
+';
+comment on column DWH_RISK.XLS_H_PROSR_CRED_HIST.f9
+  is 'Валюта договора
+';
+comment on column DWH_RISK.XLS_H_PROSR_CRED_HIST.f10
+  is 'Outstanding
+';
+comment on column DWH_RISK.XLS_H_PROSR_CRED_HIST.f11
+  is 'Сумма займов, имеющих просроченный основной долг, включая его
+';
+comment on column DWH_RISK.XLS_H_PROSR_CRED_HIST.f12
+  is 'Сумма просроченного основного долга
+';
+comment on column DWH_RISK.XLS_H_PROSR_CRED_HIST.f13
+  is 'Сумма провизий по займам, имеющим просроченный основной долг
+';
+comment on column DWH_RISK.XLS_H_PROSR_CRED_HIST.f14
+  is 'Дата возникновения просрочки по основному долгу
+';
+comment on column DWH_RISK.XLS_H_PROSR_CRED_HIST.f15
+  is 'Количество дней просрочки по основному долгу
+';
+comment on column DWH_RISK.XLS_H_PROSR_CRED_HIST.f16
+  is 'Диапазон дней просрочек по основному долгу
+';
+comment on column DWH_RISK.XLS_H_PROSR_CRED_HIST.f17
+  is 'Сумма займов, имеющих просроченное вознаграждение
+';
+comment on column DWH_RISK.XLS_H_PROSR_CRED_HIST.f18
+  is 'Сумма просроченного вознаграждения
+';
+comment on column DWH_RISK.XLS_H_PROSR_CRED_HIST.f19
+  is 'Сумма провизий по займам, имеющим просроченное вознаграждение
+';
+comment on column DWH_RISK.XLS_H_PROSR_CRED_HIST.f20
+  is 'Дата возникновения просрочки
+';
+comment on column DWH_RISK.XLS_H_PROSR_CRED_HIST.f21
+  is 'Количество дней просрочки
+';
+comment on column DWH_RISK.XLS_H_PROSR_CRED_HIST.f22
+  is 'Диапазон дней просрочек по вознаграждению
+';
+comment on column DWH_RISK.XLS_H_PROSR_CRED_HIST.f23
+  is 'Классификация займа
+';
+comment on column DWH_RISK.XLS_H_PROSR_CRED_HIST.f24
+  is 'Тип продукта
+';
+comment on column DWH_RISK.XLS_H_PROSR_CRED_HIST.f25
+  is 'Бизнес
+';
+comment on column DWH_RISK.XLS_H_PROSR_CRED_HIST.f26
+  is 'Отрасль заемщика
+';
+comment on column DWH_RISK.XLS_H_PROSR_CRED_HIST.f27
+  is 'Код объекта кредитования
+';
+comment on column DWH_RISK.XLS_H_PROSR_CRED_HIST.f28
+  is 'Вид портфеля
+';
+comment on column DWH_RISK.XLS_H_PROSR_CRED_HIST.f29
+  is 'VCC
+';
+comment on column DWH_RISK.XLS_H_PROSR_CRED_HIST.f30
+  is 'Признак реструктуризации
+';
+comment on column DWH_RISK.XLS_H_PROSR_CRED_HIST.f31
+  is 'Референс
+';
+comment on column DWH_RISK.XLS_H_PROSR_CRED_HIST.f32
+  is 'Юл-Фл
+';
+comment on column DWH_RISK.XLS_H_PROSR_CRED_HIST.f33
+  is 'Риск-менеджер
+';
+comment on column DWH_RISK.XLS_H_PROSR_CRED_HIST.f34
+  is 'Кредитный менеджер
+';
+comment on column DWH_RISK.XLS_H_PROSR_CRED_HIST.f35
+  is 'Подразделение обслуживания
+';
+comment on column DWH_RISK.XLS_H_PROSR_CRED_HIST.f36
+  is 'Кредитный консультант
+';
+comment on column DWH_RISK.XLS_H_PROSR_CRED_HIST.f37
+  is 'ТП (Colvir)
+';
+comment on column DWH_RISK.XLS_H_PROSR_CRED_HIST.f38
+  is 'Признак подразделения
+';
+comment on column DWH_RISK.XLS_H_PROSR_CRED_HIST.f39
+  is 'Адрес
+';
+comment on column DWH_RISK.XLS_H_PROSR_CRED_HIST.f40
+  is 'Телефон
+';
+comment on column DWH_RISK.XLS_H_PROSR_CRED_HIST.f41
+  is 'Рег номер ЭКЗ
+';
+comment on column DWH_RISK.XLS_H_PROSR_CRED_HIST.f42
+  is 'Код ЦП
+';
+comment on column DWH_RISK.XLS_H_PROSR_CRED_HIST.f43
+  is 'Центр прибыли
+';
+create index DWH_RISK.IDX_XLS_H_PROSR_CRED_HIST_1 on DWH_RISK.XLS_H_PROSR_CRED_HIST (F3, F7, REPORT_DT)
+  tablespace DWH_RISK
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+grant select on DWH_RISK.XLS_H_PROSR_CRED_HIST to AIBEK_BE;
+grant select, insert, update, delete on DWH_RISK.XLS_H_PROSR_CRED_HIST to DWH_RISK_FULL_ROLE;
+grant select on DWH_RISK.XLS_H_PROSR_CRED_HIST to DWH_RISK_READ_ROLE;
+grant select on DWH_RISK.XLS_H_PROSR_CRED_HIST to HEAD_DENIS_PL;
+grant select on DWH_RISK.XLS_H_PROSR_CRED_HIST to KRISTINA_KO;
+grant select on DWH_RISK.XLS_H_PROSR_CRED_HIST to PROCESS_RISK;
+

@@ -1,0 +1,46 @@
+create table DWH_BUFFER.ACC_BAL_MM
+(
+  id         NUMBER(10),
+  dep_id     NUMBER(10),
+  val_id     NUMBER(10),
+  bal_out    NUMBER,
+  natval_out NUMBER,
+  dt         DATE
+)
+tablespace DWH_BUFFER
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  )
+nologging;
+create index DWH_BUFFER.ACC_BAL_MM_ID on DWH_BUFFER.ACC_BAL_MM (ID, DT)
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  )
+  nologging;
+grant select on DWH_BUFFER.ACC_BAL_MM to AIBEK_BE;
+grant select, insert, update, delete on DWH_BUFFER.ACC_BAL_MM to DWH_BUFFER_FULL_ROLE;
+grant select on DWH_BUFFER.ACC_BAL_MM to DWH_BUFFER_READ_ROLE;
+grant select on DWH_BUFFER.ACC_BAL_MM to DWH_PRIM;
+grant select on DWH_BUFFER.ACC_BAL_MM to DWH_RISK;
+grant select on DWH_BUFFER.ACC_BAL_MM to DWH_SALES;
+grant select on DWH_BUFFER.ACC_BAL_MM to HEAD_DENIS_PL;
+grant select on DWH_BUFFER.ACC_BAL_MM to HEAD_EVGENIY_PI;
+grant select on DWH_BUFFER.ACC_BAL_MM to KRISTINA_KO;
+grant select on DWH_BUFFER.ACC_BAL_MM to PROCESS_RISK;
+grant select on DWH_BUFFER.ACC_BAL_MM to PROCESS_SALES;
+

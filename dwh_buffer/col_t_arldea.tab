@@ -1,0 +1,154 @@
+create table DWH_BUFFER.COL_T_ARLDEA
+(
+  dep_id     NUMBER(10) not null,
+  clc_id     NUMBER(10) not null,
+  ord_id     NUMBER(10) not null,
+  tt_id      NUMBER(10),
+  val_id     NUMBER(10) not null,
+  pay_nord   NUMBER(10),
+  pay_type   CHAR(1),
+  arlvalfl   CHAR(1) not null,
+  priority   NUMBER(5) not null,
+  cli_dep_id NUMBER(10),
+  cli_id     NUMBER(10),
+  lckdate    DATE,
+  priority2  NUMBER(5) not null,
+  inpbal     NUMBER(18,2),
+  gltotal    NUMBER(18,2)
+)
+tablespace DWH_BUFFER
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  )
+nologging;
+comment on table DWH_BUFFER.COL_T_ARLDEA
+  is 'Виды сумм к оплате/поступлению для договора';
+comment on column DWH_BUFFER.COL_T_ARLDEA.dep_id
+  is 'Подразделение документа';
+comment on column DWH_BUFFER.COL_T_ARLDEA.clc_id
+  is 'Идентификатор правила расчета';
+comment on column DWH_BUFFER.COL_T_ARLDEA.ord_id
+  is 'Идентификатор договора';
+comment on column DWH_BUFFER.COL_T_ARLDEA.tt_id
+  is 'Идентификатор графика';
+comment on column DWH_BUFFER.COL_T_ARLDEA.val_id
+  is 'Идентификатор валюты';
+comment on column DWH_BUFFER.COL_T_ARLDEA.pay_nord
+  is 'Порядковый номер реквизитов';
+comment on column DWH_BUFFER.COL_T_ARLDEA.pay_type
+  is 'Вариант расчетов';
+comment on column DWH_BUFFER.COL_T_ARLDEA.arlvalfl
+  is 'Признак валюты, отличной от валюты договора';
+comment on column DWH_BUFFER.COL_T_ARLDEA.priority
+  is 'Приоритет оплаты для плановых сумм';
+comment on column DWH_BUFFER.COL_T_ARLDEA.cli_dep_id
+  is 'Подразделение получателя';
+comment on column DWH_BUFFER.COL_T_ARLDEA.cli_id
+  is 'Идентификатор получателя';
+comment on column DWH_BUFFER.COL_T_ARLDEA.lckdate
+  is 'Дата фиксации';
+comment on column DWH_BUFFER.COL_T_ARLDEA.priority2
+  is 'Приоритет оплаты для просроченных и прочих сумм';
+comment on column DWH_BUFFER.COL_T_ARLDEA.inpbal
+  is 'Входящий остаток при миграции';
+comment on column DWH_BUFFER.COL_T_ARLDEA.gltotal
+  is 'Рассчитано для отражения в ГК за прошлые периоды';
+create index DWH_BUFFER.FK_COL_T_ARLDEA_G_CLI on DWH_BUFFER.COL_T_ARLDEA (CLI_DEP_ID, CLI_ID)
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 4M
+    next 4M
+    minextents 1
+    maxextents unlimited
+  )
+  nologging;
+create index DWH_BUFFER.FK_COL_T_ARLDEA_T_ARLCLC on DWH_BUFFER.COL_T_ARLDEA (CLC_ID)
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 4M
+    next 4M
+    minextents 1
+    maxextents unlimited
+  )
+  nologging;
+create index DWH_BUFFER.FK_COL_T_ARLDEA_T_DEAPAYATR on DWH_BUFFER.COL_T_ARLDEA (DEP_ID, ORD_ID, PAY_NORD)
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 4M
+    next 4M
+    minextents 1
+    maxextents unlimited
+  )
+  nologging;
+create index DWH_BUFFER.FK_COL_T_ARLDEA_TIME_TABLE on DWH_BUFFER.COL_T_ARLDEA (TT_ID)
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 4M
+    next 4M
+    minextents 1
+    maxextents unlimited
+  )
+  nologging;
+create index DWH_BUFFER.FK_COL_T_ARLDEA_T_VAL on DWH_BUFFER.COL_T_ARLDEA (VAL_ID)
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 4M
+    next 4M
+    minextents 1
+    maxextents unlimited
+  )
+  nologging;
+alter table DWH_BUFFER.COL_T_ARLDEA
+  add constraint PK_COL_T_ARLDEA primary key (DEP_ID, ORD_ID, CLC_ID)
+  using index 
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 4M
+    next 4M
+    minextents 1
+    maxextents unlimited
+  );
+alter index DWH_BUFFER.PK_COL_T_ARLDEA nologging;
+grant select on DWH_BUFFER.COL_T_ARLDEA to AIBEK_BE;
+grant select, insert, update, delete on DWH_BUFFER.COL_T_ARLDEA to DWH_BUFFER_FULL_ROLE;
+grant select on DWH_BUFFER.COL_T_ARLDEA to DWH_BUFFER_READ_ROLE;
+grant select on DWH_BUFFER.COL_T_ARLDEA to DWH_PRIM;
+grant select on DWH_BUFFER.COL_T_ARLDEA to DWH_RISK;
+grant select on DWH_BUFFER.COL_T_ARLDEA to DWH_SALES;
+grant select on DWH_BUFFER.COL_T_ARLDEA to HEAD_DENIS_PL;
+grant select on DWH_BUFFER.COL_T_ARLDEA to HEAD_EVGENIY_PI;
+grant select on DWH_BUFFER.COL_T_ARLDEA to KRISTINA_KO;
+grant select on DWH_BUFFER.COL_T_ARLDEA to PROCESS_RISK;
+grant select on DWH_BUFFER.COL_T_ARLDEA to PROCESS_SALES;
+

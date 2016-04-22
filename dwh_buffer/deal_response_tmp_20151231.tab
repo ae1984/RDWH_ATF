@@ -1,0 +1,33 @@
+create table DWH_BUFFER.DEAL_RESPONSE_TMP_20151231
+(
+  response_type CHAR(1),
+  resp_type     VARCHAR2(12),
+  resp_date     DATE,
+  offer_id      NUMBER,
+  agr_id        NUMBER,
+  process_guid  VARCHAR2(250),
+  contract_id   NUMBER
+)
+tablespace DWH_BUFFER
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+grant select on DWH_BUFFER.DEAL_RESPONSE_TMP_20151231 to AIBEK_BE;
+grant select, insert, update, delete on DWH_BUFFER.DEAL_RESPONSE_TMP_20151231 to DWH_BUFFER_FULL_ROLE;
+grant select on DWH_BUFFER.DEAL_RESPONSE_TMP_20151231 to DWH_BUFFER_READ_ROLE;
+grant select on DWH_BUFFER.DEAL_RESPONSE_TMP_20151231 to DWH_PRIM;
+grant select on DWH_BUFFER.DEAL_RESPONSE_TMP_20151231 to DWH_RISK;
+grant select on DWH_BUFFER.DEAL_RESPONSE_TMP_20151231 to DWH_SALES;
+grant select on DWH_BUFFER.DEAL_RESPONSE_TMP_20151231 to HEAD_DENIS_PL;
+grant select on DWH_BUFFER.DEAL_RESPONSE_TMP_20151231 to HEAD_EVGENIY_PI;
+grant select on DWH_BUFFER.DEAL_RESPONSE_TMP_20151231 to KRISTINA_KO;
+grant select on DWH_BUFFER.DEAL_RESPONSE_TMP_20151231 to PROCESS_RISK;
+grant select on DWH_BUFFER.DEAL_RESPONSE_TMP_20151231 to PROCESS_SALES;
+

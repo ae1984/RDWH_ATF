@@ -1,0 +1,386 @@
+create table DWH_RISK.V_CP_H
+(
+  report_dt     DATE,
+  report_ymd    NUMBER,
+  f1            VARCHAR2(500),
+  f2            VARCHAR2(500),
+  f3            VARCHAR2(500),
+  f4            VARCHAR2(500),
+  f5            VARCHAR2(500),
+  f6            VARCHAR2(500),
+  f7            VARCHAR2(500),
+  f8            VARCHAR2(500),
+  f9            VARCHAR2(500),
+  f10           VARCHAR2(500),
+  f11           NUMBER,
+  f12           NUMBER,
+  f13           NUMBER,
+  f14           NUMBER,
+  f15           NUMBER,
+  f16           NUMBER,
+  f17           NUMBER,
+  f18           NUMBER,
+  f19           NUMBER,
+  f20           NUMBER,
+  f21           NUMBER,
+  f22           VARCHAR2(500),
+  loan_issue_ym NUMBER,
+  f23           VARCHAR2(500),
+  f24           NUMBER,
+  f25           NUMBER,
+  f26           VARCHAR2(500),
+  f27           VARCHAR2(500),
+  f28           NUMBER,
+  f29           NUMBER,
+  f30           NUMBER,
+  f31           VARCHAR2(500),
+  f32           VARCHAR2(500),
+  f33           VARCHAR2(500),
+  f34           DATE,
+  f35           VARCHAR2(500),
+  f36           VARCHAR2(500),
+  f37           VARCHAR2(500),
+  f38           VARCHAR2(500),
+  f39           VARCHAR2(500),
+  f40           NUMBER,
+  f41           VARCHAR2(500),
+  f42           VARCHAR2(500),
+  f43           VARCHAR2(500),
+  f44           VARCHAR2(500),
+  f45           VARCHAR2(500),
+  f46           VARCHAR2(500),
+  f47           DATE,
+  f48           DATE,
+  f49           VARCHAR2(500),
+  f50           NUMBER,
+  f51           VARCHAR2(500),
+  f52           VARCHAR2(500),
+  f53           VARCHAR2(500),
+  f54           VARCHAR2(500),
+  f55           VARCHAR2(500),
+  f56           VARCHAR2(500),
+  f57           VARCHAR2(500),
+  f58           VARCHAR2(500),
+  f59           VARCHAR2(500),
+  f60           VARCHAR2(500),
+  f61           NUMBER,
+  f62           NUMBER,
+  f63           VARCHAR2(500),
+  f64           VARCHAR2(500),
+  f65           VARCHAR2(500),
+  f66           NUMBER,
+  f67           NUMBER,
+  f68           VARCHAR2(500),
+  f69           VARCHAR2(500),
+  f70           VARCHAR2(500),
+  f71           VARCHAR2(500),
+  f72           VARCHAR2(500),
+  f73           NUMBER,
+  f74           VARCHAR2(500),
+  f75           VARCHAR2(500),
+  f76           VARCHAR2(500),
+  f77           VARCHAR2(500),
+  f78           VARCHAR2(500),
+  f79           VARCHAR2(500),
+  f80           NUMBER,
+  f81           NUMBER,
+  f82           NUMBER,
+  f83           NUMBER,
+  f84           NUMBER,
+  f85           VARCHAR2(500),
+  f86           NUMBER,
+  f87           VARCHAR2(500),
+  f88           VARCHAR2(500),
+  f89           VARCHAR2(500),
+  f90           NUMBER,
+  f91           NUMBER,
+  f92           NUMBER,
+  f93           VARCHAR2(500),
+  f94           NUMBER,
+  f95           VARCHAR2(500),
+  f96           VARCHAR2(500),
+  f97           NUMBER,
+  f98           NUMBER,
+  f99           VARCHAR2(500),
+  f100          VARCHAR2(500),
+  f101          VARCHAR2(500),
+  f102          VARCHAR2(500),
+  f103          VARCHAR2(500),
+  f104          VARCHAR2(500),
+  f105          VARCHAR2(500),
+  oked          VARCHAR2(500)
+)
+tablespace DWH_RISK
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  )
+nologging;
+comment on table DWH_RISK.V_CP_H
+  is 'КП за дата';
+comment on column DWH_RISK.V_CP_H.report_dt
+  is 'дата отчета из имени файла';
+comment on column DWH_RISK.V_CP_H.f1
+  is 'МФО';
+comment on column DWH_RISK.V_CP_H.f2
+  is 'Лицевой счет';
+comment on column DWH_RISK.V_CP_H.f3
+  is 'НПС';
+comment on column DWH_RISK.V_CP_H.f4
+  is 'Лицевой счет просроченной задолженности';
+comment on column DWH_RISK.V_CP_H.f5
+  is 'Наименование  заемщика';
+comment on column DWH_RISK.V_CP_H.f6
+  is 'Код клиента';
+comment on column DWH_RISK.V_CP_H.f7
+  is 'ИИН';
+comment on column DWH_RISK.V_CP_H.f8
+  is ' № кредитной линии';
+comment on column DWH_RISK.V_CP_H.f9
+  is ' № договора ';
+comment on column DWH_RISK.V_CP_H.f10
+  is 'Валюта ';
+comment on column DWH_RISK.V_CP_H.f11
+  is 'Валюта выдачи';
+comment on column DWH_RISK.V_CP_H.f12
+  is 'Эквивалент в тенге';
+comment on column DWH_RISK.V_CP_H.f13
+  is 'Остаток задолжености';
+comment on column DWH_RISK.V_CP_H.f14
+  is 'Остаток просроченной задолженности в тенге';
+comment on column DWH_RISK.V_CP_H.f15
+  is 'Начальная процентная ставка';
+comment on column DWH_RISK.V_CP_H.f16
+  is 'Процентная ставка';
+comment on column DWH_RISK.V_CP_H.f17
+  is 'Начисленные % в валюте';
+comment on column DWH_RISK.V_CP_H.f18
+  is 'Начисленные % в тенге ';
+comment on column DWH_RISK.V_CP_H.f19
+  is 'Начисленные % по просрочке в тенге ';
+comment on column DWH_RISK.V_CP_H.f20
+  is 'Сумма начисленных комиссий';
+comment on column DWH_RISK.V_CP_H.f21
+  is 'Сумма просроченнх комиссий';
+comment on column DWH_RISK.V_CP_H.f22
+  is 'Дата выдачи';
+comment on column DWH_RISK.V_CP_H.f23
+  is 'Дата погашения';
+comment on column DWH_RISK.V_CP_H.f24
+  is '% провизии';
+comment on column DWH_RISK.V_CP_H.f25
+  is 'Сумма провизии';
+comment on column DWH_RISK.V_CP_H.f26
+  is 'Отрасль заемщика';
+comment on column DWH_RISK.V_CP_H.f27
+  is 'Тип продукта';
+comment on column DWH_RISK.V_CP_H.f28
+  is 'Дисконт по займу';
+comment on column DWH_RISK.V_CP_H.f29
+  is 'IFRS interest';
+comment on column DWH_RISK.V_CP_H.f30
+  is 'Штрафы и пени';
+comment on column DWH_RISK.V_CP_H.f31
+  is 'Код объекта кредитования';
+comment on column DWH_RISK.V_CP_H.f32
+  is 'Связанная сторона с банком да/нет';
+comment on column DWH_RISK.V_CP_H.f33
+  is 'Вид портфеля';
+comment on column DWH_RISK.V_CP_H.f34
+  is 'Дата проставления признака (текущий)';
+comment on column DWH_RISK.V_CP_H.f35
+  is 'Признак реструктуризации (текущий)';
+comment on column DWH_RISK.V_CP_H.f36
+  is 'Дата проставления признака (предыдущий)';
+comment on column DWH_RISK.V_CP_H.f37
+  is 'Признак реструктуризации (предыдущий)';
+comment on column DWH_RISK.V_CP_H.f38
+  is 'Дата последней реструктуризации';
+comment on column DWH_RISK.V_CP_H.f39
+  is 'Код VCC';
+comment on column DWH_RISK.V_CP_H.f40
+  is 'Эффективная процентная ставка';
+comment on column DWH_RISK.V_CP_H.f41
+  is 'Код NACE';
+comment on column DWH_RISK.V_CP_H.f42
+  is 'Код OLAV';
+comment on column DWH_RISK.V_CP_H.f43
+  is 'Финансовый рейтинг';
+comment on column DWH_RISK.V_CP_H.f44
+  is 'Утвержденный рейтинг';
+comment on column DWH_RISK.V_CP_H.f45
+  is 'BLANA';
+comment on column DWH_RISK.V_CP_H.f46
+  is 'Дата утверждения рейтинга';
+comment on column DWH_RISK.V_CP_H.f47
+  is 'Дата финансовой отчетности';
+comment on column DWH_RISK.V_CP_H.f48
+  is 'Дата следующего пересмотра рейтинга';
+comment on column DWH_RISK.V_CP_H.f49
+  is 'Код PSC';
+comment on column DWH_RISK.V_CP_H.f50
+  is 'Сумма договора в старой системе';
+comment on column DWH_RISK.V_CP_H.f51
+  is 'Признак подразделения';
+comment on column DWH_RISK.V_CP_H.f52
+  is 'Цель использования';
+comment on column DWH_RISK.V_CP_H.f53
+  is 'Референс';
+comment on column DWH_RISK.V_CP_H.f54
+  is 'Референс кредитной линии';
+comment on column DWH_RISK.V_CP_H.f55
+  is 'Вид индикатора';
+comment on column DWH_RISK.V_CP_H.f56
+  is 'Вид ставки вознаграждения';
+comment on column DWH_RISK.V_CP_H.f57
+  is 'Код продукта АТФ';
+comment on column DWH_RISK.V_CP_H.f58
+  is 'Наименование продукта АТФ';
+comment on column DWH_RISK.V_CP_H.f59
+  is 'Подсектор экономики';
+comment on column DWH_RISK.V_CP_H.f60
+  is 'ID транша в системе';
+comment on column DWH_RISK.V_CP_H.f61
+  is 'МСФО провизии на основной долг';
+comment on column DWH_RISK.V_CP_H.f62
+  is 'МСФО провизии на %';
+comment on column DWH_RISK.V_CP_H.f63
+  is 'РНН';
+comment on column DWH_RISK.V_CP_H.f64
+  is 'Риск-менеджер';
+comment on column DWH_RISK.V_CP_H.f65
+  is 'Кредитный менеджер';
+comment on column DWH_RISK.V_CP_H.f66
+  is 'МСФО провизии ОД';
+comment on column DWH_RISK.V_CP_H.f67
+  is 'МСФО провизии %';
+comment on column DWH_RISK.V_CP_H.f68
+  is 'Код точки продаж';
+comment on column DWH_RISK.V_CP_H.f69
+  is 'Наименование точки продаж';
+comment on column DWH_RISK.V_CP_H.f70
+  is 'Группа РМ';
+comment on column DWH_RISK.V_CP_H.f71
+  is 'Юл - Фл';
+comment on column DWH_RISK.V_CP_H.f72
+  is 'резидентство';
+comment on column DWH_RISK.V_CP_H.f73
+  is ' Outstanding ';
+comment on column DWH_RISK.V_CP_H.f74
+  is 'IFRS Industry';
+comment on column DWH_RISK.V_CP_H.f75
+  is 'Type of business';
+comment on column DWH_RISK.V_CP_H.f76
+  is 'VCC name';
+comment on column DWH_RISK.V_CP_H.f77
+  is 'SHORT VCC';
+comment on column DWH_RISK.V_CP_H.f78
+  is 'RWO';
+comment on column DWH_RISK.V_CP_H.f79
+  is 'RWO_short';
+comment on column DWH_RISK.V_CP_H.f80
+  is '№ principal dpd';
+comment on column DWH_RISK.V_CP_H.f81
+  is '№ interest dpd';
+comment on column DWH_RISK.V_CP_H.f82
+  is 'MAX';
+comment on column DWH_RISK.V_CP_H.f83
+  is ' COLLATERAL ';
+comment on column DWH_RISK.V_CP_H.f84
+  is ' Adjusted COLLATERAL ';
+comment on column DWH_RISK.V_CP_H.f85
+  is 'ДИАПАЗОН MIGRATION';
+comment on column DWH_RISK.V_CP_H.f86
+  is 'Overdue PROVISIONING';
+comment on column DWH_RISK.V_CP_H.f87
+  is 'LGD ';
+comment on column DWH_RISK.V_CP_H.f88
+  is 'PD';
+comment on column DWH_RISK.V_CP_H.f89
+  is 'LDP';
+comment on column DWH_RISK.V_CP_H.f90
+  is ' LLP ';
+comment on column DWH_RISK.V_CP_H.f91
+  is ' IFRS interest LLP';
+comment on column DWH_RISK.V_CP_H.f92
+  is ' LLP total ';
+comment on column DWH_RISK.V_CP_H.f93
+  is ' LLP % ';
+comment on column DWH_RISK.V_CP_H.f94
+  is ' Current coverage ';
+comment on column DWH_RISK.V_CP_H.f95
+  is 'CLASS';
+comment on column DWH_RISK.V_CP_H.f96
+  is 'ISL';
+comment on column DWH_RISK.V_CP_H.f97
+  is ' LLP OD ';
+comment on column DWH_RISK.V_CP_H.f98
+  is ' LLP %% ';
+comment on column DWH_RISK.V_CP_H.f99
+  is 'SPU interest LLP';
+comment on column DWH_RISK.V_CP_H.f100
+  is 'acc';
+comment on column DWH_RISK.V_CP_H.f101
+  is 'acc';
+comment on column DWH_RISK.V_CP_H.f102
+  is 'acc1';
+comment on column DWH_RISK.V_CP_H.f103
+  is 'Overdue AFN';
+comment on column DWH_RISK.V_CP_H.f104
+  is 'откорректированные договора';
+comment on column DWH_RISK.V_CP_H.f105
+  is 'Код/Догов';
+comment on column DWH_RISK.V_CP_H.oked
+  is 'ОКЭД';
+create index DWH_RISK.IX_V_CP_H_1 on DWH_RISK.V_CP_H (F53, REPORT_DT)
+  tablespace DWH_RISK
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  )
+  nologging;
+create index DWH_RISK.IX_V_CP_H_2 on DWH_RISK.V_CP_H (REPORT_DT, F53)
+  tablespace DWH_RISK
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  )
+  nologging;
+create index DWH_RISK.IX_V_CP_H_3 on DWH_RISK.V_CP_H (F9, REPORT_DT)
+  tablespace DWH_RISK
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  )
+  nologging;
+grant select on DWH_RISK.V_CP_H to AIBEK_BE;
+grant select, insert, update, delete on DWH_RISK.V_CP_H to DWH_RISK_FULL_ROLE;
+grant select on DWH_RISK.V_CP_H to DWH_RISK_READ_ROLE;
+grant select on DWH_RISK.V_CP_H to HEAD_DENIS_PL;
+grant select on DWH_RISK.V_CP_H to KRISTINA_KO;
+grant select on DWH_RISK.V_CP_H to PROCESS_RISK;
+

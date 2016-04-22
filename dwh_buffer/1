@@ -1,0 +1,1880 @@
+--------------------------------------------------
+-- Export file for user DWH_BUFFER@DWH          --
+-- Created by Alexey-Ye on 10.02.2016, 14:15:52 --
+--------------------------------------------------
+
+set define off
+spool 1.log
+
+prompt
+prompt Creating table ACC_BAL
+prompt ======================
+prompt
+@@acc_bal.tab
+prompt
+prompt Creating table ACC_BAL_MM
+prompt =========================
+prompt
+@@acc_bal_mm.tab
+prompt
+prompt Creating table APP_RESPONSE_TMP
+prompt ===============================
+prompt
+@@app_response_tmp.tab
+prompt
+prompt Creating table APP_RESPONSE_TMP_20151231
+prompt ========================================
+prompt
+@@app_response_tmp_20151231.tab
+prompt
+prompt Creating table BAL_LOAN
+prompt =======================
+prompt
+@@bal_loan.tab
+prompt
+prompt Creating table BAL_LOAN_ALL
+prompt ===========================
+prompt
+@@bal_loan_all.tab
+prompt
+prompt Creating table BAL_LOAN_OVD
+prompt ===========================
+prompt
+@@bal_loan_ovd.tab
+prompt
+prompt Creating table CALENDAR
+prompt =======================
+prompt
+@@calendar.tab
+prompt
+prompt Creating table CASHANDGOFORRB
+prompt =============================
+prompt
+@@cashandgoforrb.tab
+prompt
+prompt Creating table CASHANDGOFORRB_TMP
+prompt =================================
+prompt
+@@cashandgoforrb_tmp.tab
+prompt
+prompt Creating table C_DEP
+prompt ====================
+prompt
+@@c_dep.tab
+prompt
+prompt Creating table C_DEP_20151229
+prompt =============================
+prompt
+@@c_dep_20151229.tab
+prompt
+prompt Creating table CLIENT
+prompt =====================
+prompt
+@@client.tab
+prompt
+prompt Creating table CLIENT_ALL
+prompt =========================
+prompt
+@@client_all.tab
+prompt
+prompt Creating table CLIENT_CLI_CODE_CLEAR
+prompt ====================================
+prompt
+@@client_cli_code_clear.tab
+prompt
+prompt Creating table CLIENT_IIN_CLEAR
+prompt ===============================
+prompt
+@@client_iin_clear.tab
+prompt
+prompt Creating table CLIENT_MAP
+prompt =========================
+prompt
+@@client_map.tab
+prompt
+prompt Creating table DICT_PHONE_TYPES
+prompt ===============================
+prompt
+@@dict_phone_types.tab
+prompt
+prompt Creating table CLIENT_PHONES
+prompt ============================
+prompt
+@@client_phones.tab
+prompt
+prompt Creating table CLIENT_RNN_CLEAR
+prompt ===============================
+prompt
+@@client_rnn_clear.tab
+prompt
+prompt Creating table CLIENT_20160115
+prompt ==============================
+prompt
+@@client_20160115.tab
+prompt
+prompt Creating table CLNT_ANALIT_20141205
+prompt ===================================
+prompt
+@@clnt_analit_20141205.tab
+prompt
+prompt Creating table CLNT_ANALIT_20141205_2
+prompt =====================================
+prompt
+@@clnt_analit_20141205_2.tab
+prompt
+prompt Creating table COL_ATF_IFRS_L_DEA_ARC
+prompt =====================================
+prompt
+@@col_atf_ifrs_l_dea_arc.tab
+prompt
+prompt Creating table COL_C_DEP
+prompt ========================
+prompt
+@@col_c_dep.tab
+prompt
+prompt Creating table COL_C_DOMAIN
+prompt ===========================
+prompt
+@@col_c_domain.tab
+prompt
+prompt Creating table COL_C_DOMAIN_STD
+prompt ===============================
+prompt
+@@col_c_domain_std.tab
+prompt
+prompt Creating table COL_C_DOMAIN_TMP
+prompt ===============================
+prompt
+@@col_c_domain_tmp.tab
+prompt
+prompt Creating table COL_C_PRMCLS
+prompt ===========================
+prompt
+@@col_c_prmcls.tab
+prompt
+prompt Creating table COL_C_PRMCLS_STD
+prompt ===============================
+prompt
+@@col_c_prmcls_std.tab
+prompt
+prompt Creating table COL_C_PRMVAL
+prompt ===========================
+prompt
+@@col_c_prmval.tab
+prompt
+prompt Creating table COL_C_RNDMETH
+prompt ============================
+prompt
+@@col_c_rndmeth.tab
+prompt
+prompt Creating table COL_C_RNDMETH_TMP
+prompt ================================
+prompt
+@@col_c_rndmeth_tmp.tab
+prompt
+prompt Creating table COL_C_TBLCOL_STD
+prompt ===============================
+prompt
+@@col_c_tblcol_std.tab
+prompt
+prompt Creating table COL_C_TBLROW_LNG
+prompt ===============================
+prompt
+@@col_c_tblrow_lng.tab
+prompt
+prompt Creating table COL_C_TBLROW_STD
+prompt ===============================
+prompt
+@@col_c_tblrow_std.tab
+prompt
+prompt Creating table COL_C_TBLVAL
+prompt ===========================
+prompt
+@@col_c_tblval.tab
+prompt
+prompt Creating table COL_CV_TBLROW
+prompt ============================
+prompt
+@@col_cv_tblrow.tab
+prompt
+prompt Creating table COL_CV_TBLROW_TMP
+prompt ================================
+prompt
+@@col_cv_tblrow_tmp.tab
+prompt
+prompt Creating table COL_D_DEA
+prompt ========================
+prompt
+@@col_d_dea.tab
+prompt
+prompt Creating table COL_G_ACCBLN
+prompt ===========================
+prompt
+@@col_g_accbln.tab
+prompt
+prompt Creating table COL_G_ACCBLNHST
+prompt ==============================
+prompt
+@@col_g_accblnhst.tab
+prompt
+prompt Creating table COL_G_ADDRESS
+prompt ============================
+prompt
+@@col_g_address.tab
+prompt
+prompt Creating table COL_G_CLI
+prompt ========================
+prompt
+@@col_g_cli.tab
+prompt
+prompt Creating table COL_G_CLIADDATR
+prompt ==============================
+prompt
+@@col_g_cliaddatr.tab
+prompt
+prompt Creating table COL_G_CLIADDRESS
+prompt ===============================
+prompt
+@@col_g_cliaddress.tab
+prompt
+prompt Creating table COL_G_CLIHST
+prompt ===========================
+prompt
+@@col_g_clihst.tab
+prompt
+prompt Creating table COL_G_CLIPHONE
+prompt =============================
+prompt
+@@col_g_cliphone.tab
+prompt
+prompt Creating table COL_G_CON
+prompt ========================
+prompt
+@@col_g_con.tab
+prompt
+prompt Creating table COL_G_CON_LNG
+prompt ============================
+prompt
+@@col_g_con_lng.tab
+prompt
+prompt Creating table COL_G_CONMEM
+prompt ===========================
+prompt
+@@col_g_conmem.tab
+prompt
+prompt Creating table COL_G_CONSRC
+prompt ===========================
+prompt
+@@col_g_consrc.tab
+prompt
+prompt Creating table COL_G_CON_STD
+prompt ============================
+prompt
+@@col_g_con_std.tab
+prompt
+prompt Creating table COL_G_CON_TMP
+prompt ============================
+prompt
+@@col_g_con_tmp.tab
+prompt
+prompt Creating table COL_G_IDENTDOCDSC_STD
+prompt ====================================
+prompt
+@@col_g_identdocdsc_std.tab
+prompt
+prompt Creating table COL_G_TERRDSC
+prompt ============================
+prompt
+@@col_g_terrdsc.tab
+prompt
+prompt Creating table COL_L_DEA
+prompt ========================
+prompt
+@@col_l_dea.tab
+prompt
+prompt Creating table COL_LEDACC_STD
+prompt =============================
+prompt
+@@col_ledacc_std.tab
+prompt
+prompt Creating table COL_L_ENSDSC_STD
+prompt ===============================
+prompt
+@@col_l_ensdsc_std.tab
+prompt
+prompt Creating table COLLIE_TMP_ATF_PROSR_DEA
+prompt =======================================
+prompt
+@@collie_tmp_atf_prosr_dea.tab
+prompt
+prompt Creating table COL_L_MORTGAGE
+prompt =============================
+prompt
+@@col_l_mortgage.tab
+prompt
+prompt Creating table COL_L_MRTDEA
+prompt ===========================
+prompt
+@@col_l_mrtdea.tab
+prompt
+prompt Creating table COL_Q_ACC
+prompt ========================
+prompt
+@@col_q_acc.tab
+prompt
+prompt Creating table COL_Q_DEA
+prompt ========================
+prompt
+@@col_q_dea.tab
+prompt
+prompt Creating table COL_Q_ENTACC_STD
+prompt ===============================
+prompt
+@@col_q_entacc_std.tab
+prompt
+prompt Creating table COL_Q_ROW
+prompt ========================
+prompt
+@@col_q_row.tab
+prompt
+prompt Creating table COL_Q_ROW_365
+prompt ============================
+prompt
+@@col_q_row_365.tab
+prompt
+prompt Creating table COL_Q_ROW_5
+prompt ==========================
+prompt
+@@col_q_row_5.tab
+prompt
+prompt Creating table COL_ROW_NAME
+prompt ===========================
+prompt
+@@col_row_name.tab
+prompt
+prompt Creating table COL_SYNH
+prompt =======================
+prompt
+@@col_synh.tab
+prompt
+prompt Creating table COL_SYNH_LOG
+prompt ===========================
+prompt
+@@col_synh_log.tab
+prompt
+prompt Creating table COL_SYNH_SCHEME
+prompt ==============================
+prompt
+@@col_synh_scheme.tab
+prompt
+prompt Creating table COL_SYNH_TAB
+prompt ===========================
+prompt
+@@col_synh_tab.tab
+prompt
+prompt Creating table COL_SYNH_2
+prompt =========================
+prompt
+@@col_synh_2.tab
+prompt
+prompt Creating table COL_T_ARLCLC
+prompt ===========================
+prompt
+@@col_t_arlclc.tab
+prompt
+prompt Creating table COL_T_ARLCLS
+prompt ===========================
+prompt
+@@col_t_arlcls.tab
+prompt
+prompt Creating table COL_T_ARLDEA
+prompt ===========================
+prompt
+@@col_t_arldea.tab
+prompt
+prompt Creating table COL_T_ARLDSC
+prompt ===========================
+prompt
+@@col_t_arldsc.tab
+prompt
+prompt Creating table COL_T_ARLDSC_STD
+prompt ===============================
+prompt
+@@col_t_arldsc_std.tab
+prompt
+prompt Creating table COL_T_ARLDSC_TMP
+prompt ===============================
+prompt
+@@col_t_arldsc_tmp.tab
+prompt
+prompt Creating table COL_T_ARLMETHPRM
+prompt ===============================
+prompt
+@@col_t_arlmethprm.tab
+prompt
+prompt Creating table COL_T_BAL
+prompt ========================
+prompt
+@@col_t_bal.tab
+prompt
+prompt Creating table COL_T_BAL_LDT
+prompt ============================
+prompt
+@@col_t_bal_ldt.tab
+prompt
+prompt Creating table COL_T_BAL_TMP
+prompt ============================
+prompt
+@@col_t_bal_tmp.tab
+prompt
+prompt Creating table COL_T_BOP_STAT_STD
+prompt =================================
+prompt
+@@col_t_bop_stat_std.tab
+prompt
+prompt Creating table COL_T_DEA
+prompt ========================
+prompt
+@@col_t_dea.tab
+prompt
+prompt Creating table COL_T_DEACLS_STD
+prompt ===============================
+prompt
+@@col_t_deacls_std.tab
+prompt
+prompt Creating table COL_T_DEAPAY
+prompt ===========================
+prompt
+@@col_t_deapay.tab
+prompt
+prompt Creating table COL_T_DEAPRD_STD
+prompt ===============================
+prompt
+@@col_t_deaprd_std.tab
+prompt
+prompt Creating table COL_T_DEAPRM
+prompt ===========================
+prompt
+@@col_t_deaprm.tab
+prompt
+prompt Creating table COL_T_DEAPRMDSC
+prompt ==============================
+prompt
+@@col_t_deaprmdsc.tab
+prompt
+prompt Creating table COL_T_DEAPRMDSC_LNG
+prompt ==================================
+prompt
+@@col_t_deaprmdsc_lng.tab
+prompt
+prompt Creating table COL_T_DEAPRMDSC_LNG_TMP
+prompt ======================================
+prompt
+@@col_t_deaprmdsc_lng_tmp.tab
+prompt
+prompt Creating table COL_T_DEAPRMDSC_STD
+prompt ==================================
+prompt
+@@col_t_deaprmdsc_std.tab
+prompt
+prompt Creating table COL_T_DEAPRMDSC_TMP
+prompt ==================================
+prompt
+@@col_t_deaprmdsc_tmp.tab
+prompt
+prompt Creating table COL_T_DEAPRMRUL
+prompt ==============================
+prompt
+@@col_t_deaprmrul.tab
+prompt
+prompt Creating table COL_T_DEASHDPNT
+prompt ==============================
+prompt
+@@col_t_deashdpnt.tab
+prompt
+prompt Creating table COL_T_OPERDET
+prompt ============================
+prompt
+@@col_t_operdet.tab
+prompt
+prompt Creating table COL_T_OPERJRN
+prompt ============================
+prompt
+@@col_t_operjrn.tab
+prompt
+prompt Creating table COL_T_ORD
+prompt ========================
+prompt
+@@col_t_ord.tab
+prompt
+prompt Creating table COL_T_PCN
+prompt ========================
+prompt
+@@col_t_pcn.tab
+prompt
+prompt Creating table COL_T_PCNDSC
+prompt ===========================
+prompt
+@@col_t_pcndsc.tab
+prompt
+prompt Creating table COL_T_PCNDTL
+prompt ===========================
+prompt
+@@col_t_pcndtl.tab
+prompt
+prompt Creating table COL_T_PCNHST
+prompt ===========================
+prompt
+@@col_t_pcnhst.tab
+prompt
+prompt Creating table COL_T_PCNRAT
+prompt ===========================
+prompt
+@@col_t_pcnrat.tab
+prompt
+prompt Creating table COL_T_PROCESS
+prompt ============================
+prompt
+@@col_t_process.tab
+prompt
+prompt Creating table COL_T_PROCMEM
+prompt ============================
+prompt
+@@col_t_procmem.tab
+prompt
+prompt Creating table COL_T_REG_STD
+prompt ============================
+prompt
+@@col_t_reg_std.tab
+prompt
+prompt Creating table COL_TT_POINT
+prompt ===========================
+prompt
+@@col_tt_point.tab
+prompt
+prompt Creating table COL_T_VAL_STD
+prompt ============================
+prompt
+@@col_t_val_std.tab
+prompt
+prompt Creating table CONTACT
+prompt ======================
+prompt
+@@contact.tab
+prompt
+prompt Creating table CONTR_LIST_RISK
+prompt ==============================
+prompt
+@@contr_list_risk.tab
+prompt
+prompt Creating table CS_CLI_RM_VCC
+prompt ============================
+prompt
+@@cs_cli_rm_vcc.tab
+prompt
+prompt Creating table DASH_BOARD
+prompt =========================
+prompt
+@@dash_board.tab
+prompt
+prompt Creating table DASH_BOARD_TMP
+prompt =============================
+prompt
+@@dash_board_tmp.tab
+prompt
+prompt Creating table DASH_BOARD_TMP_20151231
+prompt ======================================
+prompt
+@@dash_board_tmp_20151231.tab
+prompt
+prompt Creating table DASH_BOARD_20151231
+prompt ==================================
+prompt
+@@dash_board_20151231.tab
+prompt
+prompt Creating table DEAL_RESPONSE_TMP
+prompt ================================
+prompt
+@@deal_response_tmp.tab
+prompt
+prompt Creating table DEAL_RESPONSE_TMP_20151231
+prompt =========================================
+prompt
+@@deal_response_tmp_20151231.tab
+prompt
+prompt Creating table DEBUG_LOG
+prompt ========================
+prompt
+@@debug_log.tab
+prompt
+prompt Creating table DELETED_W4_ACNT_CONTRACT
+prompt =======================================
+prompt
+@@deleted_w4_acnt_contract.tab
+prompt
+prompt Creating table DICT_ACTION_TYPES
+prompt ================================
+prompt
+@@dict_action_types.tab
+prompt
+prompt Creating table DICT_BRANCH_EKZ
+prompt ==============================
+prompt
+@@dict_branch_ekz.tab
+prompt
+prompt Creating table DICT_DEP_EKZ
+prompt ===========================
+prompt
+@@dict_dep_ekz.tab
+prompt
+prompt Creating table DICT_EFFECTIVE_RATE
+prompt ==================================
+prompt
+@@dict_effective_rate.tab
+prompt
+prompt Creating table DICT_MOBILES_CODE
+prompt ================================
+prompt
+@@dict_mobiles_code.tab
+prompt
+prompt Creating table DICT_PHONE_TYPES_MAP_OUT
+prompt =======================================
+prompt
+@@dict_phone_types_map_out.tab
+prompt
+prompt Creating table DM_ACC_BASE
+prompt ==========================
+prompt
+@@dm_acc_base.tab
+prompt
+prompt Creating table DM_ALL_BAL_AGG
+prompt =============================
+prompt
+@@dm_all_bal_agg.tab
+prompt
+prompt Creating table DM_ALL_BAL_AGG_BUF
+prompt =================================
+prompt
+@@dm_all_bal_agg_buf.tab
+prompt
+prompt Creating table DM_BAL_SNAP
+prompt ==========================
+prompt
+@@dm_bal_snap.tab
+prompt
+prompt Creating table DM_BAL_SNAP_TMP
+prompt ==============================
+prompt
+@@dm_bal_snap_tmp.tab
+prompt
+prompt Creating table DM_CIF_ADDR
+prompt ==========================
+prompt
+@@dm_cif_addr.tab
+prompt
+prompt Creating table DM_CIF_BASE
+prompt ==========================
+prompt
+@@dm_cif_base.tab
+prompt
+prompt Creating table DM_CIF_BASE_20151229
+prompt ===================================
+prompt
+@@dm_cif_base_20151229.tab
+prompt
+prompt Creating table DM_CIF_PHONE_NORMAL
+prompt ==================================
+prompt
+@@dm_cif_phone_normal.tab
+prompt
+prompt Creating table DM_DELAY_CURR
+prompt ============================
+prompt
+@@dm_delay_curr.tab
+prompt
+prompt Creating table DM_DELAY_HIST
+prompt ============================
+prompt
+@@dm_delay_hist.tab
+prompt
+prompt Creating table DM_DEP_BASE
+prompt ==========================
+prompt
+@@dm_dep_base.tab
+prompt
+prompt Creating table DM_LOAN_ACC
+prompt ==========================
+prompt
+@@dm_loan_acc.tab
+prompt
+prompt Creating table DM_LOAN_BAL_AGG
+prompt ==============================
+prompt
+@@dm_loan_bal_agg.tab
+prompt
+prompt Creating table DM_LOAN_BAL_AGG_BUF
+prompt ==================================
+prompt
+@@dm_loan_bal_agg_buf.tab
+prompt
+prompt Creating table DM_LOAN_BAL_OVD
+prompt ==============================
+prompt
+@@dm_loan_bal_ovd.tab
+prompt
+prompt Creating table DM_LOAN_BAL_OVD_TMP_1
+prompt ====================================
+prompt
+@@dm_loan_bal_ovd_tmp_1.tab
+prompt
+prompt Creating table DM_LOAN_BAL_OVD_TMP_2
+prompt ====================================
+prompt
+@@dm_loan_bal_ovd_tmp_2.tab
+prompt
+prompt Creating table DM_LOAN_BAL_OVD_1
+prompt ================================
+prompt
+@@dm_loan_bal_ovd_1.tab
+prompt
+prompt Creating table DM_LOAN_BAL_OVD_2
+prompt ================================
+prompt
+@@dm_loan_bal_ovd_2.tab
+prompt
+prompt Creating table DM_LOAN_BAL_OVD_3
+prompt ================================
+prompt
+@@dm_loan_bal_ovd_3.tab
+prompt
+prompt Creating table DM_LOAN_BAL_PRINCIPAL
+prompt ====================================
+prompt
+@@dm_loan_bal_principal.tab
+prompt
+prompt Creating table DM_LOAN_BASE
+prompt ===========================
+prompt
+@@dm_loan_base.tab
+prompt
+prompt Creating table DM_LOAN_BASE_ADD
+prompt ===============================
+prompt
+@@dm_loan_base_add.tab
+prompt
+prompt Creating table DM_LOAN_BASE_ADD_20151231
+prompt ========================================
+prompt
+@@dm_loan_base_add_20151231.tab
+prompt
+prompt Creating table DM_LOAN_BASE_20151229
+prompt ====================================
+prompt
+@@dm_loan_base_20151229.tab
+prompt
+prompt Creating table DM_LOAN_PAYM_3
+prompt =============================
+prompt
+@@dm_loan_paym_3.tab
+prompt
+prompt Creating table DM_OVERDUE
+prompt =========================
+prompt
+@@dm_overdue.tab
+prompt
+prompt Creating table DP_COVD2
+prompt =======================
+prompt
+@@dp_covd2.tab
+prompt
+prompt Creating table DWH_SIZE_STAT
+prompt ============================
+prompt
+@@dwh_size_stat.tab
+prompt
+prompt Creating table EFEE_LIST
+prompt ========================
+prompt
+@@efee_list.tab
+prompt
+prompt Creating table EKZ_GSVP
+prompt =======================
+prompt
+@@ekz_gsvp.tab
+prompt
+prompt Creating table EKZ_GSVP_1
+prompt =========================
+prompt
+@@ekz_gsvp_1.tab
+prompt
+prompt Creating table EKZ_MSGHISTORYRISK
+prompt =================================
+prompt
+@@ekz_msghistoryrisk.tab
+prompt
+prompt Creating table EKZ_OPENWAY
+prompt ==========================
+prompt
+@@ekz_openway.tab
+prompt
+prompt Creating table EKZ_OPENWAY_TMP
+prompt ==============================
+prompt
+@@ekz_openway_tmp.tab
+prompt
+prompt Creating table EKZ_PROCESS_RESULTS
+prompt ==================================
+prompt
+@@ekz_process_results.tab
+prompt
+prompt Creating table EKZ_PROCESS_RESULTS_ERR
+prompt ======================================
+prompt
+@@ekz_process_results_err.tab
+prompt
+prompt Creating table EKZ_PROCESS_RESULTS_TMP
+prompt ======================================
+prompt
+@@ekz_process_results_tmp.tab
+prompt
+prompt Creating table EKZ_REJECT_REASON
+prompt ================================
+prompt
+@@ekz_reject_reason.tab
+prompt
+prompt Creating table EKZ_RET_GETSTEP
+prompt ==============================
+prompt
+@@ekz_ret_getstep.tab
+prompt
+prompt Creating table EKZ_RET_GETSTEPSLAST7DAYS
+prompt ========================================
+prompt
+@@ekz_ret_getstepslast7days.tab
+prompt
+prompt Creating table ETL_ACTIONS_LOG
+prompt ==============================
+prompt
+@@etl_actions_log.tab
+prompt
+prompt Creating table ETL_BAL_LOAN
+prompt ===========================
+prompt
+@@etl_bal_loan.tab
+prompt
+prompt Creating table ETL_BAL_LOAN_ALL
+prompt ===============================
+prompt
+@@etl_bal_loan_all.tab
+prompt
+prompt Creating table ETL_BUF
+prompt ======================
+prompt
+@@etl_buf.tab
+prompt
+prompt Creating table ETL_CS_CLI_RM_VCC
+prompt ================================
+prompt
+@@etl_cs_cli_rm_vcc.tab
+prompt
+prompt Creating table ETL_CS_CLI_RM_VCC_20160125
+prompt =========================================
+prompt
+@@etl_cs_cli_rm_vcc_20160125.tab
+prompt
+prompt Creating table ETL_DEP_BASE_2
+prompt =============================
+prompt
+@@etl_dep_base_2.tab
+prompt
+prompt Creating table ETL_DM_CIF_ADDR_TMP
+prompt ==================================
+prompt
+@@etl_dm_cif_addr_tmp.tab
+prompt
+prompt Creating table ETL_DM_LOAN_ACC
+prompt ==============================
+prompt
+@@etl_dm_loan_acc.tab
+prompt
+prompt Creating table ETL_DM_LOAN_ACC_OVD
+prompt ==================================
+prompt
+@@etl_dm_loan_acc_ovd.tab
+prompt
+prompt Creating table ETL_DM_LOAN_BASE
+prompt ===============================
+prompt
+@@etl_dm_loan_base.tab
+prompt
+prompt Creating table ETL_DM_LOAN_BASE_COL_20151028
+prompt ============================================
+prompt
+@@etl_dm_loan_base_col_20151028.tab
+prompt
+prompt Creating table ETL_DM_LOAN_BASE_COL_20151029
+prompt ============================================
+prompt
+@@etl_dm_loan_base_col_20151029.tab
+prompt
+prompt Creating table ETL_DM_LOAN_BASE_DWH_1028_2
+prompt ==========================================
+prompt
+@@etl_dm_loan_base_dwh_1028_2.tab
+prompt
+prompt Creating table ETL_DM_LOAN_BASE_DWH_20151028
+prompt ============================================
+prompt
+@@etl_dm_loan_base_dwh_20151028.tab
+prompt
+prompt Creating table ETL_DM_LOAN_BASE_DWH_20151029
+prompt ============================================
+prompt
+@@etl_dm_loan_base_dwh_20151029.tab
+prompt
+prompt Creating table ETL_DM_LOAN_BASE_2
+prompt =================================
+prompt
+@@etl_dm_loan_base_2.tab
+prompt
+prompt Creating table ETL_DM_LOAN_BASE_2_1
+prompt ===================================
+prompt
+@@etl_dm_loan_base_2_1.tab
+prompt
+prompt Creating table ETL_DM_LOAN_PAYM_3
+prompt =================================
+prompt
+@@etl_dm_loan_paym_3.tab
+prompt
+prompt Creating table ETL_INSURANCE_BUF
+prompt ================================
+prompt
+@@etl_insurance_buf.tab
+prompt
+prompt Creating table ETL_TABLES_LOG
+prompt =============================
+prompt
+@@etl_tables_log.tab
+prompt
+prompt Creating table EXAMPLE_DATA
+prompt ===========================
+prompt
+@@example_data.tab
+prompt
+prompt Creating table EXAMPLE_DATA_COLVIR
+prompt ==================================
+prompt
+@@example_data_colvir.tab
+prompt
+prompt Creating table EXAMPLE_DATA_COLVIR_2
+prompt ====================================
+prompt
+@@example_data_colvir_2.tab
+prompt
+prompt Creating table EXAMPLE_DATA_2
+prompt =============================
+prompt
+@@example_data_2.tab
+prompt
+prompt Creating table FUTURE_ACT_TMP_20141205
+prompt ======================================
+prompt
+@@future_act_tmp_20141205.tab
+prompt
+prompt Creating table H_OWS_ACNT_CONTRACT
+prompt ==================================
+prompt
+@@h_ows_acnt_contract.tab
+prompt
+prompt Creating table H_OWS_CLIENT
+prompt ===========================
+prompt
+@@h_ows_client.tab
+prompt
+prompt Creating table IB_REGCLIENT_FL
+prompt ==============================
+prompt
+@@ib_regclient_fl.tab
+prompt
+prompt Creating table IB_REGCLIENT_FL_TMP
+prompt ==================================
+prompt
+@@ib_regclient_fl_tmp.tab
+prompt
+prompt Creating table INFERRED_RESPONSE
+prompt ================================
+prompt
+@@inferred_response.tab
+prompt
+prompt Creating table INFERRED_RESPONSE_20151231
+prompt =========================================
+prompt
+@@inferred_response_20151231.tab
+prompt
+prompt Creating table INSURANCE_BUF
+prompt ============================
+prompt
+@@insurance_buf.tab
+prompt
+prompt Creating table LOAN_BAL_TMP_1
+prompt =============================
+prompt
+@@loan_bal_tmp_1.tab
+prompt
+prompt Creating table LOAN_BAL_TMP_2
+prompt =============================
+prompt
+@@loan_bal_tmp_2.tab
+prompt
+prompt Creating table LOAN_BAL_TMP_3
+prompt =============================
+prompt
+@@loan_bal_tmp_3.tab
+prompt
+prompt Creating table LOAN_BAL_TMP_4
+prompt =============================
+prompt
+@@loan_bal_tmp_4.tab
+prompt
+prompt Creating table LOAN_BAL_TMP_5
+prompt =============================
+prompt
+@@loan_bal_tmp_5.tab
+prompt
+prompt Creating table LOAN_BUF
+prompt =======================
+prompt
+@@loan_buf.tab
+prompt
+prompt Creating table LOAN_BUF_EKZ
+prompt ===========================
+prompt
+@@loan_buf_ekz.tab
+prompt
+prompt Creating table LOAN_BUF_RISK
+prompt ============================
+prompt
+@@loan_buf_risk.tab
+prompt
+prompt Creating table LOAN_BUF_20151231
+prompt ================================
+prompt
+@@loan_buf_20151231.tab
+prompt
+prompt Creating table LOAN_SCHED_1
+prompt ===========================
+prompt
+@@loan_sched_1.tab
+prompt
+prompt Creating table LOYAL_FIN
+prompt ========================
+prompt
+@@loyal_fin.tab
+prompt
+prompt Creating table LOYAL_FIN_TMPTT
+prompt ==============================
+prompt
+@@loyal_fin_tmptt.tab
+prompt
+prompt Creating table LOYAL_FIN_20151026
+prompt =================================
+prompt
+@@loyal_fin_20151026.tab
+prompt
+prompt Creating table LOYAL_FIN_20151105
+prompt =================================
+prompt
+@@loyal_fin_20151105.tab
+prompt
+prompt Creating table LOYAL_FIN_20151229
+prompt =================================
+prompt
+@@loyal_fin_20151229.tab
+prompt
+prompt Creating table LOYAL_1
+prompt ======================
+prompt
+@@loyal_1.tab
+prompt
+prompt Creating table NBRK_CURRENCY_RATE
+prompt =================================
+prompt
+@@nbrk_currency_rate.tab
+prompt
+prompt Creating table OFFER
+prompt ====================
+prompt
+@@offer.tab
+prompt
+prompt Creating table OFFER_FOR_REP
+prompt ============================
+prompt
+@@offer_for_rep.tab
+prompt
+prompt Creating table OLD_CODE
+prompt =======================
+prompt
+@@old_code.tab
+prompt
+prompt Creating table OWS_CARD_ACTIVATION_2
+prompt ====================================
+prompt
+@@ows_card_activation_2.tab
+prompt
+prompt Creating table OWS_CLIENT_BUF
+prompt =============================
+prompt
+@@ows_client_buf.tab
+prompt
+prompt Creating table OWS_CLIENT_CHANGES
+prompt =================================
+prompt
+@@ows_client_changes.tab
+prompt
+prompt Creating table OWS_CLIENT_IS_CODE_WORD
+prompt ======================================
+prompt
+@@ows_client_is_code_word.tab
+prompt
+prompt Creating table OWS_CONTRACT
+prompt ===========================
+prompt
+@@ows_contract.tab
+prompt
+prompt Creating table OWS_CONTRACT_BUF
+prompt ===============================
+prompt
+@@ows_contract_buf.tab
+prompt
+prompt Creating table OWS_CONTRACT_CHANGES
+prompt ===================================
+prompt
+@@ows_contract_changes.tab
+prompt
+prompt Creating table OWS_CONTRACT_SNAP
+prompt ================================
+prompt
+@@ows_contract_snap.tab
+prompt
+prompt Creating table PAYROLL_LIST_TMPTT
+prompt =================================
+prompt
+@@payroll_list_tmptt.tab
+prompt
+prompt Creating table REESTR_CC
+prompt ========================
+prompt
+@@reestr_cc.tab
+prompt
+prompt Creating table REESTR_POST
+prompt ==========================
+prompt
+@@reestr_post.tab
+prompt
+prompt Creating table REESTR_SMS
+prompt =========================
+prompt
+@@reestr_sms.tab
+prompt
+prompt Creating table REP_RESP
+prompt =======================
+prompt
+@@rep_resp.tab
+prompt
+prompt Creating table RISK_CUBE
+prompt ========================
+prompt
+@@risk_cube.tab
+prompt
+prompt Creating table SALE_CAMP_SCHEDULER
+prompt ==================================
+prompt
+@@sale_camp_scheduler.tab
+prompt
+prompt Creating table SALE_POOL_SCHEDULER
+prompt ==================================
+prompt
+@@sale_pool_scheduler.tab
+prompt
+prompt Creating table SAL_TR
+prompt =====================
+prompt
+@@sal_tr.tab
+prompt
+prompt Creating table SAL_TRANS
+prompt ========================
+prompt
+@@sal_trans.tab
+prompt
+prompt Creating table SAL_TRANS_AVG6
+prompt =============================
+prompt
+@@sal_trans_avg6.tab
+prompt
+prompt Creating table TABLES_LOG
+prompt =========================
+prompt
+@@tables_log.tab
+prompt
+prompt Creating table T_BAL_TMP_2
+prompt ==========================
+prompt
+@@t_bal_tmp_2.tab
+prompt
+prompt Creating table TEST_DBLINK_COLVIR
+prompt =================================
+prompt
+@@test_dblink_colvir.tab
+prompt
+prompt Creating table TEST_DBLINK_W4
+prompt =============================
+prompt
+@@test_dblink_w4.tab
+prompt
+prompt Creating table TEST_INSERT1
+prompt ===========================
+prompt
+@@test_insert1.tab
+prompt
+prompt Creating table TEST_JOIN_RES
+prompt ============================
+prompt
+@@test_join_res.tab
+prompt
+prompt Creating table TEST_JOIN_RES1
+prompt =============================
+prompt
+@@test_join_res1.tab
+prompt
+prompt Creating table TEST_JOIN1
+prompt =========================
+prompt
+@@test_join1.tab
+prompt
+prompt Creating table TEST_JOIN2
+prompt =========================
+prompt
+@@test_join2.tab
+prompt
+prompt Creating table TEST_MONITOR
+prompt ===========================
+prompt
+@@test_monitor.tab
+prompt
+prompt Creating table TEST2
+prompt ====================
+prompt
+@@test2.tab
+prompt
+prompt Creating table TMP_DM_ACC_BASE
+prompt ==============================
+prompt
+@@tmp_dm_acc_base.tab
+prompt
+prompt Creating table TRANSACTION_3
+prompt ============================
+prompt
+@@transaction_3.tab
+prompt
+prompt Creating table TRANS_BUFF_2
+prompt ===========================
+prompt
+@@trans_buff_2.tab
+prompt
+prompt Creating table W4_DOC
+prompt =====================
+prompt
+@@w4_doc.tab
+prompt
+prompt Creating table W4_MESS_CHANNEL
+prompt ==============================
+prompt
+@@w4_mess_channel.tab
+prompt
+prompt Creating table W4_M_TRANSACTION
+prompt ===============================
+prompt
+@@w4_m_transaction.tab
+prompt
+prompt Creating table W4_OPT_ACNT_BALANCE
+prompt ==================================
+prompt
+@@w4_opt_acnt_balance.tab
+prompt
+prompt Creating table W4_OPT_ACNT_BALANCE_P
+prompt ====================================
+prompt
+@@w4_opt_acnt_balance_p.tab
+prompt
+prompt Creating table W4_OPT_ACNT_BALANCE_TMP
+prompt ======================================
+prompt
+@@w4_opt_acnt_balance_tmp.tab
+prompt
+prompt Creating table W4_TRANS_TYPE
+prompt ============================
+prompt
+@@w4_trans_type.tab
+prompt
+prompt Creating table XLS_H_CURRENCY_CODE
+prompt ==================================
+prompt
+@@xls_h_currency_code.tab
+prompt
+prompt Creating table XLS_H_NBRK_CURR_RATE
+prompt ===================================
+prompt
+@@xls_h_nbrk_curr_rate.tab
+prompt
+prompt Creating table XLS_H_NBRK_RATE
+prompt ==============================
+prompt
+@@xls_h_nbrk_rate.tab
+prompt
+prompt Creating sequence CLIENT_PHONES_SEQ
+prompt ===================================
+prompt
+@@client_phones_seq.seq
+prompt
+prompt Creating sequence CLIENT_SEQ
+prompt ============================
+prompt
+@@client_seq.seq
+prompt
+prompt Creating sequence COL_SYNH_LOG_SEQ
+prompt ==================================
+prompt
+@@col_synh_log_seq.seq
+prompt
+prompt Creating sequence DEBUG_LOG_SEQ
+prompt ===============================
+prompt
+@@debug_log_seq.seq
+prompt
+prompt Creating sequence ETL_ACTIONS_LOG_SEQ
+prompt =====================================
+prompt
+@@etl_actions_log_seq.seq
+prompt
+prompt Creating sequence ETL_TABLES_LOG_SEQ
+prompt ====================================
+prompt
+@@etl_tables_log_seq.seq
+prompt
+prompt Creating sequence RESPONSE_SEQ
+prompt ==============================
+prompt
+@@response_seq.seq
+prompt
+prompt Creating sequence TABLES_LOG_SEQ
+prompt ================================
+prompt
+@@tables_log_seq.seq
+prompt
+prompt Creating sequence TEST_MONITOR_SEQ
+prompt ==================================
+prompt
+@@test_monitor_seq.seq
+prompt
+prompt Creating sequence VERSION_SEQ
+prompt =============================
+prompt
+@@version_seq.seq
+prompt
+prompt Creating view SDBO_REGISTEREDCLIENTS
+prompt ====================================
+prompt
+@@sdbo_registeredclients.vw
+prompt
+prompt Creating view UWI_PROC_STAGES
+prompt =============================
+prompt
+@@uwi_proc_stages.vw
+prompt
+prompt Creating view UWI_DETAIL_STAGES2
+prompt ================================
+prompt
+@@uwi_detail_stages2.vw
+prompt
+prompt Creating view V_COL_SYNH_TAB
+prompt ============================
+prompt
+@@v_col_synh_tab.vw
+prompt
+prompt Creating view V_COL_SYNH_TAB_SQL
+prompt ================================
+prompt
+@@v_col_synh_tab_sql.vw
+prompt
+prompt Creating view V_DM_ACC_BASE
+prompt ===========================
+prompt
+@@v_dm_acc_base.vw
+prompt
+prompt Creating view V_DM_ACC_BASE_20151027
+prompt ====================================
+prompt
+@@v_dm_acc_base_20151027.vw
+prompt
+prompt Creating view V_DM_CIF_BASE
+prompt ===========================
+prompt
+@@v_dm_cif_base.vw
+prompt
+prompt Creating view V_DM_CIF_BASE_20151027
+prompt ====================================
+prompt
+@@v_dm_cif_base_20151027.vw
+prompt
+prompt Creating view V_DWH_SIZE_STAT
+prompt =============================
+prompt
+@@v_dwh_size_stat.vw
+prompt
+prompt Creating view V_EKZ_CASHANDGOFORRB
+prompt ==================================
+prompt
+@@v_ekz_cashandgoforrb.vw
+prompt
+prompt Creating view V_EKZ_OPENWAY
+prompt ===========================
+prompt
+@@v_ekz_openway.vw
+prompt
+prompt Creating view V_EKZ_SALARY
+prompt ==========================
+prompt
+@@v_ekz_salary.vw
+prompt
+prompt Creating view V_ETL_SCHED
+prompt =========================
+prompt
+@@v_etl_sched.vw
+prompt
+prompt Creating view V_JOB_SCHED
+prompt =========================
+prompt
+@@v_job_sched.vw
+prompt
+prompt Creating view V_OWS_CONTRACT
+prompt ============================
+prompt
+@@v_ows_contract.vw
+prompt
+prompt Creating view V_RETAIL_GETSTEPSLAST7DAYS
+prompt ========================================
+prompt
+@@v_retail_getstepslast7days.vw
+prompt
+prompt Creating view V_TEST_MONITOR
+prompt ============================
+prompt
+@@v_test_monitor.vw
+prompt
+prompt Creating view V_TRANS
+prompt =====================
+prompt
+@@v_trans.vw
+prompt
+prompt Creating view V_XLS_H_NBRK_CURR_RATE
+prompt ====================================
+prompt
+@@v_xls_h_nbrk_curr_rate.vw
+prompt
+prompt Creating view V_XLS_H_NBRK_RATE
+prompt ===============================
+prompt
+@@v_xls_h_nbrk_rate.vw
+prompt
+prompt Creating materialized view LOAN_REQUEST
+prompt =======================================
+prompt
+@@loan_request.mvw
+prompt
+prompt Creating materialized view LOAN_REQUEST_CLNT
+prompt ============================================
+prompt
+@@loan_request_clnt.mvw
+prompt
+prompt Creating materialized view MV_CLNT_ANALIT_AGG20141205
+prompt =====================================================
+prompt
+@@mv_clnt_analit_agg20141205.mvw
+prompt
+prompt Creating materialized view MV_LOANS_COLLATERALS
+prompt ===============================================
+prompt
+@@mv_loans_collaterals.mvw
+prompt
+prompt Creating materialized view MV_LOANS_COLLATERALS_20151028
+prompt ========================================================
+prompt
+@@mv_loans_collaterals_20151028.mvw
+prompt
+prompt Creating materialized view PAYROLL_LIST
+prompt =======================================
+prompt
+@@payroll_list.mvw
+prompt
+prompt Creating package COL_C_PKGSBJUTL
+prompt ================================
+prompt
+@@col_c_pkgsbjutl.spc
+prompt
+prompt Creating package COL_C_PKGDECTBL
+prompt ================================
+prompt
+@@col_c_pkgdectbl.spc
+prompt
+prompt Creating package COL_C_PKGPLSQL
+prompt ===============================
+prompt
+@@col_c_pkgplsql.spc
+prompt
+prompt Creating package COL_C_PKGPRM
+prompt =============================
+prompt
+@@col_c_pkgprm.spc
+prompt
+prompt Creating package COL_C_PKGRND
+prompt =============================
+prompt
+@@col_c_pkgrnd.spc
+prompt
+prompt Creating package COL_C_PKGSESSION
+prompt =================================
+prompt
+@@col_c_pkgsession.spc
+prompt
+prompt Creating package COL_C_PKGSTRING
+prompt ================================
+prompt
+@@col_c_pkgstring.spc
+prompt
+prompt Creating package COL_GL_ANL
+prompt ===========================
+prompt
+@@col_gl_anl.spc
+prompt
+prompt Creating package COL_G_PKGCON
+prompt =============================
+prompt
+@@col_g_pkgcon.spc
+prompt
+prompt Creating package COL_RSATF_TRF
+prompt ==============================
+prompt
+@@col_rsatf_trf.spc
+prompt
+prompt Creating package COL_T_BSPCN
+prompt ============================
+prompt
+@@col_t_bspcn.spc
+prompt
+prompt Creating function P_OPERDAY
+prompt ===========================
+prompt
+@@p_operday.fnc
+prompt
+prompt Creating package COL_T_PKGARL
+prompt =============================
+prompt
+@@col_t_pkgarl.spc
+prompt
+prompt Creating package COL_T_PKGDEAPRM
+prompt ================================
+prompt
+@@col_t_pkgdeaprm.spc
+prompt
+prompt Creating package COL_T_PKGMONEY
+prompt ===============================
+prompt
+@@col_t_pkgmoney.spc
+prompt
+prompt Creating package COL_T_PKGPCNCLC
+prompt ================================
+prompt
+@@col_t_pkgpcnclc.spc
+prompt
+prompt Creating package COL_T_PKGVAL
+prompt =============================
+prompt
+@@col_t_pkgval.spc
+prompt
+prompt Creating package ETL
+prompt ====================
+prompt
+@@etl.spc
+prompt
+prompt Creating package ETL2
+prompt =====================
+prompt
+@@etl2.spc
+prompt
+prompt Creating package ETL_20151023
+prompt =============================
+prompt
+@@etl_20151023.spc
+prompt
+prompt Creating package ETL_20151028
+prompt =============================
+prompt
+@@etl_20151028.spc
+prompt
+prompt Creating package ETL_20151029
+prompt =============================
+prompt
+@@etl_20151029.spc
+prompt
+prompt Creating package ETL_20151030
+prompt =============================
+prompt
+@@etl_20151030.spc
+prompt
+prompt Creating package ETL_20151202
+prompt =============================
+prompt
+@@etl_20151202.spc
+prompt
+prompt Creating package ETL_20151220
+prompt =============================
+prompt
+@@etl_20151220.spc
+prompt
+prompt Creating package MV_UPD_PCK
+prompt ===========================
+prompt
+@@mv_upd_pck.spc
+prompt
+prompt Creating package PROCESS
+prompt ========================
+prompt
+@@process.spc
+prompt
+prompt Creating package SMTP_MAIL
+prompt ==========================
+prompt
+@@smtp_mail.spc
+prompt
+prompt Creating package TOOLS
+prompt ======================
+prompt
+@@tools.spc
+prompt
+prompt Creating package TOOLS2
+prompt =======================
+prompt
+@@tools2.spc
+prompt
+prompt Creating type SOURCE_CLI_PHONES_T
+prompt =================================
+prompt
+@@source_cli_phones_t.tps
+prompt
+prompt Creating type SOURCE_CLI_PHONES_TAB
+prompt ===================================
+prompt
+@@source_cli_phones_tab.tps
+prompt
+prompt Creating procedure COL_C_PPRM
+prompt =============================
+prompt
+@@col_c_pprm.prc
+prompt
+prompt Creating function COL_C_FPRM
+prompt ============================
+prompt
+@@col_c_fprm.fnc
+prompt
+prompt Creating function COL_FROM_MONEY
+prompt ================================
+prompt
+@@col_from_money.fnc
+prompt
+prompt Creating function COL_FRSPERIOD
+prompt ===============================
+prompt
+@@col_frsperiod.fnc
+prompt
+prompt Creating function COL_P_NATVAL
+prompt ==============================
+prompt
+@@col_p_natval.fnc
+prompt
+prompt Creating function COL_TO_MONEY
+prompt ==============================
+prompt
+@@col_to_money.fnc
+prompt
+prompt Creating function FN_WHO_AM_I
+prompt =============================
+prompt
+@@fn_who_am_i.fnc
+prompt
+prompt Creating function GET_NBRK_CURR
+prompt ===============================
+prompt
+@@get_nbrk_curr.fnc
+prompt
+prompt Creating procedure MONITOR_ETL_JOB
+prompt ==================================
+prompt
+@@monitor_etl_job.prc
+prompt
+prompt Creating procedure SAVE_DEBUG_LOG
+prompt =================================
+prompt
+@@save_debug_log.prc
+prompt
+prompt Creating package body COL_C_PKGDECTBL
+prompt =====================================
+prompt
+@@col_c_pkgdectbl.bdy
+prompt
+prompt Creating package body COL_C_PKGPRM
+prompt ==================================
+prompt
+@@col_c_pkgprm.bdy
+prompt
+prompt Creating package body COL_C_PKGRND
+prompt ==================================
+prompt
+@@col_c_pkgrnd.bdy
+prompt
+prompt Creating package body COL_C_PKGSBJUTL
+prompt =====================================
+prompt
+@@col_c_pkgsbjutl.bdy
+prompt
+prompt Creating package body COL_C_PKGSESSION
+prompt ======================================
+prompt
+@@col_c_pkgsession.bdy
+prompt
+prompt Creating package body COL_C_PKGSTRING
+prompt =====================================
+prompt
+@@col_c_pkgstring.bdy
+prompt
+prompt Creating package body COL_GL_ANL
+prompt ================================
+prompt
+@@col_gl_anl.bdy
+prompt
+prompt Creating package body COL_G_PKGCON
+prompt ==================================
+prompt
+@@col_g_pkgcon.bdy
+prompt
+prompt Creating package body COL_RSATF_TRF
+prompt ===================================
+prompt
+@@col_rsatf_trf.bdy
+prompt
+prompt Creating package body COL_T_BSPCN
+prompt =================================
+prompt
+@@col_t_bspcn.bdy
+prompt
+prompt Creating package body COL_T_PKGARL
+prompt ==================================
+prompt
+@@col_t_pkgarl.bdy
+prompt
+prompt Creating package body COL_T_PKGDEAPRM
+prompt =====================================
+prompt
+@@col_t_pkgdeaprm.bdy
+prompt
+prompt Creating package body COL_T_PKGMONEY
+prompt ====================================
+prompt
+@@col_t_pkgmoney.bdy
+prompt
+prompt Creating package body COL_T_PKGPCNCLC
+prompt =====================================
+prompt
+@@col_t_pkgpcnclc.bdy
+prompt
+prompt Creating package body COL_T_PKGVAL
+prompt ==================================
+prompt
+@@col_t_pkgval.bdy
+prompt
+prompt Creating package body ETL
+prompt =========================
+prompt
+@@etl.bdy
+prompt
+prompt Creating package body ETL2
+prompt ==========================
+prompt
+@@etl2.bdy
+prompt
+prompt Creating package body ETL_20151023
+prompt ==================================
+prompt
+@@etl_20151023.bdy
+prompt
+prompt Creating package body ETL_20151028
+prompt ==================================
+prompt
+@@etl_20151028.bdy
+prompt
+prompt Creating package body ETL_20151029
+prompt ==================================
+prompt
+@@etl_20151029.bdy
+prompt
+prompt Creating package body ETL_20151030
+prompt ==================================
+prompt
+@@etl_20151030.bdy
+prompt
+prompt Creating package body ETL_20151202
+prompt ==================================
+prompt
+@@etl_20151202.bdy
+prompt
+prompt Creating package body ETL_20151220
+prompt ==================================
+prompt
+@@etl_20151220.bdy
+prompt
+prompt Creating package body MV_UPD_PCK
+prompt ================================
+prompt
+@@mv_upd_pck.bdy
+prompt
+prompt Creating package body PROCESS
+prompt =============================
+prompt
+@@process.bdy
+prompt
+prompt Creating package body SMTP_MAIL
+prompt ===============================
+prompt
+@@smtp_mail.bdy
+prompt
+prompt Creating package body TOOLS
+prompt ===========================
+prompt
+@@tools.bdy
+prompt
+prompt Creating package body TOOLS2
+prompt ============================
+prompt
+@@tools2.bdy
+prompt
+prompt Creating trigger COMPILE_HISTORY
+prompt ================================
+prompt
+@@compile_history.trg
+prompt
+prompt Creating trigger T_TABLES_LOG_ID
+prompt ================================
+prompt
+@@t_tables_log_id.trg
+
+spool off

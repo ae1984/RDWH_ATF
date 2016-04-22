@@ -1,0 +1,35 @@
+create table DWH_BUFFER.ETL_TABLES_LOG
+(
+  id         NUMBER not null,
+  etl_log_id NUMBER not null,
+  table_name VARCHAR2(200) not null,
+  created    DATE,
+  num_rows   INTEGER
+)
+tablespace DWH_BUFFER
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 128K
+    next 128K
+    minextents 1
+    maxextents unlimited
+  )
+nologging;
+alter table DWH_BUFFER.ETL_TABLES_LOG
+  add constraint FK_ETL_TABLE_LOG foreign key (ETL_LOG_ID)
+  references DWH_BUFFER.ETL_ACTIONS_LOG (ID);
+grant select on DWH_BUFFER.ETL_TABLES_LOG to AIBEK_BE;
+grant select, insert, update, delete on DWH_BUFFER.ETL_TABLES_LOG to DWH_BUFFER_FULL_ROLE;
+grant select on DWH_BUFFER.ETL_TABLES_LOG to DWH_BUFFER_READ_ROLE;
+grant select on DWH_BUFFER.ETL_TABLES_LOG to DWH_PRIM;
+grant select on DWH_BUFFER.ETL_TABLES_LOG to DWH_RISK;
+grant select on DWH_BUFFER.ETL_TABLES_LOG to DWH_SALES;
+grant select on DWH_BUFFER.ETL_TABLES_LOG to HEAD_DENIS_PL;
+grant select on DWH_BUFFER.ETL_TABLES_LOG to HEAD_EVGENIY_PI;
+grant select on DWH_BUFFER.ETL_TABLES_LOG to KRISTINA_KO;
+grant select on DWH_BUFFER.ETL_TABLES_LOG to PROCESS_RISK;
+grant select on DWH_BUFFER.ETL_TABLES_LOG to PROCESS_SALES;
+

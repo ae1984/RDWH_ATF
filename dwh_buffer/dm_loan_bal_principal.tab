@@ -1,0 +1,46 @@
+create table DWH_BUFFER.DM_LOAN_BAL_PRINCIPAL
+(
+  contract_id NUMBER(10) not null,
+  acc_id      NUMBER,
+  val_id      NUMBER(10),
+  fromdate    DATE,
+  bal_in      NUMBER,
+  bal_out     NUMBER
+)
+tablespace DWH_BUFFER
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 128K
+    next 128K
+    minextents 1
+    maxextents unlimited
+  )
+nologging;
+create index DWH_BUFFER.I_DM_LOAN_BAL_PRINCIPAL on DWH_BUFFER.DM_LOAN_BAL_PRINCIPAL (CONTRACT_ID)
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  )
+  nologging;
+grant select on DWH_BUFFER.DM_LOAN_BAL_PRINCIPAL to AIBEK_BE;
+grant select, insert, update, delete on DWH_BUFFER.DM_LOAN_BAL_PRINCIPAL to DWH_BUFFER_FULL_ROLE;
+grant select on DWH_BUFFER.DM_LOAN_BAL_PRINCIPAL to DWH_BUFFER_READ_ROLE;
+grant select on DWH_BUFFER.DM_LOAN_BAL_PRINCIPAL to DWH_PRIM;
+grant select on DWH_BUFFER.DM_LOAN_BAL_PRINCIPAL to DWH_RISK;
+grant select on DWH_BUFFER.DM_LOAN_BAL_PRINCIPAL to DWH_SALES;
+grant select on DWH_BUFFER.DM_LOAN_BAL_PRINCIPAL to HEAD_DENIS_PL;
+grant select on DWH_BUFFER.DM_LOAN_BAL_PRINCIPAL to HEAD_EVGENIY_PI;
+grant select on DWH_BUFFER.DM_LOAN_BAL_PRINCIPAL to KRISTINA_KO;
+grant select on DWH_BUFFER.DM_LOAN_BAL_PRINCIPAL to PROCESS_RISK;
+grant select on DWH_BUFFER.DM_LOAN_BAL_PRINCIPAL to PROCESS_SALES;
+

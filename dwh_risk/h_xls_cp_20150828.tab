@@ -1,0 +1,30 @@
+create table DWH_RISK.H_XLS_CP_20150828
+(
+  cliname    VARCHAR2(600),
+  clicode    VARCHAR2(500),
+  loan_num   VARCHAR2(500),
+  ost_amt    VARCHAR2(500),
+  ost_pr_amt VARCHAR2(500),
+  prc_kzt    VARCHAR2(500),
+  prc_kzt_pr VARCHAR2(500),
+  main_ovrd  VARCHAR2(500),
+  prc_ovrd   VARCHAR2(500)
+)
+tablespace DWH_RISK
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+grant select on DWH_RISK.H_XLS_CP_20150828 to AIBEK_BE;
+grant select, insert, update, delete on DWH_RISK.H_XLS_CP_20150828 to DWH_RISK_FULL_ROLE;
+grant select on DWH_RISK.H_XLS_CP_20150828 to DWH_RISK_READ_ROLE;
+grant select on DWH_RISK.H_XLS_CP_20150828 to HEAD_DENIS_PL;
+grant select on DWH_RISK.H_XLS_CP_20150828 to KRISTINA_KO;
+grant select on DWH_RISK.H_XLS_CP_20150828 to PROCESS_RISK;
+

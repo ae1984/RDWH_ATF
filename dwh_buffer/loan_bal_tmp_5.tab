@@ -1,0 +1,46 @@
+create table DWH_BUFFER.LOAN_BAL_TMP_5
+(
+  val_id                 NUMBER(10),
+  acc_id                 NUMBER(10),
+  fromdate               DATE,
+  bal_in                 NUMBER,
+  bal_out                NUMBER,
+  natval_in              NUMBER,
+  natval_out             NUMBER,
+  bal_in_flzo            NUMBER,
+  bal_out_flzo           NUMBER,
+  natval_in_flzo         NUMBER,
+  natval_out_flzo        NUMBER,
+  bal_in_planfl          NUMBER,
+  bal_out_planfl         NUMBER,
+  natval_in_planfl       NUMBER,
+  natval_out_planfl      NUMBER,
+  bal_in_flzo_planfl     NUMBER,
+  bal_out_flzo_planfl    NUMBER,
+  natval_in_flzo_planfl  NUMBER,
+  natval_out_flzo_planfl NUMBER
+)
+tablespace DWH_BUFFER
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 128K
+    next 128K
+    minextents 1
+    maxextents unlimited
+  )
+nologging;
+grant select on DWH_BUFFER.LOAN_BAL_TMP_5 to AIBEK_BE;
+grant select, insert, update, delete on DWH_BUFFER.LOAN_BAL_TMP_5 to DWH_BUFFER_FULL_ROLE;
+grant select on DWH_BUFFER.LOAN_BAL_TMP_5 to DWH_BUFFER_READ_ROLE;
+grant select on DWH_BUFFER.LOAN_BAL_TMP_5 to DWH_PRIM;
+grant select on DWH_BUFFER.LOAN_BAL_TMP_5 to DWH_RISK;
+grant select on DWH_BUFFER.LOAN_BAL_TMP_5 to DWH_SALES;
+grant select on DWH_BUFFER.LOAN_BAL_TMP_5 to HEAD_DENIS_PL;
+grant select on DWH_BUFFER.LOAN_BAL_TMP_5 to HEAD_EVGENIY_PI;
+grant select on DWH_BUFFER.LOAN_BAL_TMP_5 to KRISTINA_KO;
+grant select on DWH_BUFFER.LOAN_BAL_TMP_5 to PROCESS_RISK;
+grant select on DWH_BUFFER.LOAN_BAL_TMP_5 to PROCESS_SALES;
+

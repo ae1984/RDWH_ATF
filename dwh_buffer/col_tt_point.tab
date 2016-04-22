@@ -1,0 +1,47 @@
+create table DWH_BUFFER.COL_TT_POINT
+(
+  id         NUMBER(10) not null,
+  nord       NUMBER(5) not null,
+  nn         NUMBER(5) not null,
+  calcdate   DATE,
+  plandate   DATE,
+  prev_id    NUMBER(10),
+  prev_nord  NUMBER(5),
+  par_id     NUMBER(3),
+  timetype   CHAR(1),
+  timeshift  NUMBER(3),
+  realdate   DATE,
+  correctdt  DATE,
+  id_us      NUMBER(5),
+  plandatefl CHAR(1) not null,
+  forwardfl  CHAR(1) not null,
+  code       VARCHAR2(30 CHAR),
+  event      NUMBER(18),
+  plansdok   NUMBER(18,2),
+  ignorefl   CHAR(1) not null,
+  upd_dt     DATE
+)
+tablespace DWH_BUFFER
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  )
+nologging;
+grant select on DWH_BUFFER.COL_TT_POINT to AIBEK_BE;
+grant select, insert, update, delete on DWH_BUFFER.COL_TT_POINT to DWH_BUFFER_FULL_ROLE;
+grant select on DWH_BUFFER.COL_TT_POINT to DWH_BUFFER_READ_ROLE;
+grant select on DWH_BUFFER.COL_TT_POINT to DWH_PRIM;
+grant select on DWH_BUFFER.COL_TT_POINT to DWH_RISK;
+grant select on DWH_BUFFER.COL_TT_POINT to DWH_SALES;
+grant select on DWH_BUFFER.COL_TT_POINT to HEAD_DENIS_PL;
+grant select on DWH_BUFFER.COL_TT_POINT to HEAD_EVGENIY_PI;
+grant select on DWH_BUFFER.COL_TT_POINT to KRISTINA_KO;
+grant select on DWH_BUFFER.COL_TT_POINT to PROCESS_RISK;
+grant select on DWH_BUFFER.COL_TT_POINT to PROCESS_SALES;
+

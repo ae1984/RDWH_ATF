@@ -1,0 +1,43 @@
+create materialized view DWH_RISK.GCVP_PARS_SALARY_MV
+refresh force on demand
+as
+(
+select id id_request, iin, paym_max_date, sum(amount_6_months*8.1/6) salary
+from
+
+(
+select
+--t.amount,
+--nvl(substr(regexp_replace(t.amount, '[^0-9]', ''),10),0) as amount_real,
+--nvl(substr(regexp_replace(t.amount, '[:alpha:]', ''),10),0) as amount_real2,
+--to_number(nvl(regexp_replace(t.amount, '[:alpha:]', ''),0)) amount_real,
+--regexp_replace(t.amount, '[:alpha:]', ''),
+--replace(regexp_replace(t.amount, '[:alpha:]', ''),'.',','),
+to_number(replace(regexp_replace(t.amount, '[:alpha:]', ''),'.',',')) amount_real,
+to_date(dt,'yyyy-mm-dd') paym_date,
+max(to_date(dt,'yyyy-mm-dd')) over (partition by id) paym_max_date,
+add_months(max(to_date(dt,'yyyy-mm-dd')) over (partition by id),-6) paym_min_date,
+
+case when to_date(dt,'yyyy-mm-dd')>=add_months(max(to_date(dt,'yyyy-mm-dd')) over (partition by id),-6)
+  and to_date(dt,'yyyy-mm-dd')<=max(to_date(dt,'yyyy-mm-dd')) over (partition by id)
+  then to_number(replace(regexp_replace(t.amount, '[:alpha:]', ''),'.',',')) else
+    0
+    end amount_6_months,
+t.*
+
+from GSVP_PARS t
+)
+
+group by
+
+id , iin, paym_max_date
+)
+--);
+grant select on DWH_RISK.GCVP_PARS_SALARY_MV to AIBEK_BE;
+grant select, insert, update, delete on DWH_RISK.GCVP_PARS_SALARY_MV to DWH_RISK_FULL_ROLE;
+grant select on DWH_RISK.GCVP_PARS_SALARY_MV to DWH_RISK_READ_ROLE;
+grant select on DWH_RISK.GCVP_PARS_SALARY_MV to HEAD_DENIS_PL;
+grant select on DWH_RISK.GCVP_PARS_SALARY_MV to KRISTINA_KO;
+grant select on DWH_RISK.GCVP_PARS_SALARY_MV to PROCESS_RISK;
+
+

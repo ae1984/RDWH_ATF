@@ -1,0 +1,27 @@
+create table DWH_RISK.CALC_W4_ZP_0
+(
+  mmyyyy          DATE,
+  iin             VARCHAR2(32 CHAR),
+  trans_curr_c    VARCHAR2(3 CHAR),
+  trans_amount    NUMBER(23,5) not null,
+  trans_amount_eq NUMBER,
+  target_number   VARCHAR2(64 CHAR)
+)
+tablespace DWH_RISK
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+grant select on DWH_RISK.CALC_W4_ZP_0 to AIBEK_BE;
+grant select, insert, update, delete on DWH_RISK.CALC_W4_ZP_0 to DWH_RISK_FULL_ROLE;
+grant select on DWH_RISK.CALC_W4_ZP_0 to DWH_RISK_READ_ROLE;
+grant select on DWH_RISK.CALC_W4_ZP_0 to HEAD_DENIS_PL;
+grant select on DWH_RISK.CALC_W4_ZP_0 to KRISTINA_KO;
+grant select on DWH_RISK.CALC_W4_ZP_0 to PROCESS_RISK;
+

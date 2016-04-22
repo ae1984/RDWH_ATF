@@ -1,0 +1,25 @@
+create table DWH_RISK.PREDICTOR_CALC_CODE
+(
+  sdt  DATE default sysdate,
+  name VARCHAR2(200),
+  step NUMBER,
+  code CLOB
+)
+tablespace DWH_RISK
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+grant select on DWH_RISK.PREDICTOR_CALC_CODE to AIBEK_BE;
+grant select, insert, update, delete on DWH_RISK.PREDICTOR_CALC_CODE to DWH_RISK_FULL_ROLE;
+grant select on DWH_RISK.PREDICTOR_CALC_CODE to DWH_RISK_READ_ROLE;
+grant select on DWH_RISK.PREDICTOR_CALC_CODE to HEAD_DENIS_PL;
+grant select on DWH_RISK.PREDICTOR_CALC_CODE to KRISTINA_KO;
+grant select on DWH_RISK.PREDICTOR_CALC_CODE to PROCESS_RISK;
+

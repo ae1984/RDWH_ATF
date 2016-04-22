@@ -1,0 +1,101 @@
+create table DWH_BUFFER.COL_G_IDENTDOCDSC_STD
+(
+  id          NUMBER(10) not null,
+  code        VARCHAR2(30 CHAR) not null,
+  name        VARCHAR2(120 CHAR) not null,
+  longname    VARCHAR2(250 CHAR) not null,
+  arcfl       CHAR(1 CHAR),
+  arestfl     CHAR(1 CHAR),
+  brn_id      NUMBER(10),
+  ct_passser  CHAR(1 CHAR),
+  ct_passfin  CHAR(1 CHAR),
+  ct_code_dep CHAR(1 CHAR),
+  ct_dt_from  CHAR(1 CHAR),
+  ct_dt_to    CHAR(1 CHAR),
+  ct_dt_sen   CHAR(1 CHAR),
+  ser_mask    VARCHAR2(30 CHAR),
+  ser_oramask VARCHAR2(250 CHAR),
+  num_mask    VARCHAR2(30 CHAR),
+  num_oramask VARCHAR2(250 CHAR),
+  chk_proc    VARCHAR2(250 CHAR),
+  prim        VARCHAR2(250 CHAR),
+  id_us       NUMBER(5),
+  correctdt   DATE,
+  serchk_dsc  VARCHAR2(250 CHAR),
+  numchk_dsc  VARCHAR2(250 CHAR),
+  def_proc    VARCHAR2(250 CHAR)
+)
+tablespace DWH_BUFFER
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  )
+nologging;
+comment on table DWH_BUFFER.COL_G_IDENTDOCDSC_STD
+  is 'Виды идентификационных документов клиента';
+comment on column DWH_BUFFER.COL_G_IDENTDOCDSC_STD.id
+  is 'Идентификатор';
+comment on column DWH_BUFFER.COL_G_IDENTDOCDSC_STD.code
+  is 'Код';
+comment on column DWH_BUFFER.COL_G_IDENTDOCDSC_STD.name
+  is 'Наименование';
+comment on column DWH_BUFFER.COL_G_IDENTDOCDSC_STD.longname
+  is 'Полное наименование';
+comment on column DWH_BUFFER.COL_G_IDENTDOCDSC_STD.arcfl
+  is 'Признак архива';
+comment on column DWH_BUFFER.COL_G_IDENTDOCDSC_STD.arestfl
+  is 'Признак запрета';
+comment on column DWH_BUFFER.COL_G_IDENTDOCDSC_STD.brn_id
+  is 'Идентификатор локализации';
+comment on column DWH_BUFFER.COL_G_IDENTDOCDSC_STD.ct_passser
+  is 'Доступность серии';
+comment on column DWH_BUFFER.COL_G_IDENTDOCDSC_STD.ct_passfin
+  is 'Доступность срока действия';
+comment on column DWH_BUFFER.COL_G_IDENTDOCDSC_STD.ct_code_dep
+  is 'Доступность кода подразделения';
+comment on column DWH_BUFFER.COL_G_IDENTDOCDSC_STD.ct_dt_from
+  is 'Доступность начала пребывания';
+comment on column DWH_BUFFER.COL_G_IDENTDOCDSC_STD.ct_dt_to
+  is 'Доступность окончания пребывания';
+comment on column DWH_BUFFER.COL_G_IDENTDOCDSC_STD.ct_dt_sen
+  is 'Доступность начала стажа';
+comment on column DWH_BUFFER.COL_G_IDENTDOCDSC_STD.ser_mask
+  is 'Маска ввода серии';
+comment on column DWH_BUFFER.COL_G_IDENTDOCDSC_STD.ser_oramask
+  is 'Маска валидации серии оракл';
+comment on column DWH_BUFFER.COL_G_IDENTDOCDSC_STD.num_mask
+  is 'Маска ввода номера';
+comment on column DWH_BUFFER.COL_G_IDENTDOCDSC_STD.num_oramask
+  is 'Маска валидации номера оракл';
+comment on column DWH_BUFFER.COL_G_IDENTDOCDSC_STD.chk_proc
+  is 'Процедура валидации документа';
+comment on column DWH_BUFFER.COL_G_IDENTDOCDSC_STD.prim
+  is 'Примечание';
+comment on column DWH_BUFFER.COL_G_IDENTDOCDSC_STD.id_us
+  is 'Пользователь';
+comment on column DWH_BUFFER.COL_G_IDENTDOCDSC_STD.correctdt
+  is 'Коррекция';
+comment on column DWH_BUFFER.COL_G_IDENTDOCDSC_STD.serchk_dsc
+  is 'Описание контроля серии';
+comment on column DWH_BUFFER.COL_G_IDENTDOCDSC_STD.numchk_dsc
+  is 'Описание контроля номера';
+comment on column DWH_BUFFER.COL_G_IDENTDOCDSC_STD.def_proc
+  is 'Процедура формирования значений по умолчанию';
+grant select on DWH_BUFFER.COL_G_IDENTDOCDSC_STD to AIBEK_BE;
+grant select, insert, update, delete on DWH_BUFFER.COL_G_IDENTDOCDSC_STD to DWH_BUFFER_FULL_ROLE;
+grant select on DWH_BUFFER.COL_G_IDENTDOCDSC_STD to DWH_BUFFER_READ_ROLE;
+grant select on DWH_BUFFER.COL_G_IDENTDOCDSC_STD to DWH_PRIM;
+grant select on DWH_BUFFER.COL_G_IDENTDOCDSC_STD to DWH_RISK;
+grant select on DWH_BUFFER.COL_G_IDENTDOCDSC_STD to DWH_SALES;
+grant select on DWH_BUFFER.COL_G_IDENTDOCDSC_STD to HEAD_DENIS_PL;
+grant select on DWH_BUFFER.COL_G_IDENTDOCDSC_STD to HEAD_EVGENIY_PI;
+grant select on DWH_BUFFER.COL_G_IDENTDOCDSC_STD to KRISTINA_KO;
+grant select on DWH_BUFFER.COL_G_IDENTDOCDSC_STD to PROCESS_RISK;
+grant select on DWH_BUFFER.COL_G_IDENTDOCDSC_STD to PROCESS_SALES;
+

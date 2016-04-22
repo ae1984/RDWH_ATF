@@ -1,0 +1,24 @@
+create table DWH_RISK.FCB_ERR
+(
+  id   VARCHAR2(100),
+  info XMLTYPE
+)
+tablespace DWH_RISK
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  )
+nologging;
+grant select on DWH_RISK.FCB_ERR to AIBEK_BE;
+grant select, insert, update, delete on DWH_RISK.FCB_ERR to DWH_RISK_FULL_ROLE;
+grant select on DWH_RISK.FCB_ERR to DWH_RISK_READ_ROLE;
+grant select on DWH_RISK.FCB_ERR to HEAD_DENIS_PL;
+grant select on DWH_RISK.FCB_ERR to KRISTINA_KO;
+grant select on DWH_RISK.FCB_ERR to PROCESS_RISK;
+

@@ -1,0 +1,55 @@
+create table DWH_RISK.H_FCB_HEAD_20150915
+(
+  id                   VARCHAR2(100),
+  creditordernumber    VARCHAR2(100),
+  xml                  SYS.XMLTYPE,
+  datetime             VARCHAR2(100),
+  creditnumber         VARCHAR2(500),
+  reporttypename       VARCHAR2(500),
+  reporttypename1      VARCHAR2(500),
+  enq_num_12           NUMBER,
+  haspkbquerylast12mth NUMBER,
+  numberofqueries      NUMBER
+)
+tablespace DWH_RISK
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+create index DWH_RISK.IX_H_FCB_HEAD_20150915_1 on DWH_RISK.H_FCB_HEAD_20150915 (CREDITORDERNUMBER)
+  tablespace DWH_RISK
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+create index DWH_RISK.IX_H_FCB_HEAD_20150915_2 on DWH_RISK.H_FCB_HEAD_20150915 (ID)
+  tablespace DWH_RISK
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+grant select on DWH_RISK.H_FCB_HEAD_20150915 to AIBEK_BE;
+grant select, insert, update, delete on DWH_RISK.H_FCB_HEAD_20150915 to DWH_RISK_FULL_ROLE;
+grant select on DWH_RISK.H_FCB_HEAD_20150915 to DWH_RISK_READ_ROLE;
+grant select on DWH_RISK.H_FCB_HEAD_20150915 to HEAD_DENIS_PL;
+grant select on DWH_RISK.H_FCB_HEAD_20150915 to KRISTINA_KO;
+grant select on DWH_RISK.H_FCB_HEAD_20150915 to PROCESS_RISK;
+

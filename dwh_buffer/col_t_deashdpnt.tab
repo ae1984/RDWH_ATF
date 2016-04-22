@@ -1,0 +1,152 @@
+create table DWH_BUFFER.COL_T_DEASHDPNT
+(
+  id         NUMBER(10) not null,
+  dep_id     NUMBER(10) not null,
+  ord_id     NUMBER(10) not null,
+  clc_id     NUMBER(10) not null,
+  tt_id      NUMBER(10) not null,
+  tt_nord    NUMBER(5) not null,
+  amount     NUMBER(18,2),
+  prc        NUMBER(5),
+  shdtype    CHAR(1) not null,
+  clc_amount NUMBER(18,2),
+  prc_amount NUMBER(18,2),
+  paysum     NUMBER(18,2),
+  fl1        CHAR(1) not null,
+  dclcfrom   DATE,
+  dclcto     DATE,
+  befshdfl   CHAR(1) not null,
+  doper      DATE not null,
+  waitdate   DATE
+)
+tablespace DWH_BUFFER
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  )
+nologging;
+comment on table DWH_BUFFER.COL_T_DEASHDPNT
+  is 'Пункты графика договра';
+comment on column DWH_BUFFER.COL_T_DEASHDPNT.id
+  is 'Идентификатор пункта графика договора';
+comment on column DWH_BUFFER.COL_T_DEASHDPNT.dep_id
+  is 'Подразделение документа';
+comment on column DWH_BUFFER.COL_T_DEASHDPNT.ord_id
+  is 'Идентификатор договора';
+comment on column DWH_BUFFER.COL_T_DEASHDPNT.clc_id
+  is 'Идентификатор правила расчета';
+comment on column DWH_BUFFER.COL_T_DEASHDPNT.tt_id
+  is 'Идентификатор графика';
+comment on column DWH_BUFFER.COL_T_DEASHDPNT.tt_nord
+  is 'Порядковый номер пункта';
+comment on column DWH_BUFFER.COL_T_DEASHDPNT.amount
+  is 'Распределенная сумма';
+comment on column DWH_BUFFER.COL_T_DEASHDPNT.prc
+  is 'Значение процента';
+comment on column DWH_BUFFER.COL_T_DEASHDPNT.shdtype
+  is 'Тип распределения суммы';
+comment on column DWH_BUFFER.COL_T_DEASHDPNT.clc_amount
+  is 'Рассчитанная сумма';
+comment on column DWH_BUFFER.COL_T_DEASHDPNT.prc_amount
+  is 'Cумма процентов';
+comment on column DWH_BUFFER.COL_T_DEASHDPNT.paysum
+  is 'Общая сумма платежа за дату';
+comment on column DWH_BUFFER.COL_T_DEASHDPNT.fl1
+  is 'Первый признак';
+comment on column DWH_BUFFER.COL_T_DEASHDPNT.dclcfrom
+  is 'Дата начала периода начисления';
+comment on column DWH_BUFFER.COL_T_DEASHDPNT.dclcto
+  is 'Дата окончания периода начисления';
+comment on column DWH_BUFFER.COL_T_DEASHDPNT.befshdfl
+  is 'Признак досрочного погашения';
+comment on column DWH_BUFFER.COL_T_DEASHDPNT.doper
+  is 'Дата платежа';
+comment on column DWH_BUFFER.COL_T_DEASHDPNT.waitdate
+  is 'Дата окончания ожидания';
+create index DWH_BUFFER.FK_COL_T_DEASHDPNT_TT_POINT on DWH_BUFFER.COL_T_DEASHDPNT (TT_ID, TT_NORD)
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 2M
+    next 4M
+    minextents 1
+    maxextents unlimited
+  )
+  nologging;
+create index DWH_BUFFER.IE_COL_T_DEASHDPNT_DOPER on DWH_BUFFER.COL_T_DEASHDPNT (DEP_ID, ORD_ID, DOPER)
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 3M
+    next 4M
+    minextents 1
+    maxextents unlimited
+  )
+  nologging;
+create index DWH_BUFFER.Z_ATF_IE_COL_T_DEASHDPNT_CLC on DWH_BUFFER.COL_T_DEASHDPNT (DOPER, CLC_ID)
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 4M
+    next 4M
+    minextents 1
+    maxextents unlimited
+  )
+  nologging;
+alter table DWH_BUFFER.COL_T_DEASHDPNT
+  add constraint PK_COL_T_DEASHDPNT primary key (ID)
+  using index 
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 2M
+    next 4M
+    minextents 1
+    maxextents unlimited
+  );
+alter index DWH_BUFFER.PK_COL_T_DEASHDPNT nologging;
+alter table DWH_BUFFER.COL_T_DEASHDPNT
+  add constraint AK_COL_T_DEASHDPNT unique (DEP_ID, ORD_ID, CLC_ID, TT_ID, TT_NORD)
+  using index 
+  tablespace DWH_BUFFER
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 5M
+    next 4M
+    minextents 1
+    maxextents unlimited
+  );
+alter index DWH_BUFFER.AK_COL_T_DEASHDPNT nologging;
+grant select on DWH_BUFFER.COL_T_DEASHDPNT to AIBEK_BE;
+grant select, insert, update, delete on DWH_BUFFER.COL_T_DEASHDPNT to DWH_BUFFER_FULL_ROLE;
+grant select on DWH_BUFFER.COL_T_DEASHDPNT to DWH_BUFFER_READ_ROLE;
+grant select on DWH_BUFFER.COL_T_DEASHDPNT to DWH_PRIM;
+grant select on DWH_BUFFER.COL_T_DEASHDPNT to DWH_RISK;
+grant select on DWH_BUFFER.COL_T_DEASHDPNT to DWH_SALES;
+grant select on DWH_BUFFER.COL_T_DEASHDPNT to HEAD_DENIS_PL;
+grant select on DWH_BUFFER.COL_T_DEASHDPNT to HEAD_EVGENIY_PI;
+grant select on DWH_BUFFER.COL_T_DEASHDPNT to KRISTINA_KO;
+grant select on DWH_BUFFER.COL_T_DEASHDPNT to PROCESS_RISK;
+grant select on DWH_BUFFER.COL_T_DEASHDPNT to PROCESS_SALES;
+

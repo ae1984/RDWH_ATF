@@ -1,0 +1,39 @@
+create table DWH_RISK.H_DCA_SMA_20150918
+(
+  load_id          NUMBER(10),
+  fil_code         VARCHAR2(30),
+  code             VARCHAR2(30),
+  name             VARCHAR2(500),
+  pd_type          NUMBER(10),
+  month            VARCHAR2(2),
+  year             VARCHAR2(4),
+  rpt_date         DATE,
+  pd               NUMBER(38,12),
+  pd_lag           NUMBER,
+  is_more_10prc    NUMBER,
+  is_2times        NUMBER,
+  avg_6            NUMBER,
+  avg_3            NUMBER,
+  have_base_model  NUMBER,
+  have_loan_model  NUMBER,
+  have_rests_model NUMBER,
+  have_moves_model NUMBER
+)
+tablespace DWH_RISK
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+grant select on DWH_RISK.H_DCA_SMA_20150918 to AIBEK_BE;
+grant select, insert, update, delete on DWH_RISK.H_DCA_SMA_20150918 to DWH_RISK_FULL_ROLE;
+grant select on DWH_RISK.H_DCA_SMA_20150918 to DWH_RISK_READ_ROLE;
+grant select on DWH_RISK.H_DCA_SMA_20150918 to HEAD_DENIS_PL;
+grant select on DWH_RISK.H_DCA_SMA_20150918 to KRISTINA_KO;
+grant select on DWH_RISK.H_DCA_SMA_20150918 to PROCESS_RISK;
+

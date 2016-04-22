@@ -1,0 +1,31 @@
+create table DWH_RISK.DP_EKZ_ALL_UNSEC_P2
+(
+  contract_id   NUMBER(10) not null,
+  obj_id        NUMBER(10),
+  cli_id        NUMBER(10),
+  contract_num  VARCHAR2(30),
+  prd_name      VARCHAR2(250 CHAR),
+  title         VARCHAR2(250),
+  state         VARCHAR2(250 CHAR),
+  csln_fromdate DATE
+)
+tablespace DWH_RISK
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+grant select on DWH_RISK.DP_EKZ_ALL_UNSEC_P2 to AIBEK_BE;
+grant select on DWH_RISK.DP_EKZ_ALL_UNSEC_P2 to DWH_BUFFER;
+grant select, insert, update, delete on DWH_RISK.DP_EKZ_ALL_UNSEC_P2 to DWH_RISK_FULL_ROLE;
+grant select on DWH_RISK.DP_EKZ_ALL_UNSEC_P2 to DWH_RISK_READ_ROLE;
+grant select on DWH_RISK.DP_EKZ_ALL_UNSEC_P2 to HEAD_DENIS_PL;
+grant select on DWH_RISK.DP_EKZ_ALL_UNSEC_P2 to KRISTINA_KO;
+grant select on DWH_RISK.DP_EKZ_ALL_UNSEC_P2 to PROCESS_RISK;
+grant select on DWH_RISK.DP_EKZ_ALL_UNSEC_P2 to PUBLIC;
+

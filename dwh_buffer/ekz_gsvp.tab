@@ -1,0 +1,62 @@
+create table DWH_BUFFER.EKZ_GSVP
+(
+  id                     NUMBER not null,
+  branchcode             VARCHAR2(50),
+  branchname             VARCHAR2(270),
+  depcode                VARCHAR2(50),
+  depname                VARCHAR2(250),
+  querydate              DATE,
+  creditexpert_fullname  VARCHAR2(100),
+  creditexpert_code      VARCHAR2(60),
+  client_firstname       VARCHAR2(60),
+  client_lastname        VARCHAR2(60),
+  client_middlename      VARCHAR2(60),
+  birthdate              DATE,
+  rnn                    VARCHAR2(20),
+  card_number            VARCHAR2(50),
+  card_issue_date        DATE,
+  sik                    VARCHAR2(30),
+  registration_number    VARCHAR2(40),
+  info                   VARCHAR2(500),
+  query_type             NUMBER(1),
+  status                 NUMBER(1),
+  assignment_num         NUMBER,
+  assignment_average_sum NUMBER,
+  ffile                  VARCHAR2(500),
+  agreement              NUMBER(1),
+  commentt               VARCHAR2(200),
+  query_time             DATE,
+  sended                 NUMBER not null,
+  sharepoint_doc_url     VARCHAR2(250),
+  iin                    VARCHAR2(12),
+  xml_request            CLOB,
+  xml_response           CLOB,
+  report_type            NUMBER,
+  report_period          NUMBER,
+  assignment_avg_sum_old NUMBER,
+  istest                 NUMBER
+)
+tablespace DWH_BUFFER
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  )
+nologging;
+grant select on DWH_BUFFER.EKZ_GSVP to AIBEK_BE;
+grant select, insert, update, delete on DWH_BUFFER.EKZ_GSVP to DWH_BUFFER_FULL_ROLE;
+grant select on DWH_BUFFER.EKZ_GSVP to DWH_BUFFER_READ_ROLE;
+grant select on DWH_BUFFER.EKZ_GSVP to DWH_PRIM;
+grant select on DWH_BUFFER.EKZ_GSVP to DWH_RISK;
+grant select on DWH_BUFFER.EKZ_GSVP to DWH_SALES;
+grant select on DWH_BUFFER.EKZ_GSVP to HEAD_DENIS_PL;
+grant select on DWH_BUFFER.EKZ_GSVP to HEAD_EVGENIY_PI;
+grant select on DWH_BUFFER.EKZ_GSVP to KRISTINA_KO;
+grant select on DWH_BUFFER.EKZ_GSVP to PROCESS_RISK;
+grant select on DWH_BUFFER.EKZ_GSVP to PROCESS_SALES;
+
